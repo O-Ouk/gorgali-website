@@ -67,9 +67,6 @@ a{text-decoration:none;color:inherit}
 .helper-hint{background:linear-gradient(135deg,var(--accent-light),var(--card));border:1px dashed var(--accent);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:var(--accent-dark);text-align:center;font-weight:600}
 .content-wrapper{background:var(--card);border-radius:16px;padding:20px;border:1px solid var(--border);box-shadow:var(--shadow);line-height:2;margin:15px 0;font-size:14px}
 .content-wrapper p{margin-bottom:12px}
-.agree-card{background:linear-gradient(135deg,var(--pink-light),var(--card));border:2px solid var(--pink);border-radius:20px;padding:22px;line-height:2.2}
-.agree-title{text-align:center;font-size:20px;font-weight:900;color:var(--pink);margin-bottom:15px;padding-bottom:10px;border-bottom:2px dashed var(--pink)}
-.fact{background:var(--card);border-right:4px solid var(--pink);padding:10px 14px;border-radius:10px;margin:10px 0;font-size:13.5px}
 table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}
 th,td{border:1px solid var(--border);padding:8px;text-align:center}
 th{background:var(--accent-light)}
@@ -85,23 +82,19 @@ th{background:var(--accent-light)}
 <div id="desktop">
   <div class="emoji">📱</div>
   <h1>این سایت فقط روی موبایل کار می‌کند</h1>
-  <p>لطفاً با گوشی موبایل خود وارد شوید ✨</p>
+  <p>لطفاً با گوشی موبایل خود وارد شوید </p>
 </div>
 
 <div id="login">
   <div class="login-box">
     <div class="login-title">🏴 Gorgali</div>
-    <div class="login-sub">برای ورود، اطلاعات خود را وارد کنید 🔐</div>
-    <div class="input-wrap">
-      <label> نام کاربری</label>
-      <input type="text" id="username" autocomplete="off">
-    </div>
+    <div class="login-sub">برای ورود، رمز عبور را وارد کنید 🔐</div>
     <div class="input-wrap">
       <label>🔑 رمز عبور</label>
       <input type="password" id="password" autocomplete="off">
     </div>
     <button class="login-btn" onclick="doLogin()">ورود به سایت ✨</button>
-    <div class="login-error" id="login-error">❌ نام کاربری یا رمز عبور اشتباه است</div>
+    <div class="login-error" id="login-error">❌ رمز عبور اشتباه است</div>
   </div>
 </div>
 
@@ -117,43 +110,35 @@ th{background:var(--accent-light)}
 
 <div class="page page-home active" id="page-home">
     <div class="home-greeting">
-        <h2>👋 خوش آمدی عزیزم!</h2>
-        <p>اینجا خونه‌ی دل ماست... یکی از گزینه‌ها رو انتخاب کن 🫶</p>
+        <h2> خوش آمدی عزیزم!</h2>
+        <p>اینجا خونه‌ی دل ماست... یکی از گزینه‌ها رو انتخاب کن </p>
     </div>
     <div class="home-grid">
-        <button class="home-btn" onclick="openPage('page-news')">📰 اخبار حکومت <i class="fas fa-chevron-left"></i></button>
-        <button class="home-btn" onclick="openPage('page-ai')">🤖 دستیار <i class="fas fa-chevron-left"></i></button>
-        <button class="home-btn" onclick="openPage('page-agreement')">📜 توافق‌نامه <i class="fas fa-chevron-left"></i></button>
+        <button class="home-btn" onclick="openPage('page-news')"> اخبار <i class="fas fa-chevron-left"></i></button>
+        <button class="home-btn" onclick="openPage('page-ai')"> دستیار <i class="fas fa-chevron-left"></i></button>
     </div>
 </div>
 
 <div id="page-news" class="page">
-    <h3 style="font-size:18px;margin-bottom:10px;">📰 اخبار حکومت</h3>
+    <h3 style="font-size:18px;margin-bottom:10px;">📰 اخبار</h3>
     <div class="content-wrapper">
-        <p>💵 پول ماهیانه تیر ۱۴۰۶، ۲۰ میلیون تومان است.</p>
-        <p style="margin-top:15px;"><strong>📢 اخبار و تصمیمات:</strong></p>
-        <p>۱. 💳 وام دیجی‌پی باید بین gorgali و مامان نصف شود.</p>
-        <p>۲.  هرگونه راه‌اندازی آشوب ممنوع است.</p>
-        <p>۳.  قسط اول BNPL با gorgali پرداخت می‌شود؛ مابقی تقسیم می‌شود.</p>
+        <p style="margin-top:15px;"><strong>📢 اخبار:</strong></p>
+        <p>۱.  وام دیجی‌پی باید بین gorgali و مامان نصف شود.</p>
+        <p>۲. 🚫 هرگونه راه‌اندازی آشوب ممنوع است.</p>
+        <p>۳. 💰 قسط اول BNPL با gorgali پرداخت می‌شود؛ مابقی تقسیم می‌شود.</p>
         <p>۴. 📅 از فروردین، واریز قسط ۲ میلیون تومانی شروع خواهد شد.</p>
-        <p>۵.  پول اینترنت بر عهده مامان است.</p>
-        <p>۶.  به دلیل خرید اکانت بازی، مجبور به تقسیم BNPL شدیم.</p>
+        <p>۵. 🌐 پول اینترنت بر عهده مامان است.</p>
+        <p>۶. 🎮 به دلیل خرید اکانت بازی، مجبور به تقسیم BNPL شدیم.</p>
         <p>۷. 💵 مامان موظف است ۵ میلیون تومان از مامانی دریافت کند و شخصاً آن را بازپرداخت نماید.</p>
-        <p>۸. 🪰 مگس‌کش بازگشت.</p>
-        <p>۹. 🏛️ کنگره حکومت بازگشت.</p>
+        <p>۸. 🏫 سرویس مدرسه حتماً گرفته می‌شود.</p>
 
-        <p style="margin-top:20px;color:var(--danger);border-top:1px solid var(--border);padding-top:15px;"><strong>🌪️ حوادث:</strong></p>
-        <p>🔴 اولین آشوب: ۲۰ شهریور</p>
-
-        <p style="margin-top:20px;"><strong>📊 جدول پول ماهیانه (۱۵ شهریور):</strong></p>
-        <table><tr><th>ماه</th><th>مبلغ</th></tr><tr><td>مهر</td><td>۲۹ میلیون و ۶۰ هزار تومان</td></tr></table>
-
-        <p style="margin-top:20px;padding:12px;background:var(--accent-light);border-radius:12px;border-right:4px solid var(--accent);"><strong>📌 اطلاعیه:</strong> قوانین هنوز اجرایی نشده‌اند. در صورت اجرا شدن قوانین، اعلام می‌کنیم ✨</p>
+        <p style="margin-top:20px;"><strong>📊 جدول پول ماهیانه:</strong></p>
+        <table><tr><th>ماه</th><th>مبلغ</th></tr><tr><td>مهر</td><td>۲ میلیون و ۶۰۰ هزار تومان</td></tr></table>
     </div>
 </div>
 
 <div id="page-ai" class="page">
-    <h3 style="font-size:18px;margin-bottom:10px;"> دستیار</h3>
+    <h3 style="font-size:18px;margin-bottom:10px;">🤖 دستیار</h3>
     <div class="helper-hint">💡 کلمه «راهنما» را ارسال کنید 🫶</div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
         <span style="font-size:14px;">چت جاری 💬</span>
@@ -162,31 +147,7 @@ th{background:var(--accent-light)}
     <div class="ai-box" id="ai-chat"></div>
     <div class="ai-input-wrap">
         <input type="text" id="ai-input" placeholder="سوال خود را بنویسید... ✍️" onkeypress="if(event.key==='Enter')sendAI()" autocomplete="off">
-        <button onclick="sendAI()">ارسال </button>
-    </div>
-</div>
-
-<div id="page-agreement" class="page">
-    <h3 style="font-size:18px;margin-bottom:10px;">📜 توافق‌نامه</h3>
-    <div class="agree-card">
-        <div class="agree-title">💌 توافق‌نامه</div>
-        <p>سلام مامان جانم، سلام خواهری جانم 🥺❤️</p>
-        <p>ما خیلی تو رو اذیت کردیم... <strong>واقعاً متاسفیم</strong> 😔</p>
-        <p>اعتراف می‌کنم... تقریباً <strong>۳۰۰ میلیون تومان</strong> از ارث پدری خرج کردم 💔</p>
-        <p>ولی الان قول می‌دهم:</p>
-        <p>✅ تا مهر ۱۴۰۶ اذیت نمی‌کنم 🤝</p>
-        <p>✅ کمربند و پابند می‌بندیم 🔗</p>
-        <p>✅ مگس‌کش می‌مونه ولی استفاده نمی‌کنیم 🪰</p>
-        <p>✅ باندها تعطیل 🔇</p>
-        <p>✅ کنگره در حال تعطیلی 🏛️</p>
-        <p style="margin-top:15px;"><strong>💡 فکت‌های مادرها:</strong></p>
-        <div class="fact">❤️‍🔥 قلب مادر ۵۰٪ بیشتر خون پمپاژ می‌کنه</div>
-        <div class="fact">👂 گریه نوزاد رو از بین صدها صدا تشخیص می‌ده</div>
-        <div class="fact"> هورمون عشق با هر بغل ترشح می‌شه</div>
-        <p style="margin-top:15px;"><strong>💰 نکات مالی:</strong></p>
-        <p>• قسط BNPL از مهر تقسیم می‌شه 📊</p>
-        <p>• ماهیانه: ۲۰ میلیون </p>
-        <p style="text-align:center;margin-top:20px;font-weight:700;color:var(--pink);">مامان و خواهری جان، متشکرم 🥺❤️‍🔥</p>
+        <button onclick="sendAI()">ارسال 💌</button>
     </div>
 </div>
 
@@ -195,11 +156,10 @@ th{background:var(--accent-light)}
 </div>
 
 <script>
-const AUTH={u:'YWRtaW4=',p:'UG9jb2lzOTgw'};
+const AUTH={p:'d2FhNTlZOCNUYmohemdrcA=='};
 function doLogin(){
-  const u=document.getElementById('username').value;
   const p=document.getElementById('password').value;
-  if(btoa(unescape(encodeURIComponent(u)))===AUTH.u&&btoa(unescape(encodeURIComponent(p)))===AUTH.p){
+  if(btoa(unescape(encodeURIComponent(p)))===AUTH.p){
     sessionStorage.setItem('auth','1');
     document.getElementById('login').style.display='none';
     document.getElementById('app').style.display='block';
@@ -214,7 +174,6 @@ function doLogout(){
   sessionStorage.removeItem('auth');
   document.getElementById('app').style.display='none';
   document.getElementById('login').style.display='flex';
-  document.getElementById('username').value='';
   document.getElementById('password').value='';
   vib(20);
 }
@@ -229,22 +188,21 @@ function vib(p){try{if(navigator.vibrate){navigator.vibrate(p);return true}}catc
 document.addEventListener('click',e=>{if(e.target.closest('button')&&!e.target.closest('.login-btn'))vib(10)});
 
 const kb={
-  news:{k:['اخبار','خبر','تازه','خلاصه'],f:"📰 اخبار حکومت:\n\n۱. 💳 وام دیجی‌پی بین gorgali و مامان نصف می‌شود\n۲. 🚫 آشوب ممنوع\n۳. 💰 قسط اول BNPL با gorgali\n۴.  قسط ۲ میلیونی از فروردین\n۵. 🌐 اینترنت بر عهده مامان\n۶. 🎮 تقسیم BNPL به دلیل اکانت\n۷.  مامان ۵ میلیون از مامانی\n۸. 🪰 مگس‌کش بازگشت\n۹. 🏛️ کنگره بازگشت\n۱۰.  اولین آشوب: ۲۰ شهریور",s:"وام نصف بین gorgali و مامان، ممنوعیت آشوب، قسط اول با gorgali، قسط ۲ میلیونی، اینترنت مامان، ۵ میلیون از مامانی، مگس‌کش و کنگره بازگشتند، اولین آشوب ۲۰ شهریور."},
-  notes:{k:['نکته','نکات','توجه','هشدار','چرا','حکومت برگشت','کنگره'],f:"📌 نکات مهم:\n\n۱. ⚠️ حکومت بازگشت!\n۲. 🏛️ کنگره بازگشت.\n۳. ⚠️ تضمین آشوب دیگر وجود ندارد.\n۴. 🚨 چرا بازگشت؟ به دلیل گستاخی‌های زیاد مامان و خواهری.\n۵. 🎭 پروژه تحول دروغ بود تا حکومت استراحت کند.\n۶. 💸 حرف چرت خواهری = آشوب + جریمه!",s:"حکومت و کنگره بازگشتند. به دلیل گستاخی مامان و خواهری. پروژه تحول دروغ بود."},
-  laws:{k:['قانون','قوانین','اخلاق','اتاق','خواب','مدرسه','پریدن','مخالفت'],f:" قوانین:\n\n۱. 🚫 آشوب ممنوع.\n۲. 🤐 توهین ممنوع.\n۳.  نیمه‌شب همه خواب.\n۴. 🩴 دمپایی سرویس ممنوع.\n۵. 💵 ماهیانه ۲ میلیون.\n۶. ⏰ ماندن بیش از نیم ساعت در اتاق توسط خواهری ممنوع.\n۷. 🐕‍ اخلاق سگی ممنوع.\n۸. 🤨 سوال چرت ممنوع.\n. 🚫 پریدن به gorgali ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۰. 💸 سگ اخلاقی ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۱. ⚠️ مخالفت با کارهای انجام شده ممنوع = ۵۰ هزار تومان جریمه.\n۱۲. 🌪️💸 حرف چرت خواهری = آشوب + ۵۰۰ هزار تومان جریمه.",s:"قوانین: ممنوعیت آشوب، توهین، خواب نیمه‌شب، دمپایی، اخلاق سگی، سوال چرت، پریدن به gorgali (۵۰۰ تومن)، سگ اخلاقی (۵۰ تومن)، مخالفت (۵۰ تومن)، حرف چرت خواهری."},
-  transformation:{k:['تحول','پروژه تحول','شروع تحول'],f:"🌱 قوانین تحول:\n\n۱. 🕊️ آشوب از طرف مامان و خواهری ممنوع.\n۲. 😄 شوخی حکومت مجاز، موجب آشوب نمی‌شود.\n۳. 🚫 حرف چرت ممنوع، وگرنه تحول نمی‌افتد.\n۴. 📢 فعلاً خبری از تحول نیست.\n۵. 🪰 مگس‌کش در دوره تحول کنار می‌رود.\n۶. 📰 در صورت فرار، تحول انجام نمی‌شود.\n۷.  هر شوخی، آشوب نیست.\n۸. 🌙 در دوره مدارس، از ساعت ۱ همه خواب.\n۹. 💡 برق خاموش، ظرف شسته، قرص خورده.",s:"قوانین تحول: ممنوعیت آشوب مامان و خواهری، شوخی حکومت مجاز، ممنوعیت حرف چرت، مگس‌کش کنار می‌رود، فعلاً خبری از تحول نیست."},
-  sanctions:{k:['تحریم','مجازات','sos'],f:"⛔ تحریم‌ها:\n\n۱. 🚫 مشاوره و دکتر ممنوع.\n۲. 🎉 مهمانی ممنوع.\n۳. 🏠 در خانه ماندن اجباری.\n۴. ⚠️ وظایف برای دشمنان ممنوع.\n۵. 💊 قرص و شربت ممنوع (فقط SOS).\n۶. 🎯 اذیت دشمنان اجباری.\n۷. 🏫 مدرسه ممنوع.\n۸. 🔊 باندها در همه مواقع فعال.\n۹. 🔒 گوشی مامان قفل می‌شود.\n۱۰. 🎬 مانع شدن فیلم دیدن خواهری.\n۱۱. 🌪️ به پا شدن آشوب.\n۱۲. 🚫 فرار در اتاق خواب‌ها ممنوع.\n\n📌 این فقط یک لیست برای آگاهی است. این موارد همگی اجرایی نمی‌شوند و در صورت اجرا، قبلش اطلاع‌رسانی می‌شود و در زمان فوق‌العاده (SOS) اجرایی می‌شوند.",s:"تحریم‌ها: ممنوعیت مشاوره، مهمانی، مدرسه، قرص، گوشی مامان قفل، باندها فعال، مانع فیلم دیدن خواهری، آشوب، فرار ممنوع. فقط برای آگاهی - در صورت اجرا اطلاع‌رسانی می‌شود (SOS)."},
-  purchases:{k:['خرید','لیست خرید'],f:"🛒 لیست خریدها:\n. 💿 اکانت‌های بازی انتخاب‌شده\n۲. 🚗 لوازم ماشین\n۳. 📱 قاب موبایل\n۴. 🎮 اکانت بازی (PS5 و کالاف)\n۵. 📡 مودم جیبی\n۶.  هدست PS5\n۷. 💾 هارد اکسترنال\n۸. 🔌 هاب لپ‌تاپ HP\n۹.  قاب گوشی\n۱۰.  ادکلن\n۱۱.  اسباب‌بازی و اکشن فیگور\n۱۲. 🇬 شارژ سیم‌کارت ودافون و خرید سیم‌کارت EE انگلستان"}
+  notes:{k:['نکته','نکات','توجه','هشدار','چرا','حکومت برگشت','کنگره'],f:"📌 نکات مهم:\n\n۱. ⚠️ حکومت بازگشت!\n۲. 🏛️ کنگره بازگشت.\n۳. ️ تضمین آشوب دیگر وجود ندارد.\n۴. 🚨 چرا بازگشت؟ به دلیل گستاخی‌های زیاد مامان و خواهری.\n۵. 🎭 پروژه تحول دروغ بود تا حکومت استراحت کند.\n۶. 💸 حرف چرت خواهری = آشوب + جریمه!",s:"حکومت و کنگره بازگشتند. به دلیل گستاخی مامان و خواهری. پروژه تحول دروغ بود."},
+  laws:{k:['قانون','قوانین','اخلاق','اتاق','خواب','مدرسه','پریدن','مخالفت','دکتر','مریض'],f:"📜 قوانین:\n\n۱. 🚫 آشوب ممنوع.\n۲. 🤐 توهین ممنوع.\n۳. 🌙 نیمه‌شب همه خواب.\n۴. 🩴 دمپایی سرویس ممنوع.\n۵. 💵 ماهیانه ۲۰ میلیون.\n۶. ⏰ ماندن بیش از نیم ساعت در اتاق توسط خواهری ممنوع.\n۷. ‍🦺 اخلاق سگی ممنوع.\n۸. 🤨 سوال چرت ممنوع.\n۹. 🚫 پریدن به gorgali ممنوع = ۵۰ هزار تومان جریمه.\n۱۰. 💸 سگ اخلاقی ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۱. ⚠️ مخالفت با کارهای انجام شده ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۲. 🌪️💸 حرف چرت خواهری = آشوب + ۵۰۰ هزار تومان جریمه.\n۱۳. 🏥 اگر هر وقت مریض شدیم حتماً دکتر می‌ریم شکی نیست، اگر مخالفتی ایجاد بشه اتفاقات خوبی نمی‌افته!",s:"قوانین: ممنوعیت آشوب، توهین، خواب نیمه‌شب، دمپایی، اخلاق سگی، سوال چرت، پریدن به gorgali (۰۰ تومن)، سگ اخلاقی (۵۰۰ تومن)، مخالفت (۵۰۰ تومن)، حرف چرت خواهری، دکتر اجباری در صورت بیماری."},
+  transformation:{k:['تحول','پروژه تحول','شروع تحول'],f:"🌱 قوانین تحول:\n\n۱. 🕊️ آشوب از طرف مامان و خواهری ممنوع.\n. 😄 شوخی حکومت مجاز، موجب آشوب نمی‌شود.\n۳.  حرف چرت ممنوع، وگرنه تحول نمی‌افتد.\n۴.  فعلاً خبری از تحول نیست.\n۵. 🪰 مگس‌کش در دوره تحول کنار می‌رود.\n۶.  در صورت فرار، تحول انجام نمی‌شود.\n۷. 😊 هر شوخی، آشوب نیست.\n۸. 🌙 در دوره مدارس، از ساعت ۱۱ همه خواب.\n۹. 💡 برق خاموش، ظرف شسته، قرص خورده.",s:"قوانین تحول: ممنوعیت آشوب مامان و خواهری، شوخی حکومت مجاز، ممنوعیت حرف چرت، مگس‌کش کنار می‌رود، فعلاً خبری از تحول نیست."},
+  sanctions:{k:['تحریم','مجازات','sos'],f:" تحریم‌ها:\n\n. 🚫 مشاوره و دکتر ممنوع.\n۲. 🎉 مهمانی ممنوع.\n۳. 🏠 در خانه ماندن اجباری.\n۴. ️ وظایف برای دشمنان ممنوع.\n۵. 💊 قرص و شربت ممنوع (فقط SOS).\n۶. 🎯 اذیت دشمنان اجباری.\n۷. 🏫 مدرسه ممنوع.\n۸. 🔊 باندها در همه مواقع فعال.\n۹. 🔒 گوشی مامان قفل می‌شود.\n۰. 🎬 مانع شدن فیلم دیدن خواهری.\n۱۱. 🌪️ به پا شدن آشوب.\n۱۲. 🚫 فرار در اتاق خواب‌ها ممنوع.\n\n📌 این فقط یک لیست برای آگاهی است. این موارد همگی اجرایی نمی‌شوند و در صورت اجرا، قبلش اطلاع‌رسانی می‌شود و در زمان فوق‌العاده (SOS) اجرایی می‌شوند.",s:"تحریم‌ها: ممنوعیت مشاوره، مهمانی، مدرسه، قرص، گوشی مامان قفل، باندها فعال، مانع فیلم دیدن خواهری، آشوب، فرار ممنوع. فقط برای آگاهی - در صورت اجرا اطلاع‌رسانی می‌شود (SOS)."},
+  purchases:{k:['خرید','لیست خرید'],f:"🛒 لیست خریدها:\n۱. 💿 اکانت‌های بازی انتخاب‌شده\n۲. 🚗 لوازم ماشین\n۳. 🎮 خرید بازی PS5\n۴. 🔌 هاب لپ‌تاپ HP\n۵. 🧴 ادکلن\n۶. 🧸 اسباب‌بازی و اکشن فیگور\n۷. 🇬🇧 شارژ سیم‌کارت ودافون و خرید سیم‌کارت EE انگلستان",s:"لیست خرید: اکانت بازی، لوازم ماشین، بازی PS5، هاب لپ‌تاپ، ادکلن، اسباب‌بازی، سیم‌کارت ودافون و EE انگلستان."}
 };
 
 let chatHistory=[];
 function renderChat(){const c=document.getElementById('ai-chat');c.innerHTML='';chatHistory.forEach(msg=>{const d=document.createElement('div');d.className='ai-msg '+(msg.sender==='user'?'user':'bot');d.textContent=msg.text;c.appendChild(d)});c.scrollTop=c.scrollHeight}
 function addMsg(s,t){chatHistory.push({sender:s,text:t});const c=document.getElementById('ai-chat');const d=document.createElement('div');d.className='ai-msg '+(s==='user'?'user':'bot');d.textContent=t;c.appendChild(d);c.scrollTop=c.scrollHeight}
-function newChat(){chatHistory=[{sender:'bot',text:'چت جدید ✨ «راهنما» را ارسال کنید '}];renderChat();document.getElementById('ai-input').value='';vib([80,40,80]);showToast('چت جدید! 💬')}
+function newChat(){chatHistory=[{sender:'bot',text:'چت جدید ✨ «راهنما» را ارسال کنید 🫶 همه بخش‌ها آپدیت شدن، چک کنید!'}];renderChat();document.getElementById('ai-input').value='';vib([80,40,80]);showToast('چت جدید! 💬')}
 
 function getResponse(input){
     const lower=input.toLowerCase().trim();
-    if(lower.includes('راهنما'))return"📌 راهنما:\n\n• اخبار 📰\n• نکته 📌\n• قوانین \n• تحول 🌱\n• تحریم‌ها ⛔\n• خرید \n\nمثال: «اخبار» یا «نکته» یا «قوانین»";
+    if(lower.includes('راهنما'))return"📌 راهنما:\n\n• نکته 📌\n• قوانین 📜\n• تحول 🌱\n• تحریم‌ها \n• خرید 🛒\n\nمثال: «نکته» یا «قوانین» یا «تحول»\n\n✨ همه بخش‌ها آپدیت شدن، چک کنید!";
     let found=[];
     for(const[key,data]of Object.entries(kb)){if(data.k.some(k=>lower.includes(k)))found.push({key,data})}
     if(found.length>0){
