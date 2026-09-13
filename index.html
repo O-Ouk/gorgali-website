@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src https://cdnjs.cloudflare.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:;">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="no-referrer">
@@ -12,20 +12,8 @@
 <style>
 :root{--bg:#f2f6ff;--card:#fff;--text:#1e293b;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--accent-light:#dbeafe;--border:#e2e8f0;--shadow:0 2px 10px rgba(0,0,0,0.04);--danger:#ef4444;--success:#10b981;--pink:#ec4899;--pink-light:#fce7f3}
 body[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--border:#334155;--accent-light:#1e3a8a;--pink-light:#4c1d3e}
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;padding-top:85px;overflow-x:hidden;transition:background .3s,color .3s;font-size:15px;line-height:1.7}
-#login{position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,var(--bg),var(--pink-light));display:flex;align-items:center;justify-content:center;padding:20px}
-.login-box{background:var(--card);border-radius:24px;padding:35px 30px;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(59,130,246,0.3);animation:slideUp .5s ease;border:2px solid var(--border)}
-@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.login-title{text-align:center;font-size:32px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
-.login-sub{text-align:center;color:var(--muted);font-size:13px;margin-bottom:25px}
-.input-wrap{margin-bottom:15px}
-.input-wrap label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:var(--accent)}
-.input-wrap input{width:100%;padding:14px 16px;background:var(--bg);border:2px solid var(--border);border-radius:14px;font-family:inherit;font-size:14px;transition:.2s}
-.input-wrap input:focus{outline:none;border-color:var(--accent);background:#fff}
-.login-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),var(--pink));color:#fff;border:none;border-radius:14px;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:10px;box-shadow:0 6px 20px rgba(59,130,246,0.4);transition:.2s}
-.login-btn:active{transform:scale(.97)}
-.login-error{color:var(--danger);font-size:13px;text-align:center;margin-top:10px;display:none;font-weight:700}
 #desktop{position:fixed;inset:0;z-index:999999;background:linear-gradient(135deg,#1e1b4b,#831843);color:#fff;display:none;flex-direction:column;align-items:center;justify-content:center;padding:30px;text-align:center}
 #desktop .emoji{font-size:100px;margin-bottom:20px;animation:bounce 2s infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
@@ -35,7 +23,7 @@ body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--
 .header-title{flex:1;text-align:center}
 .header-title h1{font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:8px;margin:0;background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .header-title .sub-title{font-size:11px;color:var(--muted);margin-top:3px}
-.btn-header{background:var(--accent-light);border:none;font-size:18px;color:var(--accent);cursor:pointer;padding:8px 12px;border-radius:50%;transition:.2s}
+.btn-header{background:var(--accent-light);border:none;font-size:18px;color:var(--accent);cursor:pointer;padding:8px 12px;border-radius:50%;transition:.2s;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
 .btn-header:active{transform:scale(0.85)}
 .fab-home{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);width:60px;height:60px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:50%;box-shadow:0 6px 20px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;color:#fff;transition:all .3s ease;z-index:9999}
 .fab-home i{font-size:26px}
@@ -62,13 +50,19 @@ body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--
 .helper-hint{background:linear-gradient(135deg,var(--accent-light),var(--card));border:1px dashed var(--accent);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:var(--accent-dark);text-align:center;font-weight:600}
 .content-wrapper{background:var(--card);border-radius:16px;padding:20px;border:1px solid var(--border);box-shadow:var(--shadow);line-height:2;margin:15px 0;font-size:14px}
 .content-wrapper p{margin-bottom:12px}
+.summary-box{background:linear-gradient(135deg,var(--pink-light),var(--card));border:2px solid var(--pink);border-radius:16px;padding:18px;margin-top:15px;animation:slideIn .3s ease}
+@keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.summary-box h4{color:var(--pink);margin-bottom:10px;font-size:16px}
+.summary-box p{margin-bottom:8px;font-size:14px;line-height:1.8}
+.close-summary{background:var(--pink);color:#fff;border:none;padding:8px 16px;border-radius:20px;cursor:pointer;font-weight:600;margin-top:10px;font-size:13px}
+.close-summary:active{transform:scale(0.95)}
 table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}
 th,td{border:1px solid var(--border);padding:8px;text-align:center}
 th{background:var(--accent-light)}
 .toast{position:fixed;top:90px;left:50%;transform:translateX(-50%) translateY(-20px);background:linear-gradient(135deg,var(--accent),var(--pink));color:#fff;padding:10px 20px;border-radius:30px;z-index:10000;opacity:0;transition:.3s;pointer-events:none;font-weight:600;font-size:14px}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:600px){body{font-size:14px;padding-top:80px}.header-title h1{font-size:18px}}
-@media(min-width:769px){#desktop{display:flex!important}#app,#login{display:none!important}}
+@media(min-width:769px){#desktop{display:flex!important}}
 </style>
 </head>
 <body data-theme="default">
@@ -79,27 +73,14 @@ th{background:var(--accent-light)}
   <p>لطفاً با گوشی موبایل خود وارد شوید ✨</p>
 </div>
 
-<div id="login">
-  <div class="login-box">
-    <div class="login-title"> Gorgali</div>
-    <div class="login-sub">برای ورود، رمز عبور را وارد کنید 🔐</div>
-    <div class="input-wrap">
-      <label> رمز عبور</label>
-      <input type="password" id="password" autocomplete="off" inputmode="text">
-    </div>
-    <button class="login-btn" onclick="doLogin()">ورود به سایت ✨</button>
-    <div class="login-error" id="login-error"> رمز عبور اشتباه است</div>
-  </div>
-</div>
-
-<div id="app" style="display:none">
+<div id="app">
 <header class="header-fixed">
-    <button class="btn-header" onclick="openPage('page-ai')"><i class="fas fa-robot"></i></button>
+    <button class="btn-header" onclick="openPage('page-ai')" title="دستیار"><i class="fas fa-robot"></i></button>
     <div class="header-title">
         <h1>🏴 Gorgali</h1>
         <div class="sub-title">🌈 به نام خداوند رنگین‌کمان</div>
     </div>
-    <button class="btn-header" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i></button>
+    <button class="btn-header" onclick="showSummary()" title="خلاصه"><i class="fas fa-compress-alt"></i></button>
 </header>
 
 <div class="page page-home active" id="page-home">
@@ -115,20 +96,21 @@ th{background:var(--accent-light)}
 
 <div id="page-news" class="page">
     <h3 style="font-size:18px;margin-bottom:10px;">📰 اخبار</h3>
-    <div class="content-wrapper">
+    <div class="content-wrapper" id="news-content">
         <p style="margin-top:15px;"><strong>📢 اخبار:</strong></p>
         <p>۱. 💳 وام دیجی‌پی باید بین gorgali و مامان نصف شود.</p>
-        <p>۲.  هرگونه راه‌اندازی آشوب ممنوع است.</p>
+        <p>۲. 🚫 هرگونه راه‌اندازی آشوب ممنوع است.</p>
         <p>۳. 💰 قسط اول BNPL با gorgali پرداخت می‌شود؛ مابقی تقسیم می‌شود.</p>
         <p>۴. 📅 از فروردین، واریز قسط ۲ میلیون تومانی شروع خواهد شد.</p>
-        <p>۵.  پول اینترنت بر عهده مامان است.</p>
-        <p>۶.  به دلیل خرید اکانت بازی، مجبور به تقسیم BNPL شدیم.</p>
+        <p>۵. 🌐 پول اینترنت بر عهده مامان است.</p>
+        <p>۶. 🎮 به دلیل خرید اکانت بازی، مجبور به تقسیم BNPL شدیم.</p>
         <p>۷. 💵 مامان موظف است ۵ میلیون تومان از مامانی دریافت کند و شخصاً آن را بازپرداخت نماید.</p>
         <p>۸. 🏫 سرویس مدرسه حتماً گرفته می‌شود.</p>
 
         <p style="margin-top:20px;"><strong>📊 جدول پول ماهیانه:</strong></p>
-        <table><tr><th>ماه</th><th>مبلغ</th></tr><tr><td>مهر</td><td>۲۹ میلیون و ۰۰ هزار تومان</td></tr></table>
+        <table><tr><th>ماه</th><th>مبلغ</th></tr><tr><td>مهر</td><td>۲۹ میلیون و ۶۰۰ هزار تومان</td></tr></table>
     </div>
+    <div id="summary-container"></div>
 </div>
 
 <div id="page-ai" class="page">
@@ -150,55 +132,98 @@ th{background:var(--accent-light)}
 </div>
 
 <script>
-const AUTH={p:'d2FhNTlZOCNUYmohemdrcw=='};
-function doLogin(){
-  const p=document.getElementById('password').value;
-  try{
-    if(btoa(unescape(encodeURIComponent(p)))===AUTH.p){
-      sessionStorage.setItem('auth','1');
-      document.getElementById('login').style.display='none';
-      document.getElementById('app').style.display='block';
-      vib([100,50,100]);toast('خوش آمدید ✨');
-    }else{
-      document.getElementById('login-error').style.display='block';
-      vib([60,40,60]);
-      setTimeout(()=>document.getElementById('login-error').style.display='none',3000);
+let summaryVisible=false;
+function openPage(id){
+    document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    history.pushState({page:id},'',id==='page-home'?window.location.pathname:'#'+id);
+    window.scrollTo({top:0,behavior:'smooth'});
+    vib(15);
+    if(id!=='page-news' && summaryVisible){
+        hideSummary();
     }
-  }catch(e){
-    document.getElementById('login-error').style.display='block';
-    document.getElementById('login-error').textContent='❌ خطا در ورود';
-    setTimeout(()=>document.getElementById('login-error').style.display='none',3000);
-  }
 }
-function doLogout(){
-  sessionStorage.removeItem('auth');
-  document.getElementById('app').style.display='none';
-  document.getElementById('login').style.display='flex';
-  document.getElementById('password').value='';
-  vib(20);
+window.addEventListener('popstate',e=>{
+    const page=e.state?.page||'page-home';
+    openPage(page);
+    if(page!=='page-news' && summaryVisible){
+        hideSummary();
+    }
+});
+function showSummary(){
+    if(summaryVisible){
+        hideSummary();
+        return;
+    }
+    const container=document.getElementById('summary-container');
+    const summary=`
+        <div class="summary-box">
+            <h4>📋 خلاصه اخبار:</h4>
+            <p>💳 <strong>وام:</strong> دیجی‌پی بین gorgali و مامان نصف می‌شه</p>
+            <p>🚫 <strong>ممنوعیت:</strong> آشوب ممنوع</p>
+            <p>💰 <strong>قسط:</strong> اول BNPL با gorgali، بقیه تقسیم</p>
+            <p>📅 <strong>فروردین:</strong> قسط ۲ میلیونی شروع می‌شه</p>
+            <p>🌐 <strong>اینترنت:</strong> بر عهده مامان</p>
+            <p>🎮 <strong>BNPL:</strong> به دلیل اکانت بازی تقسیم شد</p>
+            <p>💵 <strong>مامان:</strong> ۵ میلیون از مامانی می‌گیره و بازپرداخت می‌کنه</p>
+            <p>🏫 <strong>مدرسه:</strong> سرویس حتماً گرفته می‌شه</p>
+            <p>💰 <strong>مهر ماه:</strong> ۲۹ میلیون و ۶۰۰ هزار تومان</p>
+            <button class="close-summary" onclick="hideSummary()">بستن ✕</button>
+        </div>
+    `;
+    container.innerHTML=summary;
+    summaryVisible=true;
+    vib([50,30,50]);
+    container.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-if(sessionStorage.getItem('auth')==='1'){
-  document.getElementById('login').style.display='none';
-  document.getElementById('app').style.display='block';
+function hideSummary(){
+    document.getElementById('summary-container').innerHTML='';
+    summaryVisible=false;
+    vib(20);
 }
-function openPage(id){document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));document.getElementById(id).classList.add('active');history.pushState({page:id},'',id==='page-home'?window.location.pathname:'#'+id);window.scrollTo({top:0,behavior:'smooth'});vib(15)}
-window.addEventListener('popstate',e=>openPage(e.state?.page||'page-home'));
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
 function vib(p){try{if(navigator.vibrate){navigator.vibrate(p);return true}}catch(e){}return false}
-document.addEventListener('click',e=>{if(e.target.closest('button')&&!e.target.closest('.login-btn'))vib(10)});
+document.addEventListener('click',e=>{if(e.target.closest('button')&&!e.target.closest('.close-summary'))vib(10)});
 
 const kb={
-  notes:{k:['نکته','نکات','توجه','هشدار','چرا','حکومت برگشت','کنگره'],f:"📌 نکات مهم:\n\n۱. ⚠️ حکومت بازگشت!\n۲. 🏛️ کنگره بازگشت.\n۳. ️ تضمین آشوب دیگر وجود ندارد.\n. 🚨 چرا بازگشت؟ به دلیل گستاخی‌های زیاد مامان و خواهری.\n۵. 🎭 پروژه تحول دروغ بود تا حکومت استراحت کند.\n۶. 💸 حرف چرت خواهری = آشوب + جریمه!",s:"حکومت و کنگره بازگشتند. به دلیل گستاخی مامان و خواهری. پروژه تحول دروغ بود."},
-  laws:{k:['قانون','قوانین','اخلاق','اتاق','خواب','مدرسه','پریدن','مخالفت','دکتر','مریض'],f:"📜 قوانین:\n\n۱. 🚫 آشوب ممنوع.\n۲. 🤐 توهین ممنوع.\n۳. 🌙 نیمه‌شب همه خواب.\n۴. 🩴 دمپایی سرویس ممنوع.\n۵.  ماهیانه ۲۰ میلیون.\n۶. ⏰ ماندن بیش از نیم ساعت در اتاق توسط خواهری ممنوع.\n. 🐕‍🦺 اخلاق سگی ممنوع.\n۸. 🤨 سوال چرت ممنوع.\n۹.  پریدن به gorgali ممنوع = ۰۰ هزار تومان جریمه.\n۱۰. 💸 سگ اخلاقی ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۱. ⚠️ مخالفت با کارهای انجام شده ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۲. 🌪️💸 حرف چرت خواهری = آشوب + ۵۰۰ هزار تومان جریمه.\n۱۳. 🏥 اگر هر وقت مریض شدیم حتماً دکتر می‌ریم شکی نیست، اگر مخالفتی ایجاد بشه اتفاقات خوبی نمی‌افته!",s:"قوانین: ممنوعیت آشوب، توهین، خواب نیمه‌شب، دمپایی، اخلاق سگی، سوال چرت، پریدن به gorgali (۵۰ تومن)، سگ اخلاقی (۵۰۰ تومن)، مخالفت (۵۰۰ تومن)، حرف چرت خواهری، دکتر اجباری در صورت بیماری."},
+  notes:{k:['نکته','نکات','توجه','هشدار','چرا','حکومت برگشت','کنگره'],f:"📌 نکات مهم:\n\n۱. ⚠️ حکومت بازگشت!\n۲. 🏛️ کنگره بازگشت.\n۳. ⚠️ تضمین آشوب دیگر وجود ندارد.\n۴. 🚨 چرا بازگشت؟ به دلیل گستاخی‌های زیاد مامان و خواهری.\n۵. 🎭 پروژه تحول دروغ بود تا حکومت استراحت کند.\n۶. 💸 حرف چرت خواهری = آشوب + جریمه!",s:"حکومت و کنگره بازگشتند. به دلیل گستاخی مامان و خواهری. پروژه تحول دروغ بود."},
+  laws:{k:['قانون','قوانین','اخلاق','اتاق','خواب','مدرسه','پریدن','مخالفت','دکتر','مریض'],f:"📜 قوانین:\n\n۱. 🚫 آشوب ممنوع.\n۲. 🤐 توهین ممنوع.\n۳. 🌙 نیمه‌شب همه خواب.\n۴. 🩴 دمپایی سرویس ممنوع.\n۵. 💵 ماهیانه ۲۰ میلیون.\n۶. ⏰ ماندن بیش از نیم ساعت در اتاق توسط خواهری ممنوع.\n۷. 🐕‍🦺 اخلاق سگی ممنوع.\n۸. 🤨 سوال چرت ممنوع.\n۹. 🚫 پریدن به gorgali ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۰. 💸 سگ اخلاقی ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۱. ⚠️ مخالفت با کارهای انجام شده ممنوع = ۵۰۰ هزار تومان جریمه.\n۱۲. 🌪️💸 حرف چرت خواهری = آشوب + ۵۰۰ هزار تومان جریمه.\n۱۳. 🏥 اگر هر وقت مریض شدیم حتماً دکتر می‌ریم شکی نیست، اگر مخالفتی ایجاد بشه اتفاقات خوبی نمی‌افته!",s:"قوانین: ممنوعیت آشوب، توهین، خواب نیمه‌شب، دمپایی، اخلاق سگی، سوال چرت، پریدن به gorgali (۵۰۰ تومن)، سگ اخلاقی (۵۰۰ تومن)، مخالفت (۵۰۰ تومن)، حرف چرت خواهری، دکتر اجباری در صورت بیماری."},
   transformation:{k:['تحول','پروژه تحول','شروع تحول'],f:"🌱 قوانین تحول:\n\n۱. 🕊️ آشوب از طرف مامان و خواهری ممنوع.\n۲. 😄 شوخی حکومت مجاز، موجب آشوب نمی‌شود.\n۳. 🚫 حرف چرت ممنوع، وگرنه تحول نمی‌افتد.\n۴. 📢 فعلاً خبری از تحول نیست.\n۵. 🪰 مگس‌کش در دوره تحول کنار می‌رود.\n۶. 📰 در صورت فرار، تحول انجام نمی‌شود.\n۷. 😊 هر شوخی، آشوب نیست.\n۸. 🌙 در دوره مدارس، از ساعت ۱۱ همه خواب.\n۹. 💡 برق خاموش، ظرف شسته، قرص خورده.",s:"قوانین تحول: ممنوعیت آشوب مامان و خواهری، شوخی حکومت مجاز، ممنوعیت حرف چرت، مگس‌کش کنار می‌رود، فعلاً خبری از تحول نیست."},
-  sanctions:{k:['تحریم','مجازات','sos'],f:"⛔ تحریم‌ها:\n\n۱.  مشاوره و دکتر ممنوع.\n۲. 🎉 مهمانی ممنوع.\n۳. 🏠 در خانه ماندن اجباری.\n۴. ⚠️ وظایف برای دشمنان ممنوع.\n۵. 💊 قرص و شربت ممنوع (فقط SOS).\n۶. 🎯 اذیت دشمنان اجباری.\n۷. 🏫 مدرسه ممنوع.\n۸. 🔊 باندها در همه مواقع فعال.\n۹.  گوشی مامان قفل می‌شود.\n۱۰. 🎬 مانع شدن فیلم دیدن خواهری.\n۱۱. 🌪️ به پا شدن آشوب.\n۱۲.  فرار در اتاق خواب‌ها ممنوع.\n\n📌 این فقط یک لیست برای آگاهی است. این موارد همگی اجرایی نمی‌شوند و در صورت اجرا، قبلش اطلاع‌رسانی می‌شود و در زمان فوق‌العاده (SOS) اجرایی می‌شوند.",s:"تحریم‌ها: ممنوعیت مشاوره، مهمانی، مدرسه، قرص، گوشی مامان قفل، باندها فعال، مانع فیلم دیدن خواهری، آشوب، فرار ممنوع. فقط برای آگاهی - در صورت اجرا اطلاع‌رسانی می‌شود (SOS)."},
-  purchases:{k:['خرید','لیست خرید'],f:"🛒 لیست خریدها:\n۱. 💿 اکانت‌های بازی انتخاب‌شده\n۲. 🚗 لوازم ماشین\n۳. 🎮 خرید بازی PS5\n۴. 🔌 هاب لپ‌تاپ HP\n۵. 🧴 ادکلن\n۶. 🧸 اسباب‌بازی و اکشن فیگور\n. 🇬🇧 شارژ سیم‌کارت ودافون و خرید سیم‌کارت EE انگلستان",s:"لیست خرید: اکانت بازی، لوازم ماشین، بازی PS5، هاب لپ‌تاپ، ادکلن، اسباب‌بازی، سیم‌کارت ودافون و EE انگلستان."}
+  sanctions:{k:['تحریم','مجازات','sos'],f:"⛔ تحریم‌ها:\n\n۱. 🚫 مشاوره و دکتر ممنوع.\n۲. 🎉 مهمانی ممنوع.\n۳. 🏠 در خانه ماندن اجباری.\n۴. ⚠️ وظایف برای دشمنان ممنوع.\n۵. 💊 قرص و شربت ممنوع (فقط SOS).\n۶. 🎯 اذیت دشمنان اجباری.\n۷. 🏫 مدرسه ممنوع.\n۸. 🔊 باندها در همه مواقع فعال.\n۹. 🔒 گوشی مامان قفل می‌شود.\n۱۰. 🎬 مانع شدن فیلم دیدن خواهری.\n۱۱. 🌪️ به پا شدن آشوب.\n۱۲. 🚫 فرار در اتاق خواب‌ها ممنوع.\n\n📌 این فقط یک لیست برای آگاهی است. این موارد همگی اجرایی نمی‌شوند و در صورت اجرا، قبلش اطلاع‌رسانی می‌شود و در زمان فوق‌العاده (SOS) اجرایی می‌شوند.",s:"تحریم‌ها: ممنوعیت مشاوره، مهمانی، مدرسه، قرص، گوشی مامان قفل، باندها فعال، مانع فیلم دیدن خواهری، آشوب، فرار ممنوع. فقط برای آگاهی - در صورت اجرا اطلاع‌رسانی می‌شود (SOS)."},
+  purchases:{k:['خرید','لیست خرید'],f:"🛒 لیست خریدها:\n۱. 💿 اکانت‌های بازی انتخاب‌شده\n۲. 🚗 لوازم ماشین\n۳. 🎮 خرید بازی PS5\n۴. 🔌 هاب لپ‌تاپ HP\n۵. 🧴 ادکلن\n۶. 🧸 اسباب‌بازی و اکشن فیگور\n۷. 🇬🇧 شارژ سیم‌کارت ودافون و خرید سیم‌کارت EE انگلستان",s:"لیست خرید: اکانت بازی، لوازم ماشین، بازی PS5، هاب لپ‌تاپ، ادکلن، اسباب‌بازی، سیم‌کارت ودافون و EE انگلستان."}
 };
 
-let chatHistory=[];
-function renderChat(){const c=document.getElementById('ai-chat');c.innerHTML='';chatHistory.forEach(msg=>{const d=document.createElement('div');d.className='ai-msg '+(msg.sender==='user'?'user':'bot');d.textContent=msg.text;c.appendChild(d)});c.scrollTop=c.scrollHeight}
-function addMsg(s,t){chatHistory.push({sender:s,text:t});const c=document.getElementById('ai-chat');const d=document.createElement('div');d.className='ai-msg '+(s==='user'?'user':'bot');d.textContent=t;c.appendChild(d);c.scrollTop=c.scrollHeight}
-function newChat(){chatHistory=[{sender:'bot',text:'چت جدید ✨ «راهنما» را ارسال کنید 🫶 همه بخش‌ها آپدیت شدن، چک کنید!'}];renderChat();document.getElementById('ai-input').value='';vib([80,40,80]);showToast('چت جدید! 💬')}
+let chatHistory=[{sender:'bot',text:'چت جدید ✨ «راهنما» را ارسال کنید 🫶 همه بخش‌ها آپدیت شدن، چک کنید!'}];
+
+function renderChat(){
+    const c=document.getElementById('ai-chat');
+    c.innerHTML='';
+    chatHistory.forEach(msg=>{
+        const d=document.createElement('div');
+        d.className='ai-msg '+(msg.sender==='user'?'user':'bot');
+        d.textContent=msg.text;
+        c.appendChild(d);
+    });
+    c.scrollTop=c.scrollHeight;
+}
+
+function addMsg(s,t){
+    chatHistory.push({sender:s,text:t});
+    const c=document.getElementById('ai-chat');
+    const d=document.createElement('div');
+    d.className='ai-msg '+(s==='user'?'user':'bot');
+    d.textContent=t;
+    c.appendChild(d);
+    c.scrollTop=c.scrollHeight;
+}
+
+function newChat(){
+    chatHistory=[{sender:'bot',text:'چت جدید ✨ «راهنما» را ارسال کنید 🫶 همه بخش‌ها آپدیت شدن، چک کنید!'}];
+    renderChat();
+    document.getElementById('ai-input').value='';
+    vib([80,40,80]);
+    showToast('چت جدید! 💬');
+}
 
 function getResponse(input){
     const lower=input.toLowerCase().trim();
@@ -212,10 +237,16 @@ function getResponse(input){
     return"این دستیار فقط به سوالات حکومتی پاسخ می‌دهد 🫶 «راهنما» را ارسال کنید.";
 }
 
-function sendAI(){const el=document.getElementById('ai-input');const input=el.value.trim();if(!input)return;addMsg('user',input);el.value='';setTimeout(()=>addMsg('bot',getResponse(input)),200)}
+function sendAI(){
+    const el=document.getElementById('ai-input');
+    const input=el.value.trim();
+    if(!input)return;
+    addMsg('user',input);
+    el.value='';
+    setTimeout(()=>addMsg('bot',getResponse(input)),200);
+}
 
 window.addEventListener('load',()=>{renderChat()});
-window.addEventListener('beforeunload',()=>{sessionStorage.removeItem('auth')});
 </script>
 </body>
 </html>
