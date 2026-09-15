@@ -12,11 +12,9 @@
 :root{--bg:#f8fafc;--card:#fff;--text:#0f172a;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--border:#e2e8f0;--shadow:0 4px 20px rgba(0,0,0,0.05);--pink:#ec4899}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;padding-top:80px;overflow-x:hidden;font-size:15px;line-height:1.7}
-#loader{position:fixed;inset:0;background:var(--bg);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s}
-.spinner{width:60px;height:60px;border:5px solid var(--border);border-top-color:var(--accent);border-right-color:var(--pink);border-radius:50%;animation:spin 1s linear infinite}
+#loader{position:fixed;inset:0;background:var(--bg);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s}
+.spinner{width:50px;height:50px;border:4px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loader-text{margin-top:20px;font-weight:700;color:var(--muted);font-size:15px;animation:pulse 1.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
 .header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);padding:12px 15px;z-index:999;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .header h1{font-size:18px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .btn-icon{background:var(--bg);border:none;width:38px;height:38px;border-radius:50%;color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:.2s}
@@ -49,23 +47,31 @@ body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);m
 .salary-table td{padding:12px;text-align:center;border-bottom:1px solid var(--border)}
 .salary-table tr:last-child td{border-bottom:none}
 .salary-title{font-size:15px;font-weight:800;margin-top:20px;margin-bottom:10px;color:var(--text);display:flex;align-items:center;gap:8px}
+.summary-btn{position:fixed;top:95px;left:15px;background:linear-gradient(135deg,#10b981,#34d399);color:#fff;border:none;padding:10px 16px;border-radius:25px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(16,185,129,0.4);z-index:100;font-size:14px}
+.summary-btn:active{transform:scale(0.95)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10001;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-content{background:var(--card);border-radius:20px;padding:25px;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative;animation:pop .3s ease}
+@keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+.close-modal{position:absolute;top:15px;left:15px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--muted)}
 .fab{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);width:60px;height:60px;background:linear-gradient(135deg,var(--accent),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;box-shadow:0 8px 25px rgba(59,130,246,0.4);cursor:pointer;border:none;z-index:50}
 .fab:active{transform:translateX(-50%) scale(0.9)}
-@media(min-width:769px){body::after{content:'📱 این سایت فقط روی موبایل باحال‌تره!';position:fixed;inset:0;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;z-index:999999;text-align:center;padding:20px}}
+@media(min-width:769px){body::after{content:' این سایت فقط روی موبایل باحال‌تره!';position:fixed;inset:0;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;z-index:999999;text-align:center;padding:20px}}
 </style>
 </head>
 <body>
 
-<div id="loader">
-    <div class="spinner"></div>
-    <p class="loader-text">داریم بارگذاری می‌کنیم... ⏳</p>
-</div>
+<div id="loader"><div class="spinner"></div></div>
 
 <div class="header">
     <button class="btn-icon" onclick="openPage('page-ai')"><i class="fas fa-robot"></i></button>
     <h1>🏴 Gorgali</h1>
     <button class="btn-icon" onclick="openPage('page-shop')"><i class="fas fa-shopping-bag"></i></button>
 </div>
+
+<button class="summary-btn" onclick="showSummary()">
+    <span>AI خلاصه</span>
+    <span style="font-size:18px">✨</span>
+</button>
 
 <div class="page active" id="page-home">
     <div class="hero">
@@ -76,14 +82,14 @@ body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);m
         <div class="card-btn" onclick="openPage('page-news')">
             <div style="display:flex;align-items:center;gap:12px">
                 <div class="icon" style="background:#f59e0b">📰</div>
-                <span>اخبار جدید</span>
+                <span>اخبار</span>
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
         </div>
-        <div class="card-btn" onclick="openPage('page-old-news')">
+        <div class="card-btn" onclick="openPage('page-ai')">
             <div style="display:flex;align-items:center;gap:12px">
-                <div class="icon" style="background:#64748b">🗄️</div>
-                <span>اخبار قدیمی</span>
+                <div class="icon" style="background:var(--accent)">🤖</div>
+                <span>دستیار باحال</span>
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
         </div>
@@ -91,26 +97,17 @@ body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);m
     <div class="salary-title">📊 جدول پول ماهیانه:</div>
     <table class="salary-table">
         <tr><th>ماه</th><th>مبلغ</th></tr>
-        <tr><td>مهر</td><td><strong>۲۶ میلیون و ۶۰۰ هزار تومان</strong></td></tr>
+        <tr><td>مهر</td><td><strong>۳۲ میلیون و ۷۷۱ هزار تومان</strong></td></tr>
     </table>
 </div>
 
 <div class="page" id="page-news">
-    <div class="box" style="text-align:center;padding:40px 20px">
-        <div style="font-size:50px;margin-bottom:15px">🕸️</div>
-        <h3>فعلاً خبری نیست!</h3>
-        <p style="color:var(--muted)">برگرد شاید خبری باشه! ما هم داریم استراحت می‌کنیم 😄</p>
-    </div>
-</div>
-
-<div class="page" id="page-old-news">
     <div class="box">
-        <h3>🗄️ آرشیو اخبار قدیمی</h3>
-        <p>۱. 💳 وام دیجی‌پی بین gorgali و مامان نصف شد.</p>
-        <p>۲. 🚫 آشوب و تهدید ممنوع اعلام شد.</p>
-        <p>۳. 💰 قسط اول BNPL با gorgali پرداخت شد.</p>
-        <p>۴. 🌐 پول اینترنت کاملاً بر عهده مامان است.</p>
-        <p>۵. 💵 مامان ۵ میلیون از مامانی گرفت و بازپرداخت می‌کنه.</p>
+        <h3>📰 اخبار</h3>
+        <p>۱. 💳 به دلیل کمبود بودجه حکومت، باید تمامی اقساط را مامان بدهد و مبلغ پول ماهیانه افزایش یافته و ۲ میلیون تومان بابت پول اینترنت می‌باشد و جمعاً ۳۲ میلیون و ۷۷۱ هزار تومان باید بدهد.</p>
+        <p style="margin-top:15px;padding:12px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;border-right:4px solid #f59e0b">
+            💔 با اینکه مادلمون می‌سوزه ولی متاسفانه باید همین اجرا شه.
+        </p>
     </div>
 </div>
 
@@ -119,8 +116,8 @@ body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);m
         <h3>🤖 دستیار هوشمند</h3>
         <div class="chat-box" id="chat-box"></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
-            <button class="quick-btn" onclick="sendQuick('قوانین')">📜 قوانین</button>
-            <button class="quick-btn" onclick="sendQuick('تحریم')"> تحریم</button>
+            <button class="quick-btn" onclick="sendQuick('قوانین')"> قوانین</button>
+            <button class="quick-btn" onclick="sendQuick('تحریم')">⛔ تحریم</button>
         </div>
         <div class="input-wrap">
             <input type="text" id="chat-input" placeholder="سوالِت رو بپرس... ✍️" onkeypress="if(event.key==='Enter')sendMsg()">
@@ -131,16 +128,26 @@ body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);m
 
 <div class="page" id="page-shop">
     <div class="box">
-        <h3>🛒 لیست خریدهای ما</h3>
+        <h3> لیست خریدهای ما</h3>
         <p style="margin-bottom:15px;color:var(--muted)">روی لینک‌ها بزن تا مستقیم بری تو صفحه محصول:</p>
         <div id="shop-list"></div>
+    </div>
+</div>
+
+<div id="summary-modal" class="modal" onclick="if(event.target===this)closeSummary()">
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeSummary()"></button>
+        <h3 style="color:#10b981;margin-bottom:15px;display:flex;align-items:center;gap:8px">
+            <span>✨ خلاصه هوشمند این صفحه</span>
+        </h3>
+        <div id="summary-content"></div>
     </div>
 </div>
 
 <button class="fab" onclick="openPage('page-home')"><i class="fas fa-home"></i></button>
 
 <script>
-window.addEventListener('load',()=>{setTimeout(()=>{const l=document.getElementById('loader');l.style.opacity='0';setTimeout(()=>l.style.display='none',800)},2000)});
+window.addEventListener('load',()=>{setTimeout(()=>{const l=document.getElementById('loader');l.style.opacity='0';setTimeout(()=>l.style.display='none',300)},500)});
 
 function openPage(id){
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -159,25 +166,53 @@ window.addEventListener('popstate',(e)=>{
     document.getElementById(page).classList.add('active');
 });
 
+function showSummary(){
+    const modal=document.getElementById('summary-modal');
+    const content=document.getElementById('summary-content');
+    const currentPage=document.querySelector('.page.active').id;
+    
+    let summary='';
+    if(currentPage==='page-news'){
+        summary='<p style="line-height:2;margin-bottom:15px"><strong>📰 خلاصه اخبار:</strong><br>• به دلیل کمبود بودجه، مامان باید تمامی اقساط رو بده<br>• پول ماهیانه افزایش یافته: ۳ میلیون و ۷۷۱ هزار تومان<br>• ۲ میلیون تومان بابت اینترنت<br>• با وجود سختی، این تصمیم باید اجرا بشه 💔</p>';
+    }else if(currentPage==='page-shop'){
+        summary='<p style="line-height:2;margin-bottom:15px"><strong> خلاصه خریدها:</strong><br>• SSD و هدست برای PS5<br>• گلکسی بادز ۳ پرو و گلکسی واچ ۸ (با ۲ ماه ذخیره پول!)<br>• لوازم جانبی ماشین و لپ‌تاپ<br>• سیم‌کارت‌های انگلستان (ودافون و EE)<br>• اکشن فیگور، ادکلن و بازی PS5</p>';
+    }else if(currentPage==='page-ai'){
+        summary='<p style="line-height:2;margin-bottom:15px"><strong>🤖 خلاصه دستیار:</strong><br>• دستیار هوشمند برای پاسخ به سوالات<br>• دسترسی سریع به قوانین و تحریم‌ها<br>• کافیه سوالِت رو بپرسی یا از دکمه‌های سریع استفاده کنی!</p>';
+    }else{
+        summary='<p style="line-height:2;margin-bottom:15px"><strong>🏠 خلاصه صفحه اصلی:</strong><br>• دسترسی به اخبار، دستیار و خرید<br>• پول ماهیانه: ۳۲ میلیون و ۷۷۱ هزار تومان<br>• همه چیز در یک نگاه!</p>';
+    }
+    
+    content.innerHTML=summary;
+    modal.style.display='flex';
+}
+
+function closeSummary(){
+    document.getElementById('summary-modal').style.display='none';
+}
+
 const shopItems=[
     {t:"SSD اکسترنال سن‌دیسک 1TB برای PS5",l:"https://www.digikala.com/product/dkp-4935941/"},
     {t:"هدست گیمینگ ریزر BlackShark V2 X برای PS5",l:"https://www.digikala.com/product/dkp-3537683/"},
+    {t:"گلکسی بادز ۳ پرو (با ۲ ماه ذخیره پول!) ✨",l:"https://www.digikala.com/product/dkp-16072099"},
+    {t:"گلکسی واچ ۸ (با ۲ ماه ذخیره پول!) ",l:"https://www.digikala.com/product/dkp-19925403"},
     {t:"گیرنده بلوتوثی بیسوس (AUX ماشین)",l:"https://www.digikala.com/product/dkp-1854527/"},
     {t:"شارژر فندکی 45 وات انکر",l:"https://www.digikala.com/product/dkp-18612577/"},
     {t:"هاب 4 پورت USB 3.0 بیسوس (لپ‌تاپ قدیمی)",l:"https://www.digikala.com/product/dkp-16053379/"},
+    {t:"شارژ سیم‌کارت ودافون",l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/"},
+    {t:"خرید سیم‌کارت EE انگلستان",l:"https://sae22.ir/product/buy-ee-uk-sim-card/"},
     {t:"اکشن فیگور و اسباب‌بازی از پیج اینستاگرام",l:null},
-    {t:"شارژ سیم‌کارت ودافون فعلی",l:null},
     {t:"خرید ادکلن اورجینال از بازار",l:null},
     {t:"خرید بازی برای PS5",l:null}
 ];
+
 document.getElementById('shop-list').innerHTML=shopItems.map(i=>{
     if(i.l) return `<p style="margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px"><span>${i.t}</span><a href="${i.l}" target="_blank" class="link-text">روی این لینک</a></p>`;
     return `<p style="margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:8px;color:var(--muted)">${i.t}</p>`;
 }).join('');
 
 const kb={
-    rules:{k:['قانون','قوانین'],f:"📜 قوانین جدی هستند:\n۱. آشوب ممنوع.\n. توهین ممنوع.\n۳. نیمه‌شب خواب.\n۴. اخلاق سگی = ۵۰۰ تومن جریمه.\n۵. پریدن به gorgali = ۵۰۰ تومن جریمه.\n۶. دکتر رفتن در بیماری اجباری است."},
-    sanctions:{k:['تحریم','تحریم‌ها'],f:"⛔ تحریم‌ها:\n۱. مشاوره و دکتر ممنوع.\n۲. مهمانی ممنوع.\n۳. در خانه ماندن اجباری.\n۴. وظایف برای دشمنان ممنوع.\n۵. قرص و شربت ممنوع (فقط SOS).\n۶. اذیت دشمنان اجباری.\n۷. مدرسه ممنوع.\n۸. باندها فعال.\n۹. گوشی مامان قفل می‌شود.\n۱۰. مانع فیلم دیدن خواهری.\n۱۱. به پا شدن آشوب.\n۱۲. فرار در اتاق خواب ممنوع.\n\n📌 این لیست فقط برای آگاهی است و در زمان SOS با اطلاع‌رسانی اجرا می‌شود."}
+    rules:{k:['قانون','قوانین'],f:"📜 قوانین جدی هستند:\n۱. آشوب ممنوع.\n۲. توهین ممنوع.\n۳. نیمه‌شب خواب.\n. اخلاق سگی = ۵۰۰ تومن جریمه.\n۵. پریدن به gorgali = ۵۰۰ تومن جریمه.\n۶. دکتر رفتن در بیماری اجباری است."},
+    sanctions:{k:['تحریم','تحریم‌ها'],f:" تحریم‌ها:\n۱. مشاوره و دکتر ممنوع.\n۲. مهمانی ممنوع.\n۳. در خانه ماندن اجباری.\n۴. وظایف برای دشمنان ممنوع.\n۵. قرص و شربت ممنوع (فقط SOS).\n۶. اذیت دشمنان اجباری.\n۷. مدرسه ممنوع.\n۸. باندها فعال.\n. گوشی مامان قفل می‌شود.\n۱۰. مانع فیلم دیدن خواهری.\n۱۱. به پا شدن آشوب.\n۱۲. فرار در اتاق خواب ممنوع.\n\n📌 این لیست فقط برای آگاهی است و در زمان SOS با اطلاع‌رسانی اجرا می‌شود."}
 };
 
 let chat=[{sender:'bot',text:'سلام! چطوری؟ 🫶\nهر سوالی داری بپرس یا از دکمه‌های پایین استفاده کن!'}];
