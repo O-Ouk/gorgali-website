@@ -281,13 +281,15 @@ function showSummary(){
             '• حداکثر ۲ خرید اقساطی، ماهی یک خرید</p>';
     } else if(currentPage === 'page-shop'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🛒 خلاصه خریدها:</strong><br>' +
-            '• SSD، هدست و لوازم PS5<br>' +
+            '• SSD، هدست، گیفت کارت و لوازم PS5<br>' +
             '• گلکسی واچ ۸<br>' +
             '• مودم جیبی ZTE U30 Pro و مودم فیبر هوآوی<br>' +
-            '• گیفت کارت ۱۰۰ دلاری PS5<br>' +
-            '• سیم‌کارت‌های انگلستان و طلا از میلی<br>' +
+            '• در بازکن، اسپری کارواش، شانه مو<br>' +
+            '• لوازم خودرو (کناره‌گیر، جالیوانی، جاروشارژی)<br>' +
+            '• لوازم خانگی (پنکه مه‌پاش، پرزگیر میجیا)<br>' +
+            '• سیم‌کارت انگلستان و طلا از میلی<br>' +
             '• تمدید دیجی پلاس و Snapp Pro<br>' +
-            '• وام خرید کالا از ازکی‌وام<br>' +
+            '• وام از ازکی‌وام<br>' +
             '• و سایر لوازم جانبی</p>';
     } else if(currentPage === 'page-notifications'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>📢 خلاصه اطلاعیه:</strong><br>' +
@@ -311,26 +313,38 @@ function closeSummary(){
 
 /* ===== لیست خریدها ===== */
 const shopItems = [
-    {t:"SSD اکسترنال سن‌دیسک ۱ ترابایت برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4935941/", cat:"با لینک"},
-    {t:"هدست گیمینگ ریزر BlackShark V2 X برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3537683/", cat:"با لینک"},
-    {t:"گلکسی واچ ۸ (با ۲ ماه ذخیره پول) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19925403", cat:"با لینک"},
-    {t:"مودم جیبی ZTE U30 Pro از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14185411", cat:"با لینک"},
-    {t:"گیرنده بلوتوثی بیسوس (AUX ماشین) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1854527/", cat:"با لینک"},
-    {t:"شارژر فندکی ۴۵ وات انکر از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18612577/", cat:"با لینک"},
-    {t:"هاب ۴ پورت USB 3.0 بیسوس (لپ‌تاپ قدیمی) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-16053379/", cat:"با لینک"},
-    {t:"شارژ سیم‌کارت ودافون از sae۲۲", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", cat:"با لینک"},
-    {t:"خرید سیم‌کارت EE انگلستان از sae۲۲", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", cat:"با لینک"},
-    {t:"خرید طلا از میلی", l:"https://milli.gold", cat:"با لینک"},
-    {t:"مودم فیبرنوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014", cat:"با لینک"},
-    {t:"تمدید اشتراک دیجی پلاس یک‌ساله از دیجی‌کالا", l:"https://www.digikala.com/plus/landing/", cat:"با لینک"},
-    {t:"تمدید اشتراک Snapp Pro شش‌ماهه از اسنپ", l:"https://snapp.ir/pro/", cat:"با لینک"},
-    {t:"گرفتن وام خرید کالا از ازکی‌وام با پشتوانه طلا", l:"https://azkivam.com", cat:"با لینک"},
-    {t:"خرید گیفت کارت ۱۰۰ دلاری PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation", cat:"با لینک"},
-    {t:"درخواست فیبرنوری از مخابرات", l:null, cat:"بدون لینک"},
-    {t:"آمپول لاغری", l:null, cat:"بدون لینک"},
-    {t:"اکشن فیگور و اسباب‌بازی از پیج اینستاگرام", l:null, cat:"بدون لینک"},
-    {t:"خرید ادکلن اورجینال از بازار", l:null, cat:"بدون لینک"},
-    {t:"خرید بازی برای PS۵", l:null, cat:"بدون لینک"}
+    {t:"SSD اکسترنال سن‌دیسک ۱ ترابایت برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4935941/"},
+    {t:"هدست گیمینگ ریزر BlackShark V2 X برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3537683/"},
+    {t:"گلکسی واچ ۸ (با ۲ ماه ذخیره پول) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19925403"},
+    {t:"مودم جیبی ZTE U30 Pro از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14185411"},
+    {t:"گیرنده بلوتوثی بیسوس (AUX ماشین) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1854527/"},
+    {t:"شارژر فندکی ۴۵ وات انکر از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18612577/"},
+    {t:"هاب ۴ پورت USB 3.0 بیسوس (لپ‌تاپ قدیمی) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-16053379/"},
+    {t:"شارژ سیم‌کارت ودافون از sae۲۲", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/"},
+    {t:"خرید سیم‌کارت EE انگلستان از sae۲۲", l:"https://sae22.ir/product/buy-ee-uk-sim-card/"},
+    {t:"خرید طلا از میلی", l:"https://milli.gold"},
+    {t:"مودم فیبرنوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014"},
+    {t:"تمدید اشتراک دیجی پلاس یک‌ساله از دیجی‌کالا", l:"https://www.digikala.com/plus/landing/"},
+    {t:"تمدید اشتراک Snapp Pro شش‌ماهه از اسنپ", l:"https://snapp.ir/pro/"},
+    {t:"گرفتن وام خرید کالا از ازکی‌وام با پشتوانه طلا", l:"https://azkivam.com"},
+    {t:"خرید گیفت کارت ۱۰۰ دلاری PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation"},
+    {t:"در بازکن یزدگل کد ۵۰۹ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-2878969"},
+    {t:"اسپری کارواش بدون آب تام کلین ۴۸۰ میلی‌لیتر از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-2951899"},
+    {t:"شانه کوتاهی مو بلند فرند کد BN۷۰۰ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14336513"},
+    {t:"کناره‌گیر صندلی خودرو بسته ۲ عددی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1499594"},
+    {t:"پوشه دکمه‌دار پاپکو مدل ارکید (۶ عدد) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3242669"},
+    {t:"باربر دستی مدل BP۰۱ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19641006"},
+    {t:"جاروشارژی خودرو دو کاره مکش قوی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-15105543"},
+    {t:"پایه نگهدارنده گوشی و تبلت الدینیو MG۰۳ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-12506080"},
+    {t:"سیم جمع‌کن دوقلو بسته ۲ عددی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11580007"},
+    {t:"جالیوانی خودرو مدل G۴ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18934602"},
+    {t:"پنکه رومیزی مدل مه‌پاش از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14575975"},
+    {t:"پرزگیر برقی لباس میجیا مدل MQXJQ۰۱KL از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4115806"},
+    {t:"درخواست فیبرنوری از مخابرات", l:null},
+    {t:"آمپول لاغری", l:null},
+    {t:"اکشن فیگور و اسباب‌بازی از پیج اینستاگرام", l:null},
+    {t:"خرید ادکلن اورجینال از بازار", l:null},
+    {t:"خرید بازی برای PS۵", l:null}
 ];
 
 const sortedItems = [...shopItems].sort((a, b) => {
@@ -459,6 +473,18 @@ const searchableData = [
     {title:"مودم فیبرنوری", content:"مودم فیبرنوری هوآوی مدل EG8145X6", page:"page-shop"},
     {title:"مودم جیبی", content:"مودم جیبی ZTE U30 Pro", page:"page-shop"},
     {title:"گیفت کارت PS۵", content:"گیفت کارت ۱۰۰ دلاری PS۵ ریجن آمریکا", page:"page-shop"},
+    {title:"در بازکن", content:"در بازکن یزدگل کد ۵۰۹", page:"page-shop"},
+    {title:"اسپری کارواش", content:"اسپری کارواش بدون آب تام کلین ۴۸۰ میلی‌لیتر", page:"page-shop"},
+    {title:"شانه کوتاهی مو", content:"شانه کوتاهی مو بلند فرند BN۷۰۰", page:"page-shop"},
+    {title:"کناره‌گیر صندلی", content:"کناره‌گیر صندلی خودرو بسته ۲ عددی", page:"page-shop"},
+    {title:"پوشه دکمه‌دار", content:"پوشه دکمه‌دار پاپکو مدل ارکید ۶ عدد", page:"page-shop"},
+    {title:"باربر دستی", content:"باربر دستی مدل BP۰۱", page:"page-shop"},
+    {title:"جاروشارژی خودرو", content:"جاروشارژی خودرو دو کاره مکش قوی", page:"page-shop"},
+    {title:"پایه نگهدارنده گوشی", content:"پایه نگهدارنده گوشی و تبلت الدینیو MG۰۳", page:"page-shop"},
+    {title:"سیم جمع‌کن", content:"سیم جمع‌کن دوقلو بسته ۲ عددی", page:"page-shop"},
+    {title:"جالیوانی خودرو", content:"جالیوانی خودرو مدل G۴", page:"page-shop"},
+    {title:"پنکه رومیزی", content:"پنکه رومیزی مدل مه‌پاش", page:"page-shop"},
+    {title:"پرزگیر لباس", content:"پرزگیر برقی لباس میجیا", page:"page-shop"},
     {title:"آمپول لاغری", content:"آمپول لاغری", page:"page-shop"},
     {title:"دیجی پلاس", content:"تمدید اشتراک دیجی پلاس یک‌ساله", page:"page-shop"},
     {title:"Snapp Pro", content:"تمدید اشتراک Snapp Pro شش‌ماهه", page:"page-shop"},
@@ -510,13 +536,6 @@ function playAudio(){
         try{ player.play(); }catch(e){}
     }
 }
-
-// برای فعال‌سازی صوت، این بخش را فعال کن:
-// const audioUrl = 'لینک_صوتی_مستقیم';
-// const audioPlayer = document.getElementById('audio-player');
-// audioPlayer.src = audioUrl;
-// audioPlayer.style.display = 'block';
-// document.getElementById('play-audio-btn').style.display = 'inline-block';
 
 /* ===== جلوگیری از خطاهای احتمالی ===== */
 window.addEventListener('error', function(e){
