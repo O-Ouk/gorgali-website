@@ -59,6 +59,10 @@ body.low-end .page{animation:none}
 .search-result{padding:12px;border-bottom:1px solid var(--border);cursor:pointer;border-radius:8px;margin-bottom:4px;background:var(--card)}
 .search-result:hover{background:var(--bg)}
 .search-result p{margin:5px 0 0 0;color:var(--muted);font-size:13px}
+.search-score{display:inline-block;font-size:10px;padding:1px 7px;border-radius:8px;margin-right:6px;font-weight:700}
+.score-exact{background:#dcfce7;color:#166534}
+.score-token{background:#dbeafe;color:#1e40af}
+.score-fuzzy{background:#fef9c3;color:#854d0e}
 mark{background:#fde047;color:#1f2937;border-radius:4px;padding:0 2px}
 mark.search-hl{background:#fde047;color:#1f2937;padding:0 3px;border-radius:6px;animation:hlpulse 1s ease 2}
 body.low-end mark.search-hl{animation:none}
@@ -91,6 +95,7 @@ body.low-end .modal-content{animation:none}
 .badge{display:inline-block;padding:2px 8px;background:var(--accent);color:#fff;font-size:11px;border-radius:10px;font-weight:700;margin-right:6px}
 .badge.new{background:#10b981}
 .badge.warn{background:#f59e0b}
+.badge.calc{background:#64748b}
 </style>
 </head>
 <body>
@@ -144,7 +149,7 @@ body.low-end .modal-content{animation:none}
             فعلاً پول ماهیانه را تا دریافت دیما کارت دریافت نمی‌کنیم. به‌زودی شماره کارت هم در سایت قرار می‌دهیم.
         </div>
         <div class="news-item urgent">
-            <strong>۲. ️ واریز امروز مامان:</strong><br>
+            <strong>۲.  واریز امروز مامان:</strong><br>
             الان اول باید مامان <strong>۱۳ میلیون و ۴۰ هزار تومان</strong> را امروز در کارت تجارت خود واریز کند تا کل پول قسط‌ها پرداخت شود.
         </div>
         <div class="news-item info">
@@ -165,14 +170,14 @@ body.low-end .modal-content{animation:none}
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه مهر</h4>
-            <p><strong>۳۳ میلیون و ۴۰ هزار تومان</strong><br>
+            <p><strong>۱۵ میلیون و ۲۵۶ هزار تومان</strong><br>
             این ماه به دلیل خریدها پول ماهیانه زیاد شده است.</p>
         </div>
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>۱۳ میلیون و ۴۸۰ هزار تومان</strong><br>
-            <span class="badge warn">تقریبی</span> آبان فعلاً تکمیلی نیست ولی تقریبی است.</p>
+            <p><strong>⏳ در حال محاسبه...</strong><br>
+            <span class="badge calc">در حال محاسبه</span> عدد قبلی پاک شد؛ به‌محض آماده شدن اعلام می‌شود.</p>
         </div>
         
         <div class="finance-section">
@@ -270,7 +275,7 @@ body.low-end .modal-content{animation:none}
     <div class="box">
         <h3>🤖 دستیار هوشمند</h3>
         <div class="search-bar">
-            <input type="text" id="search-input" placeholder="جستجو در سایت... 🔍 (مثلاً: دیما، د ما، وپد)" oninput="searchSite()" maxlength="100" autocomplete="off">
+            <input type="text" id="search-input" placeholder="جستجو در سایت... 🔍 (مثلاً: دیما، د ما، واچ، فیبر مودم)" oninput="searchSite()" maxlength="100" autocomplete="off">
         </div>
         <div id="search-results"></div>
         <div class="chat-box" id="chat-box" role="log" aria-live="polite"></div>
@@ -380,8 +385,8 @@ function showSummary(){
             '• این ماه پول ماهیانه زیاد شده (خریدها)؛ ماه بعد کمتر می‌شود</p>';
     } else if(currentPage === 'page-finance'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>💰 خلاصه واحد مالی:</strong><br>' +
-            '• مهر: ۳۳,۰۴۰,۰۰ تومان<br>' +
-            '• آبان (تقریبی): ۱۳,۴۸۰,۰۰۰ تومان<br>' +
+            '• مهر: ۱۵,۲۵,۰۰ تومان<br>' +
+            '• آبان: ⏳ در حال محاسبه<br>' +
             '• اینترنت خانه شاید تقسیم شود<br>' +
             '• حداقل ۲ میلیون برای اینترنت و قبض‌ها<br>' +
             '• قوانین BNPL و اقساط<br>' +
@@ -389,7 +394,7 @@ function showSummary(){
             '• ۷ کارت حکومت: دیجی کارت، Q Bank، بلو، Wepod، دیما کارت، بلو جونیور، زی کارت</p>';
     } else if(currentPage === 'page-shop'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🛒 خلاصه خریدها:</strong><br>' +
-            '• 🌐 اینترنت‌ها: شاتل ۲۰۰، همراه اول موبایل ۴۰۰، همراه اول خانه ۷۱۵<br>' +
+            '• 🌐 اینترنت‌ها: شاتل ۲۰، همراه اول موبایل ۴۰۰، همراه اول خانه ۷۱<br>' +
             '• 🎮 گیمینگ: SSD، هدست، گیفت کارت<br>' +
             '• 📶 شبکه: مودم 5G U30 Pro، مودم فیبر هوآوی<br>' +
             '• ⌚ Galaxy Watch 8<br>' +
@@ -401,8 +406,8 @@ function showSummary(){
     } else {
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🏠 خلاصه صفحه اصلی:</strong><br>' +
             '• دسترسی به اخبار، واحد مالی، دستیار و خرید<br>' +
-            '• مهر: ۳۳,۰۴۰,۰۰۰ تومان<br>' +
-            '• آبان: ۱۳,۴۸۰,۰۰۰ تومان (تقریبی)<br>' +
+            '• مهر: ۱۵,۲۵۶,۰۰ تومان<br>' +
+            '• آبان: ⏳ در حال محاسبه<br>' +
             '• همه‌چیز در یک نگاه!</p>';
     }
     
@@ -438,7 +443,7 @@ const shopItems = [
     {t:"شارژ سیم‌کارت ودافون از sae۲۲", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"🌍 سیم‌کارت‌های خارجی"},
     {t:"خرید سیم‌کارت EE انگلستان از sae۲۲", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", c:"🌍 سیم‌کارت‌های خارجی"},
     {t:"خرید طلا از میلی", l:"https://milli.gold", c:"🪙 طلا و گیفت کارت"},
-    {t:"خرید گیفت کارت ۱۰۰ دلاری PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation", c:"🪙 طلا و گیفت کارت"},
+    {t:"خرید گیفت کارت ۱۰ دلاری PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation", c:"🪙 طلا و گیفت کارت"},
     {t:"درخواست فیبرنوری از مخابرات", l:null, c:"🛍️ خریدهای حضوری و سایر"},
     {t:"آمپول لاغری", l:null, c:"🛍️ خریدهای حضوری و سایر"},
     {t:"اکشن فیگور و اسباب‌بازی از پیج اینستاگرام", l:null, c:"🛍️ خریدهای حضوری و سایر"},
@@ -476,7 +481,7 @@ const kb = {
     },
     money:{
         k:['پول','money','ماهانه','حقوق','salary','مبلغ','مهر','آبان'],
-        f:"💰 پول ماهیانه:\n• مهر: ۳۳,۰۴۰,۰۰۰ تومان (زیاد شده به خاطر خریدها)\n• آبان: ۱۳,۴۸۰,۰۰۰ تومان (تقریبی)\n• قول ماه بعد: کمتر خواهد شد\n• حداقل ۲ میلیون برای اینترنت و قبض‌ها\n• اینترنت خانه شاید تقسیم شود\n• دریافت پول تا دریافت دیما کارت متوقف است"
+        f:"💰 پول ماهیانه:\n• مهر: ۱۵,۲۵۶,۰۰ تومان\n• آبان: ⏳ در حال محاسبه\n• قول ماه بعد: کمتر خواهد شد\n• حداقل ۲ میلیون برای اینترنت و قبض‌ها\n• اینترنت خانه شاید تقسیم شود\n• دریافت پول تا دریافت دیما کارت متوقف است"
     },
     bnpl:{
         k:['bnpl','قسط','قسطی','اعتبار','دیجی پی','ترب پی','اسنپ پی','تارا','باسلام','اوانو'],
@@ -557,14 +562,59 @@ function sendMsg(){
 renderChat();
 
 /* =====================================================
-   جستجوی هوشمند فازی + هایلایت زنده + اسکرول + ریست
+   موتور جستجوی قوی: نرمال‌سازی + نام مستعار + چندکلمه‌ای
+   + فازی با گسترش بازه + رتبه‌بندی + هایلایت + ریست
    ===================================================== */
 
 const pageNames = {'page-home':'🏠 خانه','page-news':'📰 اخبار','page-finance':'💰 واحد مالی','page-shop':'🛒 خریدها','page-ai':'🤖 دستیار'};
 let highlightArmed = false;
 let searchTimer = null;
 
-/* نرمال‌سازی فارسی: حذف فاصله و نیم‌فاصله، یکسان‌سازی حروف و ارقام */
+/* نام‌های مستعار: هر چیزی که کاربر ممکنه بنویسه → شکل استاندارد */
+const ALIAS = {
+    'واچ':'watch', 'واتچ':'watch', 'گالکسی':'گلکسی', 'galaxy':'گلکسی',
+    'کیوبانک':'qbank', 'کیو بانک':'qbank', 'وبانک':'qbank',
+    'وپد':'wepod', 'ویپاد':'wepod',
+    'ساندیسک':'سن‌دیسک', 'سدیسک':'سن‌دیسک', 'sandisk':'سن‌دیسک',
+    'رایزر':'ریزر', 'رازر':'ریزر', 'razer':'ریزر',
+    'بلکشارک':'blackshark', 'بلک شارک':'blackshark',
+    'ایکسترنال':'اکسترنال', 'extreme':'اکسترنال',
+    'جیفت':'گیفت', 'گیفتکارت':'گیفت کارت',
+    'پس5':'ps5', 'پیاس5':'ps5', 'پلیاستیشن':'ps5',
+    'زدتیای':'زدتی‌ای', 'zte':'زدتی‌ای',
+    'هوایی':'هوآوی', 'huawei':'هوآوی',
+    'میجیا':'میجیا', 'xiaomi':'میجیا',
+    'انکر':'انکر', 'anker':'انکر',
+    'بیسوس':'بیسوس', 'baseus':'بیسوس',
+    'دیجیکالا':'دیجی‌کالا', 'digikala':'دیجی‌کالا',
+    'اسنپ':'اسنپ', 'snapp':'اسنپ',
+    'ازکی':'ازکی‌وام', 'ازکیوام':'ازکی‌وام',
+    'میلی':'میلی', 'milli':'میلی',
+    'ایرانیکارت':'ایرانیکارت',
+    'همراه اول':'همراه اول', 'همراه اول':'همراه اول',
+    'شاتل':'شاتل', 'مخابرات':'مخابرات',
+    'جارو شارژی':'جاروشارژی', 'جاروبرقی':'جاروشارژی',
+    'پرزگیر':'پرزگیر', 'لیت گیر':'پرزگیر',
+    'جاکارتی':'جاکارتی', 'کیف پول':'جاکارتی',
+    'باربر':'باربر', 'فرغون':'باربر',
+    'پنکه':'پنکه', 'مه پاش':'مه‌پاش',
+    'سیمکارت':'سیم‌کارت', 'سیم کارت':'سیم‌کارت',
+    'ودافون':'ودافون', 'vodafone':'ودافون',
+    'طلا':'طلا', 'gold':'طلا',
+    'وام':'وام', 'قرض':'وام',
+    'اشتراک':'اشتراک', 'ساب':'اشتراک',
+    'دیما':'دیما', 'دیما کارت':'دیما کارت',
+    'بلو جونیور':'بلو جونیور', 'بلوجونیور':'بلو جونیور',
+    'زی کارت':'زی کارت', 'زیکارت':'زی کارت',
+    'بلو بانک':'بلو بانک', 'بلوبانک':'بلو بانک',
+    'دیجی کارت':'دیجی کارت', 'دیجیکارت':'دیجی کارت',
+    'اینترنت':'اینترنت', 'نت':'اینترنت', 'نت':'اینترنت',
+    'قبض':'قبض', 'قبوض':'قبض',
+    'ماهانه':'ماهانه', 'حقوق':'ماهانه',
+    'مهر':'مهر', 'آبان':'آبان', 'ابان':'آبان'
+};
+
+/* نرمال‌سازی فارسی */
 function normChar(ch){
     if(ch === 'ي') return 'ی';
     if(ch === 'ك') return 'ک';
@@ -578,6 +628,17 @@ function normChar(ch){
 function normalizeFa(str){
     let out = '';
     for(let i = 0; i < str.length; i++) out += normChar(str[i]);
+    return out;
+}
+/* اعمال نام‌های مستعار روی متن نرمال‌شده */
+function applyAliases(normStr){
+    let out = normStr;
+    for(const k in ALIAS){
+        const kn = normalizeFa(k);
+        if(kn && out.includes(kn)){
+            out = out.split(kn).join(normalizeFa(ALIAS[k]));
+        }
+    }
     return out;
 }
 
@@ -621,7 +682,7 @@ function lev(a, b, max){
     return prev[n];
 }
 
-/* جستجوی فازی پنجره‌ای */
+/* جستجوی فازی + گسترش بازه برای پوشش کامل کلمه */
 function fuzzyFind(norm, q, tol){
     const lengths = [];
     for(let d = 0; d <= tol; d++){
@@ -631,7 +692,13 @@ function fuzzyFind(norm, q, tol){
     for(let li = 0; li < lengths.length; li++){
         const L = lengths[li];
         for(let s = 0; s + L <= norm.length; s++){
-            if(lev(norm.substr(s, L), q, tol) <= tol) return {s:s, e:s + L};
+            if(lev(norm.substr(s, L), q, tol) <= tol){
+                let e = s + L;
+                /* گسترش به چپ و راست تا بازه کامل بشه */
+                while(s > 0 && lev(norm.substring(s - 1, e), q, tol) <= tol) s--;
+                while(e < norm.length && lev(norm.substring(s, e + 1), q, tol) <= tol) e++;
+                return {s:s, e:e};
+            }
         }
     }
     return null;
@@ -647,7 +714,7 @@ function getSearchElements(){
     ));
 }
 
-/* هایلایت برد روی متن اصلی */
+/* هایلایت روی متن اصلی */
 function highlightRange(el, s, e){
     const b = buildNorm(el);
     if(!b.mapNode.length || s >= b.mapNode.length || e > b.mapNode.length) return null;
@@ -680,7 +747,7 @@ function clearHighlights(){
 /* ورودی سرچ → جستجوی با تأخیر */
 function searchSite(){
     clearTimeout(searchTimer);
-    searchTimer = setTimeout(doSearch, 220);
+    searchTimer = setTimeout(doSearch, 200);
 }
 
 function doSearch(){
@@ -690,47 +757,79 @@ function doSearch(){
     const raw = input.value.trim();
     results.innerHTML = '';
     if(raw.length < 2) return;
-    const q = normalizeFa(raw);
+    
+    const q = applyAliases(normalizeFa(raw));
     if(q.length < 2) return;
     
-    const els = getSearchElements();
-    let matches = [];
+    /* توکن‌های چندکلمه‌ای */
+    const tokens = raw.split(/\s+/).map(t => applyAliases(normalizeFa(t))).filter(t => t.length >= 2);
     
-    /* پاس دقیق */
+    const els = getSearchElements();
+    const best = new Map();
+    
+    function push(el, b, s, e, score){
+        const prev = best.get(el);
+        if(!prev || score < prev.score){
+            best.set(el, {el:el, b:b, s:s, e:e, score:score});
+        }
+    }
+    
+    /* پاس ۱: تطابق دقیق */
     for(let i = 0; i < els.length; i++){
         const b = buildNorm(els[i]);
         const idx = b.norm.indexOf(q);
-        if(idx > -1) matches.push({el:els[i], b:b, s:idx, e:idx + q.length});
+        if(idx > -1) push(els[i], b, idx, idx + q.length, 0);
     }
-    /* پاس فازی فقط وقتی دقیق چیزی پیدا نکرد */
-    if(matches.length === 0){
-        const tols = (q.length < 4) ? [1] : [1, 2];
-        for(let t = 0; t < tols.length && matches.length === 0; t++){
+    
+    /* پاس ۲: چندکلمه‌ای بدون ترتیب */
+    if(tokens.length > 1){
+        for(let i = 0; i < els.length; i++){
+            if(best.has(els[i]) && best.get(els[i]).score === 0) continue;
+            const b = buildNorm(els[i]);
+            let all = true, minS = Infinity, maxE = -1;
+            for(let t = 0; t < tokens.length; t++){
+                const idx = b.norm.indexOf(tokens[t]);
+                if(idx === -1){ all = false; break; }
+                if(idx < minS) minS = idx;
+                if(idx + tokens[t].length > maxE) maxE = idx + tokens[t].length;
+            }
+            if(all && maxE > minS) push(els[i], b, minS, maxE, 1);
+        }
+    }
+    
+    /* پاس ۳: فازی فقط اگر هیچ‌کدام پیدا نشد */
+    if(best.size === 0){
+        const maxTol = (q.length >= 4) ? 2 : 1;
+        for(let tol = 1; tol <= maxTol && best.size === 0; tol++){
             for(let i = 0; i < els.length; i++){
                 const b = buildNorm(els[i]);
-                if(b.norm.length < q.length - tols[t]) continue;
-                const r = fuzzyFind(b.norm, q, tols[t]);
-                if(r) matches.push({el:els[i], b:b, s:r.s, e:r.e});
+                if(b.norm.length < q.length - tol) continue;
+                const r = fuzzyFind(b.norm, q, tol);
+                if(r) push(els[i], b, r.s, r.e, 2);
             }
         }
     }
     
-    if(matches.length === 0){
+    if(best.size === 0){
         results.innerHTML = '<p style="padding:10px;color:var(--muted)">نتیجه‌ای یافت نشد 😕</p>';
         return;
     }
-    matches = matches.slice(0, 15);
+    
+    /* رتبه‌بندی: دقیق → چندکلمه‌ای → فازی */
+    let matches = Array.from(best.values()).sort((a, b2) => a.score - b2.score).slice(0, 15);
+    
+    const scoreLabel = ['<span class="search-score score-exact">دقیق</span>', '<span class="search-score score-token">ترکیبی</span>', '<span class="search-score score-fuzzy">حدسی</span>'];
     
     results.innerHTML = matches.map((m, i) => {
         const pageEl = m.el.closest('.page');
         const pageId = pageEl ? pageEl.id : 'page-home';
         const sO = m.b.mapOrig[m.s];
-        const eO = m.b.mapOrig[m.e - 1] + 1;
+        const eO = m.b.mapOrig[Math.min(m.e, m.b.mapOrig.length) - 1] + 1;
         const pre = m.b.orig.substring(Math.max(0, sO - 25), sO);
         const mid = m.b.orig.substring(sO, eO);
         const post = m.b.orig.substring(eO, Math.min(m.b.orig.length, eO + 35));
         return '<div class="search-result" data-idx="' + i + '">' +
-            '<strong>' + (pageNames[pageId] || pageId) + '</strong>' +
+            '<strong>' + (pageNames[pageId] || pageId) + '</strong>' + scoreLabel[m.score] +
             '<p>' + escapeHtml(pre) + '<mark>' + escapeHtml(mid) + '</mark>' + escapeHtml(post) + '</p>' +
             '</div>';
     }).join('');
