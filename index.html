@@ -37,9 +37,10 @@ body.low-end .page{animation:none}
 .box p{margin-bottom:10px;font-size:14px}
 .news-item{padding:14px;background:var(--bg);border-right:4px solid var(--accent);border-radius:10px;margin-bottom:12px;line-height:1.9}
 .news-item.highlight{border-right-color:#f59e0b;background:linear-gradient(135deg,#fffbeb,#fef3c7)}
+.news-item.urgent{border-right-color:#ef4444;background:linear-gradient(135deg,#fef2f2,#fee2e2)}
+.news-item.info{border-right-color:#8b5cf6;background:linear-gradient(135deg,#faf5ff,#f3e8ff)}
 .news-item strong{color:var(--accent-dark)}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
-.link-text:hover{text-decoration:none}
 .quick-btn{background:var(--bg);border:1px solid var(--border);padding:8px 14px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;color:var(--text);transition:.2s;margin:4px}
 .quick-btn:active{transform:scale(0.95)}
 .chat-box{background:var(--card);border-radius:16px;padding:15px;border:1px solid var(--border);min-height:250px;max-height:350px;overflow-y:auto;margin-bottom:12px}
@@ -49,11 +50,6 @@ body.low-end .page{animation:none}
 .input-wrap{display:flex;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:6px 8px}
 .input-wrap input{flex:1;border:none;outline:none;padding:10px;font-family:inherit;background:transparent;font-size:14px}
 .input-wrap button{background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:30px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14px}
-.salary-table{width:100%;border-collapse:collapse;margin-top:15px;font-size:14px;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border)}
-.salary-table th{background:linear-gradient(135deg,var(--accent),var(--pink));color:#fff;padding:12px;font-weight:700}
-.salary-table td{padding:12px;text-align:center;border-bottom:1px solid var(--border)}
-.salary-table tr:last-child td{border-bottom:none}
-.salary-title{font-size:15px;font-weight:800;margin-top:20px;margin-bottom:10px;color:var(--text);display:flex;align-items:center;gap:8px}
 .summary-btn{position:fixed;top:95px;left:15px;background:linear-gradient(135deg,#10b981,#34d399);color:#fff;border:none;padding:10px 16px;border-radius:25px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(16,185,129,0.4);z-index:100;font-size:14px;font-family:inherit}
 .summary-btn:active{transform:scale(0.95)}
 .summary-btn.hidden{display:none}
@@ -62,6 +58,11 @@ body.low-end .page{animation:none}
 .search-bar input:focus{outline:none;border-color:var(--accent)}
 .search-result{padding:12px;border-bottom:1px solid var(--border);cursor:pointer;border-radius:8px;margin-bottom:4px;background:var(--card)}
 .search-result:hover{background:var(--bg)}
+.search-result p{margin:5px 0 0 0;color:var(--muted);font-size:13px}
+mark{background:#fde047;color:#1f2937;border-radius:4px;padding:0 2px}
+mark.search-hl{background:#fde047;color:#1f2937;padding:0 3px;border-radius:6px;animation:hlpulse 1s ease 2}
+body.low-end mark.search-hl{animation:none}
+@keyframes hlpulse{0%,100%{box-shadow:0 0 0 0 rgba(253,224,71,0)}50%{box-shadow:0 0 0 6px rgba(253,224,71,.6)}}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10001;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .modal-content{background:var(--card);border-radius:20px;padding:25px;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative;animation:pop .3s ease}
 body.low-end .modal-content{animation:none}
@@ -70,14 +71,26 @@ body.low-end .modal-content{animation:none}
 .fab{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);width:60px;height:60px;background:linear-gradient(135deg,var(--accent),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;box-shadow:0 8px 25px rgba(59,130,246,0.4);cursor:pointer;border:none;z-index:50}
 .fab:active{transform:translateX(-50%) scale(0.9)}
 @media(min-width:769px){body::after{content:'این سایت فقط روی موبایل باحال‌تره!';position:fixed;inset:0;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;z-index:999999;text-align:center;padding:20px}}
-.audio-player{width:100%;margin-top:15px}
-.notice-item{padding:15px;border:1px solid var(--border);border-radius:12px;margin-bottom:12px;background:var(--bg)}
-.notice-item h4{margin-bottom:8px;color:var(--accent)}
 .shop-item{margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px}
 .shop-item.no-link{border-bottom:1px solid var(--border);padding-bottom:8px;color:var(--muted);margin-bottom:12px}
-.shop-section-title{margin:18px 0 10px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center;gap:6px}
+.shop-section-title{margin:18px 0 10px;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:0.5px;display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 20px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:2px;background:var(--border)}
+.finance-section{margin-bottom:20px;padding:16px;background:var(--bg);border-radius:14px;border-right:4px solid var(--accent)}
+.finance-section h4{color:var(--accent);font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.finance-section p{font-size:14px;line-height:1.9}
+.finance-section ul{list-style:none;padding:0;margin:8px 0}
+.finance-section li{padding:8px 0;border-bottom:1px dashed var(--border);font-size:14px}
+.finance-section li:last-child{border-bottom:none}
+.finance-section li strong{color:var(--text)}
+.finance-card{display:flex;align-items:flex-start;gap:10px;padding:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:8px}
+.finance-card .card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0}
+.finance-card .card-info{flex:1}
+.finance-card .card-name{font-weight:700;font-size:14px;margin-bottom:3px}
+.finance-card .card-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.badge{display:inline-block;padding:2px 8px;background:var(--accent);color:#fff;font-size:11px;border-radius:10px;font-weight:700;margin-right:6px}
+.badge.new{background:#10b981}
+.badge.warn{background:#f59e0b}
 </style>
 </head>
 <body>
@@ -106,6 +119,13 @@ body.low-end .modal-content{animation:none}
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
         </div>
+        <div class="card-btn" onclick="openPage('page-finance')">
+            <div style="display:flex;align-items:center;gap:12px">
+                <div class="icon" style="background:#10b981">💰</div>
+                <span>واحد مالی</span>
+            </div>
+            <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
+        </div>
         <div class="card-btn" onclick="openPage('page-ai')">
             <div style="display:flex;align-items:center;gap:12px">
                 <div class="icon" style="background:var(--accent)">🤖</div>
@@ -113,40 +133,135 @@ body.low-end .modal-content{animation:none}
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
         </div>
-        <div class="card-btn" onclick="openPage('page-notifications')">
-            <div style="display:flex;align-items:center;gap:12px">
-                <div class="icon" style="background:#8b5cf6">📢</div>
-                <span>اطلاعیه</span>
-            </div>
-            <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-        </div>
     </div>
-    <div class="salary-title">📊 جدول پول ماهیانه:</div>
-    <table class="salary-table">
-        <tr><th>ماه</th><th>مبلغ</th></tr>
-        <tr><td>مهر</td><td><strong>۳۰ میلیون و ۷۷۱ هزار تومان</strong></td></tr>
-    </table>
 </div>
 
 <div class="page" id="page-news">
     <div class="box">
         <h3>📰 اخبار</h3>
-        <div class="news-item">
-            <strong>۱. 💳 وضعیت پول ماهیانه:</strong><br>
-            پول ماهیانه فعلاً کاهشی نمی‌شود.
+        <div class="news-item urgent">
+            <strong>۱. 💳 وضعیت دریافت پول ماهیانه:</strong><br>
+            فعلاً پول ماهیانه را تا دریافت دیما کارت دریافت نمی‌کنیم. به‌زودی شماره کارت هم در سایت قرار می‌دهیم.
         </div>
-        <div class="news-item">
-            <strong>۲. 🌐 تقسیم پول اینترنت:</strong><br>
-            ۵۰ درصد پول اینترنت خانه را مامان پرداخت می‌کند و ۵۰ درصد مابقی توسط حکومت پرداخت می‌شود.<br>
-            <span style="color:var(--accent-dark)">⚠️ نکته مهم:</span> این تقسیم فقط شامل اینترنت خانه می‌شود. پول اینترنت موبایل تقسیم نخواهد شد و کل آن را باید مامان پرداخت کند!
+        <div class="news-item urgent">
+            <strong>۲. ️ واریز امروز مامان:</strong><br>
+            الان اول باید مامان <strong>۱۳ میلیون و ۴۰ هزار تومان</strong> را امروز در کارت تجارت خود واریز کند تا کل پول قسط‌ها پرداخت شود.
+        </div>
+        <div class="news-item info">
+            <strong>۳. 📶 اینترنت‌هایی که باید تهیه شود:</strong><br>
+            شاتل موبایل، همراه اول موبایل و همراه اول خانه<br>
+            <span style="color:var(--muted);font-size:13px">🔗 برای مشاهده قیمت و حجم، به صفحه خریدها مراجعه کنید.</span>
         </div>
         <div class="news-item highlight">
-            <strong>۳. 🚫 قانون خریدهای BNPL:</strong><br>
-            ما تا تمام نشدن قسط‌های BNPL، هیچ خرید قسطی جدیدی انجام نمی‌دهیم!
+            <strong>۴. 💡 توضیح پول ماهیانه این ماه:</strong><br>
+            این ماه به دلیل خریدها، پول ماهیانه زیاد شده است. ماه بعدی قول می‌دهیم که پول ماهیانه کمتر از این مقدار گفته شده باشد.
         </div>
-        <div class="news-item highlight">
-            <strong>۴. 📌 محدودیت خرید اقساطی:</strong><br>
-            در صورت خرید اقساطی، بیش از ۲ خرید انجام نخواهد شد. فقط خرید‌هایی که در لیست هستند در صورت نیاز قسطی خریداری می‌شوند. هر ماه فقط یک خرید (آن هم در صورت نیاز) و تا پایان قسط‌ها، خرید قسطی دیگری نخواهیم کرد!
+    </div>
+</div>
+
+<div class="page" id="page-finance">
+    <div class="box">
+        <h3>💰 واحد مالی</h3>
+        
+        <div class="finance-section">
+            <h4>📅 پول ماهیانه مهر</h4>
+            <p><strong>۳۳ میلیون و ۴۰ هزار تومان</strong><br>
+            این ماه به دلیل خریدها پول ماهیانه زیاد شده است.</p>
+        </div>
+        
+        <div class="finance-section">
+            <h4>📅 پول ماهیانه آبان</h4>
+            <p><strong>۱۳ میلیون و ۴۸۰ هزار تومان</strong><br>
+            <span class="badge warn">تقریبی</span> آبان فعلاً تکمیلی نیست ولی تقریبی است.</p>
+        </div>
+        
+        <div class="finance-section">
+            <h4>🌐 پول اینترنت خانه</h4>
+            <p>پول اینترنت خانه شاید تقسیم شود.<br>
+            حداقل <strong>۲ میلیون تومان</strong> هم برای اینترنت و هم برای قبض‌ها باید داشته باشد.</p>
+        </div>
+        
+        <div class="finance-section">
+            <h4>💳 قوانین BNPL و اقساط</h4>
+            <ul>
+                <li>تا تمام نشدن قسط‌های BNPL، خرید قسطی جدید ممنوع است!</li>
+                <li>حداکثر ۲ خرید اقساطی مجاز است.</li>
+                <li>فقط خریدهای داخل لیست در صورت نیاز قسطی می‌شوند.</li>
+                <li>ماهی فقط یک خرید (آن هم در صورت نیاز).</li>
+            </ul>
+        </div>
+        
+        <div class="finance-section">
+            <h4>🏦 اعتبارهای ۴ قسطه</h4>
+            <p>در صورت استفاده از اعتبار ۴ قسطه (دیجی‌پی، ترب‌پی، اسنپ‌پی، تارا، باسلام، اوانو):</p>
+            <ul>
+                <li>فقط قسط اول را حکومت می‌پردازد</li>
+                <li>ماه‌های بعدی: ۵۰٪ مامان + ۵۰٪ حکومت</li>
+            </ul>
+        </div>
+        
+        <div class="finance-section">
+            <h4>💼 کارت‌های حکومت (۷ کارت)</h4>
+            
+            <div class="finance-card">
+                <div class="card-icon" style="background:#ef4444">💳</div>
+                <div class="card-info">
+                    <div class="card-name">دیجی کارت</div>
+                    <div class="card-desc">اولین کارت که برای خرید آنلاین می‌باشد، مخصوصاً دیجی‌کالا.</div>
+                </div>
+            </div>
+            
+            <div class="finance-card">
+                <div class="card-icon" style="background:#3b82f6">💳</div>
+                <div class="card-info">
+                    <div class="card-name">Q Bank</div>
+                    <div class="card-desc">برای خرید اینترنت و پول قبض‌ها وارد این کارت می‌شود و توسط این کارت تهیه می‌شود.</div>
+                </div>
+            </div>
+            
+            <div class="finance-card">
+                <div class="card-icon" style="background:#8b5cf6">💳</div>
+                <div class="card-info">
+                    <div class="card-name">بلو بانک</div>
+                    <div class="card-desc">تا قبلاً برای درآمد اصلی بود. این کارت دیگر برای درآمد اصلی نیست و فقط برای خرید از صرافی نوبیتکس، بیت پین و بیت ۲۴ می‌باشد.</div>
+                </div>
+            </div>
+            
+            <div class="finance-card">
+                <div class="card-icon" style="background:#f59e0b">💳</div>
+                <div class="card-info">
+                    <div class="card-name">Wepod</div>
+                    <div class="card-desc">این کارت برای ذخیره پول برای خرید طلای آنلاین و یا طلای فیزیکی می‌باشد. پول وارد این کارت شده است و از این کارت خریداری می‌شود.</div>
+                </div>
+            </div>
+            
+            <div class="finance-card">
+                <div class="card-icon" style="background:#10b981">💳</div>
+                <div class="card-info">
+                    <div class="card-name">دیما کارت <span class="badge new">جدید</span></div>
+                    <div class="card-desc">این کارت که جدیدا درخواست داده‌ایم برای درآمد اصلی می‌باشد و پول اصلی وارد همین کارت می‌شود و سپس وارد کارت‌های دیگر می‌شود!</div>
+                </div>
+            </div>
+            
+            <div class="finance-card">
+                <div class="card-icon" style="background:#ec4899">💳</div>
+                <div class="card-info">
+                    <div class="card-name">بلو جونیور <span class="badge new">جدید</span></div>
+                    <div class="card-desc">این کارت جدید است و برای ذخیره پول ریالی می‌باشد.</div>
+                </div>
+            </div>
+            
+            <div class="finance-card">
+                <div class="card-icon" style="background:#14b8a6">💳</div>
+                <div class="card-info">
+                    <div class="card-name">زی کارت <span class="badge new">جدید</span></div>
+                    <div class="card-desc">این کارت جدید است و برای ذخیره پول ریالی می‌باشد.</div>
+                </div>
+            </div>
+            
+            <p style="margin-top:15px;padding:12px;background:var(--card);border-radius:10px;border:1px solid var(--border)">
+                <strong>📊 تعداد کل کارت‌ها: ۷ کارت</strong>
+            </p>
         </div>
     </div>
 </div>
@@ -155,7 +270,7 @@ body.low-end .modal-content{animation:none}
     <div class="box">
         <h3>🤖 دستیار هوشمند</h3>
         <div class="search-bar">
-            <input type="text" id="search-input" placeholder="جستجو در سایت... 🔍" oninput="searchSite()" maxlength="100" autocomplete="off">
+            <input type="text" id="search-input" placeholder="جستجو در سایت... 🔍 (مثلاً: دیما، د ما، وپد)" oninput="searchSite()" maxlength="100" autocomplete="off">
         </div>
         <div id="search-results"></div>
         <div class="chat-box" id="chat-box" role="log" aria-live="polite"></div>
@@ -178,18 +293,6 @@ body.low-end .modal-content{animation:none}
     </div>
 </div>
 
-<div class="page" id="page-notifications">
-    <div class="box">
-        <h3>📢 اطلاعیه</h3>
-        <div class="notice-item">
-            <h4>پیام صوتی</h4>
-            <p style="color:var(--muted)">به‌زودی فایل صوتی اضافه می‌شود...</p>
-            <audio class="audio-player" id="audio-player" controls style="display:none" preload="none"></audio>
-            <button class="quick-btn" id="play-audio-btn" style="display:none" onclick="playAudio()">▶️ پخش پیام صوتی</button>
-        </div>
-    </div>
-</div>
-
 <div id="summary-modal" class="modal" onclick="if(event.target===this)closeSummary()" role="dialog" aria-modal="true">
     <div class="modal-content">
         <button class="close-modal" onclick="closeSummary()" aria-label="بستن">✕</button>
@@ -208,14 +311,14 @@ if((navigator.deviceMemory && navigator.deviceMemory < 4) || (navigator.hardware
     document.body.classList.add('low-end');
 }
 
-/* ===== ویبریشن (فقط برای گوشی‌های جدید) ===== */
+/* ===== ویبریشن ===== */
 function vibrate(){
     if('vibrate' in navigator && !document.body.classList.contains('low-end')){
         try{ navigator.vibrate(30); }catch(e){}
     }
 }
 
-/* ===== تابع کمکی برای امنیت (Escape HTML) ===== */
+/* ===== امنیت ===== */
 function escapeHtml(str){
     if(typeof str !== 'string') return '';
     return str.replace(/[&<>"']/g, function(m){
@@ -223,7 +326,7 @@ function escapeHtml(str){
     });
 }
 
-/* ===== ناوبری صفحات ===== */
+/* ===== ناوبری ===== */
 function openPage(id){
     const prevPage = document.querySelector('.page.active').id;
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -240,10 +343,6 @@ function openPage(id){
     if(prevPage === 'page-ai' && id !== 'page-ai'){
         chat = [{sender:'bot', text:'سلام! چطوری؟ 🫶\nهر سؤالی داری بپرس یا از دکمه‌های پایین استفاده کن!'}];
         renderChat();
-        const searchInput = document.getElementById('search-input');
-        if(searchInput) searchInput.value = '';
-        const searchResults = document.getElementById('search-results');
-        if(searchResults) searchResults.innerHTML = '';
     }
     
     if(id !== 'page-home'){
@@ -274,32 +373,36 @@ function showSummary(){
     let summary = '';
     if(currentPage === 'page-news'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>📰 خلاصه اخبار:</strong><br>' +
-            '• پول ماهیانه فعلاً کاهشی نمی‌شود<br>' +
-            '• ۵۰٪ اینترنت خانه را مامان و ۵۰٪ را حکومت می‌دهد<br>' +
-            '• اینترنت موبایل کاملاً با مامان است<br>' +
-            '• خرید BNPL جدید تا پایان اقساط قبلی ممنوع<br>' +
-            '• حداکثر ۲ خرید اقساطی، ماهی یک خرید</p>';
+            '• دریافت پول ماهیانه تا دریافت دیما کارت متوقف است<br>' +
+            '• به‌زودی شماره کارت در سایت قرار می‌گیرد<br>' +
+            '• واریز امروز مامان: ۱۳ میلیون و ۴۰ هزار تومان (قسط‌ها)<br>' +
+            '• اینترنت‌هایی که باید تهیه شود: شاتل، همراه اول موبایل، همراه اول خانه<br>' +
+            '• این ماه پول ماهیانه زیاد شده (خریدها)؛ ماه بعد کمتر می‌شود</p>';
+    } else if(currentPage === 'page-finance'){
+        summary = '<p style="line-height:2;margin-bottom:15px"><strong>💰 خلاصه واحد مالی:</strong><br>' +
+            '• مهر: ۳۳,۰۴۰,۰۰ تومان<br>' +
+            '• آبان (تقریبی): ۱۳,۴۸۰,۰۰۰ تومان<br>' +
+            '• اینترنت خانه شاید تقسیم شود<br>' +
+            '• حداقل ۲ میلیون برای اینترنت و قبض‌ها<br>' +
+            '• قوانین BNPL و اقساط<br>' +
+            '• اعتبارهای ۴ قسطه: قسط اول حکومت، ماه‌های بعد ۵۰-۵۰<br>' +
+            '• ۷ کارت حکومت: دیجی کارت، Q Bank، بلو، Wepod، دیما کارت، بلو جونیور، زی کارت</p>';
     } else if(currentPage === 'page-shop'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🛒 خلاصه خریدها:</strong><br>' +
-            '• SSD، هدست، گیفت کارت و لوازم PS5<br>' +
-            '• گلکسی واچ ۸<br>' +
-            '• مودم جیبی ZTE U30 Pro و مودم فیبر هوآوی<br>' +
-            '• در بازکن، اسپری کارواش، شانه مو<br>' +
-            '• لوازم خودرو (کناره‌گیر، جالیوانی، جاروشارژی)<br>' +
-            '• لوازم خانگی (پنکه مه‌پاش، پرزگیر میجیا)<br>' +
-            '• سیم‌کارت انگلستان و طلا از میلی<br>' +
-            '• تمدید دیجی پلاس و Snapp Pro<br>' +
-            '• وام از ازکی‌وام<br>' +
-            '• و سایر لوازم جانبی</p>';
-    } else if(currentPage === 'page-notifications'){
-        summary = '<p style="line-height:2;margin-bottom:15px"><strong>📢 خلاصه اطلاعیه:</strong><br>' +
-            '• پیام‌های صوتی مهم<br>' +
-            '• اعلان‌های کنگره<br>' +
-            '• اطلاعات به‌زودی اضافه می‌شود</p>';
+            '• 🌐 اینترنت‌ها: شاتل ۲۰۰، همراه اول موبایل ۴۰۰، همراه اول خانه ۷۱۵<br>' +
+            '• 🎮 گیمینگ: SSD، هدست، گیفت کارت<br>' +
+            '• 📶 شبکه: مودم 5G U30 Pro، مودم فیبر هوآوی<br>' +
+            '• ⌚ Galaxy Watch 8<br>' +
+            '• 🚗 خودرو: جاروشارژی، شارژر انکر، گیرنده بیسوس<br>' +
+            '• 💻 هاب USB بیسوس<br>' +
+            '• 🏠 خانه: پنکه، پرزگیر، جاکارتی، باربر دستی<br>' +
+            '• 💳 اشتراک‌ها: دیجی پلاس، Snapp Pro، ازکی‌وام<br>' +
+            '• 🌍 سیم‌کارت انگلستان و طلا</p>';
     } else {
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🏠 خلاصه صفحه اصلی:</strong><br>' +
-            '• دسترسی به اخبار، دستیار، اطلاعیه و خرید<br>' +
-            '• پول ماهیانه: ۳۰ میلیون و ۷۷۱ هزار تومان<br>' +
+            '• دسترسی به اخبار، واحد مالی، دستیار و خرید<br>' +
+            '• مهر: ۳۳,۰۴۰,۰۰۰ تومان<br>' +
+            '• آبان: ۱۳,۴۸۰,۰۰۰ تومان (تقریبی)<br>' +
             '• همه‌چیز در یک نگاه!</p>';
     }
     
@@ -313,88 +416,81 @@ function closeSummary(){
 
 /* ===== لیست خریدها ===== */
 const shopItems = [
-    {t:"SSD اکسترنال سن‌دیسک ۱ ترابایت برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4935941/"},
-    {t:"هدست گیمینگ ریزر BlackShark V2 X برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3537683/"},
-    {t:"گلکسی واچ ۸ (با ۲ ماه ذخیره پول) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19925403"},
-    {t:"مودم جیبی ZTE U30 Pro از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14185411"},
-    {t:"گیرنده بلوتوثی بیسوس (AUX ماشین) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1854527/"},
-    {t:"شارژر فندکی ۴۵ وات انکر از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18612577/"},
-    {t:"هاب ۴ پورت USB 3.0 بیسوس (لپ‌تاپ قدیمی) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-16053379/"},
-    {t:"شارژ سیم‌کارت ودافون از sae۲۲", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/"},
-    {t:"خرید سیم‌کارت EE انگلستان از sae۲۲", l:"https://sae22.ir/product/buy-ee-uk-sim-card/"},
-    {t:"خرید طلا از میلی", l:"https://milli.gold"},
-    {t:"مودم فیبرنوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014"},
-    {t:"تمدید اشتراک دیجی پلاس یک‌ساله از دیجی‌کالا", l:"https://www.digikala.com/plus/landing/"},
-    {t:"تمدید اشتراک Snapp Pro شش‌ماهه از اسنپ", l:"https://snapp.ir/pro/"},
-    {t:"گرفتن وام خرید کالا از ازکی‌وام با پشتوانه طلا", l:"https://azkivam.com"},
-    {t:"خرید گیفت کارت ۱۰۰ دلاری PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation"},
-    {t:"در بازکن یزدگل کد ۵۰۹ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-2878969"},
-    {t:"اسپری کارواش بدون آب تام کلین ۴۸۰ میلی‌لیتر از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-2951899"},
-    {t:"شانه کوتاهی مو بلند فرند کد BN۷۰۰ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14336513"},
-    {t:"کناره‌گیر صندلی خودرو بسته ۲ عددی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1499594"},
-    {t:"پوشه دکمه‌دار پاپکو مدل ارکید (۶ عدد) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3242669"},
-    {t:"باربر دستی مدل BP۰۱ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19641006"},
-    {t:"جاروشارژی خودرو دو کاره مکش قوی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-15105543"},
-    {t:"پایه نگهدارنده گوشی و تبلت الدینیو MG۰۳ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-12506080"},
-    {t:"سیم جمع‌کن دوقلو بسته ۲ عددی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11580007"},
-    {t:"جالیوانی خودرو مدل G۴ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18934602"},
-    {t:"پنکه رومیزی مدل مه‌پاش از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14575975"},
-    {t:"پرزگیر برقی لباس میجیا مدل MQXJQ۰۱KL از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4115806"},
-    {t:"درخواست فیبرنوری از مخابرات", l:null},
-    {t:"آمپول لاغری", l:null},
-    {t:"اکشن فیگور و اسباب‌بازی از پیج اینستاگرام", l:null},
-    {t:"خرید ادکلن اورجینال از بازار", l:null},
-    {t:"خرید بازی برای PS۵", l:null}
+    {t:"شاتل موبایل - ۲۰ هزار تومان", l:null, c:"🌐 اینترنت‌ها"},
+    {t:"همراه اول موبایل - ۴۰۰ هزار تومان", l:null, c:"🌐 اینترنت‌ها"},
+    {t:"همراه اول خانه - ۷۱۵ هزار تومان", l:null, c:"🌐 اینترنت‌ها"},
+    {t:"SSD اکسترنال سن‌دیسک Extreme E61 ظرفیت ۱ ترابایت برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4935941", c:"🎮 گیمینگ و کنسول"},
+    {t:"هدست گیمینگ ریزر BlackShark V2 X برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ و کنسول"},
+    {t:"مودم روتر قابل حمل 5G زدتی‌ای U30 Pro با Wi-Fi 6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 مودم و شبکه"},
+    {t:"مودم فیبر نوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014", c:"📶 مودم و شبکه"},
+    {t:"ساعت هوشمند سامسونگ Galaxy Watch 8 مدل ۴۴ میلی‌متری از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19925403", c:"⌚ ساعت هوشمند"},
+    {t:"جاروشارژی خودرو دو کاره با مکش قوی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-15105543", c:"🚗 لوازم خودرو"},
+    {t:"شارژر فندکی ۴۵ وات سه پورت انکر مدل A2731 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18612577", c:"🚗 لوازم خودرو"},
+    {t:"گیرنده بلوتوثی موزیک بیسوس مدل WXQY-01 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1854527", c:"🚗 لوازم خودرو"},
+    {t:"هاب ۴ پورت USB 3.0 بیسوس UltraJoy (لپ‌تاپ قدیمی) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-16053379", c:"💻 لوازم کامپیوتر"},
+    {t:"پنکه رومیزی مدل مه‌پاش از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14575975", c:"🏠 خانه و شخصی"},
+    {t:"پرزگیر برقی لباس میجیا مدل MQXJQ01KL از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4115806", c:"🏠 خانه و شخصی"},
+    {t:"جاکارتی مدل چرم طبیعی کد HL-16121 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14505071", c:"🏠 خانه و شخصی"},
+    {t:"باربر دستی مدل BP01 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19641006", c:"🏠 خانه و شخصی"},
+    {t:"تمدید اشتراک دیجی پلاس یک‌ساله از دیجی‌کالا", l:"https://www.digikala.com/plus/landing/", c:"💳 اشتراک‌ها و خدمات مالی"},
+    {t:"تمدید اشتراک Snapp Pro شش‌ماهه از اسنپ", l:"https://snapp.ir/pro/", c:"💳 اشتراک‌ها و خدمات مالی"},
+    {t:"گرفتن وام خرید کالا از ازکی‌وام با پشتوانه طلا", l:"https://azkivam.com", c:"💳 اشتراک‌ها و خدمات مالی"},
+    {t:"شارژ سیم‌کارت ودافون از sae۲۲", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"🌍 سیم‌کارت‌های خارجی"},
+    {t:"خرید سیم‌کارت EE انگلستان از sae۲۲", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", c:"🌍 سیم‌کارت‌های خارجی"},
+    {t:"خرید طلا از میلی", l:"https://milli.gold", c:"🪙 طلا و گیفت کارت"},
+    {t:"خرید گیفت کارت ۱۰۰ دلاری PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation", c:"🪙 طلا و گیفت کارت"},
+    {t:"درخواست فیبرنوری از مخابرات", l:null, c:"🛍️ خریدهای حضوری و سایر"},
+    {t:"آمپول لاغری", l:null, c:"🛍️ خریدهای حضوری و سایر"},
+    {t:"اکشن فیگور و اسباب‌بازی از پیج اینستاگرام", l:null, c:"🛍️ خریدهای حضوری و سایر"},
+    {t:"خرید ادکلن اورجینال از بازار", l:null, c:"🛍️ خریدهای حضوری و سایر"},
+    {t:"خرید بازی برای PS۵", l:null, c:"🛍️ خریدهای حضوری و سایر"}
 ];
 
-const sortedItems = [...shopItems].sort((a, b) => {
-    if(a.l && !b.l) return -1;
-    if(!a.l && b.l) return 1;
-    return 0;
-});
-
-const withLinks = sortedItems.filter(i => i.l);
-const noLinks = sortedItems.filter(i => !i.l);
+const catOrder = ["🌐 اینترنت‌ها","🎮 گیمینگ و کنسول","📶 مودم و شبکه","⌚ ساعت هوشمند","🚗 لوازم خودرو","💻 لوازم کامپیوتر","🏠 خانه و شخصی","💳 اشتراک‌ها و خدمات مالی","🌍 سیم‌کارت‌های خارجی","🪙 طلا و گیفت کارت","🛍️ خریدهای حضوری و سایر"];
 
 let shopHTML = '';
-if(withLinks.length > 0){
-    shopHTML += '<div class="shop-section-title">🔗 محصولات آنلاین</div>';
-    shopHTML += withLinks.map(i => 
-        `<div class="shop-item"><span>${escapeHtml(i.t)}</span><a href="${escapeHtml(i.l)}" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>`
-    ).join('');
-}
-if(noLinks.length > 0){
-    shopHTML += '<div class="shop-section-title">🛍️ خریدهای حضوری و سایر</div>';
-    shopHTML += noLinks.map(i => 
-        `<div class="shop-item no-link">${escapeHtml(i.t)}</div>`
-    ).join('');
-}
+catOrder.forEach(cat => {
+    const items = shopItems.filter(i => (i.c || "🛍️ خریدهای حضوری و سایر") === cat);
+    if(items.length === 0) return;
+    shopHTML += '<div class="shop-section-title">' + cat + '</div>';
+    shopHTML += items.map(i => {
+        if(i.l) return `<div class="shop-item"><span>${escapeHtml(i.t)}</span><a href="${escapeHtml(i.l)}" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>`;
+        return `<div class="shop-item no-link">${escapeHtml(i.t)}</div>`;
+    }).join('');
+});
 document.getElementById('shop-list').innerHTML = shopHTML;
 
-/* ===== پایگاه دانش چت‌بات ===== */
+/* ===== پایگاه دانش ===== */
 const kb = {
     rules:{
-        k:['قانون','قوانین','قوانی','قونین','قوان','قنون','law','bnpl','قسط','قسطی','اعتبار','دیجی پی','دیجی‌پی','ترب پی','ترب‌پی','اسنپ پی','اسنپ‌پی','تارا','باسلام','اوانو','installment','اینترنت','internet','net','وای فای','وای‌فای','wifi','موبایل نت','دیتا'],
-        f:"📜 قوانین جدی هستند:\n۱. آشوب ممنوع.\n۲. توهین ممنوع.\n۳. نیمه‌شب خواب.\n۴. اخلاق سگی = ۵۰۰ تومن جریمه.\n۵. پریدن به gorgali = ۵۰۰ تومن جریمه.\n۶. دکتر رفتن در بیماری اجباری است.\n۷. در صورت استفاده از اعتبار ۴ قسطه از دیجی‌پی، ترب‌پی، اسنپ‌پی، تارا، باسلام و اوانو: فقط قسط اول را حکومت می‌پردازد و ماه‌های بعدی ۵۰٪ مامان و ۵۰٪ حکومت تقسیم می‌شود.\n۸. تا تمام نشدن قسط‌های BNPL، خرید قسطی جدید ممنوع است! حداکثر ۲ خرید اقساطی مجاز است. فقط خریدهای داخل لیست در صورت نیاز قسطی می‌شوند. ماهی فقط یک خرید (آن هم در صورت نیاز).\n۹. اینترنت خانه: ۵۰٪ مامان + ۵۰٪ حکومت. اینترنت موبایل: ۱۰۰٪ مامان پرداخت می‌کند. تقسیم فقط برای اینترنت خانه اعمال می‌شود!"
+        k:['قانون','قوانین','قوانی','قونین','قوان','قنون','law'],
+        f:"📜 قوانین جدی هستند:\n۱. آشوب ممنوع.\n۲. توهین ممنوع.\n۳. نیمه‌شب خواب.\n۴. اخلاق سگی = ۵۰ تومن جریمه.\n۵. پریدن به gorgali = ۵۰ تومن جریمه.\n۶. دکتر رفتن در بیماری اجباری است.\n\n(قوانین BNPL و اعتبارهای قسطی در بخش واحد مالی قرار دارند)"
     },
     sanctions:{
         k:['تحریم','تحریم‌ها','تحریمها','تحرما','تحریمات','sanction'],
         f:"⛔ تحریم‌ها:\n۱. مشاوره و دکتر ممنوع.\n۲. مهمانی ممنوع.\n۳. در خانه ماندن اجباری.\n۴. وظایف برای دشمنان ممنوع.\n۵. قرص و شربت ممنوع (فقط SOS).\n۶. اذیت دشمنان اجباری.\n۷. مدرسه ممنوع.\n۸. باندها فعال.\n۹. گوشی مامان قفل می‌شود.\n۱۰. مانع فیلم دیدن خواهری.\n۱۱. به پا شدن آشوب.\n۱۲. فرار در اتاق خواب ممنوع.\n\n📌 این لیست فقط برای آگاهی است و در زمان SOS با اطلاع‌رسانی اجرا می‌شود."
     },
+    cards:{
+        k:['کارت','cards','بانک','کارت‌ها','دیجی کارت','کیو بانک','q bank','بلو','wepod','دیما','جونیور','زی'],
+        f:"💳 کارت‌های حکومت (۷ کارت):\n۱. دیجی کارت → خرید آنلاین (دیجی‌کالا)\n۲. Q Bank → اینترنت و قبض‌ها\n۳. بلو بانک → نوبیتکس، بیت پین، بیت ۲۴\n۴. Wepod → ذخیره طلا\n۵. دیما کارت (جدید) → درآمد اصلی\n۶. بلو جونیور (جدید) → ذخیره ریالی\n۷. زی کارت (جدید) → ذخیره ریالی"
+    },
     money:{
-        k:['پول','money','ماهانه','حقوق','salary','مبلغ'],
-        f:"💰 وضعیت مالی:\n• پول ماهیانه: ۳۰ میلیون و ۷۷۱ هزار تومان\n• فعلاً کاهشی نخواهد شد."
+        k:['پول','money','ماهانه','حقوق','salary','مبلغ','مهر','آبان'],
+        f:"💰 پول ماهیانه:\n• مهر: ۳۳,۰۴۰,۰۰۰ تومان (زیاد شده به خاطر خریدها)\n• آبان: ۱۳,۴۸۰,۰۰۰ تومان (تقریبی)\n• قول ماه بعد: کمتر خواهد شد\n• حداقل ۲ میلیون برای اینترنت و قبض‌ها\n• اینترنت خانه شاید تقسیم شود\n• دریافت پول تا دریافت دیما کارت متوقف است"
+    },
+    bnpl:{
+        k:['bnpl','قسط','قسطی','اعتبار','دیجی پی','ترب پی','اسنپ پی','تارا','باسلام','اوانو'],
+        f:"💳 قوانین BNPL (در واحد مالی):\n• خرید قسطی جدید تا پایان اقساط فعلی ممنوع\n• حداکثر ۲ خرید اقساطی مجاز\n• ماهی یک خرید در صورت نیاز\n• اعتبار ۴ قسطه: قسط اول حکومت، ماه‌های بعد ۵۰-۵۰"
     }
 };
 
-/* ===== تابع تشخیص فازی ===== */
+/* ===== تشخیص فازی ===== */
 function fuzzyMatch(userText, keyArray){
     if(!userText || !Array.isArray(keyArray)) return false;
     const normalized = userText.toLowerCase().trim();
     for(let key of keyArray){
         const keyLower = key.toLowerCase();
         if(normalized.includes(keyLower)) return true;
-        
         let matchCount = 0;
         for(let char of keyLower){
             if(normalized.includes(char)) matchCount++;
@@ -435,7 +531,7 @@ function sendMsg(){
     if(!txt) return;
     
     if(txt.length > 500){
-        chat.push({sender:'bot', text:'⚠️ پیام خیلی طولانیه! لطفاً کوتاه‌تر بنویس.'});
+        chat.push({sender:'bot', text:'⚠️ پیام خیلی طولانیه!'});
         renderChat();
         return;
     }
@@ -460,84 +556,217 @@ function sendMsg(){
 }
 renderChat();
 
-/* ===== جستجو ===== */
-const searchableData = [
-    {title:"پول ماهیانه", content:"پول ماهیانه فعلاً کاهشی نمی‌شود", page:"page-news"},
-    {title:"پول اینترنت خانه", content:"۵۰ درصد پول اینترنت خانه را مامان می‌دهد و ۵۰ درصد را حکومت", page:"page-news"},
-    {title:"اینترنت موبایل", content:"پول اینترنت موبایل تقسیم نمی‌شود و کل آن را مامان می‌دهد", page:"page-news"},
-    {title:"BNPL و خرید قسطی", content:"تا تمام نشدن قسط‌های BNPL خرید قسطی جدید انجام نمی‌شود", page:"page-news"},
-    {title:"محدودیت خرید اقساطی", content:"حداکثر ۲ خرید اقساطی مجاز است، ماهی یک خرید", page:"page-news"},
-    {title:"SSD اکسترنال", content:"SSD اکسترنال سن‌دیسک برای PS۵", page:"page-shop"},
-    {title:"هدست گیمینگ", content:"هدست گیمینگ ریزر BlackShark V2 X برای PS۵", page:"page-shop"},
-    {title:"گلکسی واچ", content:"گلکسی واچ ۸ با ۲ ماه ذخیره پول", page:"page-shop"},
-    {title:"مودم فیبرنوری", content:"مودم فیبرنوری هوآوی مدل EG8145X6", page:"page-shop"},
-    {title:"مودم جیبی", content:"مودم جیبی ZTE U30 Pro", page:"page-shop"},
-    {title:"گیفت کارت PS۵", content:"گیفت کارت ۱۰۰ دلاری PS۵ ریجن آمریکا", page:"page-shop"},
-    {title:"در بازکن", content:"در بازکن یزدگل کد ۵۰۹", page:"page-shop"},
-    {title:"اسپری کارواش", content:"اسپری کارواش بدون آب تام کلین ۴۸۰ میلی‌لیتر", page:"page-shop"},
-    {title:"شانه کوتاهی مو", content:"شانه کوتاهی مو بلند فرند BN۷۰۰", page:"page-shop"},
-    {title:"کناره‌گیر صندلی", content:"کناره‌گیر صندلی خودرو بسته ۲ عددی", page:"page-shop"},
-    {title:"پوشه دکمه‌دار", content:"پوشه دکمه‌دار پاپکو مدل ارکید ۶ عدد", page:"page-shop"},
-    {title:"باربر دستی", content:"باربر دستی مدل BP۰۱", page:"page-shop"},
-    {title:"جاروشارژی خودرو", content:"جاروشارژی خودرو دو کاره مکش قوی", page:"page-shop"},
-    {title:"پایه نگهدارنده گوشی", content:"پایه نگهدارنده گوشی و تبلت الدینیو MG۰۳", page:"page-shop"},
-    {title:"سیم جمع‌کن", content:"سیم جمع‌کن دوقلو بسته ۲ عددی", page:"page-shop"},
-    {title:"جالیوانی خودرو", content:"جالیوانی خودرو مدل G۴", page:"page-shop"},
-    {title:"پنکه رومیزی", content:"پنکه رومیزی مدل مه‌پاش", page:"page-shop"},
-    {title:"پرزگیر لباس", content:"پرزگیر برقی لباس میجیا", page:"page-shop"},
-    {title:"آمپول لاغری", content:"آمپول لاغری", page:"page-shop"},
-    {title:"دیجی پلاس", content:"تمدید اشتراک دیجی پلاس یک‌ساله", page:"page-shop"},
-    {title:"Snapp Pro", content:"تمدید اشتراک Snapp Pro شش‌ماهه", page:"page-shop"},
-    {title:"وام خرید کالا", content:"گرفتن وام خرید کالا از ازکی‌وام با پشتوانه طلا", page:"page-shop"},
-    {title:"خرید طلا", content:"خرید طلا از میلی", page:"page-shop"},
-    {title:"درخواست فیبرنوری", content:"درخواست فیبرنوری از مخابرات", page:"page-shop"},
-    {title:"اعتبار قسطی", content:"اعتبار ۴ قسطه دیجی‌پی ترب‌پی اسنپ‌پی تارا باسلام اوانو", page:"page-news"}
-];
+/* =====================================================
+   جستجوی هوشمند فازی + هایلایت زنده + اسکرول + ریست
+   ===================================================== */
 
+const pageNames = {'page-home':'🏠 خانه','page-news':'📰 اخبار','page-finance':'💰 واحد مالی','page-shop':'🛒 خریدها','page-ai':'🤖 دستیار'};
+let highlightArmed = false;
+let searchTimer = null;
+
+/* نرمال‌سازی فارسی: حذف فاصله و نیم‌فاصله، یکسان‌سازی حروف و ارقام */
+function normChar(ch){
+    if(ch === 'ي') return 'ی';
+    if(ch === 'ك') return 'ک';
+    if(ch === 'ة') return 'ه';
+    if(ch === 'أ' || ch === 'إ' || ch === 'آ') return 'ا';
+    if(ch === '\u200c') return '';
+    if(/\s/.test(ch)) return '';
+    if(/[0-9]/.test(ch)) return String.fromCharCode(ch.charCodeAt(0) + 1728);
+    return ch.toLowerCase();
+}
+function normalizeFa(str){
+    let out = '';
+    for(let i = 0; i < str.length; i++) out += normChar(str[i]);
+    return out;
+}
+
+/* ساخت نسخه نرمال‌شده به‌همراه نقشه ایندکس‌ها */
+function buildNorm(el){
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    let norm = '', orig = '';
+    const mapNode = [], mapOrig = [];
+    while(walker.nextNode()){
+        const node = walker.currentNode;
+        const txt = node.textContent;
+        for(let i = 0; i < txt.length; i++){
+            orig += txt[i];
+            const n = normChar(txt[i]);
+            if(n === '') continue;
+            norm += n;
+            mapNode.push({node:node, off:i});
+            mapOrig.push(orig.length - 1);
+        }
+    }
+    return {norm:norm, orig:orig, mapNode:mapNode, mapOrig:mapOrig};
+}
+
+/* فاصله لونشتاین با سقف */
+function lev(a, b, max){
+    const m = a.length, n = b.length;
+    if(Math.abs(m - n) > max) return max + 1;
+    let prev = new Array(n + 1), cur = new Array(n + 1);
+    for(let j = 0; j <= n; j++) prev[j] = j;
+    for(let i = 1; i <= m; i++){
+        cur[0] = i;
+        let rowMin = cur[0];
+        for(let j = 1; j <= n; j++){
+            const cost = a[i-1] === b[j-1] ? 0 : 1;
+            cur[j] = Math.min(prev[j] + 1, cur[j-1] + 1, prev[j-1] + cost);
+            if(cur[j] < rowMin) rowMin = cur[j];
+        }
+        if(rowMin > max) return max + 1;
+        prev = cur.slice();
+    }
+    return prev[n];
+}
+
+/* جستجوی فازی پنجره‌ای */
+function fuzzyFind(norm, q, tol){
+    const lengths = [];
+    for(let d = 0; d <= tol; d++){
+        if(q.length - d >= 1 && lengths.indexOf(q.length - d) === -1) lengths.push(q.length - d);
+        if(lengths.indexOf(q.length + d) === -1) lengths.push(q.length + d);
+    }
+    for(let li = 0; li < lengths.length; li++){
+        const L = lengths[li];
+        for(let s = 0; s + L <= norm.length; s++){
+            if(lev(norm.substr(s, L), q, tol) <= tol) return {s:s, e:s + L};
+        }
+    }
+    return null;
+}
+
+/* المان‌های قابل جستجو در کل سایت */
+function getSearchElements(){
+    return Array.from(document.querySelectorAll(
+        '#page-news .news-item, #page-finance .finance-card, #page-finance .finance-section > h4, ' +
+        '#page-finance .finance-section > p, #page-finance .finance-section > ul li, ' +
+        '#page-shop .shop-item, #page-shop .shop-section-title, #page-home .hero p, ' +
+        '#page-home .card-btn span, .box > h3'
+    ));
+}
+
+/* هایلایت برد روی متن اصلی */
+function highlightRange(el, s, e){
+    const b = buildNorm(el);
+    if(!b.mapNode.length || s >= b.mapNode.length || e > b.mapNode.length) return null;
+    const startInfo = b.mapNode[s];
+    const endInfo = b.mapNode[e - 1];
+    const mark = document.createElement('mark');
+    mark.className = 'search-hl';
+    const range = document.createRange();
+    range.setStart(startInfo.node, startInfo.off);
+    range.setEnd(endInfo.node, endInfo.off + 1);
+    try{
+        range.surroundContents(mark);
+    }catch(err){
+        const frag = range.extractContents();
+        mark.appendChild(frag);
+        range.insertNode(mark);
+    }
+    return mark;
+}
+
+/* پاک کردن همه هایلایت‌ها */
+function clearHighlights(){
+    document.querySelectorAll('mark.search-hl').forEach(m => {
+        const parent = m.parentNode;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+    });
+}
+
+/* ورودی سرچ → جستجوی با تأخیر */
 function searchSite(){
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(doSearch, 220);
+}
+
+function doSearch(){
     const input = document.getElementById('search-input');
-    if(!input) return;
-    const query = input.value.trim().toLowerCase();
     const results = document.getElementById('search-results');
-    if(!results) return;
+    if(!input || !results) return;
+    const raw = input.value.trim();
+    results.innerHTML = '';
+    if(raw.length < 2) return;
+    const q = normalizeFa(raw);
+    if(q.length < 2) return;
     
-    if(!query){
-        results.innerHTML = '';
-        return;
+    const els = getSearchElements();
+    let matches = [];
+    
+    /* پاس دقیق */
+    for(let i = 0; i < els.length; i++){
+        const b = buildNorm(els[i]);
+        const idx = b.norm.indexOf(q);
+        if(idx > -1) matches.push({el:els[i], b:b, s:idx, e:idx + q.length});
+    }
+    /* پاس فازی فقط وقتی دقیق چیزی پیدا نکرد */
+    if(matches.length === 0){
+        const tols = (q.length < 4) ? [1] : [1, 2];
+        for(let t = 0; t < tols.length && matches.length === 0; t++){
+            for(let i = 0; i < els.length; i++){
+                const b = buildNorm(els[i]);
+                if(b.norm.length < q.length - tols[t]) continue;
+                const r = fuzzyFind(b.norm, q, tols[t]);
+                if(r) matches.push({el:els[i], b:b, s:r.s, e:r.e});
+            }
+        }
     }
     
-    if(query.length > 100){
-        results.innerHTML = '<p style="padding:10px;color:var(--muted)">❌ جستجو خیلی طولانی است</p>';
-        return;
-    }
-    
-    const filtered = searchableData.filter(item =>
-        item.title.toLowerCase().includes(query) ||
-        item.content.toLowerCase().includes(query)
-    );
-    
-    if(filtered.length === 0){
+    if(matches.length === 0){
         results.innerHTML = '<p style="padding:10px;color:var(--muted)">نتیجه‌ای یافت نشد 😕</p>';
-    } else {
-        results.innerHTML = filtered.map(item => {
-            const snippet = item.content.length > 60 ? item.content.substring(0, 60) + '...' : item.content;
-            return `<div class="search-result" onclick="openPage('${escapeHtml(item.page)}')">
-                <strong>${escapeHtml(item.title)}</strong>
-                <p style="margin:5px 0 0 0;color:var(--muted);font-size:13px">${escapeHtml(snippet)}</p>
-            </div>`;
-        }).join('');
+        return;
     }
+    matches = matches.slice(0, 15);
+    
+    results.innerHTML = matches.map((m, i) => {
+        const pageEl = m.el.closest('.page');
+        const pageId = pageEl ? pageEl.id : 'page-home';
+        const sO = m.b.mapOrig[m.s];
+        const eO = m.b.mapOrig[m.e - 1] + 1;
+        const pre = m.b.orig.substring(Math.max(0, sO - 25), sO);
+        const mid = m.b.orig.substring(sO, eO);
+        const post = m.b.orig.substring(eO, Math.min(m.b.orig.length, eO + 35));
+        return '<div class="search-result" data-idx="' + i + '">' +
+            '<strong>' + (pageNames[pageId] || pageId) + '</strong>' +
+            '<p>' + escapeHtml(pre) + '<mark>' + escapeHtml(mid) + '</mark>' + escapeHtml(post) + '</p>' +
+            '</div>';
+    }).join('');
+    
+    results.querySelectorAll('.search-result').forEach(div => {
+        div.addEventListener('click', () => {
+            const m = matches[parseInt(div.getAttribute('data-idx'), 10)];
+            if(!m) return;
+            const pageEl = m.el.closest('.page');
+            if(pageEl) openPage(pageEl.id);
+            clearHighlights();
+            const mark = highlightRange(m.el, m.s, m.e);
+            highlightArmed = true;
+            setTimeout(() => {
+                const target = mark || m.el;
+                target.scrollIntoView({behavior: document.body.classList.contains('low-end') ? 'auto' : 'smooth', block:'center'});
+            }, 80);
+        });
+    });
 }
 
-/* ===== صوت ===== */
-function playAudio(){
-    const player = document.getElementById('audio-player');
-    if(player && player.src){
-        try{ player.play(); }catch(e){}
+/* با لمس سایت، هایلایت و سرچ ریست می‌شود */
+function resetOnTouch(){
+    if(highlightArmed){
+        clearHighlights();
+        const si = document.getElementById('search-input');
+        if(si) si.value = '';
+        const sr = document.getElementById('search-results');
+        if(sr) sr.innerHTML = '';
+        highlightArmed = false;
     }
 }
+document.addEventListener('pointerdown', resetOnTouch, true);
+document.addEventListener('touchstart', resetOnTouch, true);
 
-/* ===== جلوگیری از خطاهای احتمالی ===== */
+/* ===== خطاها ===== */
 window.addEventListener('error', function(e){
     console.warn('خطای JavaScript:', e.message);
 });
