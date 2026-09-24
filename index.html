@@ -38,6 +38,7 @@ body.low-end .page{animation:none}
 .news-item{padding:14px;background:var(--bg);border-right:4px solid var(--accent);border-radius:10px;margin-bottom:12px;line-height:1.9}
 .news-item.highlight{border-right-color:#f59e0b;background:linear-gradient(135deg,#fffbeb,#fef3c7)}
 .news-item.info{border-right-color:#8b5cf6;background:linear-gradient(135deg,#faf5ff,#f3e8ff)}
+.news-item.urgent{border-right-color:#ef4444;background:linear-gradient(135deg,#fef2f2,#fee2e2)}
 .news-item strong{color:var(--accent-dark)}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
 .summary-btn{position:fixed;top:95px;left:15px;background:linear-gradient(135deg,#10b981,#34d399);color:#fff;border:none;padding:10px 16px;border-radius:25px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(16,185,129,0.4);z-index:100;font-size:14px;font-family:inherit}
@@ -56,6 +57,7 @@ body.low-end .modal-content{animation:none}
 .shop-section-title{margin:18px 0 10px;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:0.5px;display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 20px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:2px;background:var(--border)}
+.shop-note{padding:10px 12px;background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-right:4px solid #10b981;border-radius:10px;margin:10px 0;font-size:13px;line-height:1.9}
 .finance-section{margin-bottom:20px;padding:16px;background:var(--bg);border-radius:14px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .finance-section p{font-size:14px;line-height:1.9}
@@ -117,14 +119,18 @@ body.low-end .modal-content{animation:none}
             بقیه اینترنت‌ها از جمله موبایل بر عهده مامان است.
         </div>
         <div class="news-item highlight">
-            <strong>۲. 💡 قول ماه بعد:</strong><br>
+            <strong>۲.  قول ماه بعد:</strong><br>
             ماه بعدی قول می‌دهیم که پول ماهیانه کمتر از این مقدار گفته شده باشد.
         </div>
         <div class="news-item highlight">
-            <strong>۳. 📊 برآورد حکومت برای پول ماهیانه آبان:</strong><br>
+            <strong>۳.  برآورد حکومت برای پول ماهیانه آبان:</strong><br>
             طبق برآوردهای حکومت، مامان باید همان مقدار نوشته‌شده را بدهد؛ البته اگر قسطی که زودتر از موعد پرداخت شده است به آن اضافه نشود. خداروشکر برای مهر قرار بود اضافه شود ولی اضافه نشد.<br>
             دیگر مطمئن نیستیم؛ ولی اگر یه درصد اضافه شود، برای آبان پول ماهیانه ۲۶,۰۵۱,۰۰۰ تومان می‌شود. خدا کنه که نیاید! به نظر ما نمی‌آید، ولی باز فعلاً همان که در بخش امور مالی خورده درست است.<br>
             قرار بود برای مهر بیاید ولی چون قبل از مهر پرداخت کردم، قسط‌هایش اضافه نشد؛ خداروشکر. حکومت فکر می‌کند کل قسط‌ها تسویه شده است، برای همین اضافه نشده است!
+        </div>
+        <div class="news-item urgent">
+            <strong>۴.  بدهی به مامان:</strong><br>
+            به دلیل کمبود بودجه، ما ماهی ۸۹۷ هزار تومان به مامان بدهکار هستیم؛ ۵۰۰ هزار تومان آن را باید در ماه آبان بدهیم.
         </div>
     </div>
 </div>
@@ -143,6 +149,11 @@ body.low-end .modal-content{animation:none}
             <h4>📅 پول ماهیانه آبان</h4>
             <p><strong>۲۴ میلیون و ۱۱۸ هزار تومان</strong><br>
             مبلغی که مامان باید بپردازد.</p>
+        </div>
+        
+        <div class="finance-section">
+            <h4>📋 رویه پول ماهیانه آبان ماه</h4>
+            <p style="color:var(--muted)">به‌زودی تکمیل می‌شود...</p>
         </div>
         
         <div class="finance-section">
@@ -228,6 +239,13 @@ body.low-end .modal-content{animation:none}
         <h3>🛒 لیست خریدهای ما</h3>
         <p style="margin-bottom:15px;color:var(--muted)">روی لینک‌ها بزن تا مستقیم بری به صفحه محصول:</p>
         <div id="shop-list"></div>
+        
+        <div class="shop-section-title" style="margin-top:28px">🗓️ خریدهای آبان ماه</div>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:10px">در ماه آبان این‌ها خریداری می‌شود:</p>
+        <div id="shop-list-aban"></div>
+        <div class="shop-note">
+            🔁 خرید طلای میلی و ذخیره پول ویپاد، <strong>روند هر ماه</strong> هستند؛ هر ماه طلا از میلی به همان مبلغ گرفته می‌شود و پول در ویپاد ذخیره می‌شود.
+        </div>
     </div>
 </div>
 
@@ -248,10 +266,11 @@ body.low-end .modal-content{animation:none}
 if((navigator.deviceMemory && navigator.deviceMemory < 4) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4)){
     document.body.classList.add('low-end');
 }
+const LOW_END = document.body.classList.contains('low-end');
 
 /* ===== ویبریشن ===== */
 function vibrate(){
-    if('vibrate' in navigator && !document.body.classList.contains('low-end')){
+    if('vibrate' in navigator && !LOW_END){
         try{ navigator.vibrate(30); }catch(e){}
     }
 }
@@ -266,21 +285,29 @@ function escapeHtml(str){
 
 /* ===== ناوبری ===== */
 function openPage(id){
+    const target = document.getElementById(id);
+    if(!target || !target.classList.contains('page')) return;
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo({top:0, behavior:'smooth'});
-    if(id !== 'page-home'){
-        history.pushState({page:id}, '', '#' + id);
-    } else {
-        if(history.length > 1) history.back();
-    }
+    target.classList.add('active');
+    window.scrollTo({top:0, behavior: LOW_END ? 'auto' : 'smooth'});
+    history.pushState({page:id}, '', '#' + id);
 }
 
 window.addEventListener('popstate', (e) => {
-    const page = e.state?.page || 'page-home';
+    let page = (e.state && e.state.page) ? e.state.page : 'page-home';
+    if(!document.getElementById(page)) page = 'page-home';
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(page).classList.add('active');
 });
+
+/* ===== پشتیبانی از hash هنگام رفرش ===== */
+(function(){
+    const h = location.hash.replace('#','');
+    if(h && document.getElementById(h) && document.getElementById(h).classList.contains('page')){
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(h).classList.add('active');
+    }
+})();
 
 /* ===== خلاصه هوشمند ===== */
 function showSummary(){
@@ -295,19 +322,21 @@ function showSummary(){
             '• بقیه اینترنت‌ها از جمله موبایل بر عهده مامان<br>' +
             '• قول ماه بعد: پول ماهیانه کمتر خواهد شد<br>' +
             '• برآورد حکومت: مامان همان مقدار نوشته‌شده را می‌دهد؛ اگر اضافه شود ۲۶,۰۵۱,۰۰۰ تومان<br>' +
-            '• چون قسط‌ها زودتر تسویه شده‌اند، حکومت اضافه نکرده است</p>';
+            '• بدهی به مامان: ماهی ۸۹۷ هزار تومان؛ ۵۰۰ هزار تومان در آبان</p>';
     } else if(currentPage === 'page-finance'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>💰 خلاصه واحد مالی:</strong><br>' +
             '• مهر: ۳۵,۰۰۰,۰۰۰ تومان (دریافت شد) ✅<br>' +
             '• آبان: ۲۴,۱۱۸,۰۰۰ تومان (مامان باید بپردازد)<br>' +
+            '• رویه پول ماهیانه آبان: به‌زودی تکمیل می‌شود<br>' +
             '• اعتبار: پس از اتمام قسط‌ها وام گرفته نمی‌شود؛ خرید قسطی فقط برای خریدهای مهم<br>' +
             '• قسط اول با حکومت، بقیه تقسیم ۵۰-۵۰<br>' +
             '• ۷ کارت؛ بلو بانک کارت اصلی</p>';
     } else if(currentPage === 'page-shop'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🛒 خلاصه خریدها:</strong><br>' +
-            '• فقط خرید طلا آنلاین<br>' +
-            '• درحال انجام: SSD، جاروشارژی، شارژر انکر، گیرنده بلوتوث، هاب، پرزگیر، جاکارتی، دیجی پلاس، Snapp Pro، شارژ ودافون، گیفت کارت، بازی‌های PS۵، آمپول، ادکلن<br>' +
-            '• فعلاً نه: هدست، مودم فیبر نوری، سیم‌کارت EE، درخواست فیبرنوری</p>';
+            '• لیست معمولی: طلای آنلاین، SSD، هدست (فعلاً نه)، گیفت کارت، روتر اوکی گوگل، مودم فیبر (فعلاً نه)، هاب، دیجی پلاس، Snapp Pro، شارژ ودافون، سیم‌کارت EE (فعلاً نه)، فیبر مخابرات (فعلاً نه)، آمپول، ادکلن، بازی PS۵<br>' +
+            '• 🗓️ آبان: جاروشارژی، گیرنده بلوتوث، شارژر انکر، پنکه مه‌پاش، پرزگیر، جاکارتی<br>' +
+            '• 🗓️ ماهانه: طلای میلی، ذخیره ویپاد، بلوجونیور (بوفه)<br>' +
+            '• قیمت‌ها نمایش داده نمی‌شوند (به دلیل تورم)</p>';
     } else {
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🏠 خلاصه صفحه اصلی:</strong><br>' +
             '• دسترسی به اخبار، واحد مالی و خرید<br>' +
@@ -324,19 +353,15 @@ function closeSummary(){
     document.getElementById('summary-modal').style.display = 'none';
 }
 
-/* ===== لیست خریدها ===== */
+/* ===== لیست خریدهای معمولی ===== */
 const shopItems = [
     {t:"فقط خرید طلا آنلاین", l:null, c:"🪙 طلا", st:"doing"},
     {t:"SSD اکسترنال سن‌دیسک Extreme E61 ظرفیت ۱ ترابایت برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4935941", c:"🎮 گیمینگ و کنسول", st:"doing"},
     {t:"هدست گیمینگ ریزر BlackShark V2 X برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ و کنسول", st:"no"},
     {t:"خرید گیفت کارت PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation", c:"🎮 گیمینگ و کنسول", st:"doing"},
+    {t:"اوکی گوگل روتر از اسنپ‌شاپ", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 مودم و شبکه", st:"doing"},
     {t:"مودم فیبر نوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014", c:"📶 مودم و شبکه", st:"no"},
-    {t:"جاروشارژی خودرو دو کاره با مکش قوی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-15105543", c:"🚗 لوازم خودرو", st:"doing"},
-    {t:"شارژر فندکی ۴۵ وات سه پورت انکر مدل A2731 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18612577", c:"🚗 لوازم خودرو", st:"doing"},
-    {t:"گیرنده بلوتوثی موزیک بیسوس مدل WXQY-01 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1854527", c:"🚗 لوازم خودرو", st:"doing"},
     {t:"هاب ۴ پورت USB 3.0 بیسوس UltraJoy (لپ‌تاپ قدیمی) از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-16053379", c:"💻 لوازم کامپیوتر", st:"doing"},
-    {t:"پرزگیر برقی لباس میجیا مدل MQXJQ01KL از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4115806", c:"🏠 خانه و شخصی", st:"doing"},
-    {t:"جاکارتی مدل چرم طبیعی کد HL-16121 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14505071", c:"🏠 خانه و شخصی", st:"doing"},
     {t:"تمدید اشتراک دیجی پلاس یک‌ساله از دیجی‌کالا", l:"https://www.digikala.com/plus/landing/", c:"💳 اشتراک‌ها و خدمات مالی", st:"doing"},
     {t:"تمدید اشتراک Snapp Pro شش‌ماهه از اسنپ", l:"https://snapp.ir/pro/", c:"💳 اشتراک‌ها و خدمات مالی", st:"doing"},
     {t:"شارژ سیم‌کارت ودافون از sae۲۲", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"🌍 سیم‌کارت‌های خارجی", st:"doing"},
@@ -347,7 +372,7 @@ const shopItems = [
     {t:"خرید بازی‌های اضافی‌تر برای PS۵", l:null, c:"🛍️ خریدهای حضوری و سایر", st:"doing"}
 ];
 
-const catOrder = ["🪙 طلا","🎮 گیمینگ و کنسول","📶 مودم و شبکه","🚗 لوازم خودرو","💻 لوازم کامپیوتر","🏠 خانه و شخصی","💳 اشتراک‌ها و خدمات مالی","🌍 سیم‌کارت‌های خارجی","🛍️ خریدهای حضوری و سایر"];
+const catOrder = ["🪙 طلا"," گیمینگ و کنسول","📶 مودم و شبکه","💻 لوازم کامپیوتر","💳 اشتراک‌ها و خدمات مالی","🌍 سیم‌کارت‌های خارجی","🛍️ خریدهای حضوری و سایر"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
@@ -361,6 +386,24 @@ catOrder.forEach(cat => {
     }).join('');
 });
 document.getElementById('shop-list').innerHTML = shopHTML;
+
+/* ===== لیست خریدهای آبان ماه (بدون قیمت، به دلیل تورم) ===== */
+const abanItems = [
+    {t:"جاروشارژی خودرو دو کاره با مکش قوی و طراحی کاربردی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-15105543"},
+    {t:"گیرنده بلوتوثی موزیک بیسوس مدل WXQY-01 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1854527"},
+    {t:"شارژر فندکی ۴۵ وات سه پورت انکر مدل A2731 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18612577"},
+    {t:"پنکه رومیزی مدل مه‌پاش از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14575975"},
+    {t:"پرزگیر برقی لباس میجیا مدل MQXJQ01KL از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4115806"},
+    {t:"جاکارتی مدل چرم طبیعی کد HL-16121 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14505071"},
+    {t:"خرید طلا از اپلیکیشن میلی به مبلغ ۲ میلیون تومان (روند هر ماه)", l:null},
+    {t:"ذخیره پول در کارت ویپاد به مبلغ ۱ میلیون تومان (روند هر ماه)", l:null},
+    {t:"واریز به کارت بلوجونیور به مبلغ ۱ میلیون تومان برای خرید از بوفه مدرسه (ماهانه؛ دیگر نیازی به شارژ هفتگی ۲۰۰ هزار تومان نیست؛ پول کاملاً برای حکومت است)", l:null}
+];
+
+document.getElementById('shop-list-aban').innerHTML = abanItems.map(i => {
+    if(i.l) return `<div class="shop-item"><span class="item-title">${escapeHtml(i.t)}</span><a href="${escapeHtml(i.l)}" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>`;
+    return `<div class="shop-item no-link"><span class="item-title">${escapeHtml(i.t)}</span></div>`;
+}).join('');
 
 /* ===== خطاها ===== */
 window.addEventListener('error', function(e){
