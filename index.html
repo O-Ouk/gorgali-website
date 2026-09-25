@@ -89,6 +89,12 @@ body.low-end .modal-content{animation:none}
 .badge.monthly{background:#14b8a6}
 .security-warning{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;border-radius:10px;margin-top:15px;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:8px}
 .card-policy-note{margin-top:15px;padding:12px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e;font-weight:600}
+.assistant-list{list-style:none;padding:0;margin:0}
+.assistant-list li{padding:8px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.9}
+.assistant-list li:last-child{border-bottom:none}
+.assistant-note{margin-top:12px;padding:10px 12px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e}
+.declaration-text{font-size:13px;line-height:2.1;color:var(--text);white-space:pre-line}
+.chat-privacy{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.8}
 #toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 8px 25px rgba(0,0,0,0.3);opacity:0;pointer-events:none;transition:all .3s ease;z-index:100000;font-family:'Vazirmatn',sans-serif}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast.success{background:#10b981}
@@ -113,17 +119,24 @@ body.low-end .modal-content{animation:none}
         <p>اینجا خونه‌ی دل ماست، راحت باش! یکی رو انتخاب کن 🫶</p>
     </div>
     <div class="grid">
-        <div class="card-btn" onclick="openPage('page-news')">
+        <div class="card-btn" onclick="openPage('page-news');vibrate()">
             <div style="display:flex;align-items:center;gap:12px">
                 <div class="icon" style="background:#f59e0b">📰</div>
                 <span>اخبار و قوانین</span>
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
         </div>
-        <div class="card-btn" onclick="openPage('page-finance')">
+        <div class="card-btn" onclick="openPage('page-finance');vibrate()">
             <div style="display:flex;align-items:center;gap:12px">
                 <div class="icon" style="background:#10b981">💰</div>
                 <span>واحد مالی</span>
+            </div>
+            <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
+        </div>
+        <div class="card-btn" onclick="openPage('page-assistant');vibrate()">
+            <div style="display:flex;align-items:center;gap:12px">
+                <div class="icon" style="background:#8b5cf6">🤖</div>
+                <span>دستیار</span>
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
         </div>
@@ -146,20 +159,20 @@ body.low-end .modal-content{animation:none}
         </div>
 
         <div class="news-item urgent">
-            <strong>۲. 📊 وضعیت بدهکاری و اعتبار:</strong>
+            <strong>۲.  وضعیت بدهکاری و اعتبار:</strong>
             <ul>
                 <li><strong>بدهکاری حکومت به مامان:</strong> ۴۰۰,۰۰۰ تومان</li>
                 <li><strong>بدهکاری حکومت به نرگس (خواهری):</strong> ۴۰۰,۰۰۰ تومان</li>
                 <li><strong>بدهی مامان به حکومت:</strong> ۸۹۰,۰۰۰ تومان</li>
                 <li><strong>بدهی اعتبار (دیجی‌پی):</strong>
                     <ul>
-                        <li>قسط اعتبار: ۸۵۶,۰۰۰ تومان (تا ۱ آبان)</li>
+                        <li>قسط اعتبار: ۸۵۶,۰۰ تومان (تا ۱ آبان)</li>
                         <li>قسط وام: ۴,۷۴۶,۰۰۰ تومان (سررسید ۳۱ مهر) - <strong>ادامه تا خرداد ۱۴۰۵</strong></li>
                         <li>قسط آخر اعتبار دیجی‌پی در ماه آبان</li>
                     </ul>
                 </li>
-                <li><strong>بدهی اعتبار (اسنپ‌پی):</strong> ۱,۰۷۴,۰۰۰ تومان (۴۹۰,۰۰۰ هوشا + ۵۸۵,۰۰۰ اسنپ‌شاپ). قسط آخر هوشا در آبان.</li>
-                <li><strong>بدهی اعتبار (ترب‌پی):</strong> اقساط ۳۷۱,۰۰۰ و ۶۸۵,۰۰۰ تومان (همه قسط آخر هستند).</li>
+                <li><strong>بدهی اعتبار (اسنپ‌پی):</strong> ۱,۰۷۴,۰۰۰ تومان (۴۹۰,۰۰ هوشا + ۵۸۵,۰۰ اسنپ‌شاپ). قسط آخر هوشا در آبان.</li>
+                <li><strong>بدهی اعتبار (ترب‌پی):</strong> اقساط ۳۷۱,۰۰۰ و ۶۸۵,۰۰ تومان (همه قسط آخر هستند).</li>
             </ul>
         </div>
 
@@ -185,7 +198,7 @@ body.low-end .modal-content{animation:none}
             <ul>
                 <li>۳۰۰,۰۰۰ تومان: پول پرداخت قبوض — جداگانه به Q Bank واریز می‌شود. <strong>این پول اینترنت موبایل نیست</strong>؛ اینترنت موبایل از بانک تجارت مامان برداشت می‌شود.</li>
                 <li>۵۰۰,۰۰۰ تومان: بدهی مامان به حکومت</li>
-                <li>۸۰۰,۰۰۰ تومان: پول بوفه ماهانه</li>
+                <li>۸۰۰,۰۰ تومان: پول بوفه ماهانه</li>
                 <li>جمع کل پول‌ها: <strong>۲۶,۲۱۸,۰۰۰ تومان</strong></li>
             </ul>
         </div>
@@ -223,7 +236,7 @@ body.low-end .modal-content{animation:none}
                 <div class="card-icon" style="background:#3b82f6">💳</div>
                 <div class="card-info">
                     <div class="card-name">Q Bank <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه ۳۰۰,۰۰۰ تومان جداگانه برای قبوض غیرساختمانی (مخابرات، ایرانسل و...) به این کارت واریز می‌شود. <strong>توجه:</strong> این ۳۰۰,۰۰۰ تومان پول اینترنت موبایل نیست؛ اینترنت موبایل از بانک تجارت مامان برداشت می‌شود.</div>
+                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه ۳۰۰,۰۰ تومان جداگانه برای قبوض غیرساختمانی (مخابرات، ایرانسل و...) به این کارت واریز می‌شود. <strong>توجه:</strong> این ۳۰۰,۰۰۰ تومان پول اینترنت موبایل نیست؛ اینترنت موبایل از بانک تجارت مامان برداشت می‌شود.</div>
                     <div class="copy-block" onclick="copyToClipboard('6063731303393749', this)">
                         <span class="label">شماره کارت</span>
                         <span class="number">6063 7313 0339 3749</span>
@@ -295,6 +308,36 @@ body.low-end .modal-content{animation:none}
     </div>
 </div>
 
+<div class="page" id="page-assistant">
+    <div class="box">
+        <h3>🤖 دستیار</h3>
+        <div class="grid">
+            <div class="card-btn" onclick="openAssistantBox('rules');vibrate()">
+                <div style="display:flex;align-items:center;gap:12px">
+                    <div class="icon" style="background:#0f172a">📜</div>
+                    <span>قوانین</span>
+                </div>
+                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
+            </div>
+            <div class="card-btn" onclick="openAssistantBox('sanctions');vibrate()">
+                <div style="display:flex;align-items:center;gap:12px">
+                    <div class="icon" style="background:#ef4444">⛔</div>
+                    <span>تحریم‌ها</span>
+                </div>
+                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
+            </div>
+            <div class="card-btn" onclick="openChatModal();vibrate()">
+                <div style="display:flex;align-items:center;gap:12px">
+                    <div class="icon" style="background:#10b981">💬</div>
+                    <span>صحبت</span>
+                </div>
+                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
+            </div>
+        </div>
+        <p class="chat-privacy">💬 بخش «صحبت» فقط نمایش اعلامیه رسمی حکومت است؛ بدون نیاز به تایپ. چیزی ذخیره نمی‌شود.</p>
+    </div>
+</div>
+
 <div class="page" id="page-shop">
     <div class="box">
         <h3>🛒 لیست خریدهای ما</h3>
@@ -317,6 +360,24 @@ body.low-end .modal-content{animation:none}
             <span>✨ خلاصه هوشمند این صفحه</span>
         </h3>
         <div id="summary-content"></div>
+    </div>
+</div>
+
+<div id="assistant-modal" class="modal" onclick="if(event.target===this)closeAssistantModal()" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeAssistantModal()" aria-label="بستن">✕</button>
+        <div id="assistant-modal-content"></div>
+    </div>
+</div>
+
+<div id="chat-modal" class="modal" onclick="if(event.target===this)closeChatModal()" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeChatModal()" aria-label="بستن">✕</button>
+        <h3 style="color:#10b981;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+            <span>💬 صحبت</span>
+        </h3>
+        <div id="chat-content" class="declaration-text"></div>
+        <p class="chat-privacy">🔒 این بخش فقط برای مشاهده اعلامیه رسمی است؛ چیزی تایپ یا ذخیره نمی‌شود.</p>
     </div>
 </div>
 
@@ -343,6 +404,11 @@ function escapeHtml(str){
     });
 }
 
+function updateSummaryVisibility(){
+    const cur = document.querySelector('.page.active') ? document.querySelector('.page.active').id : 'page-home';
+    document.getElementById('summaryBtn').style.display = (cur === 'page-assistant') ? 'none' : 'flex';
+}
+
 function openPage(id){
     const target = document.getElementById(id);
     if(!target || !target.classList.contains('page')) return;
@@ -350,6 +416,7 @@ function openPage(id){
     target.classList.add('active');
     window.scrollTo({top:0, behavior: LOW_END ? 'auto' : 'smooth'});
     history.pushState({page:id}, '', '#' + id);
+    updateSummaryVisibility();
 }
 
 window.addEventListener('popstate', (e) => {
@@ -357,6 +424,7 @@ window.addEventListener('popstate', (e) => {
     if(!document.getElementById(page)) page = 'page-home';
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(page).classList.add('active');
+    updateSummaryVisibility();
 });
 
 (function(){
@@ -365,6 +433,7 @@ window.addEventListener('popstate', (e) => {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(h).classList.add('active');
     }
+    updateSummaryVisibility();
 })();
 
 function showToast(message, type = 'success') {
@@ -415,6 +484,73 @@ function showCopySuccess(element) {
     }, 1500);
 }
 
+/* ===== دستیار: قوانین و تحریم‌ها ===== */
+const assistantContent = {
+    rules: '<h3 style="color:#0f172a;margin-bottom:12px">📜 قوانین</h3>' +
+        '<p style="font-size:13px;color:var(--muted);margin-bottom:8px">قوانین جدی هستند:</p>' +
+        '<ul class="assistant-list">' +
+        '<li>۱. آشوب ممنوع.</li>' +
+        '<li>۲. توهین ممنوع.</li>' +
+        '<li>۳. نیمه‌شب خواب.</li>' +
+        '<li>۴. اخلاق سگی ممنوع.</li>' +
+        '<li>۵. پریدن به حکومت ممنوع.</li>' +
+        '<li>۶. دکتر رفتن در بیماری اجباری است.</li>' +
+        '</ul>' +
+        '<p class="assistant-note">(قوانین BNPL و اعتبارهای قسطی در بخش واحد مالی قرار دارند)</p>',
+    sanctions: '<h3 style="color:#ef4444;margin-bottom:12px">⛔ تحریم‌ها</h3>' +
+        '<ul class="assistant-list">' +
+        '<li>۱. مشاوره و دکتر ممنوع.</li>' +
+        '<li>۲. مهمانی ممنوع.</li>' +
+        '<li>۳. در خانه ماندن اجباری.</li>' +
+        '<li>۴. وظایف برای دشمنان ممنوع.</li>' +
+        '<li>۵. قرص و شربت ممنوع (فقط SOS).</li>' +
+        '<li>۶. اذیت دشمنان اجباری.</li>' +
+        '<li>۷. مدرسه ممنوع.</li>' +
+        '<li>۸. باندها فعال.</li>' +
+        '<li>۹. گوشی مامان قفل می‌شود.</li>' +
+        '<li>۱۰. مانع فیلم دیدن خواهری.</li>' +
+        '<li>۱۱. به پا شدن آشوب.</li>' +
+        '<li>۱۲. فرار در اتاق خواب ممنوع.</li>' +
+        '</ul>' +
+        '<p class="assistant-note">📌 این لیست فقط برای آگاهی است و در زمان SOS با اطلاع‌رسانی اجرا می‌شود.</p>'
+};
+
+function openAssistantBox(type){
+    const modal = document.getElementById('assistant-modal');
+    document.getElementById('assistant-modal-content').innerHTML = assistantContent[type] || '';
+    modal.style.display = 'flex';
+}
+function closeAssistantModal(){
+    document.getElementById('assistant-modal').style.display = 'none';
+}
+
+/* ===== دستیار: اعلامیه رسمی (بخش صحبت - فقط نمایشی) ===== */
+const declarationText =
+'باسلام و احترام به اعضای حکومت آلمان شرقی بر غربی\n\n' +
+'حکومت آلمان شرقی بر غربی اعلام می‌کند:\n\n' +
+'۱. مامان به صورت دقیق ۱۴ میلیون تومان در دو کارت دریافت می‌کند و ۵ میلیون تومان در کارت دیگر بانک سپه؛ کل این پول‌ها می‌شود ۳۳ میلیون تومان. این اطلاعات بر اساس داده‌های جاسوسی حکومت آلمان شرقی بر غربی میباشد، دقیق میباشد و نیازی به آپدیت ندارد و شاید بعداً آپدیت شود.\n\n' +
+'۲. اطلاعات گوشی مامان دست حکومت آلمان شرقی بر غربی است: مخاطبین، پیامک‌ها، اطلاعات تماس و ... همه اینها دست حکومت است. حالا به اینها کاری نداریم.\n\n' +
+'۳. ارث پدری مامان: مبلغ دقیق ۸۰۰ میلیون تومان، در بانک ملی میباشد.\n\n' +
+'۴. البته مقداری از این اطلاعات به‌دست‌آمده قدیمی میباشد، ولی خب با دستیابی به مخاطبین و ... توانستیم نفوذ بیشتری به گوشی مامان انجام بدهیم و این نفوذ زیاد، زیاد، زیادتر می‌شود.\n\n' +
+'۵. ما به اطلاعات واریز یارانه مامان هم دست یافتیم؛ و یک بار حتی مامان از بانک سپه قرعه‌کشی برنده شده بود 🤣\n\n' +
+'۶. و البته به پیامک‌های شخصی هم دسترسی داشتیم.\n\n' +
+'۷. خلاصه مطلب: ما با قدرتمان توانستیم به گوشی مامان نفوذ کنیم؛ حتی اگه ریست فاکتوری بکنه، گوشی‌اش از دستش می‌ره 🫪🤣😂\n\n' +
+'۸. مقدار دقیق یارانه هم می‌دانیم. باتشکر، حکومت\n\n' +
+'۹. باید فیبرنوری در این خانه بیاید؛ اگه نیاد مودم فضای باز تهیه می‌شود. امروز ما با پیمانکار منطقه زنگ زدیم؛ آنها موافق شدند. البته نه خود مخابرات؛ گفتند باید مخابرات راضی بشه و پول بدم میاین.\n\n' +
+'۱۰. هرگونه مانع شدن درباره فیبرنوری = اطلاعات مامان و گوشی‌اش قفل می‌شود و دسترسی به اینترنت برای خواهری و تلویزیون قطع می‌شود.\n\n' +
+'۱۱. شاید اصلاً خواهری رو به فیبر نوری وصل نکنیم چون مخالفت شدید دارد؛ پس لیاقت فیبرنوری را نداره.\n\n' +
+'۱۲. البته ۳ مودم در خانه فعال می‌شود (اگه فیبر بیاد): فیبرنوری مخابرات، ADSL مخابرات، Home2.g — اینها هم‌زمان فعال هستند.\n\n' +
+'۱۳. در صورتی که مامان رمز گوشی‌اش را عوض کند، گوشی‌اش قفل می‌شود.';
+
+function openChatModal(){
+    document.getElementById('chat-content').textContent = declarationText;
+    document.getElementById('chat-modal').style.display = 'flex';
+}
+function closeChatModal(){
+    document.getElementById('chat-modal').style.display = 'none';
+}
+
+/* ===== خلاصه هوشمند ===== */
 function showSummary(){
     const modal = document.getElementById('summary-modal');
     const content = document.getElementById('summary-content');
@@ -422,7 +558,7 @@ function showSummary(){
     let summary = '';
     if(currentPage === 'page-home'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🏠 خلاصه صفحه اصلی:</strong><br>' +
-            '• دسترسی به اخبار، واحد مالی و خرید.<br>' +
+            '• دسترسی به اخبار، واحد مالی، دستیار و خرید.<br>' +
             '• مهر: ۳۵,۰۰۰,۰۰۰ تومان ✅<br>' +
             '• جزئیات پول ماهیانه آبان فقط در واحد مالی نمایش داده می‌شود.<br>' +
             '• همه‌چیز در یک نگاه!</p>';
@@ -430,15 +566,15 @@ function showSummary(){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>📰 خلاصه اخبار:</strong><br>' +
             '• قانون همراهی: مامان موظف به همراهی حضوری است.<br>' +
             '• اینترنت خانه: با حکومت | اینترنت موبایل: با مامان (بانک تجارت).<br>' +
-            '• بدهکاری حکومت: ۴۰۰,۰۰۰ به مامان، ۴۰۰,۰۰۰ به نرگس.<br>' +
+            '• بدهکاری حکومت: ۴۰,۰۰۰ به مامان، ۴۰۰,۰۰۰ به نرگس.<br>' +
             '• بدهی مامان به حکومت: ۸۹۰,۰۰۰ تومان.<br>' +
             '• قسط وام دیجی‌پی: سررسید ۳۱ مهر، ادامه تا خرداد ۱۴۰۵.<br>' +
-            '• بوفه مدرسه: ۸۰۰,۰۰۰ تومان + غذا (شنبه/دوشنبه/چهارشنبه).</p>';
+            '• بوفه مدرسه: ۸۰۰,۰۰ تومان + غذا (شنبه/دوشنبه/چهارشنبه).</p>';
     } else if(currentPage === 'page-finance'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>💰 خلاصه واحد مالی:</strong><br>' +
             '• مهر: ۳۵,۰۰۰,۰۰۰ تومان (دریافت شد) ✅<br>' +
             '• جمع پول ماهیانه آبان: ۲۶,۲۱۸,۰۰۰ تومان<br>' +
-            '• اجزا: ۳۰۰,۰۰۰ قبوض (Q Bank) + ۵۰۰,۰۰۰ بدهی مامان + ۸۰۰,۰۰۰ بوفه<br>' +
+            '• اجزا: ۳۰,۰۰۰ قبوض (Q Bank) + ۵۰۰,۰۰۰ بدهی مامان + ۸۰,۰۰ بوفه<br>' +
             '• اینترنت موبایل از بانک تجارت مامان، نه از ۳۰۰,۰۰۰ قبوض.<br>' +
             '• بلو جونیور: فقط بوفه مدرسه یا سوپرمارکت نزدیک مدرسه.<br>' +
             '• سیاست کارت‌ها: هیچ‌کدام منسوخ نمی‌شوند به‌جز دیما کارت.<br>' +
@@ -457,6 +593,7 @@ function closeSummary(){
     document.getElementById('summary-modal').style.display = 'none';
 }
 
+/* ===== لیست خریدها ===== */
 const shopItems = [
     {t:"خرید طلا آنلاین", l:null, c:"🪙 طلا", st:"no", m:true},
     {t:"SSD اکسترنال سن‌دیسک Extreme E61 ظرفیت ۱ ترابایت برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4935941", c:"🎮 گیمینگ و کنسول", st:"no"},
