@@ -47,13 +47,13 @@ body.low-end .page{animation:none}
 .summary-btn{position:fixed;top:95px;left:15px;background:linear-gradient(135deg,#10b981,#34d399);color:#fff;border:none;padding:10px 16px;border-radius:25px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(16,185,129,0.4);z-index:100;font-size:14px;font-family:inherit}
 .summary-btn:active{transform:scale(0.95)}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10001;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
-.modal-content{background:var(--card);border-radius:20px;padding:25px;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative;animation:pop .3s ease}
+.modal-content{background:var(--card);border-radius:20px;padding:25px;padding-top:0;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative;animation:pop .3s ease}
 body.low-end .modal-content{animation:none}
 @keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
-.close-modal{position:absolute;top:15px;left:15px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--muted)}
+.modal-close-row{position:sticky;top:0;background:var(--card);display:flex;justify-content:flex-end;margin:0 -25px;padding:15px 25px 5px;z-index:5}
+.close-modal{background:none;border:none;font-size:24px;cursor:pointer;color:var(--muted);line-height:1}
 .fab{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);width:60px;height:60px;background:linear-gradient(135deg,var(--accent),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;box-shadow:0 8px 25px rgba(59,130,246,0.4);cursor:pointer;border:none;z-index:50}
 .fab:active{transform:translateX(-50%) scale(0.9)}
-@media(min-width:769px){body::after{content:'این سایت فقط روی موبایل باحال‌تره!';position:fixed;inset:0;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;z-index:999999;text-align:center;padding:20px}}
 .shop-item{margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px;gap:8px}
 .shop-item.no-link{border-bottom:1px solid var(--border);padding-bottom:8px;color:var(--muted);margin-bottom:12px}
 .shop-item .item-title{flex:1;font-size:14px}
@@ -86,7 +86,6 @@ body.low-end .modal-content{animation:none}
 .badge.important{background:#ef4444}
 .badge.no{background:#f59e0b}
 .badge.maybe{background:#8b5cf6}
-.badge.monthly{background:#14b8a6}
 .security-warning{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:12px;border-radius:10px;margin-top:15px;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:8px}
 .card-policy-note{margin-top:15px;padding:12px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e;font-weight:600}
 .assistant-list{list-style:none;padding:0;margin:0}
@@ -94,7 +93,6 @@ body.low-end .modal-content{animation:none}
 .assistant-list li:last-child{border-bottom:none}
 .assistant-note{margin-top:12px;padding:10px 12px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e}
 .declaration-text{font-size:13px;line-height:2.1;color:var(--text);white-space:pre-line}
-.chat-privacy{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.8}
 #toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 8px 25px rgba(0,0,0,0.3);opacity:0;pointer-events:none;transition:all .3s ease;z-index:100000;font-family:'Vazirmatn',sans-serif}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast.success{background:#10b981}
@@ -153,8 +151,8 @@ body.low-end .modal-content{animation:none}
         </div>
 
         <div class="news-item rule">
-            <strong>⚖️ قانون جریمه (از امروز شنبه ۴ مهر):</strong><br>
-            در صورتی که بیش از ۳ بار قوانین نقض شود، از امروز (شنبه ۴ مهر) به بعد جریمه می‌شوید.
+            <strong>⚖️ قانون جریمه:</strong><br>
+            در صورتی که بیش از ۳ بار قوانین نقض شود، جریمه می‌شوید.
         </div>
 
         <div class="news-item info">
@@ -164,41 +162,35 @@ body.low-end .modal-content{animation:none}
         </div>
 
         <div class="news-item urgent">
-            <strong>۲.  وضعیت بدهکاری و اعتبار:</strong>
+            <strong>۲. وضعیت بدهکاری:</strong>
             <ul>
-                <li><strong>بدهکاری حکومت به مامان:</strong> ۴۰۰,۰۰۰ تومان</li>
-                <li><strong>بدهکاری حکومت به نرگس (خواهری):</strong> ۴۰,۰۰۰ تومان</li>
-                <li><strong>بدهی مامان به حکومت:</strong> ۸۹,۰۰۰ تومان</li>
-                <li><strong>بدهی اعتبار (دیجی‌پی):</strong>
-                    <ul>
-                        <li>قسط اعتبار: ۸۵۶,۰۰ تومان (تا ۱ آبان)</li>
-                        <li>قسط وام: ۴,۷۴۶,۰۰۰ تومان (سررسید ۳۱ مهر) - <strong>ادامه تا خرداد ۱۴۵</strong></li>
-                        <li>قسط آخر اعتبار دیجی‌پی در ماه آبان</li>
-                    </ul>
-                </li>
-                <li><strong>بدهی اعتبار (اسنپ‌پی):</strong> ۱,۰۷۴,۰۰۰ تومان (۴۹۰,۰۰۰ هوشا + ۵۸,۰۰۰ اسنپ‌شاپ). قسط آخر هوشا در آبان.</li>
-                <li><strong>بدهی اعتبار (ترب‌پی):</strong> اقساط ۳۷,۰۰۰ و ۶۸۵,۰۰۰ تومان (همه قسط آخر هستند).</li>
+                <li><strong>اسنپ‌پی:</strong> بدهکار</li>
+                <li><strong>دیجی‌پی:</strong> بدهکار</li>
+                <li><strong>ترب‌پی:</strong> قسط آخر</li>
+                <li>هر موقع قسط آخر بود، اطلاع‌رسانی می‌شود.</li>
             </ul>
         </div>
 
         <div class="news-item highlight">
-            <strong>۳. 💰 تسویه وام:</strong><br>
-            در صورتی که پول وام به ۱۸,۰۰۰,۰۰۰ تومان برسد، وام توسط حکومت کاملاً تسویه خواهد شد.
+            <strong>۳. 💰 قسط مامانی:</strong><br>
+            بزودی قسط مامانی اضافه می‌شود: هر ماه ۵,۰۰۰,۰۰۰ تومان که باید تقسیم بر ۲ بشود؛ الزامی است. خودمون واریز می‌کنیم!<br>
+            ۳۵,۰۰۰,۰۰۰ تومان باید واریز بشه، چند میلیون اضافه‌تر.<br>
+            پس از اتمام قسط مامانی، قسط ۲,۰۰۰,۰۰۰ تومانی شروع می‌شود!
         </div>
 
         <div class="news-item info">
             <strong>۴. 🍽️ بوفه مدرسه (قوانین جدید):</strong>
             <ul>
-                <li>۸۰۰,۰۰۰ تومان فقط در صورتی گرفته می‌شود که بوفه در ماه بعد باز باشد؛ وگرنه گرفته نمی‌شود.</li>
+                <li>پول بوفه (۱,۰۰۰,۰۰۰ تومان) <strong>حتماً گرفته می‌شود؛ حتی در موقعی که مدرسه تعطیل است و حتی در تابستان!</strong></li>
                 <li>پول بوفه فعلاً به بخش اینترنت و قبوض واریز می‌شود.</li>
-                <li>اگر بوفه اول ماه باز نبود و بعداً باز شد، دیگر پولی از مامان دریافت نمی‌شود.</li>
-                <li><strong>در آخرین آپدیت این متن، فعلاً بوفه بسته بود.</strong></li>
+                <li>در صورت قطع نت، ۱,۰۰۰,۰۰۰ تومان از مامان گرفته می‌شود جهت خرید VPN.</li>
             </ul>
         </div>
 
         <div class="news-item info">
-            <strong>۵. 🔺 قرارداد مثلث:</strong><br>
-            احتمالاً به‌زودی از قرارداد مثلث رونمایی خواهد شد.
+            <strong>۵. نت ملی:</strong><br>
+            در صورت نت ملی، از طریق‌های دیگر سایت بروز می‌شود!<br>
+            یا شاید دیگر بروز نشود! در زمان نت ملی.
         </div>
     </div>
 </div>
@@ -209,17 +201,15 @@ body.low-end .modal-content{animation:none}
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه مهر ✅</h4>
-            <p><strong>۳۵,۰۰,۰۰۰ تومان</strong><br>پول ماهیانه مهر دریافت شد.</p>
+            <p><strong>۳۵,۰۰۰,۰۰۰ تومان</strong><br>پول ماهیانه مهر دریافت شد.</p>
         </div>
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>جمع پول ماهیانه: ۲۶,۲۱,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+            <p><strong>جمع پول ماهیانه: ۲۸,۷۴۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
             <ul>
-                <li>۳۰,۰۰۰ تومان: پول پرداخت قبوض — جداگانه به Q Bank واریز می‌شود. <strong>این پول اینترنت موبایل نیست</strong>؛ اینترنت موبایل از بانک تجارت مامان برداشت می‌شود.</li>
-                <li>۵۰۰,۰۰۰ تومان: بدهی مامان به حکومت</li>
-                <li>۸۰۰,۰۰۰ تومان: پول بوفه ماهانه (فعلاً به بخش اینترنت و قبوض واریز می‌شود؛ چون بوفه بسته است)</li>
-                <li>جمع کل پول‌ها: <strong>۲۶,۲۱,۰۰۰ تومان</strong></li>
+                <li>قسط مودم فیبرنوری هوآوی: تقسیم می‌شود و مبلغ آن <strong>مشخص نشده است</strong>.</li>
+                <li>خریدهای قسطی جدید دیجی‌پی: طی یک ماه تسویه می‌شود؛ نیازی به پرداخت قسط اول نیست.</li>
             </ul>
         </div>
         
@@ -321,7 +311,7 @@ body.low-end .modal-content{animation:none}
                 <i class="fas fa-shield-alt" style="font-size:18px;margin-top:2px"></i>
                 <div>
                     <strong>هشدار امنیتی:</strong><br>
-                    شماره کارت‌ها و شماره شباهای فوق تحت هیچ شرایطی از طریق پیامک (SMS) یا پیام‌رسان‌ها ارسال نمی‌شوند. دسترسی به این اطلاعات فقط در مواقع خاص و ضروری (مثلاً حضور فیزیکی پشت دستگاه خودپرداز) مجاز است.
+                    کارت‌ها اصلاً و ابداً در SMS یا پیام‌رسان‌ها ارسال نمی‌شوند؛ فقط از سایت حکومت.
                 </div>
             </div>
         </div>
@@ -361,7 +351,6 @@ body.low-end .modal-content{animation:none}
                 <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
             </div>
         </div>
-        <p class="chat-privacy">💬 بخش «صحبت» فقط نمایش متن رسمی حکومت است؛ بدون نیاز به تایپ. چیزی ذخیره نمی‌شود.</p>
     </div>
 </div>
 
@@ -370,19 +359,29 @@ body.low-end .modal-content{animation:none}
         <h3>🛒 لیست خریدهای ما</h3>
         <p style="margin-bottom:15px;color:var(--muted)">روی لینک‌ها بزن تا مستقیم بری به صفحه محصول:</p>
         <div id="shop-list"></div>
+        <div class="shop-note">
+            💰 ذخیره پول ریالی فقط برای ویپاد.
+        </div>
         
         <div class="shop-section-title" style="margin-top:28px">🗓️ خریدهای آبان ماه</div>
         <p style="color:var(--muted);font-size:13px;margin-bottom:10px">در ماه آبان این‌ها خریداری می‌شود:</p>
         <div id="shop-list-aban"></div>
         <div class="shop-note">
-            🔁 خرید طلای میلی و ذخیره پول ویپاد، <strong>روند هر ماه</strong> هستند؛ هر ماه طلا از میلی به همان مبلغ گرفته می‌شود و پول در ویپاد ذخیره می‌شود.
+            📶 مودم فیبرنوری با اعتبار از ترب یا دیجی‌کالا خریداری می‌شود (قسط اول و تا قسط آخر تقسیم می‌شود؛ در صورت کمبود بودجه قسط اول تقسیم نمی‌شود!).<br>
+            قسط اول یعنی: قسطی که با آن خریدها انجام می‌شود؛ اول ماه می‌شود و کل پول خریداری‌شده ماه قبلی را باید در همان ماه پرداخت کنی، نه در چند قسط.
         </div>
+
+        <div class="shop-section-title" style="margin-top:28px">🧾 خریدهای قسطی (اعتبار دیجی‌پی)</div>
+        <div class="shop-note">
+            💳 این خریدها با اعتبار دیجی‌پی انجام می‌شود؛ <strong>طی یک ماه باید تسویه شود</strong> و نیازی به پرداخت قسط اول نیست.
+        </div>
+        <div id="shop-list-qast"></div>
     </div>
 </div>
 
 <div id="summary-modal" class="modal" onclick="if(event.target===this)closeSummary()" role="dialog" aria-modal="true">
     <div class="modal-content">
-        <button class="close-modal" onclick="closeSummary()" aria-label="بستن">✕</button>
+        <div class="modal-close-row"><button class="close-modal" onclick="closeSummary()" aria-label="بستن">✕</button></div>
         <h3 style="color:#10b981;margin-bottom:15px;display:flex;align-items:center;gap:8px">
             <span>✨ خلاصه هوشمند این صفحه</span>
         </h3>
@@ -392,19 +391,18 @@ body.low-end .modal-content{animation:none}
 
 <div id="assistant-modal" class="modal" onclick="if(event.target===this)closeAssistantModal()" role="dialog" aria-modal="true">
     <div class="modal-content">
-        <button class="close-modal" onclick="closeAssistantModal()" aria-label="بستن">✕</button>
+        <div class="modal-close-row"><button class="close-modal" onclick="closeAssistantModal()" aria-label="بستن">✕</button></div>
         <div id="assistant-modal-content"></div>
     </div>
 </div>
 
 <div id="chat-modal" class="modal" onclick="if(event.target===this)closeChatModal()" role="dialog" aria-modal="true">
     <div class="modal-content">
-        <button class="close-modal" onclick="closeChatModal()" aria-label="بستن">✕</button>
+        <div class="modal-close-row"><button class="close-modal" onclick="closeChatModal()" aria-label="بستن">✕</button></div>
         <h3 style="color:#10b981;margin-bottom:12px;display:flex;align-items:center;gap:8px">
             <span>💬 صحبت</span>
         </h3>
         <div id="chat-content" class="declaration-text"></div>
-        <p class="chat-privacy">🔒 این بخش فقط برای مشاهده متن رسمی است؛ چیزی تایپ یا ذخیره نمی‌شود.</p>
     </div>
 </div>
 
@@ -433,7 +431,7 @@ function escapeHtml(str){
 
 function updateSummaryVisibility(){
     const cur = document.querySelector('.page.active') ? document.querySelector('.page.active').id : 'page-home';
-    document.getElementById('summaryBtn').style.display = (cur === 'page-assistant') ? 'none' : 'flex';
+    document.getElementById('summaryBtn').style.display = (cur === 'page-assistant' || cur === 'page-home') ? 'none' : 'flex';
 }
 
 function openPage(id){
@@ -511,7 +509,6 @@ function showCopySuccess(element) {
     }, 1500);
 }
 
-/* ===== دستیار: قوانین، تحریم‌ها و بانک حکومت ===== */
 const assistantContent = {
     rules: '<h3 style="color:#0f172a;margin-bottom:12px">📜 قوانین</h3>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:8px">قوانین جدی هستند:</p>' +
@@ -527,6 +524,9 @@ const assistantContent = {
         '<li>۹. در صورت آشوب، پس از اتمام آشوب همه با هم دوست می‌شویم.</li>' +
         '<li>۱۰. سر و صدا ممنوع.</li>' +
         '<li>۱۱. داد زدن بر علیه حکومت ممنوع.</li>' +
+        '<li>۱۲. داد زدن بر علیه حکومت = جریمه.</li>' +
+        '<li>۱۳. اخلاق سگی = جریمه.</li>' +
+        '<li>۱۴. نگذاشتن صحبت حکومت، آشوب بپا کردن یا فرار کردن = جریمه سنگین + لاک شدن گوشی مامان.</li>' +
         '</ul>',
     sanctions: '<h3 style="color:#ef4444;margin-bottom:12px">⛔ تحریم‌ها</h3>' +
         '<ul class="assistant-list">' +
@@ -561,11 +561,15 @@ function closeAssistantModal(){
     document.getElementById('assistant-modal').style.display = 'none';
 }
 
-/* ===== دستیار: صحبت (فقط نمایشی) ===== */
 const declarationText =
-'با سلام و احترام\n\n' +
-'ما به گوشی مامان نفوذ کردیم و مبلغ دقیق یارانه‌ها، پیام‌های شخصی در پیامک، مبلغ دقیق حقوق و مبلغ دقیق ارث پدری مامان را می‌دانیم.\n\n' +
-'البته دیتابیس قدیمی شده ولی اون مهم‌ها را داریم!';
+'به نام خداوند رنگین کمان\n\n' +
+'خلاصه اطلاعیه قبلی: به گوشی مامان نفوذ شده است؛ مبلغ دقیق یارانه‌ها، پیام‌های شخصی در پیامک، مبلغ دقیق حقوق و مبلغ دقیق ارث پدری مامان نزد حکومت است. دیتابیس قدیمی شده ولی مهم‌ها باقی است.\n\n' +
+'مامان در زمان چندین سال پیش قدرت زیادی داشت، ولی الان نه، اصلاً نه؛ حتی از خواهر خودش (اقدم یا وجیهه) و حتی از بچه‌اش ضربه می‌خورد.\n\n' +
+'خواهری بدان و آگاه باش: در صورت داد زدن بر علیه حکومت جریمه خواهی شد.\n\n' +
+'و در صورتی که اخلاق سگی باشد جریمه خواهی شد.\n\n' +
+'و در صورتی که نگذاری حکومت صحبت کند و آشوب بپا کنی یا فرار کنی، جریمه سنگین خواهی شد و به علاوه لاک شدن گوشی مامان.\n\n' +
+'مامان موظف است ماه بعدی هم قسط خرید مودم فیبرنوری هوآوی را بدهد هم پول ماهیانه را؛ یعنی پول ماهیانه خالص او ۲۸,۷۴۰,۰۰۰ تومان است.\n\n' +
+'اگر قسط اضافه شود، مبلغ بیشتر می‌شود؛ اصلاً مبلغ برای ما مهم نیست. در صورتی که پول را ندهد یا دبه کند برای خرید مودم فیبرنوری، حکومت اقدام خواهد کرد.';
 
 function openChatModal(){
     document.getElementById('chat-content').textContent = declarationText;
@@ -575,42 +579,36 @@ function closeChatModal(){
     document.getElementById('chat-modal').style.display = 'none';
 }
 
-/* ===== خلاصه هوشمند ===== */
 function showSummary(){
     const modal = document.getElementById('summary-modal');
     const content = document.getElementById('summary-content');
     const currentPage = document.querySelector('.page.active').id;
     let summary = '';
-    if(currentPage === 'page-home'){
-        summary = '<p style="line-height:2;margin-bottom:15px"><strong>🏠 خلاصه صفحه اصلی:</strong><br>' +
-            '• دسترسی به اخبار، واحد مالی، دستیار و خرید.<br>' +
-            '• مهر: ۳۵,۰۰۰,۰۰۰ تومان ✅<br>' +
-            '• جزئیات پول ماهیانه آبان فقط در واحد مالی نمایش داده می‌شود.<br>' +
-            '• همه‌چیز در یک نگاه!</p>';
-    } else if(currentPage === 'page-news'){
+    if(currentPage === 'page-news'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>📰 خلاصه اخبار:</strong><br>' +
-            '• جریمه از شنبه ۴ مهر: بیش از ۳ بار نقض قوانین = جریمه.<br>' +
+            '• جریمه: بیش از ۳ بار نقض قوانین = جریمه.<br>' +
             '• اینترنت خانه: با حکومت | اینترنت موبایل: با مامان (بانک تجارت).<br>' +
-            '• بدهکاری حکومت: ۴۰۰,۰۰۰ به مامان، ۴۰۰,۰۰۰ به نرگس.<br>' +
-            '• بدهی مامان به حکومت: ۸۹۰,۰۰۰ تومان.<br>' +
-            '• قسط وام دیجی‌پی: سررسید ۳۱ مهر، ادامه تا خرداد ۱۴۰.<br>' +
-            '• تسویه کامل وام توسط حکومت در صورت رسیدن به ۱۸,۰۰۰,۰۰۰ تومان.<br>' +
-            '• بوفه: ۸۰۰,۰۰۰ فقط اگر باز باشد؛ فعلاً بسته است و پول به اینترنت و قبوض می‌رود.<br>' +
-            '• رونمایی احتمالی قرارداد مثلث به‌زودی.</p>';
+            '• وضعیت بدهکاری: اسنپ‌پی بدهکار، دیجی‌پی بدهکار، ترب‌پی قسط آخر؛ اطلاع‌رسانی در قسط آخر.<br>' +
+            '• قسط مامانی بزودی: ۵,۰۰۰,۰۰۰ در ماه تقسیم بر ۲ (الزامی، خودمون واریز می‌کنیم)؛ واریز ۳۵,۰۰۰,۰۰۰ + چند میلیون اضافه؛ بعد از آن قسط ۲,۰۰۰,۰۰۰.<br>' +
+            '• بوفه: ۱,۰۰۰,۰۰۰ تومان حتماً گرفته می‌شود، حتی در تعطیلات مدرسه و تابستان. در صورت قطع نت، برای VPN گرفته می‌شود.<br>' +
+            '• نت ملی: سایت از راه‌های دیگر بروز می‌شود یا شاید دیگر بروز نشود.</p>';
     } else if(currentPage === 'page-finance'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>💰 خلاصه واحد مالی:</strong><br>' +
             '• مهر: ۳۵,۰۰۰,۰۰۰ تومان (دریافت شد) ✅<br>' +
-            '• جمع پول ماهیانه آبان: ۲۶,۲۱۸,۰۰۰ تومان<br>' +
-            '• اجزا: ۳۰۰,۰۰۰ قبوض (Q Bank) + ۵۰,۰۰۰ بدهی مامان + ۸۰۰,۰۰۰ بوفه (فعلاً به اینترنت و قبوض)<br>' +
-            '• اینترنت موبایل از بانک تجارت مامان، نه از ۳۰,۰۰۰ قبوض.<br>' +
+            '• جمع پول ماهیانه آبان: ۲۸,۷۴۰,۰۰۰ تومان<br>' +
+            '• قسط مودم فیبرنوری هوآوی: تقسیم می‌شود، مبلغ مشخص نشده.<br>' +
+            '• خریدهای قسطی دیجی‌پی: تسویه طی یک ماه، بدون قسط اول.<br>' +
+            '• ۳۰۰,۰۰۰ قبوض جداگانه به Q Bank؛ اینترنت موبایل از بانک تجارت مامان.<br>' +
             '• بلو جونیور: فقط بوفه مدرسه یا سوپرمارکت نزدیک مدرسه.<br>' +
             '• سیاست کارت‌ها: هیچ‌کدام منسوخ نمی‌شوند به‌جز دیما کارت.<br>' +
-            '• ⚠️ امنیت: ارسال شماره کارت/شبا در پیامک ممنوع است.</p>';
+            '• ⚠️ امنیت: کارت‌ها اصلاً و ابداً در SMS/پیام‌رسان نه؛ فقط سایت حکومت.</p>';
     } else if(currentPage === 'page-shop'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🛒 خلاصه خریدها:</strong><br>' +
-            '• 🟠 فعلاً نه: همه خریدهای لیست اصلی (بدون استثنا).<br>' +
-            '• 🟢 درحال انجام: فقط خریدهای آبان ماه (جاروشارژی، گیرنده بلوتوث، شارژر انکر، پنکه مه‌پاش، پرزگیر، جاکارتی) + طلای میلی (ماهانه)، ویپاد، بلوجونیور.<br>' +
-            '• 🔁 روند هر ماه: طلای میلی و ذخیره ویپاد.</p>';
+            '• 🟢 درحال انجام: فقط خریدهای آبان (فیبرنوری مخابرات + مودم فیبر هوآوی) و خریدهای قسطی (محافظ هادرون P244، محافظ پارت الکتریک PE2204، سه‌شاخه توپی ۲ عددی).<br>' +
+            '• 🟠 فعلاً نه: همه بقیه لیست اصلی.<br>' +
+            '• ➕ جدید: پاوربانک انکر A1335 در لیست اصلی.<br>' +
+            '• 💰 ذخیره پول ریالی فقط برای ویپاد.<br>' +
+            '• 📶 مودم فیبرنوری با اعتبار از ترب یا دیجی‌کالا؛ قسط اول تا آخر تقسیم می‌شود، در کمبود بودجه قسط اول تقسیم نمی‌شود.</p>';
     }
     content.innerHTML = summary;
     modal.style.display = 'flex';
@@ -620,14 +618,12 @@ function closeSummary(){
     document.getElementById('summary-modal').style.display = 'none';
 }
 
-/* ===== لیست خریدها ===== */
 const shopItems = [
-    {t:"خرید طلا آنلاین", l:null, c:"🪙 طلا", st:"no", m:true},
+    {t:"خرید طلا آنلاین از دیجی‌کالا", l:null, c:"🪙 طلا", st:"no"},
     {t:"SSD اکسترنال سن‌دیسک Extreme E61 ظرفیت ۱ ترابایت برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4935941", c:"🎮 گیمینگ و کنسول", st:"no"},
     {t:"هدست گیمینگ ریزر BlackShark V2 X برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ و کنسول", st:"no"},
     {t:"خرید گیفت کارت PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation", c:"🎮 گیمینگ و کنسول", st:"no"},
     {t:"اوکی گوگل روتر از اسنپ‌شاپ", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 مودم و شبکه", st:"no"},
-    {t:"مودم فیبر نوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014", c:"📶 مودم و شبکه", st:"no"},
     {t:"خرید مودم فضای باز ZTE MC889 (در صورت عملی نشدن فیبرنوری)", l:"https://activenetco.ir/product/zte-mc889-outdoor-5g-cpe/", c:"📶 مودم و شبکه", st:"no"},
     {t:"روتر وایرلس تندا TX12 Pro دو بانده AX3000 (برای مودم فضای باز)", l:"https://torob.com/p/4ca90436-56e4-449e-a3aa-8b261b1d8ce5/", c:"📶 مودم و شبکه", st:"no"},
     {t:"مانیتور ۲۱.۴۵ اینچ ام‌اس‌آی مدل PRO MP223 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-12821902", c:"💻 لوازم کامپیوتر", st:"no"},
@@ -637,19 +633,26 @@ const shopItems = [
     {t:"تمدید اشتراک دیجی پلاس یک‌ساله از دیجی‌کالا", l:"https://www.digikala.com/plus/landing/", c:"💳 اشتراک‌ها و خدمات مالی", st:"no"},
     {t:"تمدید اشتراک Snapp Pro شش‌ماهه از اسنپ", l:"https://snapp.ir/pro/", c:"💳 اشتراک‌ها و خدمات مالی", st:"no"},
     {t:"خرید توکن از هوشا", l:"https://hoosha.com/", c:"💳 اشتراک‌ها و خدمات مالی", st:"no"},
+    {t:"ذخیره پول در کارت ویپاد به مبلغ ۱ میلیون تومان (ذخیره ریالی)", l:null, c:"💳 اشتراک‌ها و خدمات مالی", st:"no"},
+    {t:"واریز به کارت بلوجونیور به مبلغ ۱ میلیون تومان برای خرید از بوفه مدرسه", l:null, c:"💳 اشتراک‌ها و خدمات مالی", st:"no"},
     {t:"شارژ سیم‌کارت ودافون از sae۲۲", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"🌍 سیم‌کارت‌های خارجی", st:"no"},
     {t:"خرید سیم‌کارت EE انگلستان از sae۲۲", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", c:"🌍 سیم‌کارت‌های خارجی", st:"no"},
-    {t:"درخواست فیبرنوری از مخابرات", l:null, c:"🛍️ خریدهای حضوری و سایر", st:"no"},
+    {t:"جاروشارژی خودرو دو کاره با مکش قوی و طراحی کاربردی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-15105543", c:"🛍️ خریدهای حضوری و سایر", st:"no"},
+    {t:"گیرنده بلوتوثی موزیک بیسوس مدل WXQY-01 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1854527", c:"🛍️ خریدهای حضوری و سایر", st:"no"},
+    {t:"شارژر فندکی ۴۵ وات سه پورت انکر مدل A2731 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18612577", c:"🛍️ خریدهای حضوری و سایر", st:"no"},
+    {t:"پنکه رومیزی مدل مه‌پاش از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14575975", c:"🛍️ خریدهای حضوری و سایر", st:"no"},
+    {t:"پرزگیر برقی لباس میجیا مدل MQXJQ01KL از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4115806", c:"🛍️ خریدهای حضوری و سایر", st:"no"},
+    {t:"جاکارتی مدل چرم طبیعی کد HL-16121 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14505071", c:"🛍️ خریدهای حضوری و سایر", st:"no"},
+    {t:"پاوربانک انکر مدل A1335 ظرفیت ۱۲۰۰۰ میلی‌آمپر با توان ۱۳۰ وات", l:"https://torob.com/p/1e953ffa-e8c4-4c74-b514-6f86bec5e279/", c:"🛍️ خریدهای حضوری و سایر", st:"no"},
     {t:"آمپول لاغری", l:null, c:"🛍️ خریدهای حضوری و سایر", st:"no"},
     {t:"خرید ادکلن اورجینال از بازار", l:null, c:"🛍️ خریدهای حضوری و سایر", st:"no"},
     {t:"خرید بازی‌های اضافی‌تر برای PS۵", l:null, c:"🛍️ خریدهای حضوری و سایر", st:"no"}
 ];
 
-const catOrder = ["🪙 طلا"," گیمینگ و کنسول","📶 مودم و شبکه","💻 لوازم کامپیوتر","💻 لوازم کامپیوتر و اسمبل","💳 اشتراک‌ها و خدمات مالی","🌍 سیم‌کارت‌های خارجی","🛍️ خریدهای حضوری و سایر"];
+const catOrder = ["🪙 طلا","🎮 گیمینگ و کنسول","📶 مودم و شبکه","💻 لوازم کامپیوتر","💻 لوازم کامپیوتر و اسمبل","💳 اشتراک‌ها و خدمات مالی","🌍 سیم‌کارت‌های خارجی","🛍️ خریدهای حضوری و سایر"];
 
 function badgeHtml(i){
     let b = '';
-    if(i.m) b += '<span class="badge monthly">ماهانه</span>';
     if(i.st === 'doing') b += '<span class="badge doing">درحال انجام</span>';
     else if(i.st === 'important') b += '<span class="badge important">مهم</span>';
     else if(i.st === 'maybe') b += '<span class="badge maybe">برنامه‌ریزی آینده</span>';
@@ -670,18 +673,22 @@ catOrder.forEach(cat => {
 document.getElementById('shop-list').innerHTML = shopHTML;
 
 const abanItems = [
-    {t:"جاروشارژی خودرو دو کاره با مکش قوی و طراحی کاربردی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-15105543", st:"doing"},
-    {t:"گیرنده بلوتوثی موزیک بیسوس مدل WXQY-01 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-1854527", st:"doing"},
-    {t:"شارژر فندکی ۴۵ وات سه پورت انکر مدل A2731 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18612577", st:"doing"},
-    {t:"پنکه رومیزی مدل مه‌پاش از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14575975", st:"doing"},
-    {t:"پرزگیر برقی لباس میجیا مدل MQXJQ01KL از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4115806", st:"doing"},
-    {t:"جاکارتی مدل چرم طبیعی کد HL-16121 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-14505071", st:"doing"},
-    {t:"خرید طلا از اپلیکیشن میلی به مبلغ ۲ میلیون تومان (روند هر ماه)", l:null, st:"doing", m:true},
-    {t:"ذخیره پول در کارت ویپاد به مبلغ ۱ میلیون تومان (روند هر ماه)", l:null, st:"doing"},
-    {t:"واریز به کارت بلوجونیور به مبلغ ۱ میلیون تومان برای خرید از بوفه مدرسه (ماهانه)", l:null, st:"doing"}
+    {t:"فیبرنوری مخابرات", l:null, st:"doing"},
+    {t:"مودم فیبر نوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014", st:"doing"}
 ];
 
 document.getElementById('shop-list-aban').innerHTML = abanItems.map(i => {
+    if(i.l) return `<div class="shop-item"><span class="item-title">${badgeHtml(i)}${escapeHtml(i.t)}</span><a href="${escapeHtml(i.l)}" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>`;
+    return `<div class="shop-item no-link"><span class="item-title">${badgeHtml(i)}${escapeHtml(i.t)}</span></div>`;
+}).join('');
+
+const qastItems = [
+    {t:"محافظ ولتاژ هارمونیک هادرون مدل P244 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19102989", st:"doing"},
+    {t:"محافظ برق پارت الکتریک مدل PE2204 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-20256682", st:"doing"},
+    {t:"سه‌شاخه برق مدل توپی بسته ۲ عددی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18132074", st:"doing"}
+];
+
+document.getElementById('shop-list-qast').innerHTML = qastItems.map(i => {
     if(i.l) return `<div class="shop-item"><span class="item-title">${badgeHtml(i)}${escapeHtml(i.t)}</span><a href="${escapeHtml(i.l)}" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>`;
     return `<div class="shop-item no-link"><span class="item-title">${badgeHtml(i)}${escapeHtml(i.t)}</span></div>`;
 }).join('');
