@@ -93,6 +93,10 @@ body.low-end .modal-content{animation:none}
 .assistant-list li:last-child{border-bottom:none}
 .assistant-note{margin-top:12px;padding:10px 12px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e}
 .declaration-text{font-size:13px;line-height:2.1;color:var(--text);white-space:pre-line}
+.contract-block{padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;font-size:13px;line-height:2}
+.contract-block h4{color:var(--accent-dark);font-size:14px;margin-bottom:6px}
+.signature-row{display:flex;justify-content:space-between;gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px}
+.signature-row div{flex:1}
 #toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 8px 25px rgba(0,0,0,0.3);opacity:0;pointer-events:none;transition:all .3s ease;z-index:100000;font-family:'Vazirmatn',sans-serif}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast.success{background:#10b981}
@@ -156,9 +160,9 @@ body.low-end .modal-content{animation:none}
         </div>
 
         <div class="news-item info">
-            <strong>۱. قانون اینترنت از ماه آبان:</strong><br>
-            دو اینترنت خانه (چه مخابرات و چه Home2.g) و مودم نتربیت بر عهده حکومت است.<br>
-            بقیه اینترنت‌ها از جمله موبایل بر عهده مامان است و از کارت ایشان برداشت می‌شود.
+            <strong>۱. قانون اینترنت:</strong><br>
+            دو اینترنت خانه (مخابرات و Home2.g) و مودم نتربیت بر عهده حکومت است.<br>
+            اینترنت موبایل بر عهده مامان است و از کارت ایشان برداشت می‌شود.
         </div>
 
         <div class="news-item urgent">
@@ -179,7 +183,7 @@ body.low-end .modal-content{animation:none}
         </div>
 
         <div class="news-item info">
-            <strong>۴. 🍽️ بوفه مدرسه (قوانین جدید):</strong>
+            <strong>۴. 🍽️ بوفه مدرسه:</strong>
             <ul>
                 <li>پول بوفه (۱,۰۰۰,۰۰۰ تومان) <strong>حتماً گرفته می‌شود؛ حتی در موقعی که مدرسه تعطیل است و حتی در تابستان!</strong></li>
                 <li>پول بوفه فعلاً به بخش اینترنت و قبوض واریز می‌شود.</li>
@@ -208,7 +212,7 @@ body.low-end .modal-content{animation:none}
             <h4>📅 پول ماهیانه آبان</h4>
             <p><strong>جمع پول ماهیانه: ۲۸,۷۴۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
             <ul>
-                <li>قسط مودم فیبرنوری هوآوی: تقسیم می‌شود و مبلغ آن <strong>مشخص نشده است</strong>.</li>
+                <li>قسط مودم فیبرنوری هوآوی: از دیجی‌کالا با اعتبار تهیه می‌شود و در <strong>۴ قسط</strong> پرداخت می‌شود.</li>
                 <li>خریدهای قسطی جدید دیجی‌پی: طی یک ماه تسویه می‌شود؛ نیازی به پرداخت قسط اول نیست.</li>
             </ul>
         </div>
@@ -237,8 +241,8 @@ body.low-end .modal-content{animation:none}
             <div class="finance-card">
                 <div class="card-icon" style="background:#ef4444">💳</div>
                 <div class="card-info">
-                    <div class="card-name">دیجی کارت <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">اختصاصی برای خرید از دیجی‌کالا و فروشگاه‌های طرف قرارداد با دیجی‌پی.</div>
+                    <div class="card-name">دیجی تین <span class="badge" style="background:#64748b">به نام مامان</span></div>
+                    <div class="card-desc">خرید سکه پارسیان از طلای عزیزی؛ و خرید از دیجی‌کالا و فروشگاه‌های طرف قرارداد با دیجی‌پی.</div>
                 </div>
             </div>
             
@@ -264,7 +268,7 @@ body.low-end .modal-content{animation:none}
                 <div class="card-icon" style="background:#f59e0b">💳</div>
                 <div class="card-info">
                     <div class="card-name">WePod (وپاد) <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">ذخیره پول به صورت ریالی و یا خرید طلا آنلاین.</div>
+                    <div class="card-desc">ذخیره پول به صورت ریالی.</div>
                 </div>
             </div>
             
@@ -311,7 +315,7 @@ body.low-end .modal-content{animation:none}
                 <i class="fas fa-shield-alt" style="font-size:18px;margin-top:2px"></i>
                 <div>
                     <strong>هشدار امنیتی:</strong><br>
-                    کارت‌ها اصلاً و ابداً در SMS یا پیام‌رسان‌ها ارسال نمی‌شوند؛ فقط از سایت حکومت.
+                    کارت‌ها اصلاً و ابداً در SMS یا پیام‌رسان‌ها ارسال نمی‌شوند؛ فقط از سایت حکومت. هرگونه تلاش برای استخراج این اطلاعات از کانال‌های دیگر، تخلف امنیتی محسوب می‌شود.
                 </div>
             </div>
         </div>
@@ -343,6 +347,13 @@ body.low-end .modal-content{animation:none}
                 </div>
                 <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
             </div>
+            <div class="card-btn" onclick="openAssistantBox('triangle');vibrate()">
+                <div style="display:flex;align-items:center;gap:12px">
+                    <div class="icon" style="background:#7c3aed">🔺</div>
+                    <span>قرارداد مثلث</span>
+                </div>
+                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
+            </div>
             <div class="card-btn" onclick="openChatModal();vibrate()">
                 <div style="display:flex;align-items:center;gap:12px">
                     <div class="icon" style="background:#10b981">💬</div>
@@ -367,13 +378,16 @@ body.low-end .modal-content{animation:none}
         <p style="color:var(--muted);font-size:13px;margin-bottom:10px">در ماه آبان این‌ها خریداری می‌شود:</p>
         <div id="shop-list-aban"></div>
         <div class="shop-note">
-            📶 مودم فیبرنوری با اعتبار از ترب یا دیجی‌کالا خریداری می‌شود (قسط اول و تا قسط آخر تقسیم می‌شود؛ در صورت کمبود بودجه قسط اول تقسیم نمی‌شود!).<br>
+            📶 مودم فیبرنوری با اعتبار از دیجی‌کالا تهیه می‌شود و در <strong>۴ قسط</strong> باید داده شود. قسط اول آن این ماه پرداخت می‌شود.<br>
             قسط اول یعنی: قسطی که با آن خریدها انجام می‌شود؛ اول ماه می‌شود و کل پول خریداری‌شده ماه قبلی را باید در همان ماه پرداخت کنی، نه در چند قسط.
         </div>
 
         <div class="shop-section-title" style="margin-top:28px">🧾 خریدهای قسطی (اعتبار دیجی‌پی)</div>
         <div class="shop-note">
-            💳 این خریدها با اعتبار دیجی‌پی انجام می‌شود؛ <strong>طی یک ماه باید تسویه شود</strong> و نیازی به پرداخت قسط اول نیست.
+            💳 این خریدها با اعتبار دیجی‌پی انجام می‌شود؛ <strong>طی یک ماه باید تسویه شود</strong> و نیازی به پرداخت قسط اول نیست.<br>
+            📌 خریدهای دیجی‌کالا با اعتبار ماهانه گرفته می‌شوند و <strong>ماه بعد یکجا تسویه می‌شوند</strong> (در ۴ قسط نیستند).<br>
+            💡 همه خریدهای اعتباری با وام برای ماه <strong>آذر</strong> تقسیم می‌شوند؛ اگر شد، برای ماه آبان هم تقسیم می‌شوند.<br>
+            ⚠️ خریدهای جدید فقط مودم است که قسط اولش این ماه باید داده شود.
         </div>
         <div id="shop-list-qast"></div>
     </div>
@@ -545,11 +559,56 @@ const assistantContent = {
         '<p class="assistant-note">📌 این لیست فقط برای آگاهی است و در زمان SOS با اطلاع‌رسانی اجرا می‌شود.</p>',
     bank: '<h3 style="color:#0f172a;margin-bottom:12px">🏦 بانک حکومت</h3>' +
         '<p style="font-size:14px;line-height:1.9;margin-bottom:10px">بزودی طرح وام برای مامان و خواهری و خانواده فعال می‌شود و باید به حکومت درخواست بدهند؛ در صورتی که بودجه باشد داده می‌شود. <strong>فعلاً خبری نیست!</strong></p>' +
-        '<p style="font-size:13px;color:var(--muted);margin-bottom:8px">در صورت جریمه شدن، در اینجا جریمه هر نفر اعلام می‌شود که چقدر باید به حکومت بدهد (به دلایلی):</p>' +
+        '<p style="font-size:13px;color:var(--muted);margin-bottom:8px"><strong>بدهی‌های حکومت:</strong></p>' +
+        '<ul class="assistant-list">' +
+        '<li>بدهی حکومت به نرگس (خواهری): <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به مامان: <strong>۶۰۰,۰۰۰ تومان</strong></li>' +
+        '</ul>' +
+        '<p style="font-size:13px;color:var(--muted);margin-bottom:8px;margin-top:12px">در صورت جریمه شدن، در اینجا جریمه هر نفر اعلام می‌شود که چقدر باید به حکومت بدهد (به دلایلی):</p>' +
         '<ul class="assistant-list">' +
         '<li>خواهری: —</li>' +
         '<li>مامان: —</li>' +
-        '</ul>'
+        '</ul>',
+    triangle: '<h3 style="color:#7c3aed;margin-bottom:12px">🔺 قرارداد مثلث</h3>' +
+        '<div class="contract-block">' +
+        '<h4>کلیات</h4>' +
+        '<p>قرارداد مثلث به این گونه است که چند بند مستقیم دارد و امضاء کردن آن <strong>اجباری</strong> است.</p>' +
+        '<p>هرگونه آشوب از طرف مامان و خواهری ممنوع است. باید قوانین حکومت را رعایت کنید؛ هرگونه اعتراض به سایت حکومت مجاز نیست. همه موظف هستند روی سایت را چک کنند.</p>' +
+        '</div>' +
+        '<div class="contract-block">' +
+        '<h4>مبالغ</h4>' +
+        '<ul class="assistant-list">' +
+        '<li>پول ماهیانه: <strong>۲۰,۰۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>پول قبوض: <strong>۳۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>پول بوفه هر ماه: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>پول تمام قسط‌ها تقسیم می‌شود</li>' +
+        '</ul>' +
+        '</div>' +
+        '<div class="contract-block">' +
+        '<h4>بندهای اجرایی</h4>' +
+        '<ul class="assistant-list">' +
+        '<li>در صورت نیاز، آشوب یا باندها فعال می‌شود</li>' +
+        '<li>اگر در موقعیت آشوب‌آمیز باشیم، ما هم آشوب می‌شویم</li>' +
+        '<li>تمام خریدها با تایید مقامات حکومت انجام می‌شود</li>' +
+        '<li>فیبرنوری به این خانه می‌آید</li>' +
+        '<li>مودم فضای باز هم به این خانه می‌آید</li>' +
+        '<li>کتک زدن در این خانه مجاز نیست</li>' +
+        '<li>پول اینترنت موبایل بر عهده مامان است</li>' +
+        '<li>پول اینترنت خانه این ماه بر عهده مامان است؛ از ماه‌های بعدی بر عهده حکومت</li>' +
+        '<li>صحبت حکومت مجاز است</li>' +
+        '<li>VPN‌ها بروز می‌شود</li>' +
+        '<li>سایت حکومت در حال آپدیت می‌باشد</li>' +
+        '</ul>' +
+        '</div>' +
+        '<div class="contract-block">' +
+        '<h4>امضاء</h4>' +
+        '<div class="signature-row">' +
+        '<div><strong>خواهری:</strong><br>✅ امضاء شد</div>' +
+        '<div><strong>مامان:</strong><br>✅ امضاء شد</div>' +
+        '<div><strong>حکومت:</strong><br>✅ امضاء شد</div>' +
+        '</div>' +
+        '<p class="assistant-note">به نام خداوند رنگین کمان<br>به حواس به بدهی‌ها است<br>این قرارداد تکمیل نیست ولی اگر آپدیت شود در سایت حکومت ثبت می‌شود.<br><strong>تاریخ پایان ندارد.</strong></p>' +
+        '</div>'
 };
 
 function openAssistantBox(type){
@@ -587,28 +646,25 @@ function showSummary(){
     if(currentPage === 'page-news'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>📰 خلاصه اخبار:</strong><br>' +
             '• جریمه: بیش از ۳ بار نقض قوانین = جریمه.<br>' +
-            '• اینترنت خانه: با حکومت | اینترنت موبایل: با مامان (بانک تجارت).<br>' +
-            '• وضعیت بدهکاری: اسنپ‌پی بدهکار، دیجی‌پی بدهکار، ترب‌پی قسط آخر؛ اطلاع‌رسانی در قسط آخر.<br>' +
-            '• قسط مامانی بزودی: ۵,۰۰۰,۰۰۰ در ماه تقسیم بر ۲ (الزامی، خودمون واریز می‌کنیم)؛ واریز ۳۵,۰۰۰,۰۰۰ + چند میلیون اضافه؛ بعد از آن قسط ۲,۰۰۰,۰۰۰.<br>' +
-            '• بوفه: ۱,۰۰۰,۰۰۰ تومان حتماً گرفته می‌شود، حتی در تعطیلات مدرسه و تابستان. در صورت قطع نت، برای VPN گرفته می‌شود.<br>' +
-            '• نت ملی: سایت از راه‌های دیگر بروز می‌شود یا شاید دیگر بروز نشود.</p>';
+            '• اینترنت خانه: این ماه مامان، بعداً حکومت | موبایل: مامان.<br>' +
+            '• وضعیت بدهکاری: اسنپ‌پی بدهکار، دیجی‌پی بدهکار، ترب‌پی قسط آخر.<br>' +
+            '• قسط مامانی بزودی: ۵,۰۰۰,۰۰۰ تقسیم بر ۲ (الزامی)؛ ۳۵,۰۰۰,۰۰۰ + اضافه؛ بعد از آن قسط ۲,۰۰۰,۰۰۰.<br>' +
+            '• بوفه: ۱,۰۰۰,۰۰۰ حتماً گرفته می‌شود، حتی تعطیلات و تابستان.<br>' +
+            '• نت ملی: سایت از راه‌های دیگر بروز یا شاید بروز نشود.</p>';
     } else if(currentPage === 'page-finance'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>💰 خلاصه واحد مالی:</strong><br>' +
-            '• مهر: ۳۵,۰۰۰,۰۰۰ تومان (دریافت شد) ✅<br>' +
-            '• جمع پول ماهیانه آبان: ۲۸,۷۴۰,۰۰۰ تومان<br>' +
-            '• قسط مودم فیبرنوری هوآوی: تقسیم می‌شود، مبلغ مشخص نشده.<br>' +
-            '• خریدهای قسطی دیجی‌پی: تسویه طی یک ماه، بدون قسط اول.<br>' +
-            '• ۳۰۰,۰۰۰ قبوض جداگانه به Q Bank؛ اینترنت موبایل از بانک تجارت مامان.<br>' +
-            '• بلو جونیور: فقط بوفه مدرسه یا سوپرمارکت نزدیک مدرسه.<br>' +
-            '• سیاست کارت‌ها: هیچ‌کدام منسوخ نمی‌شوند به‌جز دیما کارت.<br>' +
-            '• ⚠️ امنیت: کارت‌ها اصلاً و ابداً در SMS/پیام‌رسان نه؛ فقط سایت حکومت.</p>';
+            '• مهر: ۳۵,۰۰۰,۰۰۰ تومان ✅<br>' +
+            '• آبان: ۲۸,۷۴۰,۰۰۰ تومان<br>' +
+            '• مودم فیبر: ۴ قسط از دیجی‌کالا<br>' +
+            '• قسطی دیجی‌پی: یک‌ماهه، بدون قسط اول<br>' +
+            '• دیجی تین: سکه پارسیان + دیجی‌کالا<br>' +
+            '• ویپاد: ذخیره ریالی<br>' +
+            '• امنیت: کارت‌ها فقط از سایت حکومت.</p>';
     } else if(currentPage === 'page-shop'){
         summary = '<p style="line-height:2;margin-bottom:15px"><strong>🛒 خلاصه خریدها:</strong><br>' +
-            '• 🟢 درحال انجام: فقط خریدهای آبان (فیبرنوری مخابرات + مودم فیبر هوآوی) و خریدهای قسطی (محافظ هادرون P244، محافظ پارت الکتریک PE2204، سه‌شاخه توپی ۲ عددی).<br>' +
-            '• 🟠 فعلاً نه: همه بقیه لیست اصلی.<br>' +
-            '• ➕ جدید: پاوربانک انکر A1335 در لیست اصلی.<br>' +
-            '• 💰 ذخیره پول ریالی فقط برای ویپاد.<br>' +
-            '• 📶 مودم فیبرنوری با اعتبار از ترب یا دیجی‌کالا؛ قسط اول تا آخر تقسیم می‌شود، در کمبود بودجه قسط اول تقسیم نمی‌شود.</p>';
+            '• 🟢 درحال انجام: خریدهای آبان (فیبرنوری مخابرات + مودم هوآوی ۴ قسطه) + قسطی (محافظ هادرون، سه‌شاخه توپی).<br>' +
+            '• 🟠 فعلاً نه: سکه پارسیان، SSD لنوو PS6، هارد سیلیکون Armor 80، فلش سن‌دیسک ۲۵۶GB، کابل CAT8 یوگرین، هدست ریزر، گیفت کارت، گوگل روتر، ZTE، تندا، مانیتور MSI، هاب بیسوس، اسمبل، ویپاد، بلوجونیور، ودافون، EE، جاروشارژی، گیرنده بلوتوث، شارژر انکر، پنکه، پرزگیر، جاکارتی، پاوربانک انکر، آمپول، ادکلن، بازی PS5.<br>' +
+            '• 💡 خریدهای دیجی‌کالا ماه بعد یکجا تسویه؛ اعتباری‌ها با وام آذر (شاید آبان)؛ فقط مودم قسط اول این ماه.</p>';
     }
     content.innerHTML = summary;
     modal.style.display = 'flex';
@@ -619,11 +675,14 @@ function closeSummary(){
 }
 
 const shopItems = [
-    {t:"خرید طلا آنلاین از دیجی‌کالا", l:null, c:"🪙 طلا", st:"no"},
-    {t:"SSD اکسترنال سن‌دیسک Extreme E61 ظرفیت ۱ ترابایت برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-4935941", c:"🎮 گیمینگ و کنسول", st:"no"},
+    {t:"خرید سکه پارسیان از طلای عزیزی", l:null, c:"🪙 طلا و سکه", st:"no"},
+    {t:"SSD اکسترنال لنوو مدل PS6 ظرفیت ۵۱۲ گیگابایت رابط USB 3.2 Gen1", l:"https://www.digikala.com/product/dkp-20764908", c:"💾 حافظه و ذخیره‌سازی", st:"no"},
+    {t:"هارد اکسترنال سیلیکون پاور مدل Armor 80 ظرفیت ۱ ترابایت USB Type-A 3.2", l:null, c:"💾 حافظه و ذخیره‌سازی", st:"no"},
+    {t:"فلش مموری سن دیسک Ultra Dual Drive Go ظرفیت ۲۵۶ گیگابایت (USB-C + USB-A)", l:"https://www.digikala.com/product/dkp-3275589", c:"💾 حافظه و ذخیره‌سازی", st:"no"},
+    {t:"کابل شبکه CAT8 یوگرین مدل NW121-70327", l:"https://www.digikala.com/product/dkp-8952103", c:"📶 شبکه و کابل", st:"no"},
     {t:"هدست گیمینگ ریزر BlackShark V2 X برای PS۵ از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ و کنسول", st:"no"},
     {t:"خرید گیفت کارت PS۵ ریجن آمریکا از ایرانیکارت", l:"https://panel.iranicard.ir/view/Giftcard/product?name=playstation", c:"🎮 گیمینگ و کنسول", st:"no"},
-    {t:"اوکی گوگل روتر از اسنپ‌شاپ", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 مودم و شبکه", st:"no"},
+    {t:"گوگل روتر از اسنپ‌شاپ", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 مودم و شبکه", st:"no"},
     {t:"خرید مودم فضای باز ZTE MC889 (در صورت عملی نشدن فیبرنوری)", l:"https://activenetco.ir/product/zte-mc889-outdoor-5g-cpe/", c:"📶 مودم و شبکه", st:"no"},
     {t:"روتر وایرلس تندا TX12 Pro دو بانده AX3000 (برای مودم فضای باز)", l:"https://torob.com/p/4ca90436-56e4-449e-a3aa-8b261b1d8ce5/", c:"📶 مودم و شبکه", st:"no"},
     {t:"مانیتور ۲۱.۴۵ اینچ ام‌اس‌آی مدل PRO MP223 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-12821902", c:"💻 لوازم کامپیوتر", st:"no"},
@@ -649,7 +708,7 @@ const shopItems = [
     {t:"خرید بازی‌های اضافی‌تر برای PS۵", l:null, c:"🛍️ خریدهای حضوری و سایر", st:"no"}
 ];
 
-const catOrder = ["🪙 طلا","🎮 گیمینگ و کنسول","📶 مودم و شبکه","💻 لوازم کامپیوتر","💻 لوازم کامپیوتر و اسمبل","💳 اشتراک‌ها و خدمات مالی","🌍 سیم‌کارت‌های خارجی","🛍️ خریدهای حضوری و سایر"];
+const catOrder = ["🪙 طلا و سکه","💾 حافظه و ذخیره‌سازی","📶 شبکه و کابل","🎮 گیمینگ و کنسول","📶 مودم و شبکه","💻 لوازم کامپیوتر","💻 لوازم کامپیوتر و اسمبل","💳 اشتراک‌ها و خدمات مالی","🌍 سیم‌کارت‌های خارجی","🛍️ خریدهای حضوری و سایر"];
 
 function badgeHtml(i){
     let b = '';
@@ -674,7 +733,7 @@ document.getElementById('shop-list').innerHTML = shopHTML;
 
 const abanItems = [
     {t:"فیبرنوری مخابرات", l:null, st:"doing"},
-    {t:"مودم فیبر نوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014", st:"doing"}
+    {t:"مودم فیبر نوری هوآوی مدل EG8145X6 از دیجی‌کالا (۴ قسط با اعتبار)", l:"https://www.digikala.com/product/dkp-11021014", st:"doing"}
 ];
 
 document.getElementById('shop-list-aban').innerHTML = abanItems.map(i => {
@@ -684,7 +743,6 @@ document.getElementById('shop-list-aban').innerHTML = abanItems.map(i => {
 
 const qastItems = [
     {t:"محافظ ولتاژ هارمونیک هادرون مدل P244 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-19102989", st:"doing"},
-    {t:"محافظ برق پارت الکتریک مدل PE2204 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-20256682", st:"doing"},
     {t:"سه‌شاخه برق مدل توپی بسته ۲ عددی از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-18132074", st:"doing"}
 ];
 
