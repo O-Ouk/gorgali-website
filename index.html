@@ -47,12 +47,15 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .close-modal:active{transform:scale(0.9)}
 .fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;border:none;z-index:50;transition:transform .15s}
 .fab:active{transform:translateX(-50%) scale(0.92)}
-.shop-item{margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:6px;gap:8px}
+.shop-item{margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:6px;gap:8px}
 .shop-item.no-link{color:var(--muted)}
-.shop-item .item-title{flex:1;font-size:14px;line-height:1.7}
+.shop-item .item-content{flex:1}
+.shop-item .item-title{font-size:14px;line-height:1.7;margin-bottom:2px}
+.shop-item .item-reason{font-size:12px;color:var(--muted);line-height:1.5;font-style:italic;margin-top:2px}
 .shop-section-title{margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.shop-section-note{padding:10px;background:#f0f9ff;border-right:4px solid #0284c7;border-radius:8px;margin:8px 0 12px;font-size:13px;line-height:1.8;color:#0c4a6e}
 .finance-section{margin-bottom:16px;padding:14px;background:var(--bg);border-radius:12px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .finance-section p{font-size:14px;line-height:1.9}
@@ -171,6 +174,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <li><strong>حالت اول (اگر فیبر بیاید):</strong> پول ماهیانه می‌شود ۲۹,۹۸۰,۰۰۰ تومان. انشاءالله که قسط اول مودم نیاید.</li>
                 <li><strong>حالت دوم (اگر فیبر نیاید):</strong> مشخص نیست پول ماهیانه چقدر می‌شود!</li>
                 <li><strong>حالت سوم (اگر برنامه اوانو قسط اول مودم را بخواهد):</strong> پول ماهیانه <strong>افزایشی می‌شود</strong> چون باید قسط اول پرداخت شود.</li>
+                <li><strong>کسری بودجه:</strong> در صورت کسری بودجه، مودم H155-383 فروخته می‌شود و مودم جایگزین ZTE X28 خریداری می‌شود.</li>
             </ul>
         </div>
 
@@ -510,26 +514,41 @@ function openChatModal(){ document.getElementById('chat-modal').style.display = 
 function closeChatModal(){ document.getElementById('chat-modal').style.display = 'none'; }
 
 const abanItems = [
-    {t:"فیبر", l:null, st:"aban"},
-    {t:"مودم فیبر نوری هوآوی مدل EG8145X6 از دیجی‌کالا", l:"https://www.digikala.com/product/dkp-11021014", st:"aban"}
+    {t:"فیبر", l:null, st:"aban", r:"سرعت بالا و پایداری"},
+    {t:"مودم فیبر", l:"https://www.digikala.com/product/dkp-11021014", st:"aban", r:"مودم برای فیبرنوری"}
 ];
 
 const shopItems = [
-    {t:"AUX", l:"https://www.digikala.com/product/dkp-1854527", c:"🚗 ماشین کوییک", st:"no"},
-    {t:"شارژر فندکی", l:"https://www.digikala.com/product/dkp-18612577", c:"🚗 ماشین کوییک", st:"no"},
-    {t:"تلفون پاناسونیک KX-TGF320BX", l:"https://www.digikala.com/product/dkp-1534229", c:"📡 تجهیزات مخابرات", st:"no"},
-    {t:"گوشی نوکیا 105 2023", l:"https://www.digikala.com/product/dkp-15572856", c:"📡 تجهیزات مخابرات", st:"no"},
-    {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no"},
-    {t:"روتر گوگل", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 تجهیزات مودم", st:"no"},
-    {t:"کابل لن", l:"https://www.digikala.com/product/dkp-8952103", c:"📶 تجهیزات مودم", st:"no"},
-    {t:"هاب", l:"https://www.digikala.com/product/dkp-9510400", c:"📶 تجهیزات مودم", st:"no"},
-    {t:"تمدید اشتراک دیجی پلاس", l:"https://www.digikala.com/plus/landing/", c:"💰 مالی", st:"no"},
-    {t:"تمدید اشتراک اسنپ پرو", l:"https://snapp.ir/pro/", c:"💰 مالی", st:"no"},
-    {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"🌍 خرید سیم‌کارت خارجی", st:"no"},
-    {t:"خرید سیم‌کارت EE", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", c:"🌍 خرید سیم‌کارت خارجی", st:"no"},
-    {t:"خرید سکه پارسیان از طلای عزیزی", l:null, c:"🛍️ خرید حضوری", st:"no"},
-    {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no"},
-    {t:"خرید ادکلن اورجینال از بازار", l:null, c:"🛍️ خرید حضوری", st:"no"}
+    /* گروه ماشین کوییک */
+    {t:"AUX", l:"https://www.digikala.com/product/dkp-1854527", c:"🚗 ماشین کوییک", st:"no", r:"برای وصل شدن به ضبط ماشین"},
+    {t:"شارژر فندکی", l:"https://www.digikala.com/product/dkp-18612577", c:"🚗 ماشین کوییک", st:"no", r:"شارژ کردن موبایل"},
+    
+    /* گروه تجهیزات مخابرات */
+    {t:"تلفون پاناسونیک", l:"https://www.digikala.com/product/dkp-1534229", c:"📡 تجهیزات مخابرات", st:"no", r:"بروز کردن تلفون خانه"},
+    {t:"گوشی نوکیا", l:"https://www.digikala.com/product/dkp-15572856", c:"📡 تجهیزات مخابرات", st:"no", r:null},
+    
+    /* گروه تجهیزات مودم */
+    {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:"برای قطعی برق و حمل و نقل یک مودم لازم هست"},
+    {t:"روتر گوگل", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 تجهیزات مودم", st:"no", r:"با روتر گوگل نیازی به فیلترشکن نیست"},
+    {t:"کابل لن", l:"https://www.digikala.com/product/dkp-8952103", c:"📶 تجهیزات مودم", st:"no", r:"کابل برای فیبرنوری"},
+    {t:"هاب", l:"https://www.digikala.com/product/dkp-9510400", c:"📶 تجهیزات مودم", st:"no", r:null},
+    {t:"مودم", l:"https://www.digikala.com/product/dkp-14876965", c:"📶 تجهیزات مودم", st:"no", r:null},
+    {t:"فن مودم", l:"https://www.digikala.com/product/dkp-20647797", c:"📶 تجهیزات مودم", st:"no", r:null},
+    
+    /* گروه مالی (تمدیدها) */
+    {t:"تمدید اشتراک دیجی پلاس", l:"https://www.digikala.com/plus/landing/", c:"💰 مالی", st:"no", r:null},
+    {t:"تمدید اشتراک اسنپ پرو", l:"https://snapp.ir/pro/", c:"💰 مالی", st:"no", r:null},
+    
+    /* گروه سیم‌کارت */
+    {t:"سیمکارت مبین نت", l:"https://www.digikala.com/product/dkp-21583716", c:"📱 سیم‌کارت", st:"no", r:null, note:"این دو سیم‌کارت به اسم خواهری صادر می‌شود. لازم داریم."},
+    {t:"سیمکارت آسیاتک", l:"https://www.digikala.com/product/dkp-15971285", c:"📱 سیم‌کارت", st:"no", r:null},
+    {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
+    {t:"خرید سیم‌کارت EE", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", c:"📱 سیم‌کارت", st:"no", r:null},
+    
+    /* گروه خرید حضوری */
+    {t:"خرید سکه پارسیان از طلای عزیزی", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
+    {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
+    {t:"خرید ادکلن اورجینال از بازار", l:null, c:"🛍️ خرید حضوری", st:"no", r:null}
 ];
 
 function badgeHtml(i){
@@ -541,11 +560,12 @@ function badgeHtml(i){
 }
 
 document.getElementById('shop-list-aban').innerHTML = abanItems.map(i => {
-    if(i.l) return '<div class="shop-item"><span class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</span><a href="' + escapeHtml(i.l) + '" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>';
-    return '<div class="shop-item no-link"><span class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</span></div>';
+    const reasonHtml = i.r ? '<div class="item-reason">' + escapeHtml(i.r) + '</div>' : '';
+    if(i.l) return '<div class="shop-item"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div><a href="' + escapeHtml(i.l) + '" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>';
+    return '<div class="shop-item no-link"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div></div>';
 }).join('');
 
-const catOrder = ["🚗 ماشین کوییک","📡 تجهیزات مخابرات","📶 تجهیزات مودم","💰 مالی","🤖 AI","🌍 خرید سیم‌کارت خارجی","🛍️ خرید حضوری"];
+const catOrder = ["🚗 ماشین کوییک","📡 تجهیزات مخابرات","📶 تجهیزات مودم","📱 سیم‌کارت","💰 مالی","🛍️ خرید حضوری"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
@@ -553,9 +573,16 @@ catOrder.forEach(cat => {
     if(items.length === 0) return;
     items.sort((a, b) => (b.l ? 1 : 0) - (a.l ? 1 : 0));
     shopHTML += '<div class="shop-section-title">' + cat + '</div>';
+    
+    const firstItemWithNote = items.find(i => i.note);
+    if(firstItemWithNote && firstItemWithNote.note){
+        shopHTML += '<div class="shop-section-note"><i class="fas fa-info-circle" style="margin-left:6px"></i>' + escapeHtml(firstItemWithNote.note) + '</div>';
+    }
+    
     shopHTML += items.map(i => {
-        if(i.l) return '<div class="shop-item"><span class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</span><a href="' + escapeHtml(i.l) + '" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>';
-        return '<div class="shop-item no-link"><span class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</span></div>';
+        const reasonHtml = i.r ? '<div class="item-reason">' + escapeHtml(i.r) + '</div>' : '';
+        if(i.l) return '<div class="shop-item"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div><a href="' + escapeHtml(i.l) + '" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>';
+        return '<div class="shop-item no-link"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div></div>';
     }).join('');
 });
 document.getElementById('shop-list').innerHTML = shopHTML;
