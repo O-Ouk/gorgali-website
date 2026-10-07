@@ -17,11 +17,12 @@
 :root{--bg:#f8fafc;--card:#fff;--text:#0f172a;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--border:#e2e8f0;--shadow:0 2px 8px rgba(0,0,0,0.04);--pink:#ec4899}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{font-display:swap}
-body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:90px;padding-top:75px;font-size:15px;line-height:1.7;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:90px;padding-top:75px;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
 .header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);padding:12px 15px;z-index:999;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .header h1{font-size:18px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .btn-icon{background:var(--bg);border:none;width:38px;height:38px;border-radius:50%;color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .15s}
 .btn-icon:active{transform:scale(0.92)}
+.btn-icon:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .page{display:none;padding:16px;max-width:600px;margin:0 auto;animation:fadeIn .25s ease}
 .page.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -31,6 +32,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .grid{display:flex;flex-direction:column;gap:10px}
 .card-btn{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;font-weight:700;cursor:pointer;transition:transform .15s, box-shadow .15s}
 .card-btn:active{transform:scale(0.98);box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.card-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .card-btn .icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
 .box{background:var(--card);border-radius:14px;padding:16px;border:1px solid var(--border);margin-bottom:12px}
 .box h3{font-size:16px;font-weight:800;margin-bottom:10px;color:var(--accent)}
@@ -39,14 +41,17 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .news-item ul{margin:6px 0 0 0;padding-right:18px}
 .news-item li{margin:3px 0;font-size:14px}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
+.link-text:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
 .modal-content{background:var(--card);border-radius:16px;padding:20px;padding-top:0;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative;animation:popIn .2s ease}
 @keyframes popIn{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
 .modal-close-row{position:sticky;top:0;background:var(--card);display:flex;justify-content:flex-end;margin:0 -20px;padding:12px 20px 4px;z-index:5}
 .close-modal{background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted);line-height:1;transition:transform .15s}
 .close-modal:active{transform:scale(0.9)}
+.close-modal:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;border:none;z-index:50;transition:transform .15s}
 .fab:active{transform:translateX(-50%) scale(0.92)}
+.fab:focus-visible{outline:2px solid var(--accent-dark);outline-offset:4px}
 .shop-item{margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:6px;gap:8px}
 .shop-item.no-link{color:var(--muted)}
 .shop-item .item-content{flex:1}
@@ -55,13 +60,15 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .shop-section-title{margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.shop-section-note{padding:10px;background:#f0f9ff;border-right:4px solid #0284c7;border-radius:8px;margin:8px 0 12px;font-size:13px;line-height:1.8;color:#0c4a6e}
+.shop-status-box{padding:14px;background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-right:4px solid #10b981;border-radius:10px;margin-bottom:12px;font-size:14px;line-height:2}
+.shop-status-box strong{color:#059669}
 .finance-section{margin-bottom:16px;padding:14px;background:var(--bg);border-radius:12px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .finance-section p{font-size:14px;line-height:1.9}
 .finance-section ul{list-style:none;padding:0;margin:6px 0}
 .finance-section li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
 .finance-section li:last-child{border-bottom:none}
+.finance-note{padding:10px;background:#fffbeb;border-right:4px solid #f59e0b;border-radius:8px;margin-top:8px;font-size:13px;line-height:1.8;color:#78350f}
 .finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
 .finance-card .card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
 .finance-card .card-info{flex:1;width:100%}
@@ -69,6 +76,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .finance-card .card-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:6px}
 .copy-block{display:flex;align-items:center;justify-content:space-between;background:var(--bg);padding:7px 10px;border-radius:8px;margin-top:5px;cursor:pointer;border:1px solid var(--border);transition:border-color .15s, background .15s}
 .copy-block:active{background:#e2e8f0}
+.copy-block:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .copy-block .label{font-size:11px;color:var(--muted);font-weight:600;margin-left:6px}
 .copy-block .number{font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:0.5px;direction:ltr;color:var(--text);font-weight:700;flex:1;text-align:right}
 .copy-block .copy-icon{color:var(--accent);font-size:13px;margin-right:6px;transition:color .15s}
@@ -81,6 +89,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .badge.no{background:#f59e0b}
 .badge.maybe{background:#8b5cf6}
 .badge.aban{background:#7c3aed}
+.badge.azar{background:#0284c7}
 .security-warning{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px;border-radius:10px;margin-top:12px;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:8px}
 .card-policy-note{margin-top:12px;padding:10px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e;font-weight:600}
 .assistant-list{list-style:none;padding:0;margin:0}
@@ -153,6 +162,31 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         </div>
 
         <div class="news-item">
+            <strong>🛒 اطلاعیه آبان ماه:</strong><br>
+            ما خریدهای آبان ماه رو انجام دادیم — خرید قسطی با اعتبار اوانو از دیجی‌کالا.<br>
+            ولی هنوز بسته‌ها به دستمون نرسیده ولی سفارش داده شده و <strong>لغو دیگه نمیشه</strong>.<br>
+            قسط تمام و کمال توسط حکومت داده می‌شود (قسط اوانو) و همش تسویه می‌شود.<br>
+            <strong>دستتون درد نکنه، باتشکر.</strong>
+        </div>
+
+        <div class="news-item">
+            <strong>📶 فیبرنوری:</strong><br>
+            فیبرنوری تا آخر سال می‌آید.
+        </div>
+
+        <div class="news-item">
+            <strong>🌐 قانون اینترنت (همه‌ی اینترنت‌ها):</strong><br>
+            <strong>همه پول اینترنت‌ها بر عهده حکومت است؛ همه‌شان.</strong>
+            <ul>
+                <li>اینترنت خانه (مخابرات)</li>
+                <li>اینترنت خانه (Home2.g)</li>
+                <li>مودم نتربیت</li>
+                <li>اینترنت موبایل</li>
+            </ul>
+            هیچ‌کدام بر عهده مامان نیست.
+        </div>
+
+        <div class="news-item">
             <strong>🔓 VPN رایگان برای خواهری:</strong><br>
             طبق دستور مقامات ذی‌صلاح، برای خواهری باید فیلترشکن رایگان باشد.
         </div>
@@ -165,23 +199,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <li><strong>قانون جدید:</strong> پول بوفه فقط در مواقعی گرفته می‌شود که مدرسه باز باشد؛ ملاک، باز بودن بوفه و مدرسه است.</li>
                 <li>در صورت قطع نت، ۱,۰۰۰,۰۰۰ تومان از مامان گرفته می‌شود جهت خرید VPN.</li>
             </ul>
-        </div>
-
-        <div class="news-item">
-            <strong>📶 اطلاعیه فیبرنوری (سه حالت):</strong><br>
-            اگر جنگ نشود، قرار است فیبرنوری بیاید. پس سه حالت داریم:
-            <ul>
-                <li><strong>حالت اول (اگر فیبر بیاید):</strong> پول ماهیانه می‌شود ۲۹,۹۸۰,۰۰۰ تومان. انشاءالله که قسط اول مودم نیاید.</li>
-                <li><strong>حالت دوم (اگر فیبر نیاید):</strong> مشخص نیست پول ماهیانه چقدر می‌شود!</li>
-                <li><strong>حالت سوم (اگر برنامه اوانو قسط اول مودم را بخواهد):</strong> پول ماهیانه <strong>افزایشی می‌شود</strong> چون باید قسط اول پرداخت شود.</li>
-                <li><strong>کسری بودجه:</strong> در صورت کسری بودجه، مودم H155-383 فروخته می‌شود و مودم جایگزین ZTE X28 خریداری می‌شود.</li>
-            </ul>
-        </div>
-
-        <div class="news-item">
-            <strong>🌐 قانون اینترنت:</strong><br>
-            دو اینترنت خانه (مخابرات و Home2.g) و مودم نتربیت بر عهده حکومت است.<br>
-            اینترنت موبایل بر عهده مامان است و از کارت ایشان برداشت می‌شود.
         </div>
 
         <div class="news-item">
@@ -210,18 +227,19 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>جمع پول ماهیانه: ۲۹,۹۸۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
-            <ul>
-                <li><strong>توجه:</strong> این مبلغ همان عدد حالت «اگر فیبر بیاید» است؛ در صورت نیامدن فیبر یا نیاز به قسط اول مودم، ممکن است تغییر کند.</li>
-            </ul>
+            <p><strong>جمع پول ماهیانه: ۳۲,۰۰۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+            <div class="finance-note">
+                <i class="fas fa-exclamation-triangle" style="margin-left:6px"></i>
+                <strong>توجه:</strong> ما می‌دانیم که مامان پول نداره، ولی به دلیل قسط اوانو و کسری بودجه برای ذخیره پول و خرید سکه پارسیان، مجبور به افزایش پول ماهیانه شدیم.
+            </div>
         </div>
 
         <div class="finance-section">
             <h4>💳 بدهی‌های جاری</h4>
             <ul>
                 <li><strong>بدهی مامان به حکومت: ۱,۰۰۰,۰۰۰ تومان</strong></li>
-                <li><strong>بدهی حکومت به نرگس (خواهری): ۸۰۰,۰۰۰ تومان</strong></li>
-                <li><strong>بدهی حکومت به مامان: ۳۰,۰۰۰,۰۰۰ تومان</strong></li>
+                <li><strong>بدهی حکومت به خواهری: ۸۰۰,۰۰۰ تومان</strong></li>
+                <li><strong>بدهی حکومت به مامان: ۴۰۰,۰۰۰ تومان</strong></li>
             </ul>
         </div>
         
@@ -233,12 +251,12 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <div class="card-info">
                     <div class="card-name">بلو بانک <span class="badge new">کارت اصلی</span> <span class="badge" style="background:#64748b">به نام مامان</span></div>
                     <div class="card-desc">پول ماهیانه ابتدا به این کارت واریز و سپس توزیع می‌شود. مناسب برای خرید رمزارز.</div>
-                    <div class="copy-block" onclick="copyToClipboard('6219861812264041', this);vibrate()">
+                    <div class="copy-block" onclick="copyToClipboard('6219861812264041', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">6219 8618 1226 4041</span>
                         <i class="fas fa-copy copy-icon"></i>
                     </div>
-                    <div class="copy-block" onclick="copyToClipboard('IR240560611828006165913501', this);vibrate()">
+                    <div class="copy-block" onclick="copyToClipboard('IR240560611828006165913501', this);vibrate()" tabindex="0">
                         <span class="label">شماره شبا</span>
                         <span class="number">IR24 0560 6118 2800 6165 9135 01</span>
                         <i class="fas fa-copy copy-icon"></i>
@@ -250,13 +268,13 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <div class="card-icon" style="background:#3b82f6">💳</div>
                 <div class="card-info">
                     <div class="card-name">Q Bank <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه <strong>۱,۳۰۰,۰۰۰ تومان</strong> به این کارت واریز می‌شود: ۱,۰۰۰,۰۰۰ تومان پول اینترنت + ۳۰۰,۰۰۰ تومان قبوض غیرساختمانی. اینترنت موبایل از بانک تجارت مامان برداشت می‌شود.</div>
-                    <div class="copy-block" onclick="copyToClipboard('6063731303393749', this);vibrate()">
+                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه <strong>۱,۳۰۰,۰۰۰ تومان</strong> به این کارت واریز می‌شود: ۱,۰۰۰,۰۰۰ تومان پول اینترنت + ۳۰۰,۰۰۰ تومان قبوض غیرساختمانی. همه اینترنت‌ها بر عهده حکومت است.</div>
+                    <div class="copy-block" onclick="copyToClipboard('6063731303393749', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">6063 7313 0339 3749</span>
                         <i class="fas fa-copy copy-icon"></i>
                     </div>
-                    <div class="copy-block" onclick="copyToClipboard('IR380600000000300443097685', this);vibrate()">
+                    <div class="copy-block" onclick="copyToClipboard('IR380600000000300443097685', this);vibrate()" tabindex="0">
                         <span class="label">شماره شبا</span>
                         <span class="number">IR38 0600 0000 0030 0443 0976 85</span>
                         <i class="fas fa-copy copy-icon"></i>
@@ -277,12 +295,12 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <div class="card-info">
                     <div class="card-name">بلو جونیور <span class="badge new">بوفه مدرسه</span> <span class="badge" style="background:#3b82f6">به نام حکومت</span></div>
                     <div class="card-desc">مخصوص خرید از بوفه مدرسه یا سوپرمارکت نزدیک مدرسه. استفاده برای سوپرمارکت نزدیک خانه یا مکان‌های دیگر <strong>ممنوع</strong> است.</div>
-                    <div class="copy-block" onclick="copyToClipboard('6219861254403479', this);vibrate()">
+                    <div class="copy-block" onclick="copyToClipboard('6219861254403479', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">6219 8612 5440 3479</span>
                         <i class="fas fa-copy copy-icon"></i>
                     </div>
-                    <div class="copy-block" onclick="copyToClipboard('IR640560611827016288465201', this);vibrate()">
+                    <div class="copy-block" onclick="copyToClipboard('IR640560611827016288465201', this);vibrate()" tabindex="0">
                         <span class="label">شماره شبا</span>
                         <span class="number">IR64 0560 6118 2701 6288 4652 01</span>
                         <i class="fas fa-copy copy-icon"></i>
@@ -354,7 +372,17 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 <div class="page" id="page-shop">
     <div class="box">
         <h3>🗓️ خریدهای آبان ماه</h3>
-        <div id="shop-list-aban"></div>
+        <div class="shop-status-box">
+            <i class="fas fa-check-circle" style="margin-left:6px;color:#059669"></i>
+            <strong>وضعیت:</strong> خریدهای قسطی با اعتبار اوانو از دیجی‌کالا انجام شد.<br>
+            بسته‌ها هنوز نرسیده، ولی سفارش ثبت شده و لغو نمی‌شود.<br>
+            قسط اوانو به صورت کامل توسط حکومت تسویه می‌شود.
+        </div>
+    </div>
+
+    <div class="box">
+        <h3>🗓️ خریدهای آذر ماه</h3>
+        <div id="shop-list-azar"></div>
     </div>
 
     <div class="box">
@@ -444,20 +472,24 @@ function copyToClipboard(text, element) {
 }
 
 function fallbackCopy(text, element) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.top = '0';
-    textArea.style.left = '0';
-    textArea.style.opacity = '0';
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    let success = false;
-    try { success = document.execCommand('copy'); } catch (err) {}
-    document.body.removeChild(textArea);
-    if (success) showCopySuccess(element);
-    else showToast('کپی انجام نشد.', 'error');
+    try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.top = '0';
+        textArea.style.left = '0';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        let success = false;
+        try { success = document.execCommand('copy'); } catch (err) {}
+        document.body.removeChild(textArea);
+        if (success) showCopySuccess(element);
+        else showToast('کپی انجام نشد.', 'error');
+    } catch (e) {
+        showToast('کپی انجام نشد.', 'error');
+    }
 }
 
 function showCopySuccess(element) {
@@ -481,8 +513,8 @@ const assistantContent = {
         '<p style="font-size:14px;line-height:1.9;margin-bottom:8px">بزودی طرح وام برای مامان و خواهری و خانواده فعال می‌شود. <strong>فعلاً خبری نیست!</strong></p>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
         '<ul class="assistant-list">' +
-        '<li>بدهی حکومت به نرگس (خواهری): <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>بدهی حکومت به مامان: <strong>۳۰,۰۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
         '<li>بدهی مامان به حکومت: <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
         '</ul>',
     triangle: '<h3 style="color:#7c3aed;margin-bottom:10px">🔺 قرارداد مثلث</h3>' +
@@ -513,45 +545,27 @@ function closeAssistantModal(){ document.getElementById('assistant-modal').style
 function openChatModal(){ document.getElementById('chat-modal').style.display = 'flex'; }
 function closeChatModal(){ document.getElementById('chat-modal').style.display = 'none'; }
 
-const abanItems = [
-    {t:"فیبر", l:null, st:"aban", r:"سرعت بالا و پایداری"},
-    {t:"مودم فیبر", l:"https://www.digikala.com/product/dkp-11021014", st:"aban", r:"مودم برای فیبرنوری"}
+const azarItems = [
+    {t:"فیبرنوری", l:null, st:"azar"}
 ];
 
 const shopItems = [
-    /* گروه ماشین کوییک */
-    {t:"AUX", l:"https://www.digikala.com/product/dkp-1854527", c:"🚗 ماشین کوییک", st:"no", r:"برای وصل شدن به ضبط ماشین"},
-    {t:"شارژر فندکی", l:"https://www.digikala.com/product/dkp-18612577", c:"🚗 ماشین کوییک", st:"no", r:"شارژ کردن موبایل"},
-    
-    /* گروه تجهیزات مخابرات */
-    {t:"تلفون پاناسونیک", l:"https://www.digikala.com/product/dkp-1534229", c:"📡 تجهیزات مخابرات", st:"no", r:"بروز کردن تلفون خانه"},
-    {t:"گوشی نوکیا", l:"https://www.digikala.com/product/dkp-15572856", c:"📡 تجهیزات مخابرات", st:"no", r:null},
-    
-    /* گروه تجهیزات مودم */
+    {t:"جارو شارژی", l:"https://www.digikala.com/product/dkp-15089669", c:"🚗 ماشین کوییک", st:"no", r:null},
+    {t:"پرزگیر", l:"https://www.digikala.com/product/dkp-4115806", c:"🛒 خرید‌ها", st:"no", r:null},
     {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:"برای قطعی برق و حمل و نقل یک مودم لازم هست"},
     {t:"روتر گوگل", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 تجهیزات مودم", st:"no", r:"با روتر گوگل نیازی به فیلترشکن نیست"},
     {t:"کابل لن", l:"https://www.digikala.com/product/dkp-8952103", c:"📶 تجهیزات مودم", st:"no", r:"کابل برای فیبرنوری"},
-    {t:"هاب", l:"https://www.digikala.com/product/dkp-9510400", c:"📶 تجهیزات مودم", st:"no", r:null},
-    {t:"مودم", l:"https://www.digikala.com/product/dkp-14876965", c:"📶 تجهیزات مودم", st:"no", r:null},
-    {t:"فن مودم", l:"https://www.digikala.com/product/dkp-20647797", c:"📶 تجهیزات مودم", st:"no", r:null},
-    
-    /* گروه مالی (تمدیدها) */
     {t:"تمدید اشتراک دیجی پلاس", l:"https://www.digikala.com/plus/landing/", c:"💰 مالی", st:"no", r:null},
     {t:"تمدید اشتراک اسنپ پرو", l:"https://snapp.ir/pro/", c:"💰 مالی", st:"no", r:null},
-    
-    /* گروه سیم‌کارت */
-    {t:"سیمکارت مبین نت", l:"https://www.digikala.com/product/dkp-21583716", c:"📱 سیم‌کارت", st:"no", r:null, note:"این دو سیم‌کارت به اسم خواهری صادر می‌شود. لازم داریم."},
-    {t:"سیمکارت آسیاتک", l:"https://www.digikala.com/product/dkp-15971285", c:"📱 سیم‌کارت", st:"no", r:null},
     {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
     {t:"خرید سیم‌کارت EE", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", c:"📱 سیم‌کارت", st:"no", r:null},
-    
-    /* گروه خرید حضوری */
     {t:"خرید سکه پارسیان از طلای عزیزی", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
     {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
     {t:"خرید ادکلن اورجینال از بازار", l:null, c:"🛍️ خرید حضوری", st:"no", r:null}
 ];
 
 function badgeHtml(i){
+    if(i.st === 'azar') return '<span class="badge azar">آذر</span>';
     if(i.st === 'aban') return '<span class="badge aban">آبان</span>';
     if(i.st === 'important') return '<span class="badge important">مهم</span>';
     if(i.st === 'maybe') return '<span class="badge maybe">برنامه‌ریزی آینده</span>';
@@ -559,13 +573,13 @@ function badgeHtml(i){
     return '';
 }
 
-document.getElementById('shop-list-aban').innerHTML = abanItems.map(i => {
+document.getElementById('shop-list-azar').innerHTML = azarItems.map(i => {
     const reasonHtml = i.r ? '<div class="item-reason">' + escapeHtml(i.r) + '</div>' : '';
     if(i.l) return '<div class="shop-item"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div><a href="' + escapeHtml(i.l) + '" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>';
     return '<div class="shop-item no-link"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div></div>';
 }).join('');
 
-const catOrder = ["🚗 ماشین کوییک","📡 تجهیزات مخابرات","📶 تجهیزات مودم","📱 سیم‌کارت","💰 مالی","🛍️ خرید حضوری"];
+const catOrder = ["🚗 ماشین کوییک","🛒 خرید‌ها","📶 تجهیزات مودم","📱 سیم‌کارت","💰 مالی","🛍️ خرید حضوری"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
@@ -573,12 +587,6 @@ catOrder.forEach(cat => {
     if(items.length === 0) return;
     items.sort((a, b) => (b.l ? 1 : 0) - (a.l ? 1 : 0));
     shopHTML += '<div class="shop-section-title">' + cat + '</div>';
-    
-    const firstItemWithNote = items.find(i => i.note);
-    if(firstItemWithNote && firstItemWithNote.note){
-        shopHTML += '<div class="shop-section-note"><i class="fas fa-info-circle" style="margin-left:6px"></i>' + escapeHtml(firstItemWithNote.note) + '</div>';
-    }
-    
     shopHTML += items.map(i => {
         const reasonHtml = i.r ? '<div class="item-reason">' + escapeHtml(i.r) + '</div>' : '';
         if(i.l) return '<div class="shop-item"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div><a href="' + escapeHtml(i.l) + '" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>';
