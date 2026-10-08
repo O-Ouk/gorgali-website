@@ -40,6 +40,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .news-item strong{color:var(--accent-dark)}
 .news-item ul{margin:6px 0 0 0;padding-right:18px}
 .news-item li{margin:3px 0;font-size:14px}
+.news-item em{color:var(--muted);font-size:13px}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
 .link-text:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
@@ -60,10 +61,9 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .shop-section-title{margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.shop-status-box{padding:14px;background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-right:4px solid #10b981;border-radius:10px;margin-bottom:12px;font-size:14px;line-height:2}
-.shop-status-box strong{color:#059669}
-.shop-announce{padding:14px;background:linear-gradient(135deg,#fffbeb,#fef3c7);border-right:4px solid #f59e0b;border-radius:10px;margin-bottom:12px;font-size:14px;line-height:2;color:#78350f}
-.shop-announce strong{color:#b45309}
+.shop-or-box{padding:14px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-right:4px solid #f59e0b;border-radius:10px;margin-bottom:12px;font-size:14px;line-height:2;color:#78350f}
+.shop-or-box strong{color:#b45309}
+.shop-or-box .or{display:inline-block;padding:2px 10px;background:#fff;border-radius:10px;font-weight:900;color:#b45309;margin:0 4px}
 .finance-section{margin-bottom:16px;padding:14px;background:var(--bg);border-radius:12px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .finance-section p{font-size:14px;line-height:1.9}
@@ -71,6 +71,10 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .finance-section li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
 .finance-section li:last-child{border-bottom:none}
 .finance-note{padding:10px;background:#fffbeb;border-right:4px solid #f59e0b;border-radius:8px;margin-top:8px;font-size:13px;line-height:1.8;color:#78350f}
+.finance-amount-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
+.finance-amount-row:last-child{border-bottom:none}
+.finance-amount-row .label{color:var(--muted);font-weight:500}
+.finance-amount-row .value{font-weight:700;color:var(--text)}
 .finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
 .finance-card .card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
 .finance-card .card-info{flex:1;width:100%}
@@ -92,6 +96,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .badge.maybe{background:#8b5cf6}
 .badge.aban{background:#7c3aed}
 .badge.azar{background:#0284c7}
+.contract-tag{display:inline-block;padding:1px 6px;background:#dbeafe;color:#1e40af;font-size:10px;border-radius:6px;font-weight:700;margin-left:4px}
 .security-warning{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px;border-radius:10px;margin-top:12px;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:8px}
 .card-policy-note{margin-top:12px;padding:10px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e;font-weight:600}
 .assistant-list{list-style:none;padding:0;margin:0}
@@ -102,7 +107,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .contract-block h4{color:var(--accent-dark);font-size:14px;margin-bottom:5px}
 .signature-row{display:flex;justify-content:space-between;gap:8px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);font-size:13px}
 .signature-row div{flex:1}
-.empty-state{text-align:center;padding:24px 16px;color:var(--muted);font-size:14px;line-height:2}
+.declaration-text{font-size:13px;line-height:2.2;color:var(--text);white-space:pre-line}
 #toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .2s, transform .2s;z-index:100000;font-family:'Vazirmatn',sans-serif}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast.success{background:#10b981}
@@ -157,6 +162,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <li>حکومت دستش بند می‌شود و قرار است به مرور نابود شود.</li>
                 <li>قوانین و تحریم‌ها کاملاً پاک شده‌اند و در این خانه وجود ندارند.</li>
                 <li>در صورت رضایت، باندها هم کلاً تعطیل می‌شوند.</li>
+                <li><strong>باندها:</strong> شنود به حالت تعلیق درآمد، با رضایت مقامات ذی‌صلاح.</li>
                 <li>ستاد، سنا و سایر نهادها وجود ندارند و به مقامات ذی‌صلاح ترکیب شده‌اند.</li>
                 <li>خود حکومت هم عضو این مقامات ذی‌صلاح نیست.</li>
                 <li>اما سایت حکومت پابرجاست و حکومت هنوز می‌تواند صحبت کند.</li>
@@ -164,52 +170,53 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         </div>
 
         <div class="news-item">
-            <strong>🛒 اطلاعیه آبان ماه:</strong><br>
-            ما خریدهای آبان ماه رو انجام دادیم — خرید قسطی با اعتبار اوانو از دیجی‌کالا.<br>
-            ولی هنوز بسته‌ها به دستمون نرسیده ولی سفارش داده شده و <strong>لغو دیگه نمیشه</strong>.<br>
-            قسط تمام و کمال توسط حکومت داده می‌شود (قسط اوانو) و همش تسویه می‌شود.<br>
-            <strong>دستتون درد نکنه، باتشکر.</strong>
-        </div>
-
-        <div class="news-item">
             <strong>📶 فیبرنوری:</strong><br>
-            فیبرنوری تا آخر سال می‌آید.
+            فیبرنوری احتمالاً تا آذر ماه می‌آید، ولی زمان دقیق آن در آخر ماه مشخص می‌شود.<br>
+            در صورتی که فشار مالی زیادی ایجاد نکند، می‌آید؛ در غیر این صورت به ماه بعد موکول می‌شود.<br>
+            <strong>این ماه فقط مودم فیبرنوری خریداری می‌شود</strong> و فیبرکشی به ماه آینده موکول می‌شود، به دلیل کمبود بودجه و کسری بودجه از همه طرف.<br>
+            طبق تحقیقات، مودم فیبرنوری هوآوی مناسب مخابرات است، بنابراین از این نظر نگرانی وجود ندارد.<br>
+            قیمت فعلی مودم <strong>۱۹,۸۵۶,۰۰۰ تومان</strong> است؛ در صورتی که هنگام خرید قیمت به ۲۰,۰۰۰,۰۰۰ تومان برسد یا بیشتر شود، مابه‌التفاوت از اعتبار اوانو پرداخت خواهد شد.<br>
+            مودم ADSL/VDSL فعلی خانه، یا <strong>فروخته می‌شود</strong> یا <strong>جمع‌آوری می‌شود</strong>؛ این موضوع نیز در آخر ماه مشخص می‌شود.<br>
+            برای سال آینده باید سرویس جداگانه‌ای تهیه شود (آخر ماه مشخص می‌شود).
         </div>
 
         <div class="news-item">
-            <strong>🌐 قانون اینترنت (همه‌ی اینترنت‌ها):</strong><br>
-            <strong>همه پول اینترنت‌ها بر عهده حکومت است؛ همه‌شان.</strong>
-            <ul>
-                <li>اینترنت خانه (مخابرات)</li>
-                <li>اینترنت خانه (Home2.g)</li>
-                <li>مودم نتربیت</li>
-                <li>اینترنت موبایل</li>
-            </ul>
-            هیچ‌کدام بر عهده مامان نیست.
-        </div>
-
-        <div class="news-item">
-            <strong>🔓 VPN رایگان برای خواهری:</strong><br>
-            طبق دستور مقامات ذی‌صلاح، برای خواهری باید فیلترشکن رایگان باشد.
+            <strong>🛒 اطلاعیه آبان ماه:</strong><br>
+            خریدهای قسطی با اعتبار اوانو از دیجی‌کالا انجام شد.<br>
+            بسته‌ها هنوز نرسیده ولی سفارش ثبت شده و لغو نمی‌شود.<br>
+            قسط اوانو به صورت کامل توسط حکومت تسویه می‌شود.
         </div>
 
         <div class="news-item">
             <strong>👟 کفش مدرسه:</strong><br>
-            کفش این ماه گرفته می‌شود؛ کفش برای مدرسه گرفته می‌شود.<br>
-            با اسنپ‌پی گرفته می‌شود و در ۴ قسط تقسیم می‌شود؛ قسط اول داده می‌شود و ۳ قسط دیگر تقسیم نمی‌شود (احتمالاً).
+            کفش مدرسه <strong>فقط باید همین ماه (آبان) گرفته شود</strong>.
         </div>
 
         <div class="news-item">
-            <strong>💰 قسط مامانی:</strong><br>
-            بزودی قسط مامانی اضافه می‌شود: هر ماه ۵,۰۰,۰۰۰ تومان که باید تقسیم بر ۲ بشود؛ الزامی است. خودمون واریز می‌کنیم!<br>
-            ۳۵,۰۰۰,۰۰۰ تومان باید واریز بشه، چند میلیون اضافه‌تر.<br>
-            پس از اتمام قسط مامانی، قسط ۲,۰۰۰,۰۰۰ تومانی شروع می‌شود!
+            <strong>🌐 قانون اینترنت:</strong> <span class="contract-tag">مطابق قرارداد مثلث</span><br>
+            پول اینترنت <strong>موبایل</strong> بر عهده <strong>مامان</strong> است.<br>
+            پول اینترنت <strong>خانه</strong> تا پایان آبان بر عهده <strong>مامان</strong> و از آذر ماه بر عهده <strong>حکومت</strong> است.<br>
+            <em>در صورت کمبود بودجه، باید مبلغ اضافه برای قبوض و اینترنت پرداخت شود.</em>
+        </div>
+
+        <div class="news-item">
+            <strong>🔓 VPN خواهری:</strong><br>
+            فیلترشکن برای خواهری <strong>کاملاً رایگان</strong> است.
+        </div>
+
+        <div class="news-item">
+            <strong>💰 قسط مامانی:</strong>
+            <ul>
+                <li><strong>قسط اول (اجباری و اولویت‌دار):</strong> هر ماه ۵,۰۰۰,۰۰۰ تومان که باید تقسیم بر ۲ شود و واریز شود.</li>
+                <li><strong>قسط دوم (پس از اتمام خریدهای لیست):</strong> هر ماه ۲,۰۰۰,۰۰۰ تومان که پس از اتمام خریدهای لیست شروع می‌شود.</li>
+            </ul>
         </div>
 
         <div class="news-item">
             <strong>⚡ نت ملی:</strong><br>
-            در صورت نت ملی، از طریق‌های دیگر سایت بروز می‌شود!<br>
-            یا شاید دیگر بروز نشود! در زمان نت ملی.
+            در صورت قطع اینترنت، سایت در صورت امکان آپدیت می‌شود.<br>
+            در غیر این صورت، پیام‌ها از طریق <strong>سیستم پیام‌رسانی رمزنگاری‌شده خود حکومت</strong> ارسال خواهد شد.<br>
+            <em>این سیستم ابتدا سخت است ولی به مرور آسان می‌شود.</em>
         </div>
     </div>
 </div>
@@ -225,10 +232,22 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>جمع پول ماهیانه: ۳۲,۷۵۵,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
-            <div class="finance-note">
-                <i class="fas fa-exclamation-triangle" style="margin-left:6px"></i>
-                <strong>توجه:</strong> ما می‌دانیم که مامان پول نداره، ولی به دلیل قسط اوانو و کسری بودجه برای ذخیره پول و خرید سکه پارسیان، مجبور به افزایش پول ماهیانه شدیم.
+            <div class="finance-amount-row">
+                <span class="label">پایه (در صورت خرید طلا):</span>
+                <span class="value">۳۳,۰۰۰,۰۰۰ تومان</span>
+            </div>
+            <div class="finance-amount-row">
+                <span class="label">در صورت خرید مودم فیبرنوری:</span>
+                <span class="value">۳۷,۰۰۰,۰۰۰ تومان</span>
+            </div>
+            <p style="font-size:13px;color:var(--muted);margin-top:8px">احتمالاً همون ۳۳,۰۰۰,۰۰۰ تومان هست.</p>
+            <div class="finance-note" style="background:#ecfdf5;border-right-color:#10b981;color:#064e3b;margin-top:8px">
+                <i class="fas fa-coins" style="margin-left:6px"></i>
+                <strong>قانون ماه:</strong>
+                <ul style="margin:6px 0 0 0;padding-right:18px">
+                    <li>در صورت خرید <strong>طلا</strong>: قسط اوانو توسط <strong>حکومت</strong> پرداخت می‌شود.</li>
+                    <li>در صورت خرید <strong>مودم</strong>: قسط اول توسط <strong>مامان</strong> پرداخت می‌شود.</li>
+                </ul>
             </div>
         </div>
 
@@ -266,7 +285,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <div class="card-icon" style="background:#3b82f6">💳</div>
                 <div class="card-info">
                     <div class="card-name">Q Bank <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه <strong>۱,۳۰۰,۰۰۰ تومان</strong> به این کارت واریز می‌شود: ۱,۰۰۰,۰۰۰ تومان پول اینترنت + ۳۰۰,۰۰۰ تومان قبوض غیرساختمانی. همه اینترنت‌ها بر عهده حکومت است.</div>
+                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه <strong>۱,۳۰۰,۰۰۰ تومان</strong> به این کارت واریز می‌شود: ۱,۰۰۰,۰۰ تومان پول اینترنت + ۳۰۰,۰۰۰ تومان قبوض غیرساختمانی.</div>
                     <div class="copy-block" onclick="copyToClipboard('6063731303393749', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">6063 7313 0339 3749</span>
@@ -309,14 +328,14 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
             <div class="finance-card">
                 <div class="card-icon" style="background:#14b8a6">💳</div>
                 <div class="card-info">
-                    <div class="card-name">زی کارت (Zey) <span class="badge" style="background:#64748b">به نام مامان</span></div>
+                    <div class="card-name">زی کارت (Zey) <span class="badge" style="background:#3b82f6">به نام حکومت</span></div>
                     <div class="card-desc">کارت اضافی (پشتیبان).</div>
                 </div>
             </div>
 
             <div class="card-policy-note">
                 <i class="fas fa-info-circle" style="margin-left:6px"></i>
-                <strong>سیاست کارت‌های حکومت:</strong> هیچ‌کدام از این ۵ کارت منسوخ نمی‌شوند. (دیما کارت به‌عنوان کارت اضافه حذف شد.)
+                <strong>سیاست کارت‌های حکومت:</strong> هیچ‌کدام از این ۵ کارت منسوخ نمی‌شوند.
             </div>
 
             <div class="security-warning">
@@ -361,20 +380,11 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 
 <div class="page" id="page-shop">
     <div class="box">
-        <h3>📢 اطلاعیه</h3>
-        <div class="shop-announce">
-            <i class="fas fa-bullhorn" style="margin-left:6px;color:#b45309"></i>
-            <strong>اسنپ شاپ:</strong> ما به‌زودی خریدی از اسنپ شاپ خواهیم کرد. در صورتی که قسط اولش را مامان پرداخت نکند، مجبور به استفاده از اعتبار ماهانه دیجی‌کالا می‌شویم!
-        </div>
-    </div>
-
-    <div class="box">
         <h3>🗓️ خریدهای آبان ماه</h3>
-        <div class="shop-status-box">
-            <i class="fas fa-check-circle" style="margin-left:6px;color:#059669"></i>
-            <strong>وضعیت:</strong> خریدهای قسطی با اعتبار اوانو از دیجی‌کالا انجام شد.<br>
-            بسته‌ها هنوز نرسیده، ولی سفارش ثبت شده و لغو نمی‌شود.<br>
-            قسط اوانو به صورت کامل توسط حکومت تسویه می‌شود.
+        <div class="shop-or-box">
+            <i class="fas fa-random" style="margin-left:6px;color:#b45309"></i>
+            <strong>یکی از موارد زیر خریداری می‌شود:</strong><br>
+            طلا <span class="or">یا</span> طلا دیجیتال <span class="or">یا</span> مودم فیبرنوری
         </div>
     </div>
 
@@ -400,13 +410,19 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 <div id="chat-modal" class="modal" onclick="if(event.target===this)closeChatModal()">
     <div class="modal-content">
         <div class="modal-close-row"><button class="close-modal" onclick="closeChatModal();vibrate()">✕</button></div>
-        <h3 style="color:#10b981;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+        <h3 style="color:#10b981;margin-bottom:12px;display:flex;align-items:center;gap:8px">
             <span>💬 صحبت</span>
         </h3>
-        <div class="empty-state">
-            <p>فعلاً خبری نیست.</p>
-            <p style="margin-top:8px;font-size:12px">هر وقت اطلاعیه جدیدی منتشر شد، اینجا نمایش داده می‌شود.</p>
-        </div>
+        <div id="chat-content" class="declaration-text">با سلام و احترام، حکومت اعلام می‌کند:
+
+با عرض معذرت، کل حقوق باید در کارت‌های حکومت ریخته شود.
+ما واقعاً عذر می‌خواهیم؛ واقعاً مجبور هستیم. اگر مجبور نبودیم، نمی‌گرفتیم.
+پس اگر قادر می‌دانید، عذر ما را بپذیرید.
+
+و فیبرنوری آذر ماه می‌آید و آبان ماه احتمالاً قسط اوانو توسط حکومت داده می‌شود و از بلو بانک طلا دیجیتال می‌خریم با ۱۵,۰۰۰,۰۰۰ تومان.
+ولی ۹۰ درصد همینه.
+
+باتشکر</div>
     </div>
 </div>
 
@@ -511,8 +527,8 @@ const assistantContent = {
         '<p style="font-size:14px;line-height:1.9;margin-bottom:8px">بزودی طرح وام برای مامان و خواهری و خانواده فعال می‌شود. <strong>فعلاً خبری نیست!</strong></p>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
         '<ul class="assistant-list">' +
-        '<li>بدهی حکومت به خواهری: <strong>۸۰,۰۰۰ تومان</strong></li>' +
-        '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰ تومان</strong></li>' +
         '<li>بدهی مامان به حکومت: <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
         '</ul>',
     triangle: '<h3 style="color:#7c3aed;margin-bottom:10px">🔺 قرارداد مثلث</h3>' +
@@ -544,17 +560,27 @@ function openChatModal(){ document.getElementById('chat-modal').style.display = 
 function closeChatModal(){ document.getElementById('chat-modal').style.display = 'none'; }
 
 const azarItems = [
-    {t:"فیبرنوری", l:null, st:"azar"}
+    {t:"فیبرنوری", l:null, st:"azar", r:"فیبرکشی و راه‌اندازی سرویس"}
 ];
 
 const shopItems = [
-    {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:"برای قطعی برق و حمل و نقل یک مودم لازم هست"},
-    {t:"روتر گوگل", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 تجهیزات مودم", st:"no", r:"با روتر گوگل نیازی به فیلترشکن نیست"},
-    {t:"کابل لن", l:"https://www.digikala.com/product/dkp-8952103", c:"📶 تجهیزات مودم", st:"no", r:"کابل برای فیبرنوری"},
+    {t:"مودم فیبرنوری هوآوی", l:"https://www.digikala.com/product/dkp-14921178", c:"📶 تجهیزات مودم", st:"no", r:"مودم اصلی برای فیبرنوری مخابرات"},
+    {t:"جایگزین مودم مخابرات", l:"https://www.digikala.com/product/dkp-5340283", c:"📶 تجهیزات مودم", st:"no", r:null},
+    {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:"برای قطعی برق و حمل و نقل"},
+    {t:"روتر گوگل", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 تجهیزات مودم", st:"no", r:"بدون نیاز به فیلترشکن"},
+    
+    {t:"هدست گیمینگ ریزر", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ", st:"no", r:null},
+    
+    {t:"تلفن بی‌سیم پاناسونیک", l:"https://www.digikala.com/product/dkp-150477", c:"📡 تجهیزات مخابرات", st:"no", r:"بروز کردن تلفن خانه"},
+    
+    {t:"پرزگیر", l:"https://snappshop.ir/product/snp-1375928417", c:"🛒 خرید‌ها", st:"no", r:null},
+    
     {t:"تمدید اشتراک دیجی پلاس", l:"https://www.digikala.com/plus/landing/", c:"💰 مالی", st:"no", r:null},
     {t:"تمدید اشتراک اسنپ پرو", l:"https://snapp.ir/pro/", c:"💰 مالی", st:"no", r:null},
+    
     {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
     {t:"خرید سیم‌کارت EE", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", c:"📱 سیم‌کارت", st:"no", r:null},
+    
     {t:"خرید سکه پارسیان از طلای عزیزی", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
     {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
     {t:"خرید ادکلن اورجینال از بازار", l:null, c:"🛍️ خرید حضوری", st:"no", r:null}
@@ -575,7 +601,7 @@ document.getElementById('shop-list-azar').innerHTML = azarItems.map(i => {
     return '<div class="shop-item no-link"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div></div>';
 }).join('');
 
-const catOrder = ["📶 تجهیزات مودم","📱 سیم‌کارت","💰 مالی","🛍️ خرید حضوری"];
+const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","📡 تجهیزات مخابرات","🛒 خرید‌ها","💰 مالی","📱 سیم‌کارت","🛍️ خرید حضوری"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
