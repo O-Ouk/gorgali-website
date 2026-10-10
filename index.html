@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src https://cdnjs.cloudflare.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:;">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="microphone=(), camera=(), geolocation=()">
+<meta http-equiv="Permissions-Policy" content="microphone=(), camera=(), geolocation=(), payment=()">
 <title>Gorgali</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +15,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f8fafc;--card:#fff;--text:#0f172a;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--border:#e2e8f0;--shadow:0 2px 8px rgba(0,0,0,0.04);--pink:#ec4899}
+:root{--bg:#f8fafc;--glass:rgba(255,255,255,0.6);--glass-strong:rgba(255,255,255,0.75);--glass-border:rgba(255,255,255,0.65);--text:#0f172a;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--border:#e2e8f0;--pink:#ec4899}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{font-display:swap}
 body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:90px;padding-top:75px;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
-.header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);padding:12px 15px;z-index:999;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(600px 400px at 85% 8%,rgba(59,130,246,0.16),transparent 60%),radial-gradient(500px 350px at 8% 30%,rgba(236,72,153,0.13),transparent 60%),radial-gradient(700px 500px at 50% 95%,rgba(16,185,129,0.11),transparent 60%)}
+.header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.65);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);padding:12px 15px;z-index:999;border-bottom:1px solid var(--glass-border);display:flex;align-items:center;justify-content:space-between}
 .header h1{font-size:18px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.btn-icon{background:var(--bg);border:none;width:38px;height:38px;border-radius:50%;color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .15s}
+.btn-icon{background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--glass-border);width:38px;height:38px;border-radius:50%;color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .15s}
 .btn-icon:active{transform:scale(0.92)}
 .btn-icon:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .page{display:none;padding:16px;max-width:600px;margin:0 auto;animation:fadeIn .25s ease}
@@ -30,27 +32,27 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .hero h2{font-size:24px;font-weight:900;margin-bottom:6px}
 .hero p{color:var(--muted);font-size:14px}
 .grid{display:flex;flex-direction:column;gap:10px}
-.card-btn{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;font-weight:700;cursor:pointer;transition:transform .15s, box-shadow .15s}
-.card-btn:active{transform:scale(0.98);box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.card-btn{background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);border:1px solid var(--glass-border);border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;font-weight:700;cursor:pointer;transition:transform .15s;box-shadow:0 8px 32px rgba(31,38,135,0.08)}
+.card-btn:active{transform:scale(0.98)}
 .card-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.card-btn .icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
-.box{background:var(--card);border-radius:14px;padding:16px;border:1px solid var(--border);margin-bottom:12px}
+.card-btn .icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,0.4)}
+.box{background:var(--glass);-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%);border-radius:18px;padding:16px;border:1px solid var(--glass-border);margin-bottom:12px;box-shadow:0 8px 32px rgba(31,38,135,0.08)}
 .box h3{font-size:16px;font-weight:800;margin-bottom:10px;color:var(--accent)}
-.news-item{padding:12px;background:var(--bg);border-right:4px solid var(--accent);border-radius:8px;margin-bottom:10px;line-height:1.9;font-size:14px}
+.news-item{padding:12px;background:rgba(248,250,252,0.65);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-right:4px solid var(--accent);border-radius:10px;margin-bottom:10px;line-height:1.9;font-size:14px}
 .news-item strong{color:var(--accent-dark)}
 .news-item ul{margin:6px 0 0 0;padding-right:18px}
 .news-item li{margin:3px 0;font-size:14px}
 .news-item em{color:var(--muted);font-size:13px}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
 .link-text:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
-.modal-content{background:var(--card);border-radius:16px;padding:20px;padding-top:0;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative;animation:popIn .2s ease}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,0.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-content{background:rgba(255,255,255,0.85);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--glass-border);border-radius:20px;padding:20px;padding-top:0;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative;animation:popIn .2s ease;box-shadow:0 24px 64px rgba(31,38,135,0.2)}
 @keyframes popIn{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
-.modal-close-row{position:sticky;top:0;background:var(--card);display:flex;justify-content:flex-end;margin:0 -20px;padding:12px 20px 4px;z-index:5}
-.close-modal{background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted);line-height:1;transition:transform .15s}
+.modal-close-row{position:sticky;top:0;background:transparent;display:flex;justify-content:flex-end;margin:0 -20px;padding:12px 20px 4px;z-index:5}
+.close-modal{background:var(--glass);border:1px solid var(--glass-border);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--muted);line-height:1;transition:transform .15s}
 .close-modal:active{transform:scale(0.9)}
 .close-modal:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;border:none;z-index:50;transition:transform .15s}
+.fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:56px;height:56px;background:linear-gradient(135deg,rgba(59,130,246,0.9),rgba(236,72,153,0.9));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;z-index:50;transition:transform .15s;box-shadow:0 12px 32px rgba(59,130,246,0.35)}
 .fab:active{transform:translateX(-50%) scale(0.92)}
 .fab:focus-visible{outline:2px solid var(--accent-dark);outline-offset:4px}
 .shop-item{margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:6px;gap:8px}
@@ -62,18 +64,21 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .shop-section-title{margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.finance-section{margin-bottom:16px;padding:14px;background:var(--bg);border-radius:12px;border-right:4px solid var(--accent)}
+.finance-section{margin-bottom:16px;padding:14px;background:rgba(248,250,252,0.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:14px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .finance-section p{font-size:14px;line-height:1.9}
+.finance-section ul{list-style:none;padding:0;margin:6px 0}
+.finance-section li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
+.finance-section li:last-child{border-bottom:none}
 .finance-note{padding:10px;background:#fffbeb;border-right:4px solid #f59e0b;border-radius:8px;margin-top:8px;font-size:13px;line-height:1.8;color:#78350f}
 .finance-note.green{background:#ecfdf5;border-right-color:#10b981;color:#064e3b}
-.finance-note.red{background:#fef2f2;border-right-color:#ef4444;color:#991b1b}
-.finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
+.finance-note.blue{background:#eff6ff;border-right-color:#3b82f6;color:#1e3a8a}
+.finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(255,255,255,0.65);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:12px;margin-bottom:10px}
 .finance-card .card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
 .finance-card .card-info{flex:1;width:100%}
 .finance-card .card-name{font-weight:700;font-size:14px;margin-bottom:3px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
 .finance-card .card-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:6px}
-.copy-block{display:flex;align-items:center;justify-content:space-between;background:var(--bg);padding:7px 10px;border-radius:8px;margin-top:5px;cursor:pointer;border:1px solid var(--border);transition:border-color .15s, background .15s}
+.copy-block{display:flex;align-items:center;justify-content:space-between;background:rgba(248,250,252,0.8);padding:7px 10px;border-radius:8px;margin-top:5px;cursor:pointer;border:1px solid var(--border);transition:border-color .15s, background .15s}
 .copy-block:active{background:#e2e8f0}
 .copy-block:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .copy-block .label{font-size:11px;color:var(--muted);font-weight:600;margin-left:6px}
@@ -88,7 +93,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .badge.no{background:#f59e0b}
 .badge.maybe{background:#8b5cf6}
 .badge.aban{background:#7c3aed}
-.badge.sale{background:#14b8a6}
 .contract-tag{display:inline-block;padding:1px 6px;background:#dbeafe;color:#1e40af;font-size:10px;border-radius:6px;font-weight:700;margin-left:4px}
 .security-warning{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px;border-radius:10px;margin-top:12px;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:8px}
 .card-policy-note{margin-top:12px;padding:10px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e;font-weight:600}
@@ -96,11 +100,13 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .assistant-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.9}
 .assistant-list li:last-child{border-bottom:none}
 .assistant-note{margin-top:10px;padding:10px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e}
-.contract-block{padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;font-size:13px;line-height:2}
+.contract-block{padding:10px;background:rgba(248,250,252,0.7);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;font-size:13px;line-height:2}
 .contract-block h4{color:var(--accent-dark);font-size:14px;margin-bottom:5px}
 .signature-row{display:flex;justify-content:space-between;gap:8px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);font-size:13px}
 .signature-row div{flex:1}
 .declaration-text{font-size:13px;line-height:2.2;color:var(--text);white-space:pre-line}
+body.low-end .header,body.low-end .box,body.low-end .card-btn,body.low-end .modal-content,body.low-end .finance-card,body.low-end .finance-section,body.low-end .news-item,body.low-end .btn-icon,body.low-end .fab{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+body.low-end::before{display:none}
 #toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .2s, transform .2s;z-index:100000;font-family:'Vazirmatn',sans-serif}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast.success{background:#10b981}
@@ -163,14 +169,18 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         </div>
 
         <div class="news-item">
-            <strong>📶 فیبرنوری:</strong><br>
-            فیبرنوری <strong>باید این ماه (آبان) بیاید</strong>. مودم و فیبرنوری هر دو این ماه خریداری می‌شوند.
+            <strong>📶 فیبرنوری:</strong>
+            <ul>
+                <li>مودم فیبرنوری به دستمان رسید و بیشتر خریدهایمان هم رسید.</li>
+                <li>مودم‌ها به هیچ عنوان فروخته نمی‌شوند.</li>
+                <li>انشاءالله ۲ هفته دیگر مخابرات جهت فیبرکشی مراجعه می‌کند.</li>
+                <li>پول فیبرکشی مشخص شده: <strong>حداقل ۲۰,۰۰۰,۰۰۰ تومان</strong>.</li>
+            </ul>
         </div>
 
         <div class="news-item">
             <strong>🛒 اطلاعیه آبان ماه:</strong><br>
-            خرید قسطی با اعتبار اوانو از دیجی‌کالا ثبت شده و لغو نمی‌شود.<br>
-            قسط اوانو توسط <strong>مامان</strong> داده می‌شود و پول آن حساب شده است.
+            خرید قسطی با اعتبار اوانو از دیجی‌کالا ثبت شده و لغو نمی‌شود.
         </div>
 
         <div class="news-item">
@@ -188,14 +198,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         <div class="news-item">
             <strong>🔓 VPN خواهری:</strong><br>
             فیلترشکن برای خواهری <strong>کاملاً رایگان</strong> است.
-        </div>
-
-        <div class="news-item">
-            <strong>💰 قسط مامانی:</strong>
-            <ul>
-                <li><strong>قسط مامانی (اولویت اول):</strong> هر ماه ۵,۰۰۰,۰۰۰ تومان که باید تقسیم بر ۲ شود؛ <strong>پس از اتمام خریدهای لیست</strong> شروع می‌شود.</li>
-                <li><strong>قسط دوم:</strong> هر ماه ۲,۰۰۰,۰۰۰ تومان؛ <strong>پس از اتمام قسط مامانی</strong> شروع می‌شود.</li>
-            </ul>
         </div>
 
         <div class="news-item">
@@ -218,17 +220,18 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>جمع پول ماهیانه: ۴۲,۰۰۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+            <p><strong>جمع پول ماهیانه: ۴۰,۸۸۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
             <div class="finance-note">
-                <i class="fas fa-exclamation-triangle" style="margin-left:6px"></i>
-                این ماه فقط <strong>افزایشی</strong> هست؛ عذر ما رو بپذیرید.<br>
-                اگه کسی بهمون پول قرض می‌داد، پول ماهیانه افزایشی نمی‌شد.
+                <i class="fas fa-check-circle" style="margin-left:6px"></i>
+                این مقدار پول ماهیانه <strong>برای ماه آبان تصویب شده</strong> و دیگر اصلاح نمی‌شود.
+            </div>
+            <div class="finance-note blue">
+                <i class="fas fa-university" style="margin-left:6px"></i>
+                این ماه <strong>کل پول ماهیانه به بلو بانک واریز می‌گردد</strong>؛ از ماه‌های بعد این رویه ادامه ندارد.
             </div>
             <div class="finance-note green">
                 <i class="fas fa-hand-holding-usd" style="margin-left:6px"></i>
-                <strong>شرط قرض:</strong><br>
-                در صورتی که کسی <strong>حداقل ۱۵,۰۰۰,۰۰۰ تومان</strong> به حکومت قرض دهد <em>(کمتر از این مبلغ قبول نمی‌شود)</em>، پول ماهیانه آبان به‌صورت <strong>کاهشی</strong> خواهد بود.<br>
-                ماه بعد (آذر)، همان مبلغ قرض داده‌شده <strong>تقسیم بر ۲</strong> شده و به قرض‌دهنده بازگردانده می‌شود.
+                قرض اگر گرفته شود، <strong>خودکار حکومت پس می‌دهد</strong>.
             </div>
         </div>
         
@@ -239,11 +242,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <div class="card-icon" style="background:#8b5cf6">💳</div>
                 <div class="card-info">
                     <div class="card-name">بلو بانک <span class="badge new">کارت اصلی</span> <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">پول ماهیانه ابتدا به این کارت واریز و سپس توزیع می‌شود. مناسب برای خرید رمزارز.</div>
-                    <div class="finance-note red" style="margin:8px 0;font-size:12px">
-                        <i class="fas fa-exclamation-circle" style="margin-left:4px"></i>
-                        <strong>تذکر مهم:</strong> پول ماهیانه <strong>همه‌اش نباید</strong> به این کارت واریز شود. طبق دستور، توزیع پول باید بین کارت‌های مختلف حکومت انجام شود.
-                    </div>
+                    <div class="card-desc">کارت اصلی حکومت. کل پول ماهیانه این ماه به این کارت واریز می‌گردد.</div>
                     <div class="copy-block" onclick="copyToClipboard('6219861812264041', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">6219 8618 1226 4041</span>
@@ -261,7 +260,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <div class="card-icon" style="background:#3b82f6">💳</div>
                 <div class="card-info">
                     <div class="card-name">Q Bank <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه <strong>۱,۳۰۰,۰۰۰ تومان</strong> به این کارت واریز می‌شود: ۱,۰۰۰,۰۰۰ تومان پول اینترنت + ۳۰۰,۰۰۰ تومان قبوض غیرساختمانی.</div>
+                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه <strong>۱,۰۰۰,۰۰۰ تومان</strong> پول اینترنت به این کارت واریز می‌شود؛ پول قبوض در این مبلغ حساب نمی‌شود.</div>
                     <div class="copy-block" onclick="copyToClipboard('6063731303393749', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">6063 7313 0339 3749</span>
@@ -279,7 +278,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <div class="card-icon" style="background:#f59e0b">💳</div>
                 <div class="card-info">
                     <div class="card-name">WePod (وپاد) <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">ماهیانه <strong>۱,۰۰۰,۰۰۰ تومان</strong> به این کارت واریز می‌شود (پول ذخیره شده).</div>
+                    <div class="card-desc">کارت ذخیره پول به صورت ریالی.</div>
                     <div class="copy-block" onclick="copyToClipboard('5022291566600415', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">5022 2915 6660 0415</span>
@@ -315,7 +314,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                 <div class="card-icon" style="background:#14b8a6">💳</div>
                 <div class="card-info">
                     <div class="card-name">زی کارت (Zey) <span class="badge new">سکه پارسیان</span> <span class="badge" style="background:#3b82f6">به نام حکومت</span></div>
-                    <div class="card-desc">ماهیانه <strong>۱,۰۰۰,۰۰۰ تومان</strong> به این کارت واریز می‌شود (مخصوص خرید سکه پارسیان).</div>
+                    <div class="card-desc">کارت مخصوص خرید سکه پارسیان.</div>
                     <div class="copy-block" onclick="copyToClipboard('5022291629183441', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">5022 2916 2918 3441</span>
@@ -376,11 +375,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
     </div>
 
     <div class="box">
-        <h3>💸 فروش‌های آبان ماه</h3>
-        <div id="shop-list-sale"></div>
-    </div>
-
-    <div class="box">
         <h3>🛒 لیست خریدهای ما</h3>
         <p style="margin-bottom:12px;color:var(--muted);font-size:13px">روی لینک‌ها بزن تا مستقیم بری به صفحه محصول:</p>
         <div id="shop-list"></div>
@@ -400,15 +394,21 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         <h3 style="color:#10b981;margin-bottom:12px;display:flex;align-items:center;gap:8px">
             <span>💬 صحبت</span>
         </h3>
-        <div id="chat-content" class="declaration-text">با سلام و احترام، حکومت اعلام می‌کند:
-
-با عرض معذرت، کل پول باید در کارت‌های حکومت ریخته شود.
-ما واقعاً عذر می‌خواهیم؛ واقعاً مجبور هستیم. اگر مجبور نبودیم، نمی‌گرفتیم.
-پس اگر قادر می‌دانید، عذر ما را بپذیرید.
-
-فیبرنوری باید این ماه (آبان) بیاید؛ مودم و فیبرنوری این ماه خریداری می‌شوند.
-
-باتشکر</div>
+        <div id="chat-content" class="declaration-text">حکومت از شما عذر می‌خواهد.
+چرا؟
+به دلیل افزایش پول ماهیانه.
+برای چی آنقدر پول ماهیانه زیاد شد؟
+به دلیل قسط مودم فیبرنوری که باید ماه بعدی تسویه شود.
+ما را اگر صلاح دانستید ببخشید.
+ما هم نگرانیم که مامان چطور می‌خواهد این ماه آبان را بگذراند.
+به نظر ما ۵,۰۰۰,۰۰۰ تومان از مامان؛ اگر مامان بدهد که عالی است و پول قسط اوانو می‌باشد.
+و اگر مامان ۵,۰۰۰,۰۰۰ تومان قرض بدهد: ۳۵,۸۸۰,۰۰۰ تومان؛ یا اگر بیشتر بدهد، کمتر از آن.
+ولی خود حکومت حتماً پس می‌دهد؛ تضمین به قرآن خداوند.
+اگر ما پس ندادیم، قرآن بزند توی کمرمون.
+و لطفاً ما را ببخشید 🥺😭
+تمامی جریمه‌ها بخشیده شده است؛ جریمه‌های جدید هم بخشیده شده است.
+ولی اگر از این به بعد اتفاقی بیفتد، جریمه می‌گیریم.
+حکومت خودش هم سر در گم می‌باشد.</div>
     </div>
 </div>
 
@@ -521,10 +521,8 @@ const assistantContent = {
         '<h4>مبالغ</h4>' +
         '<ul class="assistant-list">' +
         '<li>پول ماهیانه: <strong>۲۰,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>پول قبوض و اینترنت (Q Bank): <strong>۱,۳۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>پول بوفه هر ماه: <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>پول ذخیره شده (ویپاد): <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>پول خرید سکه پارسیان (زی کارت): <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>پول اینترنت (Q Bank): <strong>۱,۰۰۰,۰۰۰ تومان</strong> — پول قبوض حساب نمی‌شود</li>' +
+        '<li>پول بوفه هر ماه: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
         '</ul>' +
         '</div>' +
         '<div class="contract-block">' +
@@ -534,7 +532,7 @@ const assistantContent = {
         '<div><strong>مامان:</strong><br>✅</div>' +
         '<div><strong>حکومت:</strong><br>✅</div>' +
         '</div>' +
-        '<p class="assistant-note">این قرارداد <strong>تاریخ پایان ندارد</strong>.</p>' +
+        '<p class="assistant-note">این قرارداد <strong>از آذر ماه اعمال می‌شود</strong> و تاریخ پایان ندارد.</p>' +
         '</div>'
 };
 
@@ -547,12 +545,7 @@ function openChatModal(){ document.getElementById('chat-modal').style.display = 
 function closeChatModal(){ document.getElementById('chat-modal').style.display = 'none'; }
 
 const abanItems = [
-    {t:"فیبرنوری", l:null, st:"aban", r:"فیبرکشی و راه‌اندازی سرویس در همین ماه", shop:null},
-    {t:"مودم ZTE X28 VPro", l:"https://dubaisource.ir/zlt-x28-v-pro", st:"aban", r:null, shop:"فروشگاه مودم سورس"}
-];
-
-const saleItems = [
-    {t:"مودم H155-383", l:null, st:"sale", r:null, shop:null}
+    {t:"فیبرنوری", l:null, st:"aban", r:"فیبرکشی و راه‌اندازی سرویس؛ مراجعه مخابرات انشاءالله ۲ هفته دیگر", shop:null}
 ];
 
 const shopItems = [
@@ -572,7 +565,6 @@ const shopItems = [
 
 function badgeHtml(i){
     if(i.st === 'aban') return '<span class="badge aban">آبان</span>';
-    if(i.st === 'sale') return '<span class="badge sale">فروش</span>';
     if(i.st === 'important') return '<span class="badge important">مهم</span>';
     if(i.st === 'maybe') return '<span class="badge maybe">برنامه‌ریزی آینده</span>';
     if(i.st === 'no') return '<span class="badge no">فعلاً نه</span>';
@@ -589,7 +581,6 @@ function renderList(items){
 }
 
 document.getElementById('shop-list-aban').innerHTML = renderList(abanItems);
-document.getElementById('shop-list-sale').innerHTML = renderList(saleItems);
 
 const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","📡 تجهیزات مخابرات","🛒 خرید‌ها","💰 مالی","📱 سیم‌کارت","🛍️ خرید حضوری"];
 
