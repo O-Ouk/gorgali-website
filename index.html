@@ -60,7 +60,6 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .shop-item .item-content{flex:1}
 .shop-item .item-title{font-size:14px;line-height:1.7;margin-bottom:2px}
 .shop-item .item-reason{font-size:12px;color:var(--muted);line-height:1.5;font-style:italic;margin-top:2px}
-.shop-item .item-shop{font-size:11px;color:var(--accent-dark);font-weight:700;margin-top:3px;display:flex;align-items:center;gap:4px}
 .shop-section-title{margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -73,6 +72,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .finance-note{padding:10px;background:#fffbeb;border-right:4px solid #f59e0b;border-radius:8px;margin-top:8px;font-size:13px;line-height:1.8;color:#78350f}
 .finance-note.green{background:#ecfdf5;border-right-color:#10b981;color:#064e3b}
 .finance-note.blue{background:#eff6ff;border-right-color:#3b82f6;color:#1e3a8a}
+.finance-note.red{background:#fef2f2;border-right-color:#ef4444;color:#991b1b}
 .finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(255,255,255,0.65);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:12px;margin-bottom:10px}
 .finance-card .card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
 .finance-card .card-info{flex:1;width:100%}
@@ -93,7 +93,6 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .badge.no{background:#f59e0b}
 .badge.maybe{background:#8b5cf6}
 .badge.aban{background:#7c3aed}
-.contract-tag{display:inline-block;padding:1px 6px;background:#dbeafe;color:#1e40af;font-size:10px;border-radius:6px;font-weight:700;margin-left:4px}
 .security-warning{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px;border-radius:10px;margin-top:12px;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:8px}
 .card-policy-note{margin-top:12px;padding:10px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e;font-weight:600}
 .assistant-list{list-style:none;padding:0;margin:0}
@@ -104,7 +103,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .contract-block h4{color:var(--accent-dark);font-size:14px;margin-bottom:5px}
 .signature-row{display:flex;justify-content:space-between;gap:8px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);font-size:13px}
 .signature-row div{flex:1}
-.declaration-text{font-size:13px;line-height:2.2;color:var(--text);white-space:pre-line}
+.empty-state{text-align:center;padding:24px 16px;color:var(--muted);font-size:14px;line-height:2}
 body.low-end .header,body.low-end .box,body.low-end .card-btn,body.low-end .modal-content,body.low-end .finance-card,body.low-end .finance-section,body.low-end .news-item,body.low-end .btn-icon,body.low-end .fab{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 body.low-end::before{display:none}
 #toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .2s, transform .2s;z-index:100000;font-family:'Vazirmatn',sans-serif}
@@ -155,62 +154,21 @@ body.low-end::before{display:none}
         <h3>📰 اخبار</h3>
 
         <div class="news-item">
-            <strong>📢 تغییر ساختار بزرگ در حکومت:</strong>
-            <ul>
-                <li>این خانه، دیگر خانه حکومت نیست.</li>
-                <li>حکومت دستش بند می‌شود و قرار است به مرور نابود شود.</li>
-                <li>قوانین و تحریم‌ها کاملاً پاک شده‌اند و در این خانه وجود ندارند.</li>
-                <li>در صورت رضایت، باندها هم کلاً تعطیل می‌شوند.</li>
-                <li><strong>باندها:</strong> شنود به حالت تعلیق درآمد، با رضایت مقامات ذی‌صلاح.</li>
-                <li>ستاد، سنا و سایر نهادها وجود ندارند و به مقامات ذی‌صلاح ترکیب شده‌اند.</li>
-                <li>خود حکومت هم عضو این مقامات ذی‌صلاح نیست.</li>
-                <li>اما سایت حکومت پابرجاست و حکومت هنوز می‌تواند صحبت کند.</li>
-            </ul>
-        </div>
-
-        <div class="news-item">
-            <strong>📶 فیبرنوری:</strong>
-            <ul>
-                <li>مودم فیبرنوری به دستمان رسید و بیشتر خریدهایمان هم رسید.</li>
-                <li>مودم‌ها به هیچ عنوان فروخته نمی‌شوند.</li>
-                <li>انشاءالله ۲ هفته دیگر مخابرات جهت فیبرکشی مراجعه می‌کند.</li>
-                <li>پول فیبرکشی مشخص شده: <strong>حداقل ۲۰,۰۰۰,۰۰۰ تومان</strong>.</li>
-            </ul>
-        </div>
-
-        <div class="news-item">
-            <strong>🛒 اطلاعیه آبان ماه:</strong><br>
-            خرید قسطی با اعتبار اوانو از دیجی‌کالا ثبت شده و لغو نمی‌شود.
-        </div>
-
-        <div class="news-item">
-            <strong>📢 اطلاعیه آذر ماه:</strong><br>
-            با سلام و احترام.<br>
-            از ماه آذر پول اینترنت تقسیم می‌شود؛ در صورتی تقسیم نمی‌شود که پولی برای حکومت نمانده باشد.<br>
-            پول بوفه گرفته نمی‌شود؛ فقط <strong>پول نقد</strong> گرفته می‌شود: <strong>۲۰۰,۰۰۰ تومان هر هفته</strong>؛ در صورتی که خرج نشود، گرفته نمی‌شود.<br>
-            پول قبوض هم باید <strong>کامل توسط مامان</strong> داده شود.<br>
-            پول اینترنت حتماً تقسیم می‌شود؛ ولی مشخص نیست که پول اینترنت موبایل هم تقسیم بشود یا فقط پول اینترنت خانه.
-            <ul>
-                <li><strong>پول آذر ماه احتمالی است و دقیق نیست.</strong></li>
-                <li>کفِ کفِ کف پول ماهیانه آذر: <strong>۲۷,۳۷۳,۰۰۰ تومان</strong>.</li>
-                <li>پول ماهیانه آذر: <strong>۲۷,۶۴۵,۵۰۰ تومان</strong>.</li>
-                <li>رویه: پول اینترنت حساب نشده است؛ پول قسط دیجی‌پی (وام) و اوانو تقسیم شده و قسط آخر اسنپ‌پی هم تقسیم بر ۲ شده است.</li>
-                <li>قسط اوانو (تقسیم بر ۲): هر دنگ <strong>۲,۵۰۰,۰۰۰ تومان</strong>.</li>
-                <li>اسنپ‌پی: ۵۴۵,۰۰۰ تومان که تقسیم بر ۲ می‌شود: هر دنگ <strong>۲۷۲,۵۰۰ تومان</strong>.</li>
-                <li>دیجی‌پی (وام): ۴,۷۶۶,۰۰۰ تومان که هر دنگ <strong>۲,۳۷۳,۰۰۰ تومان</strong> می‌باشد.</li>
-                <li>جمع این مبالغ، بدون تقسیم اینترنت یا خرید اینترنت موبایل: <strong>۲۷,۶۴۵,۵۰۰ تومان</strong>.</li>
-                <li>البته ما کف حساب کردیم و قسط‌ها تقسیم شده است؛ وگرنه بدون تقسیم، بیشتر از ۳۰,۰۰۰,۰۰۰ تومان می‌شد.</li>
-            </ul>
+            <strong>📶 فیبرنوری:</strong><br>
+            سلام.<br>
+            مودم فیبرنوری <strong>خریداری شد</strong>.<br>
+            فیبرکشی <strong>انجام نشده</strong>.<br>
+            پول فیبرکشی: تقریبی <strong>۲۰,۰۰۰,۰۰۰ تومان</strong>؛ حداکثر ۲۰,۰۰۰,۰۰۰ تومان.
         </div>
 
         <div class="news-item">
             <strong>👟 کفش مدرسه:</strong><br>
-            کفش مدرسه <strong>برای مهر ماه گرفته می‌شود</strong>.
+            کفش مدرسه به <strong>ماه آبان</strong> موکول شد.
         </div>
 
         <div class="news-item">
             <strong>🔓 VPN خواهری:</strong><br>
-            فیلترشکن برای خواهری <strong>کاملاً رایگان</strong> است.
+            فیلترشکن <strong>فعلاً برای خواهری رایگان است</strong>.
         </div>
 
         <div class="news-item">
@@ -228,23 +186,19 @@ body.low-end::before{display:none}
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه مهر ✅</h4>
-            <p><strong>۳۵,۰۰۰,۰۰ تومان</strong><br>پول ماهیانه مهر دریافت شد.</p>
+            <p><strong>۳۵,۰۰۰,۰۰۰ تومان</strong><br>پول ماهیانه مهر دریافت شد.</p>
         </div>
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>جمع پول ماهیانه: ۴۰,۸۸۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+            <p><strong>جمع پول ماهیانه: ۴۲,۳۴۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
             <div class="finance-note">
-                <i class="fas fa-check-circle" style="margin-left:6px"></i>
-                این مقدار پول ماهیانه <strong>برای ماه آبان تصویب شده</strong> و دیگر اصلاح نمی‌شود.
+                <i class="fas fa-arrow-up" style="margin-left:6px"></i>
+                <strong>دلیل افزایش:</strong> پایین بودن پول ماهیانه و قسط‌های زیاد.
             </div>
-            <div class="finance-note blue">
-                <i class="fas fa-university" style="margin-left:6px"></i>
-                این ماه <strong>کل پول ماهیانه به بلو بانک واریز می‌گردد</strong>؛ از ماه‌های بعد این رویه ادامه ندارد.
-            </div>
-            <div class="finance-note green">
-                <i class="fas fa-hand-holding-usd" style="margin-left:6px"></i>
-                اگر قرضی گرفته شود، حکومت <strong>به‌صورت خودکار</strong> پس می‌دهد.
+            <div class="finance-note red">
+                <i class="fas fa-gavel" style="margin-left:6px"></i>
+                <strong>هر گونه اعتراض درباره پول ماهیانه، موجب افزایش مجدد پول ماهیانه خواهد شد.</strong>
             </div>
         </div>
         
@@ -255,7 +209,7 @@ body.low-end::before{display:none}
                 <div class="card-icon" style="background:#8b5cf6">💳</div>
                 <div class="card-info">
                     <div class="card-name">بلو بانک <span class="badge new">کارت اصلی</span> <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">کارت اصلی حکومت. کل پول ماهیانه این ماه به این کارت واریز می‌گردد.</div>
+                    <div class="card-desc">کارت اصلی حکومت. فعلاً <strong>تنها کارت دریافت‌کننده پول ماهیانه</strong> بین کارت‌های حکومت.</div>
                     <div class="copy-block" onclick="copyToClipboard('6219861812264041', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">6219 8618 1226 4041</span>
@@ -356,6 +310,20 @@ body.low-end::before{display:none}
     <div class="box">
         <h3>🤖 دستیار</h3>
         <div class="grid">
+            <div class="card-btn" onclick="openAssistantBox('rules');vibrate()">
+                <div style="display:flex;align-items:center;gap:12px">
+                    <div class="icon" style="background:#0f172a">📜</div>
+                    <span>قوانین</span>
+                </div>
+                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
+            </div>
+            <div class="card-btn" onclick="openAssistantBox('sanctions');vibrate()">
+                <div style="display:flex;align-items:center;gap:12px">
+                    <div class="icon" style="background:#ef4444">⛔</div>
+                    <span>تحریم‌ها</span>
+                </div>
+                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
+            </div>
             <div class="card-btn" onclick="openAssistantBox('bank');vibrate()">
                 <div style="display:flex;align-items:center;gap:12px">
                     <div class="icon" style="background:#f59e0b">🏦</div>
@@ -407,21 +375,10 @@ body.low-end::before{display:none}
         <h3 style="color:#10b981;margin-bottom:12px;display:flex;align-items:center;gap:8px">
             <span>💬 صحبت</span>
         </h3>
-        <div id="chat-content" class="declaration-text">حکومت از شما عذر می‌خواهد.
-چرا؟
-به دلیل افزایش پول ماهیانه.
-برای چی آنقدر پول ماهیانه زیاد شد؟
-به دلیل قسط مودم فیبرنوری که باید ماه بعدی تسویه شود.
-ما را اگر صلاح دانستید ببخشید.
-ما هم نگرانیم که مامان چطور می‌خواهد این ماه آبان را بگذراند.
-به نظر ما ۵,۰۰۰,۰۰۰ تومان از مامان؛ اگر مامان بدهد که عالی است و پول قسط اوانو می‌باشد.
-و اگر مامان ۵,۰۰۰,۰۰ تومان قرض بدهد: ۳۵,۸۸۰,۰۰ تومان؛ یا اگر بیشتر بدهد، کمتر از آن.
-ولی خود حکومت حتماً پس می‌دهد؛ تضمین به قرآن خداوند.
-اگر ما پس ندادیم، قرآن بزند توی کمرمون.
-و لطفاً ما را ببخشید 🥺😭
-تمامی جریمه‌ها بخشیده شده است؛ جریمه‌های جدید هم بخشیده شده است.
-ولی اگر از این به بعد اتفاقی بیفتد، جریمه می‌گیریم.
-حکومت خودش هم سردرگم است.</div>
+        <div class="empty-state">
+            <p>فعلاً خبری نیست.</p>
+            <p style="margin-top:8px;font-size:12px">هر وقت اطلاعیه جدیدی منتشر شد، اینجا نمایش داده می‌شود.</p>
+        </div>
     </div>
 </div>
 
@@ -522,6 +479,40 @@ function showCopySuccess(element) {
 }
 
 const assistantContent = {
+    rules: '<h3 style="color:#0f172a;margin-bottom:10px">📜 قوانین</h3>' +
+        '<p style="font-size:13px;color:var(--muted);margin-bottom:8px">قوانین جدی هستند:</p>' +
+        '<ul class="assistant-list">' +
+        '<li>۱. آشوب ممنوع.</li>' +
+        '<li>۲. توهین ممنوع.</li>' +
+        '<li>۳. اخلاق سگی ممنوع.</li>' +
+        '<li>۴. پریدن به حکومت ممنوع.</li>' +
+        '<li>۵. دکتر رفتن در بیماری اجباری است.</li>' +
+        '<li>۶. هر موقع خواستم بخوابم، تلویزیون به صورت کامل خاموش شود.</li>' +
+        '<li>۷. خواهری در مواقع صحبت‌های حکومت نباید به اتاق خواب فرار کند؛ باید بنشیند و گوش دهد.</li>' +
+        '<li>۸. حرف‌های چرت و پرت (از جمله «آشوب بپا نمی‌کنی و...») ممنوع.</li>' +
+        '<li>۹. در صورت آشوب، پس از اتمام آشوب همه با هم دوست می‌شویم.</li>' +
+        '<li>۱۰. سر و صدا ممنوع.</li>' +
+        '<li>۱۱. داد زدن بر علیه حکومت ممنوع.</li>' +
+        '<li>۱۲. داد زدن بر علیه حکومت = جریمه.</li>' +
+        '<li>۱۳. اخلاق سگی = جریمه.</li>' +
+        '<li>۱۴. نگذاشتن صحبت حکومت، آشوب بپا کردن یا فرار کردن = جریمه سنگین + لاک شدن گوشی مامان.</li>' +
+        '<li>۱۵. <strong>هر گونه راه‌اندازی آشوب، جریمه سنگینی خواهد داشت.</strong></li>' +
+        '</ul>',
+    sanctions: '<h3 style="color:#ef4444;margin-bottom:10px">⛔ تحریم‌ها</h3>' +
+        '<ul class="assistant-list">' +
+        '<li>۱. مشاوره و دکتر ممنوع.</li>' +
+        '<li>۲. مهمانی ممنوع.</li>' +
+        '<li>۳. در خانه ماندن اجباری.</li>' +
+        '<li>۴. وظایف برای دشمنان ممنوع.</li>' +
+        '<li>۵. قرص و شربت ممنوع (فقط SOS).</li>' +
+        '<li>۶. اذیت دشمنان اجباری.</li>' +
+        '<li>۷. مدرسه ممنوع.</li>' +
+        '<li>۸. باندها فعال.</li>' +
+        '<li>۹. گوشی مامان قفل می‌شود.</li>' +
+        '<li>۱۰. مانع فیلم دیدن خواهری.</li>' +
+        '<li>۱۱. به پا شدن آشوب.</li>' +
+        '</ul>' +
+        '<p class="assistant-note">📌 این لیست فقط برای آگاهی است و در زمان SOS با اطلاع‌رسانی اجرا می‌شود.</p>',
     bank: '<h3 style="color:#0f172a;margin-bottom:10px">🏦 بانک حکومت</h3>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
         '<ul class="assistant-list">' +
@@ -534,8 +525,7 @@ const assistantContent = {
         '<h4>مبالغ</h4>' +
         '<ul class="assistant-list">' +
         '<li>پول ماهیانه: <strong>۲۰,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>پول اینترنت (Q Bank): <strong>۱,۰۰۰,۰۰۰ تومان</strong> — پول قبوض حساب نمی‌شود</li>' +
-        '<li>پول بوفه هر ماه: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>پول اضافی: <strong>۳,۰۰۰,۰۰۰ تومان</strong></li>' +
         '</ul>' +
         '</div>' +
         '<div class="contract-block">' +
@@ -558,7 +548,7 @@ function openChatModal(){ document.getElementById('chat-modal').style.display = 
 function closeChatModal(){ document.getElementById('chat-modal').style.display = 'none'; }
 
 const abanItems = [
-    {t:"فیبرنوری", l:null, st:"aban", r:"فیبرکشی و راه‌اندازی سرویس؛ مراجعه مخابرات انشاءالله ۲ هفته دیگر", shop:null}
+    {t:"فیبرنوری", l:null, st:"aban", r:"مودم خریداری شد؛ فیبرکشی هنوز انجام نشده", shop:null}
 ];
 
 const shopItems = [
