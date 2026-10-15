@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f8fafc;--glass:rgba(255,255,255,0.6);--glass-strong:rgba(255,255,255,0.75);--glass-border:rgba(255,255,255,0.65);--text:#0f172a;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--border:#e2e8f0;--pink:#ec4899}
+:root{--bg:#f8fafc;--glass:rgba(255,255,255,0.6);--glass-border:rgba(255,255,255,0.65);--text:#0f172a;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--border:#e2e8f0;--pink:#ec4899}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{font-display:swap}
 body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:90px;padding-top:75px;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -42,7 +42,6 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .news-item strong{color:var(--accent-dark)}
 .news-item ul{margin:6px 0 0 0;padding-right:18px}
 .news-item li{margin:3px 0;font-size:14px}
-.news-item em{color:var(--muted);font-size:13px}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
 .link-text:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .modal{position:fixed;inset:0;background:rgba(15,23,42,0.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
@@ -64,15 +63,11 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
 .finance-section{margin-bottom:16px;padding:14px;background:rgba(248,250,252,0.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:14px;border-right:4px solid var(--accent)}
-.finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .finance-section p{font-size:14px;line-height:1.9}
 .finance-section ul{list-style:none;padding:0;margin:6px 0}
 .finance-section li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
 .finance-section li:last-child{border-bottom:none}
-.finance-note{padding:10px;background:#fffbeb;border-right:4px solid #f59e0b;border-radius:8px;margin-top:8px;font-size:13px;line-height:1.8;color:#78350f}
-.finance-note.green{background:#ecfdf5;border-right-color:#10b981;color:#064e3b}
-.finance-note.blue{background:#eff6ff;border-right-color:#3b82f6;color:#1e3a8a}
-.finance-note.red{background:#fef2f2;border-right-color:#ef4444;color:#991b1b}
 .finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(255,255,255,0.65);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:12px;margin-bottom:10px}
 .finance-card .card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
 .finance-card .card-info{flex:1;width:100%}
@@ -89,21 +84,13 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .copy-block.copied .label{color:#059669}
 .badge{display:inline-block;padding:2px 7px;background:var(--accent);color:#fff;font-size:10px;border-radius:10px;font-weight:700;margin-left:4px}
 .badge.new{background:#10b981}
-.badge.important{background:#ef4444}
 .badge.no{background:#f59e0b}
-.badge.maybe{background:#8b5cf6}
 .badge.aban{background:#7c3aed}
+.badge.order{background:#0284c7}
 .security-warning{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px;border-radius:10px;margin-top:12px;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:8px}
-.card-policy-note{margin-top:12px;padding:10px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e;font-weight:600}
 .assistant-list{list-style:none;padding:0;margin:0}
 .assistant-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.9}
 .assistant-list li:last-child{border-bottom:none}
-.assistant-note{margin-top:10px;padding:10px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-right:4px solid #0284c7;border-radius:10px;font-size:13px;line-height:1.9;color:#0c4a6e}
-.contract-block{padding:10px;background:rgba(248,250,252,0.7);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;font-size:13px;line-height:2}
-.contract-block h4{color:var(--accent-dark);font-size:14px;margin-bottom:5px}
-.signature-row{display:flex;justify-content:space-between;gap:8px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);font-size:13px}
-.signature-row div{flex:1}
-.empty-state{text-align:center;padding:24px 16px;color:var(--muted);font-size:14px;line-height:2}
 body.low-end .header,body.low-end .box,body.low-end .card-btn,body.low-end .modal-content,body.low-end .finance-card,body.low-end .finance-section,body.low-end .news-item,body.low-end .btn-icon,body.low-end .fab{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 body.low-end::before{display:none}
 #toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .2s, transform .2s;z-index:100000;font-family:'Vazirmatn',sans-serif}
@@ -163,19 +150,16 @@ body.low-end::before{display:none}
 
         <div class="news-item">
             <strong>👟 کفش مدرسه:</strong><br>
-            کفش مدرسه به <strong>ماه آبان</strong> موکول شد.
+            احتمال زیاد در <strong>ماه آبان</strong> خریداری می‌شود؛ اگر نشود، <strong>ماه آذر حتمی</strong> است.
         </div>
 
         <div class="news-item">
-            <strong>🔓 VPN خواهری:</strong><br>
-            فیلترشکن <strong>فعلاً برای خواهری رایگان است</strong>.
-        </div>
-
-        <div class="news-item">
-            <strong>⚡ نت ملی:</strong><br>
-            در صورت قطع اینترنت، سایت در صورت امکان آپدیت می‌شود.<br>
-            در غیر این صورت، پیام‌ها از طریق <strong>سیستم پیام‌رسانی رمزنگاری‌شده خود حکومت</strong> ارسال خواهد شد.<br>
-            <em>این سیستم ابتدا سخت است ولی به مرور آسان می‌شود.</em>
+            <strong>🌐 اینترنت و قبوض:</strong>
+            <ul>
+                <li>ماه آبان: در صورت کسری بودجه، پول اینترنت توسط <strong>مامان</strong> داده می‌شود؛ اگر کمبود بودجه نبود، <strong>خود حکومت</strong> می‌دهد.</li>
+                <li>از ماه آبان به بعد: پول اینترنت <strong>کلاً توسط مامان</strong> داده می‌شود.</li>
+                <li>پول قبوض هم باید توسط مامان در نظر گرفته شود.</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -191,25 +175,30 @@ body.low-end::before{display:none}
         
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>جمع پول ماهیانه: ۴۲,۳۴۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
-            <div class="finance-note">
-                <i class="fas fa-arrow-up" style="margin-left:6px"></i>
-                <strong>دلیل افزایش:</strong> پایین بودن پول ماهیانه و قسط‌های زیاد.
-            </div>
-            <div class="finance-note red">
-                <i class="fas fa-gavel" style="margin-left:6px"></i>
-                <strong>هر گونه اعتراض درباره پول ماهیانه، موجب افزایش مجدد پول ماهیانه خواهد شد.</strong>
-            </div>
+            <p><strong>جمع پول ماهیانه: ۴۷,۱۷۴,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+        </div>
+
+        <div class="finance-section">
+            <h4>📅 پول ماهیانه آذر</h4>
+            <p><strong>جمع پول ماهیانه: ۲۸,۵۶۴,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+        </div>
+
+        <div class="finance-section">
+            <h4>📜 برنامه پول ماهیانه <span class="badge order">طبق دستور مقامات</span></h4>
+            <ul>
+                <li>از ماه آذر تا بهمن ماه: <strong>۱۲,۰۰۰,۰۰۰ تومان</strong> در ماه.</li>
+                <li>پس از اتمام ماه بهمن (اسفند ماه): <strong>۱۵,۰۰۰,۰۰۰ تومان</strong>؛ تا چندین مدت تغییر نمی‌کند.</li>
+            </ul>
         </div>
         
         <div class="finance-section">
-            <h4>💼 لیست کامل ۵ کارت حکومت</h4>
+            <h4>💼 کارت حکومت</h4>
             
             <div class="finance-card">
                 <div class="card-icon" style="background:#8b5cf6">💳</div>
                 <div class="card-info">
-                    <div class="card-name">بلو بانک <span class="badge new">کارت اصلی</span> <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">کارت اصلی حکومت. فعلاً <strong>تنها کارت دریافت‌کننده پول ماهیانه</strong> بین کارت‌های حکومت.</div>
+                    <div class="card-name">بلو بانک <span class="badge new">کارت اصلی و تنها کارت فعال</span> <span class="badge" style="background:#64748b">به نام مامان</span></div>
+                    <div class="card-desc">کل پول ماهیانه به این کارت واریز می‌گردد.</div>
                     <div class="copy-block" onclick="copyToClipboard('6219861812264041', this);vibrate()" tabindex="0">
                         <span class="label">شماره کارت</span>
                         <span class="number">6219 8618 1226 4041</span>
@@ -222,84 +211,12 @@ body.low-end::before{display:none}
                     </div>
                 </div>
             </div>
-            
-            <div class="finance-card">
-                <div class="card-icon" style="background:#3b82f6">💳</div>
-                <div class="card-info">
-                    <div class="card-name">Q Bank <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">پرداخت قبوض و خرید اینترنت. ماهانه <strong>۱,۰۰۰,۰۰۰ تومان</strong> پول اینترنت به این کارت واریز می‌شود؛ پول قبوض در این مبلغ حساب نمی‌شود.</div>
-                    <div class="copy-block" onclick="copyToClipboard('6063731303393749', this);vibrate()" tabindex="0">
-                        <span class="label">شماره کارت</span>
-                        <span class="number">6063 7313 0339 3749</span>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                    <div class="copy-block" onclick="copyToClipboard('IR380600000000300443097685', this);vibrate()" tabindex="0">
-                        <span class="label">شماره شبا</span>
-                        <span class="number">IR38 0600 0000 0030 0443 0976 85</span>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="finance-card">
-                <div class="card-icon" style="background:#f59e0b">💳</div>
-                <div class="card-info">
-                    <div class="card-name">WePod (وپاد) <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">کارت ذخیره پول به صورت ریالی.</div>
-                    <div class="copy-block" onclick="copyToClipboard('5022291566600415', this);vibrate()" tabindex="0">
-                        <span class="label">شماره کارت</span>
-                        <span class="number">5022 2915 6660 0415</span>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                    <div class="copy-block" onclick="copyToClipboard('IR790570077700004094444001', this);vibrate()" tabindex="0">
-                        <span class="label">شماره شبا</span>
-                        <span class="number">IR79 0570 0777 0000 4094 4440 01</span>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="finance-card">
-                <div class="card-icon" style="background:#ec4899">💳</div>
-                <div class="card-info">
-                    <div class="card-name">بلو جونیور <span class="badge new">بوفه مدرسه</span> <span class="badge" style="background:#3b82f6">به نام حکومت</span></div>
-                    <div class="card-desc">مخصوص خرید از بوفه مدرسه یا سوپرمارکت نزدیک مدرسه. استفاده برای سوپرمارکت نزدیک خانه یا مکان‌های دیگر <strong>ممنوع</strong> است.</div>
-                    <div class="copy-block" onclick="copyToClipboard('6219861254403479', this);vibrate()" tabindex="0">
-                        <span class="label">شماره کارت</span>
-                        <span class="number">6219 8612 5440 3479</span>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                    <div class="copy-block" onclick="copyToClipboard('IR640560611827016288465201', this);vibrate()" tabindex="0">
-                        <span class="label">شماره شبا</span>
-                        <span class="number">IR64 0560 6118 2701 6288 4652 01</span>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="finance-card">
-                <div class="card-icon" style="background:#14b8a6">💳</div>
-                <div class="card-info">
-                    <div class="card-name">زی کارت (Zey) <span class="badge new">سکه پارسیان</span> <span class="badge" style="background:#3b82f6">به نام حکومت</span></div>
-                    <div class="card-desc">کارت مخصوص خرید سکه پارسیان.</div>
-                    <div class="copy-block" onclick="copyToClipboard('5022291629183441', this);vibrate()" tabindex="0">
-                        <span class="label">شماره کارت</span>
-                        <span class="number">5022 2916 2918 3441</span>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-policy-note">
-                <i class="fas fa-info-circle" style="margin-left:6px"></i>
-                <strong>سیاست کارت‌های حکومت:</strong> هیچ‌کدام از این ۵ کارت منسوخ نمی‌شوند.
-            </div>
 
             <div class="security-warning">
                 <i class="fas fa-shield-alt" style="font-size:18px;margin-top:2px"></i>
                 <div>
                     <strong>هشدار امنیتی:</strong><br>
-                    کارت‌ها اصلاً و ابداً در SMS یا پیام‌رسان‌ها ارسال نمی‌شوند؛ فقط از سایت حکومت.
+                    کارت اصلاً و ابداً در SMS یا پیام‌رسان‌ها ارسال نمی‌شود؛ فقط از سایت حکومت.
                 </div>
             </div>
         </div>
@@ -310,38 +227,10 @@ body.low-end::before{display:none}
     <div class="box">
         <h3>🤖 دستیار</h3>
         <div class="grid">
-            <div class="card-btn" onclick="openAssistantBox('rules');vibrate()">
-                <div style="display:flex;align-items:center;gap:12px">
-                    <div class="icon" style="background:#0f172a">📜</div>
-                    <span>قوانین</span>
-                </div>
-                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-            </div>
-            <div class="card-btn" onclick="openAssistantBox('sanctions');vibrate()">
-                <div style="display:flex;align-items:center;gap:12px">
-                    <div class="icon" style="background:#ef4444">⛔</div>
-                    <span>تحریم‌ها</span>
-                </div>
-                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-            </div>
             <div class="card-btn" onclick="openAssistantBox('bank');vibrate()">
                 <div style="display:flex;align-items:center;gap:12px">
                     <div class="icon" style="background:#f59e0b">🏦</div>
                     <span>بانک حکومت</span>
-                </div>
-                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-            </div>
-            <div class="card-btn" onclick="openAssistantBox('triangle');vibrate()">
-                <div style="display:flex;align-items:center;gap:12px">
-                    <div class="icon" style="background:#7c3aed">🔺</div>
-                    <span>قرارداد مثلث</span>
-                </div>
-                <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-            </div>
-            <div class="card-btn" onclick="openChatModal();vibrate()">
-                <div style="display:flex;align-items:center;gap:12px">
-                    <div class="icon" style="background:#10b981">💬</div>
-                    <span>صحبت</span>
                 </div>
                 <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
             </div>
@@ -366,19 +255,6 @@ body.low-end::before{display:none}
     <div class="modal-content">
         <div class="modal-close-row"><button class="close-modal" onclick="closeAssistantModal();vibrate()">✕</button></div>
         <div id="assistant-modal-content"></div>
-    </div>
-</div>
-
-<div id="chat-modal" class="modal" onclick="if(event.target===this)closeChatModal()">
-    <div class="modal-content">
-        <div class="modal-close-row"><button class="close-modal" onclick="closeChatModal();vibrate()">✕</button></div>
-        <h3 style="color:#10b981;margin-bottom:12px;display:flex;align-items:center;gap:8px">
-            <span>💬 صحبت</span>
-        </h3>
-        <div class="empty-state">
-            <p>فعلاً خبری نیست.</p>
-            <p style="margin-top:8px;font-size:12px">هر وقت اطلاعیه جدیدی منتشر شد، اینجا نمایش داده می‌شود.</p>
-        </div>
     </div>
 </div>
 
@@ -479,64 +355,13 @@ function showCopySuccess(element) {
 }
 
 const assistantContent = {
-    rules: '<h3 style="color:#0f172a;margin-bottom:10px">📜 قوانین</h3>' +
-        '<p style="font-size:13px;color:var(--muted);margin-bottom:8px">قوانین جدی هستند:</p>' +
-        '<ul class="assistant-list">' +
-        '<li>۱. آشوب ممنوع.</li>' +
-        '<li>۲. توهین ممنوع.</li>' +
-        '<li>۳. اخلاق سگی ممنوع.</li>' +
-        '<li>۴. پریدن به حکومت ممنوع.</li>' +
-        '<li>۵. دکتر رفتن در بیماری اجباری است.</li>' +
-        '<li>۶. هر موقع خواستم بخوابم، تلویزیون به صورت کامل خاموش شود.</li>' +
-        '<li>۷. خواهری در مواقع صحبت‌های حکومت نباید به اتاق خواب فرار کند؛ باید بنشیند و گوش دهد.</li>' +
-        '<li>۸. حرف‌های چرت و پرت (از جمله «آشوب بپا نمی‌کنی و...») ممنوع.</li>' +
-        '<li>۹. در صورت آشوب، پس از اتمام آشوب همه با هم دوست می‌شویم.</li>' +
-        '<li>۱۰. سر و صدا ممنوع.</li>' +
-        '<li>۱۱. داد زدن بر علیه حکومت ممنوع.</li>' +
-        '<li>۱۲. داد زدن بر علیه حکومت = جریمه.</li>' +
-        '<li>۱۳. اخلاق سگی = جریمه.</li>' +
-        '<li>۱۴. نگذاشتن صحبت حکومت، آشوب بپا کردن یا فرار کردن = جریمه سنگین + لاک شدن گوشی مامان.</li>' +
-        '<li>۱۵. <strong>هر گونه راه‌اندازی آشوب، جریمه سنگینی خواهد داشت.</strong></li>' +
-        '</ul>',
-    sanctions: '<h3 style="color:#ef4444;margin-bottom:10px">⛔ تحریم‌ها</h3>' +
-        '<ul class="assistant-list">' +
-        '<li>۱. مشاوره و دکتر ممنوع.</li>' +
-        '<li>۲. مهمانی ممنوع.</li>' +
-        '<li>۳. در خانه ماندن اجباری.</li>' +
-        '<li>۴. وظایف برای دشمنان ممنوع.</li>' +
-        '<li>۵. قرص و شربت ممنوع (فقط SOS).</li>' +
-        '<li>۶. اذیت دشمنان اجباری.</li>' +
-        '<li>۷. مدرسه ممنوع.</li>' +
-        '<li>۸. باندها فعال.</li>' +
-        '<li>۹. گوشی مامان قفل می‌شود.</li>' +
-        '<li>۱۰. مانع فیلم دیدن خواهری.</li>' +
-        '<li>۱۱. به پا شدن آشوب.</li>' +
-        '</ul>' +
-        '<p class="assistant-note">📌 این لیست فقط برای آگاهی است و در زمان SOS با اطلاع‌رسانی اجرا می‌شود.</p>',
     bank: '<h3 style="color:#0f172a;margin-bottom:10px">🏦 بانک حکومت</h3>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
         '<ul class="assistant-list">' +
         '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
         '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
         '<li>بدهی مامان به حکومت: <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '</ul>',
-    triangle: '<h3 style="color:#7c3aed;margin-bottom:10px">🔺 قرارداد مثلث</h3>' +
-        '<div class="contract-block">' +
-        '<h4>مبالغ</h4>' +
-        '<ul class="assistant-list">' +
-        '<li>پول ماهیانه: <strong>۲۰,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>پول اضافی: <strong>۳,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '</ul>' +
-        '</div>' +
-        '<div class="contract-block">' +
-        '<h4>امضاء</h4>' +
-        '<div class="signature-row">' +
-        '<div><strong>خواهری:</strong><br>✅</div>' +
-        '<div><strong>مامان:</strong><br>✅</div>' +
-        '<div><strong>حکومت:</strong><br>✅</div>' +
-        '</div>' +
-        '<p class="assistant-note">این قرارداد <strong>از آذر ماه اعمال می‌شود</strong> و تاریخ پایان ندارد.</p>' +
-        '</div>'
+        '</ul>'
 };
 
 function openAssistantBox(type){
@@ -544,16 +369,13 @@ function openAssistantBox(type){
     document.getElementById('assistant-modal').style.display = 'flex';
 }
 function closeAssistantModal(){ document.getElementById('assistant-modal').style.display = 'none'; }
-function openChatModal(){ document.getElementById('chat-modal').style.display = 'flex'; }
-function closeChatModal(){ document.getElementById('chat-modal').style.display = 'none'; }
 
 const abanItems = [
-    {t:"فیبرنوری", l:null, st:"aban", r:"مودم خریداری شد؛ فیبرکشی هنوز انجام نشده", shop:null}
+    {t:"فیبرنوری", l:null, st:"aban", r:"مودم خریداری شد؛ فیبرکشی هنوز انجام نشده"}
 ];
 
 const shopItems = [
     {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:"برای قطعی برق و حمل و نقل"},
-    {t:"روتر گوگل", l:"https://snappshop.ir/product/snp-1928818401", c:"📶 تجهیزات مودم", st:"no", r:"بدون نیاز به فیلترشکن"},
     {t:"هدست گیمینگ ریزر", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ", st:"no", r:"برای گیمینگ PS5"},
     {t:"تلفن بی‌سیم پاناسونیک", l:"https://www.digikala.com/product/dkp-150477", c:"📡 تجهیزات مخابرات", st:"no", r:"بروز کردن تلفن خانه"},
     {t:"پرزگیر", l:"https://snappshop.ir/product/snp-1375928417", c:"🛒 خرید‌ها", st:"no", r:null},
@@ -568,8 +390,6 @@ const shopItems = [
 
 function badgeHtml(i){
     if(i.st === 'aban') return '<span class="badge aban">آبان</span>';
-    if(i.st === 'important') return '<span class="badge important">مهم</span>';
-    if(i.st === 'maybe') return '<span class="badge maybe">برنامه‌ریزی آینده</span>';
     if(i.st === 'no') return '<span class="badge no">فعلاً نه</span>';
     return '';
 }
@@ -577,9 +397,8 @@ function badgeHtml(i){
 function renderList(items){
     return items.map(i => {
         const reasonHtml = i.r ? '<div class="item-reason">' + escapeHtml(i.r) + '</div>' : '';
-        const shopHtml = i.shop ? '<div class="item-shop"><i class="fas fa-store"></i> ' + escapeHtml(i.shop) + '</div>' : '';
-        if(i.l) return '<div class="shop-item"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + shopHtml + '</div><a href="' + escapeHtml(i.l) + '" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>';
-        return '<div class="shop-item no-link"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + shopHtml + '</div></div>';
+        if(i.l) return '<div class="shop-item"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div><a href="' + escapeHtml(i.l) + '" target="_blank" rel="noopener noreferrer nofollow" class="link-text">لینک</a></div>';
+        return '<div class="shop-item no-link"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div></div>';
     }).join('');
 }
 
