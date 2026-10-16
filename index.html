@@ -13,45 +13,39 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f8fafc;--glass:rgba(255,255,255,0.6);--glass-border:rgba(255,255,255,0.65);--text:#0f172a;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--border:#e2e8f0;--pink:#ec4899}
+:root{--bg:#f8fafc;--card:#fff;--text:#0f172a;--muted:#64748b;--accent:#3b82f6;--accent-dark:#2563eb;--border:#e2e8f0;--pink:#ec4899}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{font-display:swap}
-body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:90px;padding-top:75px;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
-body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(600px 400px at 85% 8%,rgba(59,130,246,0.16),transparent 60%),radial-gradient(500px 350px at 8% 30%,rgba(236,72,153,0.13),transparent 60%),radial-gradient(700px 500px at 50% 95%,rgba(16,185,129,0.11),transparent 60%)}
-.header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.65);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);padding:12px 15px;z-index:999;border-bottom:1px solid var(--glass-border);display:flex;align-items:center;justify-content:space-between}
+body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:90px;padding-top:70px;font-size:15px;line-height:1.7}
+.header{position:fixed;top:0;left:0;right:0;background:var(--card);padding:10px 15px;z-index:999;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .header h1{font-size:18px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.btn-icon{background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--glass-border);width:38px;height:38px;border-radius:50%;color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .15s}
+.btn-icon{background:var(--bg);border:none;width:38px;height:38px;border-radius:50%;color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px}
 .btn-icon:active{transform:scale(0.92)}
 .btn-icon:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.page{display:none;padding:16px;max-width:600px;margin:0 auto;animation:fadeIn .25s ease}
+.page{display:none;padding:16px;max-width:600px;margin:0 auto}
 .page.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.hero{text-align:center;margin:16px 0 24px}
-.hero h2{font-size:24px;font-weight:900;margin-bottom:6px}
-.hero p{color:var(--muted);font-size:14px}
 .grid{display:flex;flex-direction:column;gap:10px}
-.card-btn{background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);border:1px solid var(--glass-border);border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;font-weight:700;cursor:pointer;transition:transform .15s;box-shadow:0 8px 32px rgba(31,38,135,0.08)}
+.card-btn{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;font-weight:700;cursor:pointer}
 .card-btn:active{transform:scale(0.98)}
 .card-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.card-btn .icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,0.4)}
-.box{background:var(--glass);-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%);border-radius:18px;padding:16px;border:1px solid var(--glass-border);margin-bottom:12px;box-shadow:0 8px 32px rgba(31,38,135,0.08)}
+.card-btn .icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
+.box{background:var(--card);border-radius:14px;padding:16px;border:1px solid var(--border);margin-bottom:12px}
 .box h3{font-size:16px;font-weight:800;margin-bottom:10px;color:var(--accent)}
-.news-item{padding:12px;background:rgba(248,250,252,0.65);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-right:4px solid var(--accent);border-radius:10px;margin-bottom:10px;line-height:1.9;font-size:14px}
+.news-item{padding:12px;background:var(--bg);border-right:4px solid var(--accent);border-radius:10px;margin-bottom:10px;line-height:1.9;font-size:14px}
 .news-item strong{color:var(--accent-dark)}
 .news-item ul{margin:6px 0 0 0;padding-right:18px}
 .news-item li{margin:3px 0;font-size:14px}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
 .link-text:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.modal{position:fixed;inset:0;background:rgba(15,23,42,0.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
-.modal-content{background:rgba(255,255,255,0.85);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--glass-border);border-radius:20px;padding:20px;padding-top:0;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative;animation:popIn .2s ease;box-shadow:0 24px 64px rgba(31,38,135,0.2)}
-@keyframes popIn{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
-.modal-close-row{position:sticky;top:0;background:transparent;display:flex;justify-content:flex-end;margin:0 -20px;padding:12px 20px 4px;z-index:5}
-.close-modal{background:var(--glass);border:1px solid var(--glass-border);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--muted);line-height:1;transition:transform .15s}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,0.5);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-content{background:var(--card);border-radius:16px;padding:20px;padding-top:0;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;position:relative}
+.modal-close-row{position:sticky;top:0;background:var(--card);display:flex;justify-content:flex-end;margin:0 -20px;padding:12px 20px 4px;z-index:5}
+.close-modal{background:var(--bg);border:1px solid var(--border);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--muted);line-height:1}
 .close-modal:active{transform:scale(0.9)}
 .close-modal:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:56px;height:56px;background:linear-gradient(135deg,rgba(59,130,246,0.9),rgba(236,72,153,0.9));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;z-index:50;transition:transform .15s;box-shadow:0 12px 32px rgba(59,130,246,0.35)}
+.fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;border:none;z-index:50}
 .fab:active{transform:translateX(-50%) scale(0.92)}
 .fab:focus-visible{outline:2px solid var(--accent-dark);outline-offset:4px}
 .shop-item{margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:6px;gap:8px}
@@ -62,23 +56,23 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .shop-section-title{margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.finance-section{margin-bottom:16px;padding:14px;background:rgba(248,250,252,0.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:14px;border-right:4px solid var(--accent)}
+.finance-section{margin-bottom:16px;padding:14px;background:var(--bg);border-radius:12px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .finance-section p{font-size:14px;line-height:1.9}
 .finance-section ul{list-style:none;padding:0;margin:6px 0}
 .finance-section li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
 .finance-section li:last-child{border-bottom:none}
-.finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(255,255,255,0.65);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:12px;margin-bottom:10px}
+.finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px}
 .finance-card .card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
 .finance-card .card-info{flex:1;width:100%}
 .finance-card .card-name{font-weight:700;font-size:14px;margin-bottom:3px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
 .finance-card .card-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:6px}
-.copy-block{display:flex;align-items:center;justify-content:space-between;background:rgba(248,250,252,0.8);padding:7px 10px;border-radius:8px;margin-top:5px;cursor:pointer;border:1px solid var(--border);transition:border-color .15s, background .15s}
+.copy-block{display:flex;align-items:center;justify-content:space-between;background:var(--bg);padding:7px 10px;border-radius:8px;margin-top:5px;cursor:pointer;border:1px solid var(--border)}
 .copy-block:active{background:#e2e8f0}
 .copy-block:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .copy-block .label{font-size:11px;color:var(--muted);font-weight:600;margin-left:6px}
 .copy-block .number{font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:0.5px;direction:ltr;color:var(--text);font-weight:700;flex:1;text-align:right}
-.copy-block .copy-icon{color:var(--accent);font-size:13px;margin-right:6px;transition:color .15s}
+.copy-block .copy-icon{color:var(--accent);font-size:13px;margin-right:6px}
 .copy-block.copied{border-color:#10b981;background:#ecfdf5}
 .copy-block.copied .copy-icon{color:#10b981}
 .copy-block.copied .label{color:#059669}
@@ -87,12 +81,10 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .badge.no{background:#f59e0b}
 .badge.aban{background:#7c3aed}
 .badge.order{background:#0284c7}
-.security-warning{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px;border-radius:10px;margin-top:12px;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:8px}
 .assistant-list{list-style:none;padding:0;margin:0}
 .assistant-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.9}
 .assistant-list li:last-child{border-bottom:none}
-body.low-end .header,body.low-end .box,body.low-end .card-btn,body.low-end .modal-content,body.low-end .finance-card,body.low-end .finance-section,body.low-end .news-item,body.low-end .btn-icon,body.low-end .fab{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
-body.low-end::before{display:none}
+.assistant-note{margin-top:10px;padding:10px;background:#eff6ff;border-right:4px solid #3b82f6;border-radius:10px;font-size:13px;line-height:1.9;color:#1e3a8a;font-weight:700}
 #toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .2s, transform .2s;z-index:100000;font-family:'Vazirmatn',sans-serif}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast.success{background:#10b981}
@@ -107,10 +99,6 @@ body.low-end::before{display:none}
 </div>
 
 <div class="page active" id="page-home">
-    <div class="hero">
-        <h2>سلام چطوری؟ 👋</h2>
-        <p>اینجا خونه‌ی دل ماست، راحت باش! یکی رو انتخاب کن 🫶</p>
-    </div>
     <div class="grid">
         <div class="card-btn" onclick="openPage('page-news');vibrate()">
             <div style="display:flex;align-items:center;gap:12px">
@@ -145,12 +133,9 @@ body.low-end::before{display:none}
             سلام.<br>
             مودم فیبرنوری <strong>خریداری شد</strong>.<br>
             فیبرکشی <strong>انجام نشده</strong>.<br>
-            پول فیبرکشی: تقریبی <strong>۲۰,۰۰۰,۰۰۰ تومان</strong>؛ حداکثر ۲۰,۰۰۰,۰۰۰ تومان.
-        </div>
-
-        <div class="news-item">
-            <strong>👟 کفش مدرسه:</strong><br>
-            احتمال زیاد در <strong>ماه آبان</strong> خریداری می‌شود؛ اگر نشود، <strong>ماه آذر حتمی</strong> است.
+            پول فیبرکشی: تقریبی <strong>۲۰,۰۰,۰۰۰ تومان</strong>؛ حداکثر ۲۰,۰۰۰,۰۰ تومان.<br>
+            انشاءالله طی هفته‌های آینده فیبرنوری می‌آید؛ ولی اگر نیاز به اجازه بود، لطفاً اجازه بگیرید (متن اجازه برایتان ارسال شده است).<br>
+            سپاس.
         </div>
 
         <div class="news-item">
@@ -161,18 +146,35 @@ body.low-end::before{display:none}
                 <li>پول قبوض هم باید توسط مامان در نظر گرفته شود.</li>
             </ul>
         </div>
+
+        <div class="news-item">
+            <strong>🏛️ حکومت:</strong><br>
+            به‌زودی حکومت فرومی‌پاشد و <strong>فقط سایت پابرجا می‌ماند</strong>.
+        </div>
+
+        <div class="news-item">
+            <strong>📨 وضعیت اقساط و حلالیت:</strong><br>
+            وضعیت اقساط در پیام‌رسان‌های <strong>بله و ایتا</strong> ارسال شده است؛ لطفاً مشاهده بیایید.<br>
+            اگر اتفاقی افتاد، حکومت را حلال کنید؛ چون دستمان از دنیا کوتاه است.<br>
+            و همچنین اگر شما حلال کنید، ما هم حلال می‌کنیم اگر اتفاقی هست.
+        </div>
+
+        <div class="news-item">
+            <strong>💰 عذرخواهی و قول:</strong><br>
+            باز هم عذر می‌خواهیم که پول ماهیانه زیاد شده است؛ ولی دیگر قول می‌دهیم <strong>قسطی خرید نکنیم</strong> و تحت فشار نباشید.
+        </div>
+
+        <div class="news-item">
+            <strong>⚠️ یادداشت:</strong><br>
+            شاید فردا اخلاقم سگی باشد؛ اگر چیزی گفتیم، ناراحت نشوید.
+        </div>
     </div>
 </div>
 
 <div class="page" id="page-finance">
     <div class="box">
         <h3>💰 واحد مالی</h3>
-        
-        <div class="finance-section">
-            <h4>📅 پول ماهیانه مهر ✅</h4>
-            <p><strong>۳۵,۰۰۰,۰۰۰ تومان</strong><br>پول ماهیانه مهر دریافت شد.</p>
-        </div>
-        
+
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
             <p><strong>جمع پول ماهیانه: ۴۷,۱۷۴,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
@@ -204,19 +206,6 @@ body.low-end::before{display:none}
                         <span class="number">6219 8618 1226 4041</span>
                         <i class="fas fa-copy copy-icon"></i>
                     </div>
-                    <div class="copy-block" onclick="copyToClipboard('IR240560611828006165913501', this);vibrate()" tabindex="0">
-                        <span class="label">شماره شبا</span>
-                        <span class="number">IR24 0560 6118 2800 6165 9135 01</span>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="security-warning">
-                <i class="fas fa-shield-alt" style="font-size:18px;margin-top:2px"></i>
-                <div>
-                    <strong>هشدار امنیتی:</strong><br>
-                    کارت اصلاً و ابداً در SMS یا پیام‌رسان‌ها ارسال نمی‌شود؛ فقط از سایت حکومت.
                 </div>
             </div>
         </div>
@@ -358,10 +347,11 @@ const assistantContent = {
     bank: '<h3 style="color:#0f172a;margin-bottom:10px">🏦 بانک حکومت</h3>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
         '<ul class="assistant-list">' +
-        '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰ تومان</strong></li>' +
         '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
         '<li>بدهی مامان به حکومت: <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '</ul>'
+        '</ul>' +
+        '<p class="assistant-note">همه بدهی‌هایی که حکومت به شما بدهکار است، در <strong>ماه آذر</strong> تسویه می‌شود.</p>'
 };
 
 function openAssistantBox(type){
@@ -377,15 +367,12 @@ const abanItems = [
 const shopItems = [
     {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:"برای قطعی برق و حمل و نقل"},
     {t:"هدست گیمینگ ریزر", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ", st:"no", r:"برای گیمینگ PS5"},
-    {t:"تلفن بی‌سیم پاناسونیک", l:"https://www.digikala.com/product/dkp-150477", c:"📡 تجهیزات مخابرات", st:"no", r:"بروز کردن تلفن خانه"},
     {t:"پرزگیر", l:"https://snappshop.ir/product/snp-1375928417", c:"🛒 خرید‌ها", st:"no", r:null},
     {t:"تمدید اشتراک دیجی پلاس", l:"https://www.digikala.com/plus/landing/", c:"💰 مالی", st:"no", r:null},
     {t:"تمدید اشتراک اسنپ پرو", l:"https://snapp.ir/pro/", c:"💰 مالی", st:"no", r:null},
     {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
-    {t:"خرید سیم‌کارت EE", l:"https://sae22.ir/product/buy-ee-uk-sim-card/", c:"📱 سیم‌کارت", st:"no", r:null},
-    {t:"خرید سکه پارسیان از طلای عزیزی", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
-    {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
-    {t:"خرید ادکلن اورجینال از بازار", l:null, c:"🛍️ خرید حضوری", st:"no", r:null}
+    {t:"کفش مدرسه", l:null, c:"🛍️ خرید حضوری", st:"no", r:"اطلاع‌رسانی می‌شود"},
+    {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null}
 ];
 
 function badgeHtml(i){
@@ -404,7 +391,7 @@ function renderList(items){
 
 document.getElementById('shop-list-aban').innerHTML = renderList(abanItems);
 
-const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","📡 تجهیزات مخابرات","🛒 خرید‌ها","💰 مالی","📱 سیم‌کارت","🛍️ خرید حضوری"];
+const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🛒 خرید‌ها","💰 مالی","📱 سیم‌کارت","🛍️ خرید حضوری"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
