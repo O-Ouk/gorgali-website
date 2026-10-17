@@ -62,6 +62,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .finance-section ul{list-style:none;padding:0;margin:6px 0}
 .finance-section li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
 .finance-section li:last-child{border-bottom:none}
+.finance-note{padding:10px;background:#fffbeb;border-right:4px solid #f59e0b;border-radius:8px;margin-top:8px;font-size:13px;line-height:1.8;color:#78350f}
 .finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px}
 .finance-card .card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
 .finance-card .card-info{flex:1;width:100%}
@@ -84,7 +85,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .assistant-list{list-style:none;padding:0;margin:0}
 .assistant-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.9}
 .assistant-list li:last-child{border-bottom:none}
-.assistant-note{margin-top:10px;padding:10px;background:#eff6ff;border-right:4px solid #3b82f6;border-radius:10px;font-size:13px;line-height:1.9;color:#1e3a8a;font-weight:700}
 #toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .2s, transform .2s;z-index:100000;font-family:'Vazirmatn',sans-serif}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast.success{background:#10b981}
@@ -133,7 +133,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
             سلام.<br>
             مودم فیبرنوری <strong>خریداری شد</strong>.<br>
             فیبرکشی <strong>انجام نشده</strong>.<br>
-            پول فیبرکشی: تقریبی <strong>۲۰,۰۰,۰۰۰ تومان</strong>؛ حداکثر ۲۰,۰۰۰,۰۰ تومان.<br>
+            پول فیبرکشی: تقریبی <strong>۲۰,۰۰۰,۰۰۰ تومان</strong>؛ حداکثر ۲۰,۰۰۰,۰۰۰ تومان.<br>
             انشاءالله طی هفته‌های آینده فیبرنوری می‌آید؛ ولی اگر نیاز به اجازه بود، لطفاً اجازه بگیرید (متن اجازه برایتان ارسال شده است).<br>
             سپاس.
         </div>
@@ -148,25 +148,20 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         </div>
 
         <div class="news-item">
-            <strong>🏛️ حکومت:</strong><br>
-            به‌زودی حکومت فرومی‌پاشد و <strong>فقط سایت پابرجا می‌ماند</strong>.
+            <strong>📨 وضعیت اقساط:</strong><br>
+            وضعیت قسط‌ها رو می‌تونید ببینید در <strong>گروه حکومت</strong> در پیام‌رسان <strong>بله</strong>.<br>
+            باتشکر.
         </div>
 
         <div class="news-item">
-            <strong>📨 وضعیت اقساط و حلالیت:</strong><br>
-            وضعیت اقساط در پیام‌رسان‌های <strong>بله و ایتا</strong> ارسال شده است؛ لطفاً مشاهده بیایید.<br>
-            اگر اتفاقی افتاد، حکومت را حلال کنید؛ چون دستمان از دنیا کوتاه است.<br>
-            و همچنین اگر شما حلال کنید، ما هم حلال می‌کنیم اگر اتفاقی هست.
+            <strong>🛒 توقف خرید قسطی:</strong><br>
+            دیگه <strong>خرید قسطی انجام نمی‌شود</strong> تا زمانی که این قسط‌های فعلی تمام شوند؛ مگر اینکه موردی <strong>خیلی واجب</strong> باشد.
         </div>
 
         <div class="news-item">
-            <strong>💰 عذرخواهی و قول:</strong><br>
-            باز هم عذر می‌خواهیم که پول ماهیانه زیاد شده است؛ ولی دیگر قول می‌دهیم <strong>قسطی خرید نکنیم</strong> و تحت فشار نباشید.
-        </div>
-
-        <div class="news-item">
-            <strong>⚠️ یادداشت:</strong><br>
-            شاید فردا اخلاقم سگی باشد؛ اگر چیزی گفتیم، ناراحت نشوید.
+            <strong>💵 وضعیت پول آبان:</strong><br>
+            این ماه (آبان) <strong>پول ذخیره‌ای نداریم</strong>؛ پس آن <strong>۱,۰۰۰,۰۰۰ تومانی</strong> که دست مامان هست، همان‌جا بماند.<br>
+            در صورتی که <strong>اینترنت کاملاً قطع شود</strong>، مامان باید این مبلغ را بدهد تا برای حکومت <strong>V.P.N</strong> خریداری شود.
         </div>
     </div>
 </div>
@@ -189,8 +184,12 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
             <h4>📜 برنامه پول ماهیانه <span class="badge order">طبق دستور مقامات</span></h4>
             <ul>
                 <li>از ماه آذر تا بهمن ماه: <strong>۱۲,۰۰۰,۰۰۰ تومان</strong> در ماه.</li>
-                <li>پس از اتمام ماه بهمن (اسفند ماه): <strong>۱۵,۰۰۰,۰۰۰ تومان</strong>؛ تا چندین مدت تغییر نمی‌کند.</li>
+                <li>پس از اتمام ماه بهمن (اسفند ماه): <strong>۱۵,۰۰۰,۰۰۰ تومان</strong>؛ <strong>۱۵ میلیون فعلاً ثابت است</strong> مگر اینکه اتفاقی بیفتد و مجبور به افزایش شویم، که احتمال آن کم است.</li>
             </ul>
+            <div class="finance-note">
+                <i class="fas fa-info-circle" style="margin-left:6px"></i>
+                پول ماهیانه ممکن است بعد از یک مدتی <strong>افزایشی شود (شاید)</strong>.
+            </div>
         </div>
         
         <div class="finance-section">
@@ -347,11 +346,10 @@ const assistantContent = {
     bank: '<h3 style="color:#0f172a;margin-bottom:10px">🏦 بانک حکومت</h3>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
         '<ul class="assistant-list">' +
-        '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
         '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
         '<li>بدهی مامان به حکومت: <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
-        '</ul>' +
-        '<p class="assistant-note">همه بدهی‌هایی که حکومت به شما بدهکار است، در <strong>ماه آذر</strong> تسویه می‌شود.</p>'
+        '</ul>'
 };
 
 function openAssistantBox(type){
@@ -367,9 +365,10 @@ const abanItems = [
 const shopItems = [
     {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:"برای قطعی برق و حمل و نقل"},
     {t:"هدست گیمینگ ریزر", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ", st:"no", r:"برای گیمینگ PS5"},
+    {t:"Ratchet & Clank: Rift Apart دیسک", l:"https://www.digikala.com/product/dkp-6051978", c:"🎮 بازی", st:"no", r:null},
+    {t:"Sackboy دیسک", l:"https://www.digikala.com/product/dkp-6053986", c:"🎮 بازی", st:"no", r:null},
+    {t:"God of War Ragnarok دیسک", l:"https://www.digikala.com/product/dkp-18163330", c:"🎮 بازی", st:"no", r:null},
     {t:"پرزگیر", l:"https://snappshop.ir/product/snp-1375928417", c:"🛒 خرید‌ها", st:"no", r:null},
-    {t:"تمدید اشتراک دیجی پلاس", l:"https://www.digikala.com/plus/landing/", c:"💰 مالی", st:"no", r:null},
-    {t:"تمدید اشتراک اسنپ پرو", l:"https://snapp.ir/pro/", c:"💰 مالی", st:"no", r:null},
     {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
     {t:"کفش مدرسه", l:null, c:"🛍️ خرید حضوری", st:"no", r:"اطلاع‌رسانی می‌شود"},
     {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null}
@@ -391,7 +390,7 @@ function renderList(items){
 
 document.getElementById('shop-list-aban').innerHTML = renderList(abanItems);
 
-const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🛒 خرید‌ها","💰 مالی","📱 سیم‌کارت","🛍️ خرید حضوری"];
+const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🎮 بازی","🛒 خرید‌ها","📱 سیم‌کارت","🛍️ خرید حضوری"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
