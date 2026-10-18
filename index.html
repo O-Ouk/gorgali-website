@@ -27,7 +27,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .page{display:none;padding:16px;max-width:600px;margin:0 auto}
 .page.active{display:block}
 .grid{display:flex;flex-direction:column;gap:10px}
-.card-btn{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;font-weight:700;cursor:pointer}
+.card-btn{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;font-weight:700;cursor:pointer;width:100%;font-size:15px;font-family:inherit}
 .card-btn:active{transform:scale(0.98)}
 .card-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .card-btn .icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
@@ -37,6 +37,14 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .news-item strong{color:var(--accent-dark)}
 .news-item ul{margin:6px 0 0 0;padding-right:18px}
 .news-item li{margin:3px 0;font-size:14px}
+.search-row{display:flex;gap:8px;align-items:center}
+.search-row input{flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:14px;background:var(--card);color:var(--text)}
+.search-row input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.btn-small{padding:9px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-weight:700;font-size:12px;font-family:inherit;color:var(--text)}
+.btn-small:active{background:#e2e8f0}
+.search-item{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-top:6px;cursor:pointer;background:var(--card);font-family:inherit;font-size:12px;color:var(--text);text-align:right}
+.search-item .page-tag{font-size:10px;color:var(--muted);flex-shrink:0}
+.search-empty{margin-top:8px;font-size:12px;color:var(--muted)}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
 .link-text:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .modal{position:fixed;inset:0;background:rgba(15,23,42,0.5);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
@@ -56,6 +64,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .shop-section-title{margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.privacy-note{padding:10px;background:#f0f9ff;border-right:4px solid #0284c7;border-radius:10px;margin-bottom:12px;font-size:12px;line-height:1.8;color:#0c4a6e}
 .finance-section{margin-bottom:16px;padding:14px;background:var(--bg);border-radius:12px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .finance-section p{font-size:14px;line-height:1.9}
@@ -77,6 +86,9 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .copy-block.copied{border-color:#10b981;background:#ecfdf5}
 .copy-block.copied .copy-icon{color:#10b981}
 .copy-block.copied .label{color:#059669}
+.eye-btn{background:none;border:none;color:var(--accent);cursor:pointer;font-size:14px;padding:0 6px}
+.eye-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-privacy{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.7}
 .badge{display:inline-block;padding:2px 7px;background:var(--accent);color:#fff;font-size:10px;border-radius:10px;font-weight:700;margin-left:4px}
 .badge.new{background:#10b981}
 .badge.no{background:#f59e0b}
@@ -99,28 +111,36 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 </div>
 
 <div class="page active" id="page-home">
+    <div class="box">
+        <h3>🔍 جست‌وجو در محتوای سایت</h3>
+        <div class="search-row">
+            <input id="search-input" type="search" placeholder="عبارت موردنظر را وارد کن." aria-label="جست‌وجو در محتوای سایت">
+            <button id="search-clear" class="btn-small">پاک‌کردن</button>
+        </div>
+        <div id="search-results"></div>
+    </div>
     <div class="grid">
-        <div class="card-btn" onclick="openPage('page-news');vibrate()">
+        <button class="card-btn" onclick="openPage('page-news');vibrate()">
             <div style="display:flex;align-items:center;gap:12px">
                 <div class="icon" style="background:#f59e0b">📰</div>
                 <span>اخبار</span>
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-        </div>
-        <div class="card-btn" onclick="openPage('page-finance');vibrate()">
+        </button>
+        <button class="card-btn" onclick="openPage('page-finance');vibrate()">
             <div style="display:flex;align-items:center;gap:12px">
                 <div class="icon" style="background:#10b981">💰</div>
                 <span>واحد مالی</span>
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-        </div>
-        <div class="card-btn" onclick="openPage('page-assistant');vibrate()">
+        </button>
+        <button class="card-btn" onclick="openPage('page-assistant');vibrate()">
             <div style="display:flex;align-items:center;gap:12px">
                 <div class="icon" style="background:#8b5cf6">🤖</div>
                 <span>دستیار</span>
             </div>
             <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-        </div>
+        </button>
     </div>
 </div>
 
@@ -141,21 +161,26 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         <div class="news-item">
             <strong>🌐 اینترنت و قبوض:</strong>
             <ul>
-                <li>ماه آبان: در صورت کسری بودجه، پول اینترنت توسط <strong>مامان</strong> داده می‌شود؛ اگر کمبود بودجه نبود، <strong>خود حکومت</strong> می‌دهد.</li>
-                <li>از ماه آبان به بعد: پول اینترنت <strong>کلاً توسط مامان</strong> داده می‌شود.</li>
-                <li>پول قبوض هم باید توسط مامان در نظر گرفته شود.</li>
+                <li>پول اینترنت و قبوض <strong>کاملاً بر عهده مامان</strong> است.</li>
+                <li>این قاعده حتی در مواقعی که <strong>۲۰,۰۰۰,۰۰۰ تومان</strong> گرفته می‌شود نیز برقرار است.</li>
             </ul>
         </div>
 
         <div class="news-item">
             <strong>📨 وضعیت اقساط:</strong><br>
-            وضعیت قسط‌ها رو می‌تونید ببینید در <strong>گروه حکومت</strong> در پیام‌رسان <strong>بله</strong>.<br>
+            وضعیت قسط‌ها را می‌توانید در <strong>گروه حکومت</strong> در پیام‌رسان <strong>بله</strong> ببینید.<br>
             باتشکر.
         </div>
 
         <div class="news-item">
+            <strong>📢 کانال حکومت در بله:</strong><br>
+            کانال حکومت در پیام‌رسان <strong>بله</strong> ساخته شد.<br>
+            لطفاً لطفاً لطفاً آنجا هم نگاه بیندازید، چون مطالب مهمی آنجا است.
+        </div>
+
+        <div class="news-item">
             <strong>🛒 توقف خرید قسطی:</strong><br>
-            دیگه <strong>خرید قسطی انجام نمی‌شود</strong> تا زمانی که این قسط‌های فعلی تمام شوند؛ مگر اینکه موردی <strong>خیلی واجب</strong> باشد.
+            دیگر <strong>خرید قسطی انجام نمی‌شود</strong> تا زمانی که این قسط‌های فعلی تمام شوند؛ مگر اینکه موردی <strong>خیلی واجب</strong> باشد.
         </div>
 
         <div class="news-item">
@@ -169,6 +194,11 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 <div class="page" id="page-finance">
     <div class="box">
         <h3>💰 واحد مالی</h3>
+
+        <div class="privacy-note">
+            <i class="fas fa-user-shield" style="margin-left:6px"></i>
+            <strong>حریم خصوصی:</strong> این صفحه شامل اطلاعات مالی خانوادگی است. پیش از انتشار عمومی سایت، مطمئن شو اطلاعات خصوصی فقط برای افراد مجاز قابل مشاهده باشد.
+        </div>
 
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
@@ -184,8 +214,13 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
             <h4>📜 برنامه پول ماهیانه <span class="badge order">طبق دستور مقامات</span></h4>
             <ul>
                 <li>از ماه آذر تا بهمن ماه: <strong>۱۲,۰۰۰,۰۰۰ تومان</strong> در ماه.</li>
-                <li>پس از اتمام ماه بهمن (اسفند ماه): <strong>۱۵,۰۰۰,۰۰۰ تومان</strong>؛ <strong>۱۵ میلیون فعلاً ثابت است</strong> مگر اینکه اتفاقی بیفتد و مجبور به افزایش شویم، که احتمال آن کم است.</li>
+                <li>پس از اتمام اقساط اعتباری: پول ماهیانه به <strong>۲۰,۰۰۰,۰۰۰ تومان</strong> برمی‌گردد.</li>
+                <li>برنامه <strong>۱۵,۰۰۰,۰۰۰ تومان</strong> منسوخ است.</li>
             </ul>
+            <div class="finance-note">
+                <i class="fas fa-info-circle" style="margin-left:6px"></i>
+                (ما متأسفانه مجبور به برگشت به محدوده شدیم.)
+            </div>
             <div class="finance-note">
                 <i class="fas fa-info-circle" style="margin-left:6px"></i>
                 پول ماهیانه ممکن است بعد از یک مدتی <strong>افزایشی شود (شاید)</strong>.
@@ -201,10 +236,12 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
                     <div class="card-name">بلو بانک <span class="badge new">کارت اصلی و تنها کارت فعال</span> <span class="badge" style="background:#64748b">به نام مامان</span></div>
                     <div class="card-desc">کل پول ماهیانه به این کارت واریز می‌گردد.</div>
                     <div class="copy-block" onclick="copyToClipboard('6219861812264041', this);vibrate()" tabindex="0">
-                        <span class="label">شماره کارت</span>
-                        <span class="number">6219 8618 1226 4041</span>
+                        <span class="label" id="card-label">شماره کارت (پنهان)</span>
+                        <span class="number" id="card-number">•••• •••• •••• 4041</span>
+                        <button class="eye-btn" id="card-toggle" aria-label="نمایش یا پنهان‌کردن شماره کارت"><i class="fas fa-eye"></i></button>
                         <i class="fas fa-copy copy-icon"></i>
                     </div>
+                    <div class="card-privacy">برای محافظت از اطلاعات مالی، شماره کارت به‌صورت پیش‌فرض پنهان است.</div>
                 </div>
             </div>
         </div>
@@ -215,13 +252,13 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
     <div class="box">
         <h3>🤖 دستیار</h3>
         <div class="grid">
-            <div class="card-btn" onclick="openAssistantBox('bank');vibrate()">
+            <button class="card-btn" onclick="openAssistantBox('bank');vibrate()">
                 <div style="display:flex;align-items:center;gap:12px">
                     <div class="icon" style="background:#f59e0b">🏦</div>
                     <span>بانک حکومت</span>
                 </div>
                 <i class="fas fa-chevron-left" style="color:var(--muted)"></i>
-            </div>
+            </button>
         </div>
     </div>
 </div>
@@ -241,7 +278,7 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 
 <div id="assistant-modal" class="modal" onclick="if(event.target===this)closeAssistantModal()">
     <div class="modal-content">
-        <div class="modal-close-row"><button class="close-modal" onclick="closeAssistantModal();vibrate()">✕</button></div>
+        <div class="modal-close-row"><button class="close-modal" onclick="closeAssistantModal();vibrate()" aria-label="بستن">✕</button></div>
         <div id="assistant-modal-content"></div>
     </div>
 </div>
@@ -342,6 +379,25 @@ function showCopySuccess(element) {
     }, 1300);
 }
 
+/* ===== نمایش/پنهان شماره کارت ===== */
+(function(){
+    const num = document.getElementById('card-number');
+    const tog = document.getElementById('card-toggle');
+    const lab = document.getElementById('card-label');
+    if(!num || !tog || !lab) return;
+    const FULL = '6219 8618 1226 4041';
+    const MASK = '•••• •••• •••• 4041';
+    let revealed = false;
+    tog.addEventListener('click', function(e){
+        e.stopPropagation();
+        revealed = !revealed;
+        num.textContent = revealed ? FULL : MASK;
+        lab.textContent = revealed ? 'شماره کارت' : 'شماره کارت (پنهان)';
+        tog.querySelector('i').className = revealed ? 'fas fa-eye-slash' : 'fas fa-eye';
+        vibrate();
+    });
+})();
+
 const assistantContent = {
     bank: '<h3 style="color:#0f172a;margin-bottom:10px">🏦 بانک حکومت</h3>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
@@ -401,6 +457,43 @@ catOrder.forEach(cat => {
     shopHTML += renderList(items);
 });
 document.getElementById('shop-list').innerHTML = shopHTML;
+
+/* ===== جست‌وجو در محتوای سایت ===== */
+(function(){
+    const input = document.getElementById('search-input');
+    const results = document.getElementById('search-results');
+    const clearBtn = document.getElementById('search-clear');
+    if(!input || !results || !clearBtn) return;
+    const pageNames = {'page-news':'اخبار','page-finance':'واحد مالی','page-shop':'خریدها','page-assistant':'دستیار'};
+    const index = [];
+    Object.keys(pageNames).forEach(pid => {
+        const page = document.getElementById(pid);
+        if(!page) return;
+        page.querySelectorAll('.news-item, .finance-section, .shop-item, .card-btn').forEach(el => {
+            const t = el.textContent.replace(/\s+/g,' ').trim();
+            if(t) index.push({pid:pid, label:t.slice(0,60), text:t.toLowerCase()});
+        });
+    });
+    let timer = null;
+    function run(){
+        const q = input.value.trim().toLowerCase();
+        if(q.length < 2){ results.innerHTML = ''; return; }
+        const hits = index.filter(it => it.text.indexOf(q) !== -1).slice(0,12);
+        if(!hits.length){ results.innerHTML = '<div class="search-empty">موردی پیدا نشد.</div>'; return; }
+        results.innerHTML = hits.map(h => {
+            const label = h.label + (h.label.length >= 60 ? '…' : '');
+            return '<button class="search-item" data-pid="' + h.pid + '"><span>' + escapeHtml(label) + '</span><span class="page-tag">' + pageNames[h.pid] + '</span></button>';
+        }).join('');
+    }
+    input.addEventListener('input', function(){ clearTimeout(timer); timer = setTimeout(run, 150); });
+    results.addEventListener('click', function(e){
+        const btn = e.target.closest('.search-item');
+        if(!btn) return;
+        openPage(btn.getAttribute('data-pid'));
+        vibrate();
+    });
+    clearBtn.addEventListener('click', function(){ input.value = ''; results.innerHTML = ''; input.focus(); });
+})();
 
 window.addEventListener('error', function(e){
     console.warn('خطای JavaScript:', e.message);
