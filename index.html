@@ -64,36 +64,18 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .shop-section-title{margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
 .shop-section-title::before{content:'';flex:0 0 16px;height:2px;background:var(--accent)}
 .shop-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.privacy-note{padding:10px;background:#f0f9ff;border-right:4px solid #0284c7;border-radius:10px;margin-bottom:12px;font-size:12px;line-height:1.8;color:#0c4a6e}
 .finance-section{margin-bottom:16px;padding:14px;background:var(--bg);border-radius:12px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .finance-section p{font-size:14px;line-height:1.9}
 .finance-section ul{list-style:none;padding:0;margin:6px 0}
 .finance-section li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
 .finance-section li:last-child{border-bottom:none}
-.finance-note{padding:10px;background:#fffbeb;border-right:4px solid #f59e0b;border-radius:8px;margin-top:8px;font-size:13px;line-height:1.8;color:#78350f}
-.finance-card{display:flex;align-items:flex-start;gap:10px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px}
-.finance-card .card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
-.finance-card .card-info{flex:1;width:100%}
-.finance-card .card-name{font-weight:700;font-size:14px;margin-bottom:3px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
-.finance-card .card-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:6px}
-.copy-block{display:flex;align-items:center;justify-content:space-between;background:var(--bg);padding:7px 10px;border-radius:8px;margin-top:5px;cursor:pointer;border:1px solid var(--border)}
-.copy-block:active{background:#e2e8f0}
-.copy-block:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.copy-block .label{font-size:11px;color:var(--muted);font-weight:600;margin-left:6px}
-.copy-block .number{font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:0.5px;direction:ltr;color:var(--text);font-weight:700;flex:1;text-align:right}
-.copy-block .copy-icon{color:var(--accent);font-size:13px;margin-right:6px}
-.copy-block.copied{border-color:#10b981;background:#ecfdf5}
-.copy-block.copied .copy-icon{color:#10b981}
-.copy-block.copied .label{color:#059669}
-.eye-btn{background:none;border:none;color:var(--accent);cursor:pointer;font-size:14px;padding:0 6px}
-.eye-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.card-privacy{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.7}
 .badge{display:inline-block;padding:2px 7px;background:var(--accent);color:#fff;font-size:10px;border-radius:10px;font-weight:700;margin-left:4px}
 .badge.new{background:#10b981}
 .badge.no{background:#f59e0b}
 .badge.aban{background:#7c3aed}
 .badge.order{background:#0284c7}
+.badge.conditional{background:#64748b}
 .assistant-list{list-style:none;padding:0;margin:0}
 .assistant-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.9}
 .assistant-list li:last-child{border-bottom:none}
@@ -149,13 +131,9 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         <h3>📰 اخبار</h3>
 
         <div class="news-item">
-            <strong>📶 فیبرنوری:</strong><br>
-            سلام.<br>
-            مودم فیبرنوری <strong>خریداری شد</strong>.<br>
-            فیبرکشی <strong>انجام نشده</strong>.<br>
-            پول فیبرکشی: تقریبی <strong>۲۰,۰۰۰,۰۰۰ تومان</strong>؛ حداکثر ۲۰,۰۰۰,۰۰۰ تومان.<br>
-            انشاءالله طی هفته‌های آینده فیبرنوری می‌آید؛ ولی اگر نیاز به اجازه بود، لطفاً اجازه بگیرید (متن اجازه برایتان ارسال شده است).<br>
-            سپاس.
+            <strong>📡 ADSL و مودم‌ها:</strong><br>
+            سرویس ADSL <strong>جمع‌آوری نمی‌شود</strong>.<br>
+            <strong>۳ مودم</strong> در خانه به صورت <strong>دائمی</strong> باقی می‌مانند.
         </div>
 
         <div class="news-item">
@@ -167,15 +145,9 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         </div>
 
         <div class="news-item">
-            <strong>📨 وضعیت اقساط:</strong><br>
-            وضعیت قسط‌ها را می‌توانید در <strong>گروه حکومت</strong> در پیام‌رسان <strong>بله</strong> ببینید.<br>
-            باتشکر.
-        </div>
-
-        <div class="news-item">
             <strong>📢 کانال حکومت در بله:</strong><br>
             کانال حکومت در پیام‌رسان <strong>بله</strong> ساخته شد.<br>
-            لطفاً لطفاً لطفاً آنجا هم نگاه بیندازید، چون مطالب مهمی آنجا است.
+            لطفاً آنجا هم نگاه بیندازید، چون مطالب مهمی آنجا است.
         </div>
 
         <div class="news-item">
@@ -190,28 +162,9 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         </div>
 
         <div class="news-item">
-            <strong>📋 لیست کامل خریدها:</strong><br>
-            این لیست <strong>کامل</strong> است.<br>
-            <strong>هرگونه اعتراض مجاز نیست.</strong><br>
-            خودتون خواستید که لیست منتشر بشه، پس اعتراض‌ای مورد پذیرش نیست.<br>
-            پول ماهیانه <strong>۲۰,۰۰۰,۰۰۰ تومان</strong> تا پایان این خریدها می‌ماند.<br>
-            پس از اتمام این خریدها، پول ماهیانه شاید <strong>کاهشی</strong> شود یا <strong>ثابت</strong> بماند.<br>
-            خریدها <strong>۳ سال</strong> طول می‌کشد.<br>
-            پس همینی که هست.
-        </div>
-
-        <div class="news-item">
-            <strong>📅 کارهای آبان ماه و یادداشت‌ها:</strong>
-            <ul>
-                <li>تعمیر و سرویس PS5</li>
-                <li>فیبرنوری</li>
-                <li>پول اینترنت بر عهده مامان است</li>
-                <li>قسطی چیزی گرفته نمی‌شود</li>
-                <li>دست خواهری درد نکنه بابت نوشتن علوم، ولی کار امروز‌اش نامناسب بوده است چون آب پاشید روی کتاب‌ها و دفترها.</li>
-                <li>ما می‌دونیم که خریدها زیاده، ولی بعضی‌هاش قطعی هستن و بعضی‌هاش احتمالی؛ ولی لیست درست است.</li>
-                <li>اگر خواهری می‌خواد چیزی بخره، اعلام بکنه توی گروه حکومت که خرید ایشون هم انجام بشه.</li>
-            </ul>
-            باتشکر.
+            <strong>🏦 ذخیره در تجارت:</strong><br>
+            <strong>۱,۳۰۰,۰۰۰ تومان</strong> در <strong>بانک تجارت</strong> باشد.<br>
+            پول ماهیانه <strong>کامل</strong> بیاید، چون قرار است <strong>قبوض و اینترنت</strong> خریداری شود.
         </div>
     </div>
 </div>
@@ -220,50 +173,16 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
     <div class="box">
         <h3>💰 واحد مالی</h3>
 
-        <div class="privacy-note">
-            <i class="fas fa-user-shield" style="margin-left:6px"></i>
-            <strong>حریم خصوصی:</strong> این صفحه شامل اطلاعات مالی خانوادگی است. پیش از انتشار عمومی سایت، مطمئن شو اطلاعات خصوصی فقط برای افراد مجاز قابل مشاهده باشد.
-        </div>
-
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>جمع پول ماهیانه: ۴۷,۱۷۴,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
-        </div>
-
-        <div class="finance-section">
-            <h4>📅 پول ماهیانه آذر</h4>
-            <p><strong>جمع پول ماهیانه: ۲۸,۵۶۴,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+            <p><strong>جمع پول ماهیانه: ۴۲,۳۴۰,۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
         </div>
 
         <div class="finance-section">
             <h4>📜 برنامه پول ماهیانه <span class="badge order">طبق دستور مقامات</span></h4>
             <ul>
-                <li>از ماه آذر تا بهمن ماه: <strong>۱۲,۰۰۰,۰۰۰ تومان</strong> در ماه.</li>
-                <li>پس از اتمام ماه بهمن (اسفند ماه): <strong>۱۵,۰۰۰,۰۰۰ تومان</strong>؛ <strong>۱۵ میلیون فعلاً ثابت است</strong> مگر اینکه اتفاقی بیفتد و مجبور به افزایش شویم، که احتمال آن کم است.</li>
+                <li>پس از اتمام قسط‌های اعتباری: پول ماهیانه <strong>۲۰,۰۰۰,۰۰ تومان</strong> می‌شود.</li>
             </ul>
-            <div class="finance-note">
-                <i class="fas fa-info-circle" style="margin-left:6px"></i>
-                پول ماهیانه ممکن است بعد از یک مدتی <strong>افزایشی شود (شاید)</strong>.
-            </div>
-        </div>
-        
-        <div class="finance-section">
-            <h4>💼 کارت حکومت</h4>
-            
-            <div class="finance-card">
-                <div class="card-icon" style="background:#8b5cf6">💳</div>
-                <div class="card-info">
-                    <div class="card-name">بلو بانک <span class="badge new">کارت اصلی و تنها کارت فعال</span> <span class="badge" style="background:#64748b">به نام مامان</span></div>
-                    <div class="card-desc">کل پول ماهیانه به این کارت واریز می‌گردد.</div>
-                    <div class="copy-block" onclick="copyToClipboard('6219861812264041', this);vibrate()" tabindex="0">
-                        <span class="label" id="card-label">شماره کارت (پنهان)</span>
-                        <span class="number" id="card-number">•••• •••• •••• 4041</span>
-                        <button class="eye-btn" id="card-toggle" aria-label="نمایش یا پنهان‌کردن شماره کارت"><i class="fas fa-eye"></i></button>
-                        <i class="fas fa-copy copy-icon"></i>
-                    </div>
-                    <div class="card-privacy">برای محافظت از اطلاعات مالی، شماره کارت به‌صورت پیش‌فرض پنهان است.</div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -399,31 +318,13 @@ function showCopySuccess(element) {
     }, 1300);
 }
 
-(function(){
-    const num = document.getElementById('card-number');
-    const tog = document.getElementById('card-toggle');
-    const lab = document.getElementById('card-label');
-    if(!num || !tog || !lab) return;
-    const FULL = '6219 8618 1226 4041';
-    const MASK = '•••• •••• •••• 4041';
-    let revealed = false;
-    tog.addEventListener('click', function(e){
-        e.stopPropagation();
-        revealed = !revealed;
-        num.textContent = revealed ? FULL : MASK;
-        lab.textContent = revealed ? 'شماره کارت' : 'شماره کارت (پنهان)';
-        tog.querySelector('i').className = revealed ? 'fas fa-eye-slash' : 'fas fa-eye';
-        vibrate();
-    });
-})();
-
 const assistantContent = {
     bank: '<h3 style="color:#0f172a;margin-bottom:10px">🏦 بانک حکومت</h3>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
         '<ul class="assistant-list">' +
         '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>بدهی مامان به حکومت: <strong>۱,۰۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به مامان: <strong>۴۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی مامان به حکومت: <strong>۱,۰۰,۰۰۰ تومان</strong></li>' +
         '</ul>'
 };
 
@@ -439,38 +340,36 @@ const abanItems = [
 
 const shopItems = [
     {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:null},
-    {t:"مودم ZLT X28 PRO", l:"https://www.digikala.com/product/dkp-18096923", c:"📶 تجهیزات مودم", st:"no", r:null},
     {t:"هدست گیمینگ ریزر", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ", st:"no", r:null},
-    {t:"متا کوئست", l:"https://www.digikala.com/product/dkp-15913842", c:"🎮 گیمینگ", st:"no", r:null},
     {t:"Ratchet & Clank: Rift Apart دیسک", l:"https://www.digikala.com/product/dkp-6051978", c:"🎮 بازی", st:"no", r:null},
     {t:"Sackboy دیسک", l:"https://www.digikala.com/product/dkp-6053986", c:"🎮 بازی", st:"no", r:null},
     {t:"God of War Ragnarok دیسک", l:"https://www.digikala.com/product/dkp-18163330", c:"🎮 بازی", st:"no", r:null},
-    {t:"فن خنک‌کننده (۲ عدد)", l:"https://www.digikala.com/product/dkp-2115418", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
-    {t:"اسپیکر هارمن-کادن", l:"https://www.digikala.com/product/dkp-20326363", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
+    {t:"فن خنک‌کننده (۱ عدد)", l:"https://www.digikala.com/product/dkp-2115418", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
+    {t:"اسپیکر هارمن-کادن", l:"https://www.digikala.com/product/dkp-20326363", c:"📺 لوازم خانگی و الکترونیک", st:"conditional", r:null},
     {t:"تلویزیون", l:"https://www.digikala.com/product/dkp-21508982", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"رادیو", l:"https://www.digikala.com/product/dkp-7325580", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"جعبه کمک اولیه", l:"https://www.digikala.com/product/dkp-21342059", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
-    {t:"سامسونگ A17 4G", l:"https://www.digikala.com/product/dkp-20490714", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"تبلت", l:"https://www.digikala.com/product/dkp-21053619", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"قاب و گلس", l:null, c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:"برای تبلت و گوشی"},
-    {t:"گلکسی بادز ۴ پرو", l:"https://www.digikala.com/product/dkp-21552444", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"شارژر دیواری ۲ عدد", l:"https://www.digikala.com/product/dkp-21674435", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
+    {t:"سامسونگ", l:null, c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
+    {t:"تبلت", l:"https://www.digikala.com/product/dkp-21053619", c:"📱 موبایل، تبلت و لوازم جانبی", st:"conditional", r:null},
+    {t:"قاب و گلس", l:null, c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
+    {t:"شارژر دیواری ۲ عدد", l:"https://www.digikala.com/product/dkp-21674435", c:"📱 موبایل، تبلت و لوازم جانبی", st:"conditional", r:null},
     {t:"شارژر USB-A", l:"https://www.digikala.com/product/dkp-13582191", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
     {t:"پاوربانک", l:"https://www.digikala.com/product/dkp-15903294", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"مبدل هادرون", l:"https://www.digikala.com/product/dkp-2856082", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"چندراهی", l:"https://www.digikala.com/product/dkp-19102989", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
+    {t:"مبدل هادرون", l:"https://www.digikala.com/product/dkp-2856082", c:"📱 موبایل، تبلت و لوازم جانبی", st:"conditional", r:null},
+    {t:"چندراهی", l:"https://www.digikala.com/product/dkp-19102989", c:"📱 موبایل، تبلت و لوازم جانبی", st:"conditional", r:null},
     {t:"لیزر", l:"https://www.digikala.com/product/dkp-21809846", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
     {t:"تلفون", l:"https://www.digikala.com/product/dkp-347574", c:"📞 مخابرات", st:"no", r:null},
     {t:"پرزگیر", l:"https://www.digikala.com/product/dkp-4115806", c:"🛒 خرید‌ها", st:"no", r:null},
     {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
     {t:"خرید سیم‌کارت ودافون انگلیس", l:null, c:"📱 سیم‌کارت", st:"no", r:"در صورت شارژ نشدن ودافون فعلی"},
     {t:"ساعت", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
-    {t:"کفش مدرسه", l:null, c:"🛍️ خرید حضوری", st:"no", r:"اطلاع‌رسانی می‌شود"},
+    {t:"کفش مدرسه", l:null, c:"🛍️ خرید حضوری", st:"no", r:"به‌زودی خریداری می‌شود"},
     {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null}
 ];
 
 function badgeHtml(i){
     if(i.st === 'aban') return '<span class="badge aban">آبان</span>';
+    if(i.st === 'conditional') return '<span class="badge conditional">در صورت نیاز</span>';
     if(i.st === 'no') return '<span class="badge no">فعلاً نه</span>';
     return '';
 }
@@ -485,7 +384,7 @@ function renderList(items){
 
 document.getElementById('shop-list-aban').innerHTML = renderList(abanItems);
 
-const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🎮 بازی","📺 لوازم خانگی و الکترونیک","📱 موبایل، تبلت و لوازم جانبی","📞 مخابرات","🛒 خرید‌ها","📱 سیم‌کارت","🛍️ خرید حضوری"];
+const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🎮 بازی"," لوازم خانگی و الکترونیک","📱 موبایل، تبلت و لوازم جانبی","📞 مخابرات","🛒 خرید‌ها","📱 سیم‌کارت","🛍️ خرید حضوری"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
