@@ -61,7 +61,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .finance-section p{font-size:14px;line-height:1.9}
 .badge{display:inline-block;padding:2px 7px;background:var(--accent);color:#fff;font-size:10px;border-radius:10px;font-weight:700;margin-left:4px}
 .badge.no{background:#f59e0b}
-.badge.aban{background:#7c3aed}
 .badge.conditional{background:#64748b}
 .assistant-list{list-style:none;padding:0;margin:0}
 .assistant-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.9}
@@ -120,14 +119,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         </div>
 
         <div class="news-item">
-            <strong>📢 کانال‌های حکومت:</strong>
-            <ul>
-                <li><strong>کانال اصلی</strong> حکومت در پیام‌رسان <strong>بله</strong> است.</li>
-                <li>کانال‌ها در <strong>روبیکا</strong> و <strong>تلگرام</strong> هم ساخته شده‌اند.</li>
-            </ul>
-        </div>
-
-        <div class="news-item">
             <strong>📨 وضعیت اقساط:</strong><br>
             وضعیت قسط‌ها را می‌توانید در <strong>گروه حکومت</strong> در پیام‌رسان <strong>بله</strong> ببینید.<br>
             باتشکر.
@@ -172,11 +163,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 </div>
 
 <div class="page" id="page-shop">
-    <div class="box">
-        <h3>🗓️ خریدهای آبان ماه</h3>
-        <div id="shop-list-aban"></div>
-    </div>
-
     <div class="box">
         <h3>🛒 لیست خریدهای ما</h3>
         <p style="margin-bottom:12px;color:var(--muted);font-size:13px">روی لینک‌ها بزن تا مستقیم بری به صفحه محصول:</p>
@@ -249,10 +235,6 @@ function openAssistantBox(type){
 }
 function closeAssistantModal(){ document.getElementById('assistant-modal').style.display = 'none'; }
 
-const abanItems = [
-    {t:"فیبرنوری", l:null, st:"aban", r:"مودم خریداری شد؛ فیبرکشی هنوز انجام نشده"}
-];
-
 const shopItems = [
     {t:"مودم جیبی", l:"https://www.digikala.com/product/dkp-14185411", c:"📶 تجهیزات مودم", st:"no", r:null},
     {t:"هدست گیمینگ ریزر", l:"https://www.digikala.com/product/dkp-3537683", c:"🎮 گیمینگ", st:"no", r:null},
@@ -282,7 +264,6 @@ const shopItems = [
 ];
 
 function badgeHtml(i){
-    if(i.st === 'aban') return '<span class="badge aban">آبان</span>';
     if(i.st === 'conditional') return '<span class="badge conditional">در صورت نیاز</span>';
     if(i.st === 'no') return '<span class="badge no">فعلاً نه</span>';
     return '';
@@ -295,8 +276,6 @@ function renderList(items){
         return '<div class="shop-item no-link"><div class="item-content"><div class="item-title">' + badgeHtml(i) + escapeHtml(i.t) + '</div>' + reasonHtml + '</div></div>';
     }).join('');
 }
-
-document.getElementById('shop-list-aban').innerHTML = renderList(abanItems);
 
 const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🎮 بازی","📺 لوازم خانگی و الکترونیک","📱 موبایل و لوازم جانبی","📞 مخابرات","🛒 خرید‌ها","📱 سیم‌کارت","🛍️ خرید حضوری"];
 
