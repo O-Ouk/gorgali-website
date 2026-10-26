@@ -37,14 +37,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .news-item strong{color:var(--accent-dark)}
 .news-item ul{margin:6px 0 0 0;padding-right:18px}
 .news-item li{margin:3px 0;font-size:14px}
-.search-row{display:flex;gap:8px;align-items:center}
-.search-row input{flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:14px;background:var(--card);color:var(--text)}
-.search-row input:focus{outline:2px solid var(--accent);outline-offset:1px}
-.btn-small{padding:9px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-weight:700;font-size:12px;font-family:inherit;color:var(--text)}
-.btn-small:active{background:#e2e8f0}
-.search-item{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-top:6px;cursor:pointer;background:var(--card);font-family:inherit;font-size:12px;color:var(--text);text-align:right}
-.search-item .page-tag{font-size:10px;color:var(--muted);flex-shrink:0}
-.search-empty{margin-top:8px;font-size:12px;color:var(--muted)}
 .link-text{color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--accent)}
 .link-text:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .modal{position:fixed;inset:0;background:rgba(15,23,42,0.5);z-index:10001;display:none;align-items:center;justify-content:center;padding:16px}
@@ -67,22 +59,13 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 .finance-section{margin-bottom:16px;padding:14px;background:var(--bg);border-radius:12px;border-right:4px solid var(--accent)}
 .finance-section h4{color:var(--accent);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .finance-section p{font-size:14px;line-height:1.9}
-.finance-section ul{list-style:none;padding:0;margin:6px 0}
-.finance-section li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px}
-.finance-section li:last-child{border-bottom:none}
 .badge{display:inline-block;padding:2px 7px;background:var(--accent);color:#fff;font-size:10px;border-radius:10px;font-weight:700;margin-left:4px}
-.badge.new{background:#10b981}
 .badge.no{background:#f59e0b}
 .badge.aban{background:#7c3aed}
-.badge.order{background:#0284c7}
 .badge.conditional{background:#64748b}
 .assistant-list{list-style:none;padding:0;margin:0}
 .assistant-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.9}
 .assistant-list li:last-child{border-bottom:none}
-#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .2s, transform .2s;z-index:100000;font-family:'Vazirmatn',sans-serif}
-#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-#toast.success{background:#10b981}
-#toast.error{background:#ef4444}
 </style>
 </head>
 <body>
@@ -93,14 +76,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 </div>
 
 <div class="page active" id="page-home">
-    <div class="box">
-        <h3>🔍 جست‌وجو در محتوای سایت</h3>
-        <div class="search-row">
-            <input id="search-input" type="search" placeholder="عبارت موردنظر را وارد کن." aria-label="جست‌وجو در محتوای سایت">
-            <button id="search-clear" class="btn-small">پاک‌کردن</button>
-        </div>
-        <div id="search-results"></div>
-    </div>
     <div class="grid">
         <button class="card-btn" onclick="openPage('page-news');vibrate()">
             <div style="display:flex;align-items:center;gap:12px">
@@ -139,32 +114,28 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         <div class="news-item">
             <strong>🌐 اینترنت و قبوض:</strong>
             <ul>
-                <li>پول اینترنت و قبوض <strong>کاملاً بر عهده مامان</strong> است.</li>
-                <li>این قاعده حتی در مواقعی که <strong>۲۰,۰۰۰,۰۰۰ تومان</strong> گرفته می‌شود نیز برقرار است.</li>
+                <li>پول اینترنت <strong>در هر صورت</strong> بر عهده <strong>مامان</strong> است.</li>
+                <li>پول قبوض هم باید توسط مامان در نظر گرفته شود.</li>
             </ul>
         </div>
 
         <div class="news-item">
-            <strong>📢 کانال حکومت در بله:</strong><br>
-            کانال حکومت در پیام‌رسان <strong>بله</strong> ساخته شد.<br>
-            لطفاً آنجا هم نگاه بیندازید، چون مطالب مهمی آنجا است.
+            <strong>📢 کانال‌های حکومت:</strong>
+            <ul>
+                <li><strong>کانال اصلی</strong> حکومت در پیام‌رسان <strong>بله</strong> است.</li>
+                <li>کانال‌ها در <strong>روبیکا</strong> و <strong>تلگرام</strong> هم ساخته شده‌اند.</li>
+            </ul>
+        </div>
+
+        <div class="news-item">
+            <strong>📨 وضعیت اقساط:</strong><br>
+            وضعیت قسط‌ها را می‌توانید در <strong>گروه حکومت</strong> در پیام‌رسان <strong>بله</strong> ببینید.<br>
+            باتشکر.
         </div>
 
         <div class="news-item">
             <strong>🛒 توقف خرید قسطی:</strong><br>
             دیگر <strong>خرید قسطی انجام نمی‌شود</strong> تا زمانی که این قسط‌های فعلی تمام شوند؛ مگر اینکه موردی <strong>خیلی واجب</strong> باشد.
-        </div>
-
-        <div class="news-item">
-            <strong>💵 وضعیت پول آبان:</strong><br>
-            این ماه (آبان) <strong>پول ذخیره‌ای نداریم</strong>؛ پس آن <strong>۱,۰۰۰,۰۰۰ تومانی</strong> که دست مامان هست، همان‌جا بماند.<br>
-            در صورتی که <strong>اینترنت کاملاً قطع شود</strong>، مامان باید این مبلغ را بدهد تا برای حکومت <strong>V.P.N</strong> خریداری شود.
-        </div>
-
-        <div class="news-item">
-            <strong>🏦 ذخیره در تجارت:</strong><br>
-            <strong>۱,۳۰۰,۰۰۰ تومان</strong> در <strong>بانک تجارت</strong> باشد.<br>
-            پول ماهیانه <strong>کامل</strong> بیاید، چون قرار است <strong>قبوض و اینترنت</strong> خریداری شود.
         </div>
     </div>
 </div>
@@ -174,15 +145,13 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         <h3>💰 واحد مالی</h3>
 
         <div class="finance-section">
-            <h4>📅 پول ماهیانه آبان</h4>
-            <p><strong>جمع پول ماهیانه: ۴۲,۳۴۰,۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+            <h4>📅 پول ماهیانه مهر ✅</h4>
+            <p><strong>دریافت شد</strong> به مبلغ <strong>۳۵,۰۰۰,۰۰۰ تومان</strong>.</p>
         </div>
 
         <div class="finance-section">
-            <h4>📜 برنامه پول ماهیانه <span class="badge order">طبق دستور مقامات</span></h4>
-            <ul>
-                <li>پس از اتمام قسط‌های اعتباری: پول ماهیانه <strong>۲۰,۰۰۰,۰۰ تومان</strong> می‌شود.</li>
-            </ul>
+            <h4>📅 پول ماهیانه آبان ✅</h4>
+            <p><strong>دریافت شد</strong> به مبلغ <strong>۴۲,۳۴۰,۰۰۰ تومان</strong>.</p>
         </div>
     </div>
 </div>
@@ -224,8 +193,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
 
 <button class="fab" onclick="openPage('page-home');vibrate()" aria-label="خانه"><i class="fas fa-home"></i></button>
 
-<div id="toast"></div>
-
 <script>
 const LOW_END = (navigator.deviceMemory && navigator.deviceMemory < 4) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4);
 
@@ -266,65 +233,13 @@ window.addEventListener('popstate', (e) => {
     }
 })();
 
-function showToast(message, type = 'success') {
-    const toast = document.getElementById('toast');
-    toast.className = 'show ' + type;
-    toast.innerHTML = '<i class="fas fa-' + (type === 'success' ? 'check-circle' : 'exclamation-circle') + '"></i> ' + message;
-    setTimeout(() => { toast.className = ''; }, 1800);
-}
-
-function copyToClipboard(text, element) {
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(() => showCopySuccess(element)).catch(() => fallbackCopy(text, element));
-    } else {
-        fallbackCopy(text, element);
-    }
-}
-
-function fallbackCopy(text, element) {
-    try {
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        textArea.style.position = 'fixed';
-        textArea.style.top = '0';
-        textArea.style.left = '0';
-        textArea.style.opacity = '0';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        let success = false;
-        try { success = document.execCommand('copy'); } catch (err) {}
-        document.body.removeChild(textArea);
-        if (success) showCopySuccess(element);
-        else showToast('کپی انجام نشد.', 'error');
-    } catch (e) {
-        showToast('کپی انجام نشد.', 'error');
-    }
-}
-
-function showCopySuccess(element) {
-    const icon = element.querySelector('.copy-icon');
-    const label = element.querySelector('.label');
-    const originalIconClass = icon.className;
-    const originalLabelText = label.innerText;
-    icon.className = 'fas fa-check copy-icon';
-    label.innerText = 'کپی شد!';
-    element.classList.add('copied');
-    showToast('با موفقیت کپی شد', 'success');
-    setTimeout(() => {
-        icon.className = originalIconClass;
-        label.innerText = originalLabelText;
-        element.classList.remove('copied');
-    }, 1300);
-}
-
 const assistantContent = {
     bank: '<h3 style="color:#0f172a;margin-bottom:10px">🏦 بانک حکومت</h3>' +
         '<p style="font-size:13px;color:var(--muted);margin-bottom:6px"><strong>بدهی‌های جاری:</strong></p>' +
         '<ul class="assistant-list">' +
         '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>بدهی حکومت به مامان: <strong>۴۰,۰۰۰ تومان</strong></li>' +
-        '<li>بدهی مامان به حکومت: <strong>۱,۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی مامان به حکومت: <strong>۲,۵۰۰,۰۰۰ تومان</strong></li>' +
         '</ul>'
 };
 
@@ -349,15 +264,14 @@ const shopItems = [
     {t:"تلویزیون", l:"https://www.digikala.com/product/dkp-21508982", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"رادیو", l:"https://www.digikala.com/product/dkp-7325580", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"جعبه کمک اولیه", l:"https://www.digikala.com/product/dkp-21342059", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
-    {t:"سامسونگ", l:null, c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"تبلت", l:"https://www.digikala.com/product/dkp-21053619", c:"📱 موبایل، تبلت و لوازم جانبی", st:"conditional", r:null},
-    {t:"قاب و گلس", l:null, c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"شارژر دیواری ۲ عدد", l:"https://www.digikala.com/product/dkp-21674435", c:"📱 موبایل، تبلت و لوازم جانبی", st:"conditional", r:null},
-    {t:"شارژر USB-A", l:"https://www.digikala.com/product/dkp-13582191", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"پاوربانک", l:"https://www.digikala.com/product/dkp-15903294", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
-    {t:"مبدل هادرون", l:"https://www.digikala.com/product/dkp-2856082", c:"📱 موبایل، تبلت و لوازم جانبی", st:"conditional", r:null},
-    {t:"چندراهی", l:"https://www.digikala.com/product/dkp-19102989", c:"📱 موبایل، تبلت و لوازم جانبی", st:"conditional", r:null},
-    {t:"لیزر", l:"https://www.digikala.com/product/dkp-21809846", c:"📱 موبایل، تبلت و لوازم جانبی", st:"no", r:null},
+    {t:"گوشی سامسونگ", l:null, c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
+    {t:"قاب و گلس", l:null, c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
+    {t:"شارژر دیواری ۲ عدد", l:"https://www.digikala.com/product/dkp-21674435", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
+    {t:"شارژر USB-A", l:"https://www.digikala.com/product/dkp-13582191", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
+    {t:"پاوربانک", l:"https://www.digikala.com/product/dkp-15903294", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
+    {t:"مبدل هادرون", l:"https://www.digikala.com/product/dkp-2856082", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
+    {t:"چندراهی", l:"https://www.digikala.com/product/dkp-19102989", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
+    {t:"لیزر", l:"https://www.digikala.com/product/dkp-21809846", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
     {t:"تلفون", l:"https://www.digikala.com/product/dkp-347574", c:"📞 مخابرات", st:"no", r:null},
     {t:"پرزگیر", l:"https://www.digikala.com/product/dkp-4115806", c:"🛒 خرید‌ها", st:"no", r:null},
     {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
@@ -384,7 +298,7 @@ function renderList(items){
 
 document.getElementById('shop-list-aban').innerHTML = renderList(abanItems);
 
-const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🎮 بازی"," لوازم خانگی و الکترونیک","📱 موبایل، تبلت و لوازم جانبی","📞 مخابرات","🛒 خرید‌ها","📱 سیم‌کارت","🛍️ خرید حضوری"];
+const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🎮 بازی","📺 لوازم خانگی و الکترونیک","📱 موبایل و لوازم جانبی","📞 مخابرات","🛒 خرید‌ها","📱 سیم‌کارت","🛍️ خرید حضوری"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
@@ -395,42 +309,6 @@ catOrder.forEach(cat => {
     shopHTML += renderList(items);
 });
 document.getElementById('shop-list').innerHTML = shopHTML;
-
-(function(){
-    const input = document.getElementById('search-input');
-    const results = document.getElementById('search-results');
-    const clearBtn = document.getElementById('search-clear');
-    if(!input || !results || !clearBtn) return;
-    const pageNames = {'page-news':'اخبار','page-finance':'واحد مالی','page-shop':'خریدها','page-assistant':'دستیار'};
-    const index = [];
-    Object.keys(pageNames).forEach(pid => {
-        const page = document.getElementById(pid);
-        if(!page) return;
-        page.querySelectorAll('.news-item, .finance-section, .shop-item, .card-btn').forEach(el => {
-            const t = el.textContent.replace(/\s+/g,' ').trim();
-            if(t) index.push({pid:pid, label:t.slice(0,60), text:t.toLowerCase()});
-        });
-    });
-    let timer = null;
-    function run(){
-        const q = input.value.trim().toLowerCase();
-        if(q.length < 2){ results.innerHTML = ''; return; }
-        const hits = index.filter(it => it.text.indexOf(q) !== -1).slice(0,12);
-        if(!hits.length){ results.innerHTML = '<div class="search-empty">موردی پیدا نشد.</div>'; return; }
-        results.innerHTML = hits.map(h => {
-            const label = h.label + (h.label.length >= 60 ? '…' : '');
-            return '<button class="search-item" data-pid="' + h.pid + '"><span>' + escapeHtml(label) + '</span><span class="page-tag">' + pageNames[h.pid] + '</span></button>';
-        }).join('');
-    }
-    input.addEventListener('input', function(){ clearTimeout(timer); timer = setTimeout(run, 150); });
-    results.addEventListener('click', function(e){
-        const btn = e.target.closest('.search-item');
-        if(!btn) return;
-        openPage(btn.getAttribute('data-pid'));
-        vibrate();
-    });
-    clearBtn.addEventListener('click', function(){ input.value = ''; results.innerHTML = ''; input.focus(); });
-})();
 
 window.addEventListener('error', function(e){
     console.warn('خطای JavaScript:', e.message);
