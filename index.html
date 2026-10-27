@@ -128,6 +128,17 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
             <strong>🛒 توقف خرید قسطی:</strong><br>
             دیگر <strong>خرید قسطی انجام نمی‌شود</strong> تا زمانی که این قسط‌های فعلی تمام شوند؛ مگر اینکه موردی <strong>خیلی واجب</strong> باشد.
         </div>
+
+        <div class="news-item">
+            <strong>✅ تایید خریدها:</strong><br>
+            خریدها <strong>تایید شده است</strong> و ممکن است خرید جدید هم اضافه شود!
+        </div>
+
+        <div class="news-item">
+            <strong>👟 کفش و تعمیرات:</strong><br>
+            به‌زودی <strong>کفش</strong> خریداری می‌شود و این ماه کفش و <strong>تعمیر PS5</strong> انجام می‌شود.<br>
+            در صورت خوب نشدن کف پا، ممکن است به <strong>دکتر دیگر</strong> مراجعه کنیم.
+        </div>
     </div>
 </div>
 
@@ -143,6 +154,19 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         <div class="finance-section">
             <h4>📅 پول ماهیانه آبان ✅</h4>
             <p><strong>دریافت شد</strong> به مبلغ <strong>۴۲,۳۴۰,۰۰۰ تومان</strong>.</p>
+        </div>
+
+        <div class="finance-section">
+            <h4>📅 پول ماهیانه آذر</h4>
+            <p><strong>جمع پول ماهیانه: ۲۹,۱۰۰,۰۰۰ تومان</strong><br>مبلغی که مامان باید بپردازد.</p>
+        </div>
+
+        <div class="finance-section">
+            <h4>📜 برنامه پول ماهیانه</h4>
+            <ul>
+                <li>پول ماهیانه <strong>فعلی: ۱۲,۰۰۰,۰۰۰ تومان</strong></li>
+                <li>پول ماهیانه <strong>اسفند ماه و اسفند ماه به بعد: ۲۰,۰۰۰,۰۰۰ تومان</strong></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -225,7 +249,7 @@ const assistantContent = {
         '<ul class="assistant-list">' +
         '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
         '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>بدهی مامان به حکومت: <strong>۲,۵۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی مامان به حکومت: <strong>۳,۰۰۰,۰۰۰ تومان</strong></li>' +
         '</ul>'
 };
 
@@ -241,12 +265,25 @@ const shopItems = [
     {t:"Ratchet & Clank: Rift Apart دیسک", l:"https://www.digikala.com/product/dkp-6051978", c:"🎮 بازی", st:"no", r:null},
     {t:"Sackboy دیسک", l:"https://www.digikala.com/product/dkp-6053986", c:"🎮 بازی", st:"no", r:null},
     {t:"God of War Ragnarok دیسک", l:"https://www.digikala.com/product/dkp-18163330", c:"🎮 بازی", st:"no", r:null},
+    {t:"سایبرپانک دیسک", l:"https://torob.com/p/ac9e945e-e47f-497a-80e3-ec93b7acaba2/", c:"🎮 بازی", st:"no", r:null},
+    {t:"Call of Duty Black Ops 6 دیسک", l:"https://pspro.ir/product/call-of-duty-black-ops-6-ps5", c:"🎮 بازی", st:"no", r:null},
+    {t:"دیسک ولورین", l:"https://pspro.ir/product/marvels-wolverine-ps5", c:"🎮 بازی", st:"no", r:null},
+    {t:"Call of Duty Modern Warfare 4 دیسک", l:"https://pspro.ir/product/call-of-duty-modern-warfare-4-ps5", c:"🎮 بازی", st:"no", r:null},
+    {t:"دیسک ماینکرفت مخصوص", l:"https://www.digikala.com/product/dkp-6565249", c:"🎮 بازی", st:"no", r:null},
+    {t:"دیسک ماینکرفت", l:"https://www.digikala.com/product/dkp-17525494", c:"🎮 بازی", st:"no", r:null},
+    {t:"خرید بازی GTA 6", l:null, c:"🎮 بازی", st:"no", r:null},
+    {t:"گل یا پوچ", l:"https://www.digikala.com/product/dkp-16544530", c:"🎲 بازی فکری", st:"no", r:null},
+    {t:"بازی جت ست", l:"https://www.digikala.com/product/dkp-3039030", c:"🎲 بازی فکری", st:"no", r:null},
+    {t:"بوم بال", l:"https://www.digikala.com/product/dkp-2719011", c:"🎲 بازی فکری", st:"no", r:null},
+    {t:"اونو", l:"https://www.digikala.com/product/dkp-947041", c:"🎲 بازی فکری", st:"no", r:null},
+    {t:"مونوپولی", l:"https://www.digikala.com/product/dkp-3304370", c:"🎲 بازی فکری", st:"no", r:null},
     {t:"فن خنک‌کننده (۱ عدد)", l:"https://www.digikala.com/product/dkp-2115418", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"اسپیکر هارمن-کادن", l:"https://www.digikala.com/product/dkp-20326363", c:"📺 لوازم خانگی و الکترونیک", st:"conditional", r:null},
     {t:"تلویزیون", l:"https://www.digikala.com/product/dkp-21508982", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"رادیو", l:"https://www.digikala.com/product/dkp-7325580", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"جعبه کمک اولیه", l:"https://www.digikala.com/product/dkp-21342059", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"گوشی سامسونگ", l:null, c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
+    {t:"تبلت نقاشی", l:"https://www.digikala.com/product/dkp-4612792", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
     {t:"قاب و گلس", l:null, c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
     {t:"شارژر دیواری ۲ عدد", l:"https://www.digikala.com/product/dkp-21674435", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
     {t:"شارژر USB-A", l:"https://www.digikala.com/product/dkp-13582191", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
@@ -254,6 +291,9 @@ const shopItems = [
     {t:"مبدل هادرون", l:"https://www.digikala.com/product/dkp-2856082", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
     {t:"چندراهی", l:"https://www.digikala.com/product/dkp-19102989", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
     {t:"لیزر", l:"https://www.digikala.com/product/dkp-21809846", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
+    {t:"فلش", l:"https://www.digikala.com/product/dkp-3275589", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
+    {t:"HDD", l:"https://www.digikala.com/product/dkp-2441404", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
+    {t:"SSD", l:"https://www.digikala.com/product/dkp-3627409", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
     {t:"تلفون", l:"https://www.digikala.com/product/dkp-347574", c:"📞 مخابرات", st:"no", r:null},
     {t:"پرزگیر", l:"https://www.digikala.com/product/dkp-4115806", c:"🛒 خرید‌ها", st:"no", r:null},
     {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
@@ -277,7 +317,7 @@ function renderList(items){
     }).join('');
 }
 
-const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🎮 بازی","📺 لوازم خانگی و الکترونیک","📱 موبایل و لوازم جانبی","📞 مخابرات","🛒 خرید‌ها","📱 سیم‌کارت","🛍️ خرید حضوری"];
+const catOrder = ["📶 تجهیزات مودم","🎮 گیمینگ","🎮 بازی","🎲 بازی فکری","📺 لوازم خانگی و الکترونیک","📱 موبایل و لوازم جانبی","📞 مخابرات","🛒 خرید‌ها","📱 سیم‌کارت","🛍️ خرید حضوری"];
 
 let shopHTML = '';
 catOrder.forEach(cat => {
