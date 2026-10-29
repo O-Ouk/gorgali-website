@@ -105,12 +105,6 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         <h3>📰 اخبار</h3>
 
         <div class="news-item">
-            <strong>📡 ADSL و مودم‌ها:</strong><br>
-            سرویس ADSL <strong>جمع‌آوری نمی‌شود</strong>.<br>
-            <strong>۳ مودم</strong> در خانه به صورت <strong>دائمی</strong> باقی می‌مانند.
-        </div>
-
-        <div class="news-item">
             <strong>🌐 اینترنت و قبوض:</strong>
             <ul>
                 <li>پول اینترنت <strong>در هر صورت</strong> بر عهده <strong>مامان</strong> است.</li>
@@ -135,9 +129,24 @@ body{font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:
         </div>
 
         <div class="news-item">
-            <strong>👟 کفش و تعمیرات:</strong><br>
-            به‌زودی <strong>کفش</strong> خریداری می‌شود و این ماه کفش و <strong>تعمیر PS5</strong> انجام می‌شود.<br>
-            در صورت خوب نشدن کف پا، ممکن است به <strong>دکتر دیگر</strong> مراجعه کنیم.
+            <strong>🗑️ حذف برخی خریدها:</strong><br>
+            بعضی از خریدها <strong>پاک شده است</strong> ولی ممکن است <strong>بازگردد</strong>.
+        </div>
+
+        <div class="news-item">
+            <strong>🆕 اضافه شدن خرید:</strong><br>
+            ممکن است تعدادی از خریدها یا <strong>خرید جدید</strong> اضافه شود.
+        </div>
+
+        <div class="news-item">
+            <strong>🎯 خریدهای اصلی ما:</strong><br>
+            <strong>خرید دیسک‌ها</strong> و <strong>آمپول لاغری</strong> خریدهای اصلی هستند.<br>
+            بقیه خریدها در <strong>درجه ۲ و ۳</strong> قرار می‌گیرند.
+        </div>
+
+        <div class="news-item">
+            <strong>💊 درمان زگیل:</strong><br>
+            همین پمادها را <strong>بکوب</strong> ادامه می‌دهیم برای <strong>زگیل</strong>.
         </div>
     </div>
 </div>
@@ -249,7 +258,7 @@ const assistantContent = {
         '<ul class="assistant-list">' +
         '<li>بدهی حکومت به خواهری: <strong>۸۰۰,۰۰۰ تومان</strong></li>' +
         '<li>بدهی حکومت به مامان: <strong>۴۰۰,۰۰۰ تومان</strong></li>' +
-        '<li>بدهی مامان به حکومت: <strong>۳,۰۰۰,۰۰۰ تومان</strong></li>' +
+        '<li>بدهی مامان به حکومت: <strong>۱,۰۰۰,۰۰۰ تومان</strong> (VPN) — واسه VPN هست و وقتی اینترنت‌ها قطع شد می‌گیریم.</li>' +
         '</ul>'
 };
 
@@ -279,30 +288,20 @@ const shopItems = [
     {t:"بوم بال", l:"https://www.digikala.com/product/dkp-2719011", c:"🎲 بازی فکری", st:"no", r:null},
     {t:"اونو", l:"https://www.digikala.com/product/dkp-947041", c:"🎲 بازی فکری", st:"no", r:null},
     {t:"مونوپولی", l:"https://www.digikala.com/product/dkp-3304370", c:"🎲 بازی فکری", st:"no", r:null},
-    {t:"فن خنک‌کننده (۱ عدد)", l:"https://www.digikala.com/product/dkp-2115418", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
-    {t:"اسپیکر هارمن-کادن", l:"https://www.digikala.com/product/dkp-20326363", c:"📺 لوازم خانگی و الکترونیک", st:"conditional", r:null},
     {t:"تلویزیون", l:"https://www.digikala.com/product/dkp-21508982", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"رادیو", l:"https://www.digikala.com/product/dkp-7325580", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
     {t:"جعبه کمک اولیه", l:"https://www.digikala.com/product/dkp-21342059", c:"📺 لوازم خانگی و الکترونیک", st:"no", r:null},
-    {t:"گوشی سامسونگ", l:null, c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
     {t:"تبلت نقاشی", l:"https://www.digikala.com/product/dkp-4612792", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
-    {t:"قاب و گلس", l:null, c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
-    {t:"شارژر دیواری ۲ عدد", l:"https://www.digikala.com/product/dkp-21674435", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
     {t:"شارژر USB-A", l:"https://www.digikala.com/product/dkp-13582191", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
     {t:"پاوربانک", l:"https://www.digikala.com/product/dkp-15903294", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
-    {t:"مبدل هادرون", l:"https://www.digikala.com/product/dkp-2856082", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
-    {t:"چندراهی", l:"https://www.digikala.com/product/dkp-19102989", c:"📱 موبایل و لوازم جانبی", st:"conditional", r:null},
     {t:"لیزر", l:"https://www.digikala.com/product/dkp-21809846", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
     {t:"فلش", l:"https://www.digikala.com/product/dkp-3275589", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
-    {t:"HDD", l:"https://www.digikala.com/product/dkp-2441404", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
-    {t:"SSD", l:"https://www.digikala.com/product/dkp-3627409", c:"📱 موبایل و لوازم جانبی", st:"no", r:null},
     {t:"تلفون", l:"https://www.digikala.com/product/dkp-347574", c:"📞 مخابرات", st:"no", r:null},
     {t:"پرزگیر", l:"https://www.digikala.com/product/dkp-4115806", c:"🛒 خرید‌ها", st:"no", r:null},
+    {t:"اشتراک اسنپ پرو و دیجی پلاس", l:null, c:"🛒 خرید‌ها", st:"conditional", r:"در صورت نیاز تمدید خواهد شد"},
+    {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
     {t:"شارژ ودافون", l:"https://sae22.ir/product/%d8%b4%d8%a7%d8%b1%da%98-%d8%b3%db%8c%d9%85-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%d8%af%d8%a7%d9%81%d9%88%d9%86-%d8%a7%d9%86%da%af%d9%84%db%8c%d8%b3/", c:"📱 سیم‌کارت", st:"no", r:null},
-    {t:"خرید سیم‌کارت ودافون انگلیس", l:null, c:"📱 سیم‌کارت", st:"no", r:"در صورت شارژ نشدن ودافون فعلی"},
-    {t:"ساعت", l:null, c:"🛍️ خرید حضوری", st:"no", r:null},
-    {t:"کفش مدرسه", l:null, c:"🛍️ خرید حضوری", st:"no", r:"به‌زودی خریداری می‌شود"},
-    {t:"آمپول لاغری", l:null, c:"🛍️ خرید حضوری", st:"no", r:null}
+    {t:"خرید سیم‌کارت ودافون انگلیس", l:null, c:"📱 سیم‌کارت", st:"no", r:"در صورت شارژ نشدن ودافون فعلی"}
 ];
 
 function badgeHtml(i){
